@@ -1,3 +1,25 @@
+<?php
+// config
+require_once __DIR__ .'/../_inc/config.php';
+
+try {
+    // db
+    $query  = "
+        SELECT
+            nt_subject, DATE_FORMAT(nt_date, '%Y.%m.%d') AS regdate, nt_content
+        FROM notice
+        WHERE 1
+        ORDER BY nt_date DESC
+    ";
+    $result = $_mysqli->query($query);
+    if (!$result) {
+
+    }
+
+} catch (Exception $e) {
+    p($e);
+}
+?>
 <!doctype html>
 <html lang="ko">
 <head>
@@ -28,66 +50,30 @@
             <section class="sec sec-01 T0">
                 <h2 class="footer-title">공지사항</h2>
                 <div class="footer-notice">
+                    <?php
+                    // db
+                    while ($_db = $result->fetch_assoc()) {
+                        $title      = $_db['nt_subject'];
+                        $regdate    = $_db['regdate'];
+                        $content    = $_db['nt_content'];
+
+                        echo <<<DIV
                     <div class="notice-wrap">
                         <div class="notice-title">
-                            <p>업데이트 배틀그라운드 스매쉬 컵 시즌 6 공지사항</p>
-                            <span>2022.03.16</span>
+                            <p>{$title}</p>
+                            <span>{$regdate}</span>
                         </div>
                         <div class="notice-cont">
                             <p>
-                                2022 LOL 챔피언스 코리아 스프링 오픈<br>
-                                저희 2WC에서 2022 LOL 챔피언스 코리아 스프링 오픈을 맞아 다양한 이벤트를 준비했습니다.<br>
-                                많은 관심 부탁드립니다.<br>
-                                감사합니다.<br>
-                                - 2WC
+                                {$content}
                             </p>
                         </div>
                     </div>
-                    <div class="notice-wrap">
-                        <div class="notice-title">
-                            <p>업데이트 배틀그라운드 스매쉬 컵 시즌 6 공지사항</p>
-                            <span>2022.03.16</span>
-                        </div>
-                        <div class="notice-cont">
-                            <p>
-                                2022 LOL 챔피언스 코리아 스프링 오픈<br>
-                                저희 2WC에서 2022 LOL 챔피언스 코리아 스프링 오픈을 맞아 다양한 이벤트를 준비했습니다.<br>
-                                많은 관심 부탁드립니다.<br>
-                                감사합니다.<br>
-                                - 2WC
-                            </p>
-                        </div>
-                    </div>
-                    <div class="notice-wrap">
-                        <div class="notice-title">
-                            <p>업데이트 배틀그라운드 스매쉬 컵 시즌 6 공지사항</p>
-                            <span>2022.03.16</span>
-                        </div>
-                        <div class="notice-cont">
-                            <p>
-                                2022 LOL 챔피언스 코리아 스프링 오픈<br>
-                                저희 2WC에서 2022 LOL 챔피언스 코리아 스프링 오픈을 맞아 다양한 이벤트를 준비했습니다.<br>
-                                많은 관심 부탁드립니다.<br>
-                                감사합니다.<br>
-                                - 2WC
-                            </p>
-                        </div>
-                    </div>
-                    <div class="notice-wrap">
-                        <div class="notice-title">
-                            <p>업데이트 배틀그라운드 스매쉬 컵 시즌 6 공지사항</p>
-                            <span>2022.03.16</span>
-                        </div>
-                        <div class="notice-cont">
-                            <p>
-                                2022 LOL 챔피언스 코리아 스프링 오픈<br>
-                                저희 2WC에서 2022 LOL 챔피언스 코리아 스프링 오픈을 맞아 다양한 이벤트를 준비했습니다.<br>
-                                많은 관심 부탁드립니다.<br>
-                                감사합니다.<br>
-                                - 2WC
-                            </p>
-                        </div>
-                    </div>
+DIV;
+                    }
+                    // free
+                    $result->free();;
+                    ?>
                 </div>
 
             </section>

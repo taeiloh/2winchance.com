@@ -1,8 +1,18 @@
+<?php
+// config
+require_once __DIR__ .'/../_inc/config.php';
+
+try {
+
+} catch (Exception $e) {
+    p($e);
+}
+?>
 <!doctype html>
 <html lang="ko">
 <head>
     <?php
-    //head
+    // head
     require_once __DIR__ .'/../common/head.php';
     ?>
 </head>
@@ -14,7 +24,7 @@
     <!--header-->
     <header id="header">
         <?php
-        //header
+        // header
         require_once __DIR__ .'/../common/header.php';
         ?>
     </header>
@@ -124,7 +134,7 @@
     <!--footer-->
     <footer id="footer">
         <?php
-        //footer
+        // footer
         require_once __DIR__ .'/../common/footer.php';
         ?>
     </footer>
