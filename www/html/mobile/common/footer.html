@@ -1,0 +1,29 @@
+<footer id="footer">
+    <div class="inner">
+        <ul class="footer-list">
+            <li><a href="javascript:void(0)">이용약관</a></li>
+            <li><a href="javascript:void(0)">개인정보 처리방침</a></li>
+        </ul>
+        <h1 class="footer-logo">
+            <a href="../html/index.html"><img src="../images/logo_footer.png" alt="METAGAMES"></a>
+        </h1>
+        <p>© 2022 MetaRock Inc. All Rights Reserved.</p>
+    </div>
+    <a href="javascript:void(0);" class="top_btn">
+        <img src="../images/icon_top.png" alt="맨 위로">
+        <span>맨위로</span>
+    </a>
+    <script>
+        $(window).scroll(function(){
+            if ($(this).scrollTop() > 300){
+                $('.top_btn').show();
+            } else{
+                $('.top_btn').hide();
+            }
+        });
+        $('.top_btn').click(function(){
+            $('html, body').animate({scrollTop:0},400);
+            return false;
+        });
+    </script>
+</footer>

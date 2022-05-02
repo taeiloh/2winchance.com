@@ -1,0 +1,58 @@
+<?php include ('../common/head.html');?>
+
+<!--//head-->
+
+<body>
+<div id="wrap" class="member">
+    <!--content-->
+    <div id="content">
+        <!--sec-01-->
+        <h1 class="logo"><a href="../html/index.html"><img src="../images/logo.png" alt="METAGAMES"></a></h1>
+        <section class="sec sec-01">
+            <div class="inner">
+                <div class="title">
+                    <h2>비밀번호 재설정</h2>
+                </div>
+                <form action="">
+                <div class="sub-content">
+                    <h3>비밀번호 재설정을 위해<br/>
+                        이메일 인증을 진행해 주세요.</h3>
+                    <div class="login-box">
+                        <input type="email" placeholder="아이디를 입력해주세요.">
+                        <p class="invalid-feedback">영문으로 시작하는 e-mail 주소를 입력해 주세요.</p>
+<!--        이메일 에러시 <p class="invalid-feedback error">잘못된 주소 또는 없는 이메일 입니다.</p>-->
+                    </div>
+                    <div class="captcha mT60">
+                        <form action="?" method="POST">
+                            <div id="html_element"></div>
+<!--                            <br>-->
+<!--                            <input type="submit" value="Submit">-->
+                        </form>
+                        <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+                                async defer>
+                        </script>
+                    </div>
+                    <button type="button" class="btn-blue btn-6">이메일 전송하기</button>
+                </div>
+                </form>
+            </div>
+            <style>
+                input[type=text],input[type=password],input[type=date],input[type=email],input[type=number]{ width: 100%;}
+            </style>
+        </section>
+        <!--//sec-01-->
+        <!--//content-->
+    </div>
+    <footer>
+        © 2022 METAGAMES, Inc. All Rights Reserved.
+    </footer>
+</div>
+<script type="text/javascript">
+    var onloadCallback = function() {
+        grecaptcha.render('html_element', {
+            'sitekey' : 'your_site_key'
+        });
+    };
+</script>
+</body>
+</html>

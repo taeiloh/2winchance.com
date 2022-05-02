@@ -1,0 +1,11 @@
+<svg data-name="그룹 721" xmlns="http://www.w3.org/2000/svg" width="150" height="160" viewBox="0 0 150 160">
+    <defs>
+        <linearGradient id="lz0cpk5fka" x1=".5" x2=".5" y2="1" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="gray" stop-opacity="0"/>
+            <stop offset=".498" stop-color="#1e8fff" stop-opacity=".502"/>
+            <stop offset="1" stop-color="gray" stop-opacity="0"/>
+        </linearGradient>
+    </defs>
+    <path data-name="사각형 420" style="fill:url(#lz0cpk5fka)" d="M0 0h150v160H0z"/>
+    <path data-name="사각형 421" transform="translate(19)" style="fill:url(#lz0cpk5fka)" d="M0 0h113v160H0z"/>
+</svg>

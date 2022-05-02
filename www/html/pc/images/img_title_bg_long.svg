@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1354" height="193" viewBox="0 0 1354 193">
+    <defs>
+        <radialGradient id="uwv0d8yyja" cx=".5" cy=".5" r=".5" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#1e8fff"/>
+            <stop offset="1" stop-color="#0f4880" stop-opacity="0"/>
+        </radialGradient>
+    </defs>
+    <g data-name="그룹 625">
+        <path data-name="사각형 186" style="fill:url(#uwv0d8yyja)" d="M0 0h1354v17H0z"/>
+        <path data-name="사각형 187" transform="translate(0 176)" style="fill:url(#uwv0d8yyja)" d="M0 0h1354v17H0z"/>
+    </g>
+</svg>

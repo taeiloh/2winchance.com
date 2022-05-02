@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="83" height="40" viewBox="0 0 83 40">
+    <defs>
+        <linearGradient id="nlcoum5eyb" x1=".5" x2=".5" y2="1" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#343434"/>
+            <stop offset="1" stop-color="#0090ff" stop-opacity=".502"/>
+        </linearGradient>
+        <clipPath id="rhslcadxca">
+            <rect data-name="사각형 555" width="83" height="40" rx="20" transform="translate(1696 1147)" style="opacity:.71;fill:#fff"/>
+        </clipPath>
+    </defs>
+    <g data-name="그룹 848" transform="translate(-1104 -1362)">
+        <rect data-name="사각형 550" width="83" height="40" rx="20" transform="translate(1104 1362)" style="opacity:.71;fill:#fff"/>
+        <g data-name="마스크 그룹 661" transform="translate(-592 215)" style="clip-path:url(#rhslcadxca)">
+            <path data-name="패스 123" d="m-20427.82-22729.975 28.658 16.441s14.98 5.314 18.2 0 11.379-12.791 11.379-12.791l-32.912-17.785-4.369 3.277-4.8-3.277-2.248.734 3.295 5.141-9.062-5.141s-4.9-.713-5.836.357-2.477 3.205-2.477 3.205l5.109 3.934-4.209 5.326" transform="translate(22153 23904)" style="fill:url(#nlcoum5eyb)"/>
+            <text data-name="2X" transform="translate(1724 1174)" style="font-size:20px;font-family:Pretendard-Bold,Pretendard;font-weight:700;letter-spacing:.06em;fill:#fff"><tspan x="0" y="0">2X</tspan></text>
+        </g>
+    </g>
+</svg>

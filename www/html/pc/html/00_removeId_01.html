@@ -1,0 +1,49 @@
+<?php include ('../common/head.html');?>
+
+<!--//head-->
+
+<body>
+<div id="wrap" class="member">
+    <!--content-->
+    <div id="content">
+        <!--sec-01-->
+        <h1 class="logo"><a href="../html/index.html"><img src="../images/logo.png" alt="METAGAMES"></a></h1>
+        <section class="sec sec-01">
+            <div class="inner">
+                <div class="title">
+                    <h2>회원탈퇴</h2>
+                </div>
+                <form action="">
+                    <div class="sub-content removeid">
+                        <h3>본인 확인</h3>
+                        <div class="login-box">
+                            <div class="input-box">
+                                <label>아이디</label>
+                                <span>Login010@naver.com</span>
+                            </div>
+                            <div class="input-box">
+                                <label for="">비밀번호</label>
+                                <input type="password" placeholder="비밀번호를 확인해주세요.">
+                                <p class="invalid-feedback">8자리 이상의 영문,숫자,특수문자 조합의 숫자를 입력하세요.</p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <!--//sec-01-->
+        <!--//content-->
+    </div>
+    <footer>
+        © 2022 METAGAMES, Inc. All Rights Reserved.
+    </footer>
+</div>
+<script type="text/javascript">
+    var onloadCallback = function() {
+        grecaptcha.render('html_element', {
+            'sitekey' : 'your_site_key'
+        });
+    };
+</script>
+</body>
+</html>

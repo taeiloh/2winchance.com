@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="91.724" height="35" viewBox="0 0 91.724 35">
+    <g data-name="그룹 737">
+        <g data-name="그룹 732">
+            <g data-name="그룹 726">
+                <g data-name="타원 1" transform="translate(62.517 2.826)" style="stroke:#956f14;fill:#ffdc50">
+                    <ellipse cx="14.604" cy="14.673" rx="14.604" ry="14.673" style="stroke:none"/>
+                    <ellipse cx="14.604" cy="14.673" rx="14.104" ry="14.173" style="fill:none"/>
+                </g>
+                <text transform="translate(69.577 24.241)" style="font-family:Pretendard-ExtraBold,Pretendard;font-weight:800;fill:#c18d10;stroke:#fffab9;stroke-width:.1px;font-size:19px"><tspan x="0" y="0">C</tspan></text>
+            </g>
+            <text data-name="500" transform="translate(0 28)" style="font-size:30px;font-family:Pretendard-ExtraBold,Pretendard;font-weight:800;fill:#ffdc50"><tspan x="0" y="0">500</tspan></text>
+        </g>
+    </g>
+</svg>
