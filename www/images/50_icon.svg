@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="59" height="59" viewBox="0 0 59 59">
+    <defs>
+        <linearGradient id="l74mq9lesb" x1=".5" x2=".5" y2="1" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#343434"/>
+            <stop offset="1" stop-color="#0090ff" stop-opacity=".502"/>
+        </linearGradient>
+        <clipPath id="ao53dik4xa">
+            <rect data-name="사각형 397" width="59" height="59" rx="29.5" transform="translate(1805 1242)" style="fill:#72b9ff"/>
+        </clipPath>
+    </defs>
+    <g data-name="그룹 838">
+        <g data-name="마스크 그룹 646" transform="translate(-1805 -1242)" style="clip-path:url(#ao53dik4xa)">
+            <path data-name="사각형 396" transform="rotate(-40 2640.016 -1820.747)" style="fill:#72b9ff" d="M0 0h70v74H0z"/>
+        </g>
+        <path data-name="패스 124" d="m-20424.164-22637.514 25.473 16.9a33.573 33.573 0 0 0 7.559-7.535 30.432 30.432 0 0 0 4.609-11.453c.236-1.445 0-1.3 0-1.3l-19.164-10.465-5.541 3.3-6.461-3.535-8.082 1.42-1.322 6.686 1.957 2.213z" transform="translate(20445 22674)" style="fill:url(#l74mq9lesb)"/>
+        <text data-name="50" transform="translate(16.5 36.5)" style="fill:#fff;font-size:20px;font-family:Pretendard-Bold,Pretendard;font-weight:700;letter-spacing:.06em"><tspan x="0" y="0">50</tspan></text>
+    </g>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="23" height="25" viewBox="0 0 23 25">
+    <g data-name="그룹 269">
+        <g data-name="타원 4" transform="translate(13)" style="stroke:#1e8fff;fill:#1e8fff">
+            <circle cx="4.5" cy="4.5" r="4.5" style="stroke:none"/>
+            <circle cx="4.5" cy="4.5" r="4" style="fill:none"/>
+        </g>
+        <g data-name="타원 6" transform="translate(13 16)" style="stroke:#1e8fff;fill:#1e8fff">
+            <ellipse cx="5" cy="4.5" rx="5" ry="4.5" style="stroke:none"/>
+            <ellipse cx="5" cy="4.5" rx="4.5" ry="4" style="fill:none"/>
+        </g>
+        <g data-name="타원 5" transform="translate(0 9)" style="stroke:#1e8fff;fill:#1e8fff">
+            <ellipse cx="5" cy="4.5" rx="5" ry="4.5" style="stroke:none"/>
+            <ellipse cx="5" cy="4.5" rx="4.5" ry="4" style="fill:none"/>
+        </g>
+        <path data-name="선 9" transform="translate(4.767 3.741)" style="stroke-width:4px;fill:none;stroke:#1e8fff" d="M0 9.459 13.514 0"/>
+        <path data-name="선 10" transform="translate(7.446 14.527)" style="stroke-width:4px;fill:none;stroke:#1e8fff" d="m0 0 9.459 5.405"/>
+    </g>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="83" height="40" viewBox="0 0 83 40">
+    <defs>
+        <linearGradient id="6pg37i50gb" x1=".5" x2=".5" y2="1" gradientUnits="objectBoundingBox">
+            <stop offset="0" stop-color="#343434"/>
+            <stop offset="1" stop-color="#0090ff" stop-opacity=".502"/>
+        </linearGradient>
+        <clipPath id="i1pnqdmnga">
+            <rect data-name="사각형 556" width="83" height="40" rx="20" transform="translate(1691 1264)" style="opacity:.71;fill:#fff"/>
+        </clipPath>
+    </defs>
+    <g data-name="그룹 849" transform="translate(-1104 -1661)">
+        <rect data-name="사각형 551" width="83" height="40" rx="20" transform="translate(1104 1661)" style="opacity:.71;fill:#fff"/>
+        <g data-name="마스크 그룹 662" transform="translate(-587 397)" style="clip-path:url(#i1pnqdmnga)">
+            <path data-name="패스 124" d="m-20424.164-22637.514 25.473 16.9s13.639 6.891 16.842 2.328 35.7 4.4 35.936 2.959-40.609-25.572-40.609-25.572l-19.164-10.465-5.541 3.3-6.461-3.535-8.082 1.42-1.322 6.686 1.957 2.213z" transform="translate(22148 23930)" style="fill:url(#6pg37i50gb)"/>
+            <text data-name="50" transform="translate(1719.5 1292.5)" style="font-size:20px;font-family:Pretendard-Bold,Pretendard;font-weight:700;letter-spacing:.06em;fill:#fff"><tspan x="0" y="0">50</tspan></text>
+        </g>
+    </g>
+</svg>
