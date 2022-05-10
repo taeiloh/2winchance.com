@@ -46,6 +46,16 @@ $(function(){
         $(this).toggleClass('open').next().slideToggle(400);
     });
 
+    $('#gnb > ul > li').click(function (){
+        $('#gnb > ul > li').removeClass('active');
+        $(this).addClass('active');
+    });
+
+    $('.sub-menu li').click(function (){
+        $('.sub-menu li').removeClass('active');
+        $(this).addClass('active');
+    });
+
     // 탭메뉴
     $('ul.tabs li').click(function(){
         var tab_id = $(this).attr('data-tab');
@@ -72,23 +82,19 @@ $(function(){
 
     // 공지사항
     $('.notice-title').click(function(){
-       $(this).parent($('.notice-wrap')).toggleClass('open').siblings().removeClass('open');
-       $(this).parent($('.notice-wrap')).siblings().find($('.notice-cont')).slideUp(300);
-       $(this).next($('.notice-cont')).slideToggle(300);
+        $(this).parent($('.notice-wrap')).toggleClass('open').siblings().removeClass('open');
+        $(this).parent($('.notice-wrap')).siblings().find($('.notice-cont')).slideUp(300);
+        $(this).next($('.notice-cont')).slideToggle(300);
     });
 
-
-    // select dropdown
-    function onClickSelect(e) {
+    $("#dropdown .select").click(function (e){
         const isActive = e.currentTarget.className.indexOf("active") !== -1;
         if (isActive) {
             e.currentTarget.className = "select";
         } else {
             e.currentTarget.className = "select active";
         }
-    }
-
-    document.querySelector("#dropdown .select").addEventListener("click", onClickSelect);
+    })
 
     function onClickOption(e) {
         const selectedValue = e.currentTarget.innerHTML;

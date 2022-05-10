@@ -32,7 +32,7 @@ try {
     $thread     = 1000;
     $nowdate    = date('Y-m-d-h-i-s');
     //DB 변수
-    $cu_topic         = $_mysqli->real_escape_string($cu_topic);
+    $cu_topic        = $_mysqli->real_escape_string($cu_topic);
     $cu_mail         = $_mysqli->real_escape_string($cu_mail);
     $cu_subject      = $_mysqli->real_escape_string($cu_subject);
     $cu_message      = $_mysqli->real_escape_string($cu_message);

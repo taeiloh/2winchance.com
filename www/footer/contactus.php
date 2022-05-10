@@ -33,10 +33,10 @@ require_once __DIR__ .'/../_inc/config.php';
                 <div class="footer-inner">
                     <h3 class="footer-sub-title">문의하기</h3>
                     <div class="footer-cont ask">
-                        <div class=select">
+                        <div>
                             <h4>문의 내용을 선택해주세요.</h4>
                             <select name="cuTopic" id="cuTopic">
-                                <option selected>종류를 선택해주세요.</option>
+                                <option value="" selected>종류를 선택해주세요.</option>
                                 <option value= "1">계정 제한</option>
                                 <option value= "2">광고</option>
                                 <option value= "3">보너스</option>
@@ -51,17 +51,17 @@ require_once __DIR__ .'/../_inc/config.php';
 <!--                            <section id="dropdown">-->
 <!--                                <div class="select">-->
 <!--                                    <div class="text">종류를 선택해주세요.</div>-->
-<!--                                    <ul class="option-list" id="cuTopic">-->
-<!--                                        <li class="option">계정 제한</li>-->
-<!--                                        <li class="option">광고</li>-->
-<!--                                        <li class="option">보너스</li>-->
-<!--                                        <li class="option">상점</li>-->
-<!--                                        <li class="option">불만 사항</li>-->
-<!--                                        <li class="option">콘테스트</li>-->
-<!--                                        <li class="option">기타</li>-->
-<!--                                        <li class="option">로그인</li>-->
-<!--                                        <li class="option">제안</li>-->
-<!--                                        <li class="option">기술적 문제</li>-->
+<!--                                    <ul class="option-list" id="cuTopic" name="cuTopic">-->
+<!--                                        <li class="option" value="1">계정 제한</li>-->
+<!--                                        <li class="option" value="2">광고</li>-->
+<!--                                        <li class="option" value="3">보너스</li>-->
+<!--                                        <li class="option" value="4">상점</li>-->
+<!--                                        <li class="option" value="5">불만 사항</li>-->
+<!--                                        <li class="option" value="6">콘테스트</li>-->
+<!--                                        <li class="option" value="7">기타</li>-->
+<!--                                        <li class="option" value="8">로그인</li>-->
+<!--                                        <li class="option" value="9">제안</li>-->
+<!--                                        <li class="option" value="10">기술적 문제</li>-->
 <!--                                    </ul>-->
 <!--                                </div>-->
 <!--                            </section>-->
@@ -117,65 +117,67 @@ require_once __DIR__ .'/../_inc/config.php';
     </footer>
     <!--//footer-->
 </div>
-</body>
-</html>
 <script type="text/javascript">
-    function saveBtn(){
-        // if($(".option-list").text() == ""){
-        //     alert("문의 내용을 선택해주세요.");
-        //     $(".option-list").focus();
-        //     return  false;
-        // }
-        if ($("#cuMail").val() == "") {
-            alert("이메일을 입력해 주세요.");
-            $("#cuMail").focus();
-            return false;
-        }
-
-        if ($.trim($("#cuSubject").val()) == "") {
-            alert("제목을 입력해 주세요.");
-            $("#cuSubject").focus();
-            return false;
-        }
-
-        if ($("#askCont").val() == "") {
-            alert("내용을 입력해 주세요.");
-            $("#askCont").focus();
-            return false;
-        }
-
-        //var cu_topic    =  $(".option-list li").text();
-        var cu_mail     =  $("#cuMail").val();
-        var cu_subject  =   $("#cuSubject").val();
-        var cu_message  =   $("#askCont").val();
-        var cu_status = 1;
-
-        var postData = {
-            //"cu_topic"   : cu_topic,
-            "cu_mail"    : cu_mail,
-            "cu_subject" : cu_subject,
-            "cu_message" : cu_message,
-            "cu_status"  : cu_status
-        }
-
-        $.ajax({
-            url : "co_writeProc.php",
-            type : "POST",
-            data : postData,
-            dataType : "JSON",
-            success : function (data){
-                console.log(data);
-                if(data.code == 200){
-                    alert("등록되었습니다.");
-                    location.href = "contactus.php";
-                }
-            },
-            error : function (jqXHR, textStatus, errorThrown) {
-                console.log(textStatus, errorThrown);
+        function saveBtn() {
+            if ($("#cuTopic option:selected").val() == "") {
+                alert("문의 내용을 선택해주세요.");
+                $("#cuTopic").focus();
+                return false;
             }
-        });
+
+            if ($("#cuMail").val() == "") {
+                alert("이메일을 입력해 주세요.");
+                $("#cuMail").focus();
+                return false;
+            }
+
+            if ($.trim($("#cuSubject").val()) == "") {
+                alert("제목을 입력해 주세요.");
+                $("#cuSubject").focus();
+                return false;
+            }
+
+            if ($("#askCont").val() == "") {
+                alert("내용을 입력해 주세요.");
+                $("#askCont").focus();
+                return false;
+            }
+
+            var cu_topic = $("#cuTopic").val();
+            var cu_mail = $("#cuMail").val();
+            var cu_subject = $("#cuSubject").val();
+            var cu_message = $("#askCont").val();
+            var cu_status = 1;
+
+            var postData = {
+                "cu_topic": cu_topic,
+                "cu_mail": cu_mail,
+                "cu_subject": cu_subject,
+                "cu_message": cu_message,
+                "cu_status": cu_status
+            }
+
+            $.ajax({
+                url: "co_writeProc.php",
+                type: "POST",
+                data: postData,
+                dataType: "JSON",
+                success: function (data) {
+                    console.log(data);
+                    if (data.code == 200) {
+                        alert("등록되었습니다.");
+                        location.href = "contactus.php";
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus, errorThrown);
+                }
+            });
     }
 </script>
+</body>
+</html>
+
 
 
 
