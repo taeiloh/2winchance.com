@@ -24,9 +24,10 @@ try {
 </head>
 
 <body>
-<form id="loginFrm" name="loginFrm" method="post" action="send_email.php">
+<form id="loginFrm" name="loginFrm" method="post" action="join_05.php">
     <input type="hidden" name="m_sns_type" id="m_sns_type" value="<?=$m_sns_type ?>"/>
     <input type="hidden" name="m_sns_id" id="m_sns_id" value="<?=$m_sns_id?>"/>
+    <input type="hidden" name="m_idx" id="m_idx" />
 <div id="wrap" class="member">
     <!--content-->
     <div id="content">
@@ -130,14 +131,21 @@ try {
             $("#m_pw_re").focus();
             return false;
         }
+        var m_sns_type=$("#m_sns_type").val();
+        var m_sns_id=$("#m_sns_id").val();
+        var m_id=$("#m_id").val();
+        var m_pw=$("#m_pw").val();
+
 
         var postData = {
-            "type": "kakao",
-            "sns_id": sns_id
+            "m_sns_type": m_sns_type,
+            "m_sns_id": m_sns_id,
+            "m_id": m_id,
+            "m_pw": m_pw
         };
 
         $.ajax({
-            url: "send_email.php",
+            url: "insert_id.php",
             type: "POST",
             async: false,
             data: postData,
@@ -145,15 +153,8 @@ try {
                 var json = JSON.parse(data);
                 //console.log(json);return false;
                 if (json.code == 200) {
-                    //alert(json.msg);
-                    if (json.cnt > 0) {
-                        //로그인
-                        location.href = "/";
-
-                    } else {
-                        //가입 여부 확인
-                        location.href = "login_sns.php?type=kakao";
-                    }
+                    $("#m_idx").val(json.id);
+                    $("#loginFrm").submit();
                 }
             },
             beforeSend:function(){
@@ -167,8 +168,6 @@ try {
             }
         });
 
-
-        $("#loginFrm").submit();
 
     }
 

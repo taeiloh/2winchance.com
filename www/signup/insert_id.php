@@ -51,7 +51,7 @@ try {
     $sql  = " insert into  MEMBERS
                 (m_id, m_pw, m_sns_type, m_sns_id, m_ip, m_enter_datetime)
             VALUES
-                ('{$m_id}','{$m_pw}','{$m_sns_type}','{$m_sns_id}','{$ip}', now())";
+                ('{$m_id}','{$pw}','{$m_sns_type}','{$m_sns_id}','{$ip}', now())";
     //p($sql);
     $result = mysqli_query($_mysqli, $sql);
     if (!$result) {
@@ -75,36 +75,9 @@ try {
     $result = $_mysqli->query($query);
 
     if ($result) {
-
-        $_arrMembers    = $result->fetch_array();
-        $db_seq         =   !empty($_arrMembers['m_idx'])    ?    $_arrMembers['m_idx']     :   '';
-        $db_id         =   !empty($_arrMembers['m_id']) ?      $_arrMembers['m_id']   : '';
-        if ($db_seq!="") {
-            //비밀번호 링크 이메일 발송
-            //메일 발송
-            if ($db_id!="") {
-                $title          = '메타게임 로그인 인증';
-                $html           = '';
-                $today          = date('Y-m-d H:i:s', time());
-                $_querystring   = "m_id={$db_id}&key={$pw}";
-                include_once __DIR__ .'/../login/join_auth_html.php';
-
-
-                //echo $html;
-                $log    = sendEmail($db_id, $title, $html);
-
-               if($log){
-                   //성공
-                   $arrRtn['code'] = 200;
-                   $arrRtn['msg']  = "이메일 전송 성공";
-               }else{
-                   //성공
-                   $arrRtn['code'] = 500;
-                   $arrRtn['msg']  = "이메일 전송 실패";
-               }
-
-            }
-        }
+        $arrRtn['code'] = 200;
+        $arrRtn['id'] = $m_idx;
+        $arrRtn['msg']  = "이메일 전송 성공";
     }
     
 

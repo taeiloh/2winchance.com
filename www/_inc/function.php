@@ -56,13 +56,52 @@ function check_referer($url='') {
 }
 
 function sendEmail($email, $title, $html) {
-    //echo $title;
+
+    require __DIR__ ."/../vendor/phpmailer/phpmailer/src/PHPMailer.php";
+    require __DIR__ ."/../vendor/phpmailer/phpmailer/src/SMTP.php";
+
+    $mail = new PHPMailer\PHPMailer\PHPMailer();
+    $mail->IsSMTP(); // enable SMTP
+
+
+    $mail->CharSet="UTF-8";
+    $mail->Host = "smtp.gmail.com";
+    $mail->SMTPDebug = 0;
+    $mail->Port = 465 ; //465 or 587
+
+    $mail->SMTPSecure = 'ssl';
+    $mail->SMTPAuth = true;
+    $mail->IsHTML(true);
+
+    //Authentication
+    $mail->Username = "dev@idevel.co.kr";
+    $mail->Password = "dkdlelqpf!210@";
+
+    //Set Params
+    $mail->SetFrom("jhahn@idevel.kr");
+    $mail->AddAddress($email);
+    $mail->Subject = $title;
+    $mail->Body = $html;
+
+
+    $mail->send();
+
+
+    return 99;
+
+    /*
     require __DIR__ .'/../vendor/autoload.php';
 
     // Instantiation and passing `true` enables exceptions
     $mail = new PHPMailer(true);
-    //echo $title;
+*/
     try {
+
+
+
+
+
+/*
         //Server settings
         $mail->CharSet  = 'UTF-8';
         $mail->Encoding = 'base64';
@@ -100,7 +139,7 @@ function sendEmail($email, $title, $html) {
         $mail->send();
         //echo 'Message has been sent';
         return 99;
-
+        */
     } catch (Exception $e) {
         return "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
