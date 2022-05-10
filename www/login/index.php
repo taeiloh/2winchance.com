@@ -23,6 +23,7 @@ try {
 
 <body>
 <div id="wrap" class="member">
+    <form id="loginFrm" name="loginFrm" method="post" action="">
     <!--content-->
     <div id="content">
         <!--sec-01-->
@@ -38,12 +39,12 @@ try {
                         <div class="login-box">
                             <div class="input-box">
                                 <label for="">아이디</label>
-                                <input type="email" placeholder="아이디를 입력해주세요.">
+                                <input type="email" name="m_id" id="m_id" placeholder="아이디를 입력해주세요.">
                                 <p class="invalid-feedback">영문으로 시작하는 e-mail 주소를 입력해 주세요.</p>
                             </div>
                             <div class="input-box">
                                 <label for="">비밀번호</label>
-                                <input type="password" placeholder="비밀번호를 입력해주세요.">
+                                <input type="password" name="m_pw" id="m_pw" placeholder="비밀번호를 입력해주세요.">
                                 <p class="invalid-feedback">8자리 이상의 영문,숫자,특수문자 조합의 숫자를 입력하세요.</p>
                             </div>
                             <div class="find-wrap">
@@ -52,7 +53,7 @@ try {
                                 <a href="javascript:void(0)">비밀번호찾기</a>
                             </div>
                         </div>
-                        <button type="button" class="btn-blue btn-6">로그인</button>
+                        <button type="button" class="btn-blue btn-6" onclick="login()">로그인</button>
                         <div class="sns-login">
                             <p>간편 로그인</p>
                             <ul>
@@ -69,6 +70,7 @@ try {
         <!--//sec-01-->
         <!--//content-->
     </div>
+    </form>
     <footer>
         © 2022 METAGAMES, Inc. All Rights Reserved.
     </footer>
@@ -79,6 +81,43 @@ try {
             'sitekey' : 'your_site_key'
         });
     };
+    function login(){
+        if ($.trim($("#m_id").val()) == "") {
+            alert("아이디를 입력해 주세요");
+            $("#m_id").focus();
+            return false;
+        }
+
+
+        if ($.trim($("#m_pw").val()) == "") {
+            alert("비밀번호를 입력해 주세요");
+            $("#m_pw").focus();
+            return false;
+        }
+
+        var formData = new FormData($("#loginFrm")[0]);
+
+        console.log(FormData);
+        $.ajax({
+            url: "login_Proc.php",
+            type: "POST",
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                var json = JSON.parse(data);
+                console.log(data);
+                alert(json.msg);
+                if (json.code == 200) {
+                    location.href = "../main/index.php";
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            }
+        });
+    }
+
 </script>
 </body>
 </html>
