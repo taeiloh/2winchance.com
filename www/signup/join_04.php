@@ -24,7 +24,7 @@ try {
 </head>
 
 <body>
-<form id="loginFrm" name="loginFrm" method="post" action="join_05.php">
+<form id="loginFrm" name="loginFrm" method="post" action="send_email.php">
     <input type="hidden" name="m_sns_type" id="m_sns_type" value="<?=$m_sns_type ?>"/>
     <input type="hidden" name="m_sns_id" id="m_sns_id" value="<?=$m_sns_id?>"/>
 <div id="wrap" class="member">
@@ -130,6 +130,42 @@ try {
             $("#m_pw_re").focus();
             return false;
         }
+
+        var postData = {
+            "type": "kakao",
+            "sns_id": sns_id
+        };
+
+        $.ajax({
+            url: "send_email.php",
+            type: "POST",
+            async: false,
+            data: postData,
+            success: function (data) {
+                var json = JSON.parse(data);
+                //console.log(json);return false;
+                if (json.code == 200) {
+                    //alert(json.msg);
+                    if (json.cnt > 0) {
+                        //로그인
+                        location.href = "/";
+
+                    } else {
+                        //가입 여부 확인
+                        location.href = "login_sns.php?type=kakao";
+                    }
+                }
+            },
+            beforeSend:function(){
+                $(".wrap-loading").removeClass("display-none");
+            },
+            complete:function(){
+                $(".wrap-loading").addClass("display-none");
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            }
+        });
 
 
         $("#loginFrm").submit();
