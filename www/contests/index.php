@@ -27,11 +27,10 @@
             <!--sec-01-->
             <section class="sec sec-01 T0">
                 <div class="contents-nav inner">
-                    <ul class="">
-                        <li class="active"><a href="javascript:void(0)">UP COMMING</a></li>
-                        <li><a href="javascript:void(0)">LIVE</a></li>
-                        <li><a href="javascript:void(0)">FINISHED</a></li>
-                    </ul>
+                    <?php
+                    // nav
+                    require_once __DIR__ .'/../common/nav_contests.php';
+                    ?>
                 </div>
 
                 <div class="contents-cont inner">

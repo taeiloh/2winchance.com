@@ -1,5 +1,8 @@
 <?php
-//변수 정리
+// 파라미터 정리
+$cate       = !empty($_GET['cate'])     ? $_GET['cate']     : '';
+
+// 변수 정리
 $_liClass1  = '';
 $_liClass2  = '';
 $_liClass3  = '';
@@ -36,10 +39,10 @@ switch ($_url_f3) {
         <ul>
             <li class="<?=$_liClass1;?>"><a href="/lobby/">로비</a>
                 <ul class="sub-menu">
-                    <li class="active"><a href="javascript:void(0)">리그 오브 레전드</a></li>
-                    <li><a href="javascript:void(0)">배틀그라운드</a></li>
-                    <li><a href="javascript:void(0)">DOTA2</a></li>
-                    <li><a href="javascript:void(0)">GS:GO</a></li>
+                    <li class="<?=($cate==21)?'active':'';?>"><a href="/lobby/?cate=21">리그 오브 레전드</a></li>
+                    <li class="<?=($cate==20)?'active':'';?>"><a href="/lobby/?cate=20">배틀그라운드</a></li>
+                    <li><a href="javascript:void(0)" onclick="alert('준비중입니다.');">DOTA2</a></li>
+                    <li><a href="javascript:void(0)" onclick="alert('준비중입니다.');">GS:GO</a></li>
                 </ul>
             </li>
             <li class="<?=$_liClass2;?>"><a href="/lineups/">LINEUPS</a></li>

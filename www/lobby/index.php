@@ -1,3 +1,7 @@
+<?php
+// config
+require_once __DIR__ .'/../_inc/config.php';
+?>
 <!doctype html>
 <html lang="ko">
 <head>
@@ -6,9 +10,6 @@
     require_once __DIR__ .'/../common/head.php';
     ?>
 </head>
-
-<!--//head-->
-
 <body>
 <div id="wrap" class="sub">
     <!--header-->
@@ -63,7 +64,7 @@
                     <h2>진행 경기 정보</h2>
                     <ul class="contest-list">
                         <li>
-                            <a href="javascript:void(0)">
+                            <a href="/lobby/list.php">
                                 <div class="game-thumb" style="background-image: url('../images/@img_thumb01.png')">
                                     <div class="subject"></div>
                                 </div>
