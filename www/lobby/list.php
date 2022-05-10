@@ -3,31 +3,38 @@
 require_once __DIR__ .'/../_inc/config.php';
 
 // 파라미터
+$cate           = !empty($_GET['cate'])         ? $_GET['cate']         : 0;
 $sub_menu       = !empty($_GET['sub_menu'])     ? $_GET['sub_menu']     : 0;
 
 // 변수 정리
 $where          = "";
 $limit          = "";
 
+// cate
+if (!empty($cate)) {
+    $where      .= "AND g_sport = {$cate} ";
+}
+
+// sub_menu
 switch ($sub_menu) {
     case 1:
-        $where  .= "AND g_prize = 0";
+        $where  .= "AND g_prize = 0 ";
         break;
     case 2:
         //$where  .= "";
-        $limit  = "LIMIT 5";
+        $limit  = "LIMIT 5 ";
         break;
     case 3:
-        $where  .= "AND g_prize = 7";
+        $where  .= "AND g_prize = 7 ";
         break;
     case 4:
-        $where  .= "AND g_prize = 8";
+        $where  .= "AND g_prize = 8 ";
         break;
     case 5:
-        $where  .= "AND g_prize = 9";
+        $where  .= "AND g_prize = 9 ";
         break;
     case 6:
-        $where  .= "AND g_prize = 1";
+        $where  .= "AND g_prize = 1 ";
         break;
     default:
         break;
@@ -111,7 +118,7 @@ switch ($sub_menu) {
                             ORDER BY g_date ASC, prize DESC , g_name ASC
                             {$limit}
                         ";
-                        p($query);
+                        //p($query);
                         $result = $_mysqli->query($query);
                         if (!$result) {
 

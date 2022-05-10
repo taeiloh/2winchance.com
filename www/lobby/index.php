@@ -64,7 +64,7 @@ require_once __DIR__ .'/../_inc/config.php';
                     <h2>진행 경기 정보</h2>
                     <ul class="contest-list">
                         <li>
-                            <a href="/lobby/list.php">
+                            <a href="/lobby/list.php?cate=<?=$cate;?>">
                                 <div class="game-thumb" style="background-image: url('../images/@img_thumb01.png')">
                                     <div class="subject"></div>
                                 </div>
