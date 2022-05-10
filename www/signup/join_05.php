@@ -2,8 +2,7 @@
 // config
 require_once __DIR__ .'/../_inc/config.php';
 
-//function
-require_once __DIR__ .'/../_inc/function.php';
+
 $m_idx      = isset($_POST['m_idx'])        ?     $_POST['m_idx']       : '';
 $m_id      = isset($_POST['m_id'])        ?     $_POST['m_id']       : '';
 try {

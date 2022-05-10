@@ -2,8 +2,7 @@
 // config
 require_once __DIR__ .'/../_inc/config.php';
 
-//function
-require_once __DIR__ .'/../_inc/function.php';
+
 $q      = isset($_GET['q'])     ? $_GET['q']    : '';
 
 //파라미터 체크
