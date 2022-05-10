@@ -105,3 +105,46 @@ function sendEmail($email, $title, $html) {
         return "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
 }
+
+//페이징
+function paging($page,$total_page,$move_page,$url) {
+    /*
+    if($page > 1) {
+        echo "<a href=".$url."><li class='prev'></li></a>";//처음
+    } else {
+        echo "";
+    }
+    */
+
+    $start_page=0;
+
+    $start_page = (((int)(($page-1)/$move_page))*$move_page)+1;
+    $end_page = $start_page + ($move_page -1);
+    if($end_page >= $total_page) {
+        $end_page = $total_page;
+    }
+//    if($start_page > 1) {
+//        echo  " <li class='prev'><a href=".$url.($start_page-1)."></a> </li>";//이전
+//    } else {
+//        echo "";
+//    }
+    if($total_page >= 1)
+        for($now_page=$start_page;$now_page<=$end_page;$now_page++)
+            if($page != $now_page) {
+                echo  "<a href='".$url.$now_page."'> ".$now_page."</a>";
+            } else {
+                echo "<a class='active' href='javascript:void(0)'>".$now_page."</a>";
+            }
+//    if($total_page > $end_page) {
+//        echo  "<li class='next'><a href=".$url.($end_page+1)." ></a></li>";//다음
+//    } else {
+//        echo "";
+//    }
+    /*
+    if($page < $total_page) {
+        echo  "<a href=".$url.$total_page." ><li class='next'></li></a>";//맨끝
+    } else {
+        echo "";
+    }
+    */
+}

@@ -3,6 +3,24 @@
 require_once __DIR__ .'/../_inc/config.php';
 
 try {
+
+    //파라미터 정리
+    $page = !empty($_GET['page']) ? $_GET['page'] : 1;
+
+    //파라미터 체크
+    if(!is_numeric($page)){
+        $page       =   1;
+    }
+    //페이징
+    $sql = "select count(*) from notice where 1=1";
+    $tresult = mysqli_query($_mysqli, $sql);
+    $row1   = mysqli_fetch_row($tresult);
+    $total_count = $row1[0]; //전체갯수
+    $rows = 5;
+    $total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
+    if ($page < 1) { $page = 1; } // 페이지가 없으면 첫 페이지 (1 페이지)
+    $from_record = ($page - 1) * $rows; // 시작 열을 구함
+
     // db
     $query  = "
         SELECT
@@ -10,11 +28,13 @@ try {
         FROM notice
         WHERE 1
         ORDER BY nt_date DESC
+        LIMIT {$from_record}, {$rows}
     ";
-    $result = $_mysqli->query($query);
-    if (!$result) {
 
-    }
+    $result = $_mysqli->query($query);
+//    if (!$result) {
+//
+//    }
 
 } catch (Exception $e) {
     p($e);
@@ -52,24 +72,28 @@ try {
                 <div class="footer-notice">
                     <?php
                     // db
-                    while ($_db = $result->fetch_assoc()) {
-                        $title      = $_db['nt_subject'];
-                        $regdate    = $_db['regdate'];
-                        $content    = $_db['nt_content'];
-
-                        echo <<<DIV
-                    <div class="notice-wrap">
-                        <div class="notice-title">
-                            <p>{$title}</p>
-                            <span>{$regdate}</span>
+                    if($total_count > 0){
+                        $i = 0;
+                        while ($_db = $result->fetch_assoc()) {
+                            $title = $_db['nt_subject'];
+                            $regdate = $_db['regdate'];
+                            $content = $_db['nt_content'];
+                            $i++;
+                            $no=$total_count-($i+($page-1)*$rows);
+                            echo <<<DIV
+                        <div class="notice-wrap">
+                            <div class="notice-title">
+                                <p>{$title}</p>
+                                <span>{$regdate}</span>
+                            </div>
+                            <div class="notice-cont">
+                                <p>
+                                    {$content}
+                                </p>
+                            </div>
                         </div>
-                        <div class="notice-cont">
-                            <p>
-                                {$content}
-                            </p>
-                        </div>
-                    </div>
 DIV;
+                        }
                     }
                     // free
                     $result->free();;
@@ -79,10 +103,14 @@ DIV;
             </section>
             <!--//sec-01-->
             <div class="pagination">
-                <a href="javascript:void(0)">1</a>
-                <a class="active" href="javascript:void(0)">2</a>
-                <a href="javascript:void(0)">3</a>
-                <a href="javascript:void(0)">4</a>
+                <?php
+                echo paging($page,$total_page,5,"{$_SERVER['SCRIPT_NAME']}?page=");
+                ?>
+
+<!--                <a href="javascript:void(0)">1</a>-->
+<!--                <a class="active" href="javascript:void(0)">2</a>-->
+<!--                <a href="javascript:void(0)">3</a>-->
+<!--                <a href="javascript:void(0)">4</a>-->
             </div>
         </div>
         <!--//content-->

@@ -1,3 +1,7 @@
+<?php
+require_once __DIR__ .'/../_inc/config.php';
+
+?>
 <!doctype html>
 <html lang="ko">
 <head>
@@ -6,7 +10,6 @@
     require_once __DIR__ .'/../common/head.php';
     ?>
 </head>
-
 <!--//head-->
 
 <body>

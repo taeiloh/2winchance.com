@@ -13,6 +13,5 @@
 <script src="/js/swiper-bundle.min.js"></script>
 <script src="/js/jquery-ui.min.js"></script>
 <script src="/js/common.js"></script>
-<script src="/js/common_be.js"></script>
 
 <title>METAGAMES</title>
