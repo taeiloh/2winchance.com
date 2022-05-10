@@ -32,12 +32,22 @@ $config['isOffice']     = in_array( $_SERVER['REMOTE_ADDR'], $config['ip']['offi
 //database
 if ( $config['isDev'] ) {
     define('DBHOST',        'localhost');
+    define('DBUSERNAME',    'root');
+    define('DBPASSWD',      'root');
+    define('DBNAME',        'db2winchance_web');
+    define('WWW',           '//www.2winchance.com');
+    define('UPLOAD',        '/uploads');
+};
+/*
+if ( $config['isDev'] ) {
+    define('DBHOST',        'localhost');
     define('DBUSERNAME',    '2winchance');
     define('DBPASSWD',      '2winchance!2022@');
     define('DBNAME',        'db2winchance_web');
     define('WWW',           '//www.2winchance.com');
     define('UPLOAD',        '/uploads');
 };
+*/
 if ( $config['isTest'] ) {
     define('DBHOST',        'localhost');
     define('DBUSERNAME',    '2winchance');

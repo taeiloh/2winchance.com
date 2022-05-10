@@ -1,3 +1,13 @@
+<?php
+// config
+require_once __DIR__ .'/../_inc/config.php';
+
+try {
+
+} catch (Exception $e) {
+    p($e);
+}
+?>
 <!doctype html>
 <html lang="ko">
 <head>
@@ -14,7 +24,7 @@
     <!--content-->
     <div id="content">
         <!--sec-01-->
-        <h1 class="logo"><a href="/html/index.html"><img src="/images/logo.png" alt="METAGAMES"></a></h1>
+        <h1 class="logo"><a href="/main/index.php"><img src="/images/logo.png" alt="METAGAMES"></a></h1>
         <section class="sec sec-01">
             <div class="inner">
                 <div class="title">
