@@ -101,4 +101,43 @@ $(function(){
         option.addEventListener("click", onClickOption);
     }
 
-})
+});
+
+function validateEmail(email) {
+    var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    return re.test(email);
+}
+
+function getCookie( Name ) {
+    var nameOfCookie = Name + "=";
+    var x = 0;
+    while ( x <= document.cookie.length ) {
+        var y = (x+nameOfCookie.length);
+        if ( document.cookie.substring( x, y ) == nameOfCookie ) {
+            if ( (endOfCookie=document.cookie.indexOf( ";", y )) == -1 ) {
+                endOfCookie = document.cookie.length;
+            }
+
+            return unescape( document.cookie.substring( y, endOfCookie ) );
+        }
+
+        x = document.cookie.indexOf( " ", x ) + 1;
+        if ( x == 0 ) break;
+    }
+
+    return "";
+}
+
+// 00:00 시 기준 쿠키 설정하기
+function setCookieAt00(name, value, expiredays) {
+    var todayDate = new Date();
+    todayDate = new Date(parseInt(todayDate.getTime() / 86400000) * 86400000 + 54000000);
+
+    if ( todayDate > new Date() )
+    {
+        expiredays = expiredays - 1;
+    }
+
+    todayDate.setDate( todayDate.getDate() + expiredays );
+    document.cookie = name + "=" + escape( value ) + "; path=/; expires=" + todayDate.toGMTString() + ";"
+}

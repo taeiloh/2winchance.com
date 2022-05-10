@@ -2,6 +2,9 @@
 // config
 require_once __DIR__ .'/../_inc/config.php';
 
+//function
+require_once __DIR__ .'/../_inc/function.php';
+
 try {
 
 } catch (Exception $e) {

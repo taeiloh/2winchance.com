@@ -2,6 +2,12 @@
 // config
 require_once __DIR__ .'/../_inc/config.php';
 
+//function
+require_once __DIR__ .'/../_inc/function.php';
+
+$m_sns_type       = !empty($_POST['m_sns_type'])           ? strtoupper($_POST['m_sns_type'])         : '';
+$m_sns_id       = !empty($_POST['m_sns_id'])           ? strtoupper($_POST['m_sns_id'])         : '';
+
 try {
 
 } catch (Exception $e) {
@@ -20,11 +26,15 @@ try {
 <!--//head-->
 
 <body>
+<form id="loginFrm" name="loginFrm" method="post" action="join_04.php">
+    <input type="hidden" name="m_sns_type" id="m_sns_type" value="<?=$m_sns_type ?>"/>
+    <input type="hidden" name="m_sns_id" id="m_sns_id" value="<?=$m_sns_id?>"/>
+
 <div id="wrap" class="member">
     <!--content-->
     <div id="content">
         <!--sec-01-->
-        <h1 class="logo"><a href="../html/index.html"><img src="../images/logo.png" alt="METAGAMES"></a></h1>
+        <h1 class="logo"><a href="/main/index.php"><img src="../images/logo.png" alt="METAGAMES"></a></h1>
         <section class="sec sec-01">
             <div class="inner">
                 <div class="title">
@@ -42,7 +52,7 @@ try {
                     <p class="sub-txt">
                         본인 인증이 완료 되었습니다.
                     </p>
-                    <button type="button" class="btn-blue btn-6">다음</button>
+                    <button type="submit" class="btn-blue btn-6" >다음</button>
                 </div>
             </div>
         </section>
@@ -53,5 +63,6 @@ try {
         © 2022 METAGAMES, Inc. All Rights Reserved.
     </footer>
 </div>
+</form>
 </body>
 </html>
