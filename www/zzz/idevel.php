@@ -11,7 +11,7 @@ $mail = new PHPMailer(true);
 
 $title          = '메타게임 로그인 인증';
 $html           ='<a target="_blank">메타게임 회원가입 인증</a>';
-$email          = 'jhahn@idevel.kr';
+$email          = 'gsjin@idevel.kr';
 
 try {
     //Server settings
@@ -21,7 +21,7 @@ try {
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
     $mail->Username   = 'dev@idevel.co.kr';                     //SMTP username
     $mail->Password   = 'dkdlelqpf!210@';                               //SMTP password
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            //Enable implicit TLS encryption
     $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
     //Recipients
