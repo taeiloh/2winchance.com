@@ -3,6 +3,13 @@
 $cate       = !empty($_GET['cate'])     ? $_GET['cate']     : '';
 
 // 변수 정리
+include_once __DIR__.'/../_inc/config.php';
+
+$idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 시퀀스
+$id=!empty($_SESSION['_se_id']) ? $_SESSION['_se_id'] : "";        // 세션 아이디
+$name=!empty($_SESSION['_se_name']) ? $_SESSION['_se_name'] : "";    // 세션 닉네임
+
+//변수 정리
 $_liClass1  = '';
 $_liClass2  = '';
 $_liClass3  = '';
@@ -53,21 +60,26 @@ switch ($_url_f3) {
     </nav>
     <div class="login-wrap">
         <!--로그인 전-->
+        <?php
+        if($idx==""){
+        ?>
         <div class="login-before">
             <div class="btn-group">
-                <button type="button" id="btnTopSignUp" class="join-btn">회원가입</button>
-                <button type="button" id="btnTopLogin" class="login-btn">로그인</button>
+                <button type="button" id="btnTopSignUp" class="join-btn" onclick="location.href='/signup/index.php'">회원가입</button>
+                <button type="button" id="btnTopLogin" class="login-btn" onclick="location.href='/login/index.php'">로그인</button>
             </div>
             <a href="javascript:void(0)">HOW TO PLAY <img src="/images/ico_triangle.svg" alt="HOW TO PLAY"></a>
         </div>
         <!--  로그인 전-->
+        <?php
+        }else{
 
-
-        <!--로그인 후    // css 처리 따로 없고 주석 처리만 되어 있습니다 -->
-        <!--  <div class="login-after">
+        ?>
+            <!--로그인 후    // css 처리 따로 없고 주석 처리만 되어 있습니다 -->
+            <div class="login-after">
               <div class="profile-img"><img src="/images/item1.png" alt="유저 프로필 사진"></div>
               <div class="user-info">
-                  <p class="nickname">정글못해먹겐네</p>
+                  <p class="nickname"><?=$name?></p>
                   <div class="charge">
                       <p>695,165,300</p>
                       <button type="button" class="charge-btn">충전</button>
@@ -83,8 +95,13 @@ switch ($_url_f3) {
                       </ul>
                   </div>
               </div>
-              <button type="button" class="logout-btn">로그아웃</button>
-          </div>-->
+              <button type="button" class="logout-btn" onclick="location.href='/login/logout.php'">로그아웃</button>
+          </div>
         <!--//로그인 후-->
+    <?php
+        }
+        ?>
+
+
     </div>
 </div>
