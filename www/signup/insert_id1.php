@@ -30,7 +30,7 @@ $arrRtn     = array(
 try {
 
     //변수 체크
-    $sql  = " update MEMBERS set    
+    $sql  = " update members set    
                 m_name='{$m_name}',
                 m_b_year='{$m_b_year}',
                     m_b_year='{$m_b_year}',

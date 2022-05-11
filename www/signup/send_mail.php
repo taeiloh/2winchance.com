@@ -28,7 +28,7 @@ try {
     $query = "
         SELECT 
             *
-        FROM MEMBERS
+        FROM members
         WHERE 1=1
             AND m_idx  = '{$m_idx}'
     ";

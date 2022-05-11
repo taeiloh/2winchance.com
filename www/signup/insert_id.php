@@ -29,7 +29,7 @@ $arrRtn     = array(
 try {
     //아이디 중복 확인
     $query  = "
-            SELECT COUNT(1) AS CNT FROM MEMBERS
+            SELECT COUNT(1) AS CNT FROM members
             WHERE 1=1
                 AND m_id = '{$m_id}'
         ";
@@ -48,7 +48,7 @@ try {
 
 
     //변수 체크
-    $sql  = " insert into  MEMBERS
+    $sql  = " insert into  members
                 (m_id, m_pw, m_sns_type, m_sns_id, m_ip, m_enter_datetime)
             VALUES
                 ('{$m_id}','{$pw}','{$m_sns_type}','{$m_sns_id}','{$ip}', now())";
@@ -68,7 +68,7 @@ try {
     $query = "
         SELECT 
             *
-        FROM MEMBERS
+        FROM members
         WHERE 1=1
             AND m_idx  = '{$m_idx}'
     ";
