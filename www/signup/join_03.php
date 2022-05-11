@@ -6,6 +6,13 @@ require_once __DIR__ .'/../_inc/config.php';
 $m_sns_type       = !empty($_POST['m_sns_type'])           ? strtoupper($_POST['m_sns_type'])         : '';
 $m_sns_id       = !empty($_POST['m_sns_id'])           ? strtoupper($_POST['m_sns_id'])         : '';
 
+if($m_sns_id!=""){
+    $action="sns_insert_proc.php";
+}else{
+    $action="join_04.php";
+}
+
+
 try {
 
 } catch (Exception $e) {
@@ -24,7 +31,7 @@ try {
 <!--//head-->
 
 <body>
-<form id="loginFrm" name="loginFrm" method="post" action="join_04.php">
+<form id="loginFrm" name="loginFrm" method="post" action="<?=$action?>">
     <input type="hidden" name="m_sns_type" id="m_sns_type" value="<?=$m_sns_type ?>"/>
     <input type="hidden" name="m_sns_id" id="m_sns_id" value="<?=$m_sns_id?>"/>
 

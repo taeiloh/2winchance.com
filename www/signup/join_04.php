@@ -77,12 +77,6 @@ try {
 </div>
 </form>
 <script type="text/javascript">
-    var onloadCallback = function() {
-        grecaptcha.render('html_element', {
-            'sitekey' : 'your_site_key'
-        });
-    };
-
     function next(){
 
         if ($.trim($("#m_id").val()) == "") {

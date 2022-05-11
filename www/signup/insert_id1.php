@@ -9,6 +9,7 @@ require __DIR__ .'/../_inc/config.php';
 //p($_POST);
 
 $m_id      = isset($_POST['m_id'])        ?     $_POST['m_id']       : '';
+$m_sns_id      = isset($_POST['m_sns_id'])        ?     $_POST['m_sns_id']       : '';
 $m_name      = isset($_POST['m_name'])        ?     $_POST['m_name']       : '';
 $m_b_year      = isset($_POST['m_b_year'])        ?     $_POST['m_b_year']       : '';
 $m_tel      = isset($_POST['m_tel'])        ?     $_POST['m_tel']       : '';
@@ -29,8 +30,9 @@ $arrRtn     = array(
 );
 try {
 
-    //변수 체크
-    $sql  = " update members set    
+    if($m_id!="") {
+        //변수 체크
+        $sql = " update members set    
                 m_name='{$m_name}',
                 m_b_year='{$m_b_year}',
                     m_b_year='{$m_b_year}',
@@ -39,7 +41,20 @@ try {
             where 1=1
                 and m_id='{$m_id}'
                 ";
-    //p($sql);
+    }else{
+        //변수 체크
+        $sql = " update members set    
+                m_name='{$m_name}',
+                m_b_year='{$m_b_year}',
+                    m_b_year='{$m_b_year}',
+                    m_tel='{$m_tel}',
+                    sex='{$sex}'
+            where 1=1
+                and m_sns_id='{$m_sns_id}'
+                ";
+    }
+    //echo $sql;
+    //exit;
     $result = mysqli_query($_mysqli, $sql);
     if (!$result) {
         $arrRtn['code'] = 502;

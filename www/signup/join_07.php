@@ -31,7 +31,7 @@ try {
 </head>
 <div id="wrap" class="member">
     <form id="loginFrm" name="loginFrm" method="post" >
-        <input type="hidden" name="m_id" id="m_id" value="<?=$arrVal[1]?>"/>
+        <input type="hidden" name="<?=$arrVal[0]?>" id="<?=$arrVal[0]?>" value="<?=$arrVal[1]?>"/>
 <div id="content">
         <!--sec-01-->
         <h1 class="logo"><a href="/main/index.php"><img src="../images/logo.png" alt="METAGAMES"></a></h1>
@@ -62,10 +62,16 @@ try {
                             <label for="">생년월일</label>
                             <input type="number" name="m_b_year" id="m_b_year" placeholder="생년월일 8자리를 입력해주세요.">
                         </div>
+                        <?php
+                        if($arrVal[0]=="m_id"){
+                        ?>
                         <div class="input-box">
                             <label for="">이메일</label>
-                            <input type="email" placeholder="이메일을 입력해주세요." value="<?=$arrVal[1]?>" readonly>
+                            <input type="email" name="m_email"  placeholder="이메일을 입력해주세요." value="<?=$arrVal[1]?>" readonly>
                         </div>
+                        <?php
+                        }
+                        ?>
                         <div class="input-box">
                             <label for="">연락처</label>
                             <input type="text" name="m_tel" id="m_tel" placeholder="전화번호를 입력해주세요.">
@@ -127,14 +133,14 @@ try {
             alert("성별을 선택해 주세요.");
             return false;
         }
-        var m_id=$("#m_id").val();
+        var <?=$arrVal[0]?>=$("#<?=$arrVal[0]?>").val();
         var m_name=$("#m_name").val();
         var m_b_year=$("#m_b_year").val();
         var m_tel=$("#m_tel").val();
 
 
         var postData = {
-            "m_id": m_id,
+            "<?=$arrVal[0]?>": <?=$arrVal[0]?>,
             "m_name": m_name,
             "m_b_year": m_b_year,
             "m_tel": m_tel,
