@@ -56,6 +56,7 @@ try {
     $result = mysqli_query($_mysqli, $sql);
     if (!$result) {
         $arrRtn['code'] = 502;
+        echo 502;
         echo $sql;
         exit;
     }
