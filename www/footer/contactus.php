@@ -15,6 +15,11 @@ $name=!empty($_SESSION['_se_name']) ? $_SESSION['_se_name'] : "";    // 세션 �
 <!--//head-->
 
 <body>
+<?php
+if($idx==""){
+    alertReplace("로그인 후 이용해 주세요.",'/login/');
+}
+?>
 <div id="wrap" class="sub">
     <!--header-->
     <header id="header">

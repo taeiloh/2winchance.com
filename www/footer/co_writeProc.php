@@ -46,7 +46,7 @@ try {
         INSERT INTO contactus
             (cu_u_idx, cu_topic, cu_mail, cu_subject, cu_message, cu_response ,cu_req_date, cu_response_id,cu_status)
         VALUES
-            ('{$idx}','{$cu_topic}', '{$cu_mail}', '{$cu_subject}', '{$cu_message}', '', NOW(), '{$cu_response_id}', 1 )
+            ('{$idx}','{$cu_topic}', '{$cu_mail}', '{$cu_subject}', '{$cu_message}', '', NOW(), '{$cu_response_id}', 0 )
     
     ";
 

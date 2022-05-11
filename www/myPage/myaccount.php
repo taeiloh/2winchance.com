@@ -1,6 +1,12 @@
 <?php
 require_once __DIR__ .'/../_inc/config.php';
 
+$idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 시퀀스
+$id=!empty($_SESSION['_se_id']) ? $_SESSION['_se_id'] : "";        // 세션 아이디
+$name=!empty($_SESSION['_se_name']) ? $_SESSION['_se_name'] : "";    // 세션 닉네임
+$deposit=!empty($_SESSION['_se_deposit']) ? $_SESSION['_se_deposit'] : 0;    // 세션 포인트
+$fp=!empty($_SESSION['m_fp_balance']) ? $_SESSION['m_fp_balance'] : 0; // fantasy-point 잔액
+
 ?>
 <!doctype html>
 <html lang="ko">
@@ -51,11 +57,11 @@ require_once __DIR__ .'/../_inc/config.php';
                             <div class="pf-info">
                                 <ul>
                                     <li>닉네임</li>
-                                    <li>정글 못해먹겐네</li>
+                                    <li><?=$name?></li>
                                 </ul>
                                 <ul>
                                     <li>E-MAIL </li>
-                                    <li>abC1234@naver.com</li>
+                                    <li><?=$id?></li>
                                 </ul>
                                 <dl>
                                     <dt>비밀번호 변경하기</dt>
@@ -66,8 +72,8 @@ require_once __DIR__ .'/../_inc/config.php';
                         <div class="user-detail-info">
                             <h3>상세정보</h3>
                             <ul>
-                                <li><p>COIN</p><span class="fc-yellow coin">54,222</span></li>
-                                <li><p>Fantasy Point</p><span class="fp">16</span></li>
+                                <li><p>COIN</p><span class="fc-yellow coin"><?=$deposit?></span></li>
+                                <li><p>Fantasy Point</p><span class="fp"><?=$fp?></span></li>
                                 <li><p>문의내역</p><span class="count">6</span></li>
                             </ul>
                         </div>

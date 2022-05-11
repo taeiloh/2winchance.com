@@ -19,6 +19,8 @@ try{
         $page = 1;
     }
 
+
+
     //페이징
     $sql = "select count(*) from contactus where 1=1 and cu_u_idx='{$idx}'";
     $tresult = mysqli_query($_mysqli, $sql);
@@ -117,12 +119,12 @@ try{
                                     $cu_seq  = empty(!$dbCu['cu_idx']) ? $dbCu['cu_idx'] : '';
                                     $cu_date = empty(!$dbCu['regdate']) ? $dbCu['regdate'] : '';
                                     $cu_title = empty(!$dbCu['cu_subject']) ? $dbCu['cu_subject'] : '';
-                                    $cu_status = empty(!$dbCu['cu_status']) ? $dbCu['cu_status'] : '';
-
+                                    $cu_status = empty(!$dbCu['cu_status']) ? $dbCu['cu_status'] : '대기중';
                                     $i++;
                                     $no=$total_count-($i+($page-1)*$rows);
-
-
+                                    if($cu_status == 1){
+                                        $cu_status = '답변완료';
+                                    }
                                     echo <<<TR
                         <tr>
                             <td>{$no}</td>
