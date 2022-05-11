@@ -44,7 +44,7 @@ try {
             alertBack("이미 가입된 계정입니다.");
             exit;
         }
-
+    }
         //변수 체크
         $sql  = " insert into  members
                 (m_sns_type, m_sns_id, m_ip, m_enter_datetime)
@@ -69,7 +69,7 @@ try {
        $arrRtn['id'] = $m_sns_id;
        $arrRtn['msg']  = "이메일 전송 성공";
 
-    }
+
     
 
 } catch (mysqli_sql_exception $e) {
