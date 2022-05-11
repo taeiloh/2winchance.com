@@ -9,8 +9,8 @@ $arrRtn     = array(
 try {
     //파라미터 정리
     //p($_POST['carArr']);
-    $type       = !empty($_POST['type'])           ? strtoupper($_POST['type'])         : '';
-    $sns_id     = !empty($_POST['sns_id'])         ? $_POST['sns_id']                   : 0;
+    $m_sns_type       = !empty($_POST['m_sns_type'])           ? $_POST['m_sns_type']         : '';
+    $m_sns_id     = !empty($_POST['m_sns_id'])         ? $_POST['m_sns_id']                   : "";
 
     //세션
     $mem_seq     = SE_SEQ;
@@ -23,16 +23,18 @@ try {
     $query  = "
         SELECT
             COUNT(1) AS CNT
-        FROM MEMBERS
+        FROM members
         WHERE 1 
-            AND m_sns_type = '{$type}'
-            AND m_sns_id  = {$sns_id}
+            AND m_sns_type = '{$m_sns_type}'
+            AND m_sns_id  = '{$m_sns_id}'
     ";
+    //echo $query;
+    //exit;
     $result = $_mysqli->query($query);
     if (!$result) {
         $arrRtn['code'] = 501;
         $arrRtn['msg']  = "error 1";
-        p($query);
+        echo $query;
     }
     $db     = $result->fetch_assoc();
     $cnt    = $db['CNT'];
@@ -43,12 +45,13 @@ try {
         $query  = "
             SELECT
                 *
-            FROM MEMBERS
+            FROM members
             WHERE 1 
-                AND m_sns_type = '{$type}'
-                AND m_sns_id = {$sns_id}
-            LIMIT 1
+                AND m_sns_type = '{$m_sns_type}'
+                AND m_sns_id = '{$m_sns_id}'
         ";
+        //echo $query;
+        //exit;
         $result = $_mysqli->query($query);
         if (!$result) {
             $arrRtn['code'] = 502;
@@ -56,20 +59,23 @@ try {
             p($query);
         }
         $db      = $result->fetch_assoc();
-        $db_seq  = !empty($db['SEQ'])       ? $db['SEQ']          : 0;
-        $db_id   = !empty($db['USR_ID'])     ? $db['USR_ID']      : '';
-        $db_nm   = !empty($db['USR_NM'])     ? $db['USR_NM']      : '';
+        $db_seq  = !empty($db['m_idx'])       ? $db['m_idx']          : 0;
+        $db_name   = !empty($db['m_name'])     ? $db['m_name']      : '';
+        $db_deposit   = !empty($db['m_deposit'])     ? $db['m_deposit']      : '';
 
         //세션
-        $_SESSION['SE_SEQ']     = $db_seq;
-        $_SESSION['SE_ID']      = $db_id;
-        $_SESSION['SE_NM']      = $db_nm;
+        //세션 생성
+        $_SESSION['_se_idx']        = $db_seq;
+        $_SESSION['_se_name']       = $db_name;
+        $_SESSION['_se_deposit']       = $db_deposit;
+
+        $arrRtn['code'] = 200;
     }
 
     //성공
-    $arrRtn['code'] = 200;
-    $arrRtn['cnt']  = (int) $cnt;
-    $arrRtn['msg']  = "아이디 중복 확인";
+
+    //$arrRtn['cnt']  = (int) $cnt;
+    //$arrRtn['msg']  = "아이디 중복 확인";
 
 } catch (mysqli_sql_exception $e) {
     $arrRtn['code'] = $e->getCode();

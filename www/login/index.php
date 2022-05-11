@@ -60,7 +60,7 @@ try {
                                 <li><a href="javascript:void(0)"><img src="/images/ico_facebook.png" alt="페이스북 로그인"></a></li>
                                 <li><a href="javascript:void(0)"><img src="/images/ico_naver.png" alt="네이버 로그인"></a></li>
                                 <li><a href="javascript:void(0)"><img src="/images/ico_twitter.png" alt="트위터 로그인"></a></li>
-                                <li><a href="javascript:void(0)"><img src="/images/ico_kakao.png" alt="카카오 로그인"></a></li>
+                                <li><a href="javascript:void(0)" onclick="loginKakao()"><img src="/images/ico_kakao.png" alt="카카오 로그인"></a></li>
                             </ul>
                         </div>
                     </div>
@@ -75,12 +75,8 @@ try {
         © 2022 METAGAMES, Inc. All Rights Reserved.
     </footer>
 </div>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script type="text/javascript">
-    var onloadCallback = function() {
-        grecaptcha.render('html_element', {
-            'sitekey' : 'your_site_key'
-        });
-    };
     function login(){
         if ($.trim($("#m_id").val()) == "") {
             alert("아이디를 입력해 주세요");
@@ -117,6 +113,56 @@ try {
             }
         });
     }
+
+
+
+        Kakao.init('01857bbef00f6cb15e0499c126201dde');
+        console.log(Kakao.isInitialized());
+        function loginKakao() {
+            Kakao.Auth.login({
+                success: function(authObj) {
+                    //console.log(JSON.stringify(authObj));
+                    Kakao.API.request({
+                        url: '/v2/user/me',
+                        success: function(res) {
+                            //console.log(JSON.stringify(res));
+                            var sns_id = JSON.stringify(res.id);
+                            var postData = {
+                                "m_sns_type": "kakao",
+                                "m_sns_id": sns_id
+                            };
+
+                            $.ajax({
+                                url: "check_sns_id.php",
+                                type: "POST",
+                                data: postData,
+                                success: function (data) {
+                                    var json = JSON.parse(data);
+                                    console.log(data);
+                                    if (json.code == 200) {
+                                        location.href = "../main/index.php";
+                                    }
+                                },
+                                error: function (jqXHR, textStatus, errorThrown) {
+                                    console.log(textStatus, errorThrown);
+                                }
+                            });
+
+
+                        },
+                        fail: function(error) {
+                            alert("본인인증 중 오류가 발생했습니다.\r\n다시 시도해 주세요.");
+                        },
+                    })
+                },
+                fail: function(err) {
+                    alert("카카오 로그인 실패하였습니다.\r\n관리자에게 문의해 주세요.");
+                    return false;
+                },
+            })
+
+        }
+
 
 </script>
 </body>
