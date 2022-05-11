@@ -219,7 +219,7 @@ switch ($sub_menu) {
                                     </div>
                                     <div class="btn-group">
                                         <button type="button" class="btn-grey btn-down"><span>경기정보</span> <img src="/images/ico_arrow.svg" alt="더보기"></button>
-                                        <button type="button" class="btn-blue slide-cont">게임참가</button>
+                                        <button type="button" onclick="go_draft({$db['g_idx']});" class="btn-blue slide-cont">게임참가</button>
                                     </div>
                                 </div>
                             </div>

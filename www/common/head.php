@@ -13,5 +13,6 @@
 <script src="/js/swiper-bundle.min.js"></script>
 <script src="/js/jquery-ui.min.js"></script>
 <script src="/js/common.js?v=<?=JSYYYYMMDD;?>"></script>
+<script src="/js/dev.js?v=<?=JSYYYYMMDD;?>"></script>
 
 <title>METAGAMES</title>
