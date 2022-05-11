@@ -69,7 +69,7 @@ try {
     $arrRtn['id'] = $m_sns_id;
     $arrRtn['msg'] = "이메일 전송 성공";
 
-
+    locationReplace($_auth_url);
     
 
 } catch (mysqli_sql_exception $e) {
@@ -81,5 +81,5 @@ try {
     $arrRtn['msg']  = $e->getMessage();
 
 } finally {
-    locationReplace($_auth_url);
+
 }
