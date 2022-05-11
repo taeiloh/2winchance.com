@@ -41,7 +41,7 @@ try {
                         이제 로그인 하실 수 있습니다.<br>
                         로그인을 진행해 주세요.
                     </p>
-                    <button type="button" class="btn-blue btn-6 w-170">로그인 하기</button>
+                    <button type="button" class="btn-blue btn-6 w-170" onclick="location.href='/login/index.php'">로그인 하기</button>
                 </div>
             </div>
         </section>
