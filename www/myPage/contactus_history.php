@@ -139,7 +139,7 @@ require_once __DIR__ .'/../_inc/config.php';
                     <a href="javascript:void(0)">3</a>
                     <a href="javascript:void(0)">4</a>
                 </div>
-                <button class="btn-blue btn-6">문의하기</button>
+                <button class="btn-blue btn-6" onclick="location.href='contactus.php'">문의하기</button>
             </div>
         </div>
         <!--//content-->
