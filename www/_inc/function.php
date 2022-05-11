@@ -99,7 +99,7 @@ function sendEmail($email, $title, $html) {
 
         $mail->send();
         //echo 'Message has been sent';
-
+        return 99;
     } catch (Exception $e) {
         echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
