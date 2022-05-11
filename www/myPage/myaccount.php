@@ -101,11 +101,11 @@ try {
                     </div>
                     <div class="user-item">
                         <div class="item-list">
-                            <label><input type="radio" name="type" value="type1" checked>치장형</label>
-                            <label><input type="radio" name="type" value="type2">편의형</label>
-                            <label><input type="radio" name="type" value="type3">스페셜</label>
+                            <label><input type="radio" name="type" value="type1" id="type1" checked>치장형</label>
+                            <label><input type="radio" name="type" value="type2" id="type2">편의형</label>
+                            <label><input type="radio" name="type" value="type3" id="type3">스페셜</label>
                         </div>
-                        <div class="user-item-list scroll">
+                        <div class="user-item-list scroll" id="typeA">
                             <ul>
                                 <li class="active"><a href="javascript:void(0);"><img src="../images/item2.png" alt=""></a></li>
                                 <li class="disabled"><a href="javascript:void(0);"><img src="../images/item6.png" alt=""></a></li>
@@ -139,6 +139,196 @@ try {
                                 <li><a href="javascript:void(0);"><img src="../images/item6.png" alt=""></a></li>
                             </ul>
                         </div>
+
+                        <div class="user-item-list item-ex scroll" id="typeB" style="display: none;">
+                            <ul>
+                                <li>
+                                    <a href="javascript:void (0);"><img src="../images/item_bg.png" alt=""></a>
+                                    <div class="item-descript">
+                                        <div class="item-tit">
+                                            <p>상품명</p>
+                                            <span class="fc-yellow">가격</span>
+                                        </div>
+                                        <p>상세설명</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="javascript:void (0);"><img src="../images/item_bg.png" alt=""></a>
+                                    <div class="item-descript">
+                                        <div class="item-tit">
+                                            <p>상품명</p>
+                                            <span class="fc-yellow">가격</span>
+                                        </div>
+                                        <p>상세설명</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="javascript:void (0);"><img src="../images/item_bg.png" alt=""></a>
+                                    <div class="item-descript">
+                                        <div class="item-tit">
+                                            <p>상품명</p>
+                                            <span class="fc-yellow">가격</span>
+                                        </div>
+                                        <p>상세설명</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="javascript:void (0);"><img src="../images/item_bg.png" alt=""></a>
+                                    <div class="item-descript">
+                                        <div class="item-tit">
+                                            <p>상품명</p>
+                                            <span class="fc-yellow">가격</span>
+                                        </div>
+                                        <p>상세설명</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="javascript:void (0);"><img src="../images/item_bg.png" alt=""></a>
+                                    <div class="item-descript">
+                                        <div class="item-tit">
+                                            <p>상품명</p>
+                                            <span class="fc-yellow">가격</span>
+                                        </div>
+                                        <p>상세설명</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="javascript:void (0);"><img src="../images/item_bg.png" alt=""></a>
+                                    <div class="item-descript">
+                                        <div class="item-tit">
+                                            <p>상품명</p>
+                                            <span class="fc-yellow">가격</span>
+                                        </div>
+                                        <p>상세설명</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="javascript:void (0);"><img src="../images/item_bg.png" alt=""></a>
+                                    <div class="item-descript">
+                                        <div class="item-tit">
+                                            <p>상품명</p>
+                                            <span class="fc-yellow">가격</span>
+                                        </div>
+                                        <p>상세설명</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="javascript:void (0);"><img src="../images/item_bg.png" alt=""></a>
+                                    <div class="item-descript">
+                                        <div class="item-tit">
+                                            <p>상품명</p>
+                                            <span class="fc-yellow">가격</span>
+                                        </div>
+                                        <p>상세설명</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="javascript:void (0);"><img src="../images/item_bg.png" alt=""></a>
+                                    <div class="item-descript">
+                                        <div class="item-tit">
+                                            <p>상품명</p>
+                                            <span class="fc-yellow">가격</span>
+                                        </div>
+                                        <p>상세설명</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="user-item-list item-ex scroll" id="typeC" style="display: none;">
+                            <ul>
+                                <li>
+                                    <a href="javascript:void (0);"><img src="../images/item_bg.png" alt=""></a>
+                                    <div class="item-descript">
+                                        <div class="item-tit">
+                                            <p>상품명</p>
+                                            <span class="fc-yellow">가격</span>
+                                        </div>
+                                        <p>상세설명</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="javascript:void (0);"><img src="../images/item_bg.png" alt=""></a>
+                                    <div class="item-descript">
+                                        <div class="item-tit">
+                                            <p>상품명</p>
+                                            <span class="fc-yellow">가격</span>
+                                        </div>
+                                        <p>상세설명</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="javascript:void (0);"><img src="../images/item_bg.png" alt=""></a>
+                                    <div class="item-descript">
+                                        <div class="item-tit">
+                                            <p>상품명</p>
+                                            <span class="fc-yellow">가격</span>
+                                        </div>
+                                        <p>상세설명</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="javascript:void (0);"><img src="../images/item_bg.png" alt=""></a>
+                                    <div class="item-descript">
+                                        <div class="item-tit">
+                                            <p>상품명</p>
+                                            <span class="fc-yellow">가격</span>
+                                        </div>
+                                        <p>상세설명</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="javascript:void (0);"><img src="../images/item_bg.png" alt=""></a>
+                                    <div class="item-descript">
+                                        <div class="item-tit">
+                                            <p>상품명</p>
+                                            <span class="fc-yellow">가격</span>
+                                        </div>
+                                        <p>상세설명</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="javascript:void (0);"><img src="../images/item_bg.png" alt=""></a>
+                                    <div class="item-descript">
+                                        <div class="item-tit">
+                                            <p>상품명</p>
+                                            <span class="fc-yellow">가격</span>
+                                        </div>
+                                        <p>상세설명</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="javascript:void (0);"><img src="../images/item_bg.png" alt=""></a>
+                                    <div class="item-descript">
+                                        <div class="item-tit">
+                                            <p>상품명</p>
+                                            <span class="fc-yellow">가격</span>
+                                        </div>
+                                        <p>상세설명</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="javascript:void (0);"><img src="../images/item_bg.png" alt=""></a>
+                                    <div class="item-descript">
+                                        <div class="item-tit">
+                                            <p>상품명</p>
+                                            <span class="fc-yellow">가격</span>
+                                        </div>
+                                        <p>상세설명</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="javascript:void (0);"><img src="../images/item_bg.png" alt=""></a>
+                                    <div class="item-descript">
+                                        <div class="item-tit">
+                                            <p>상품명</p>
+                                            <span class="fc-yellow">가격</span>
+                                        </div>
+                                        <p>상세설명</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -162,6 +352,26 @@ try {
                 'sitekey' : 'your_site_key'
             });
         };
+
+        $(function(){
+            $("#type1").click(function (){
+                $("#typeA").show();
+                $("#typeB").hide();
+                $("#typeC").hide();
+            });
+            $("#type2").click(function (){
+                $("#typeA").hide();
+                $("#typeB").show();
+                $("#typeC").hide();
+            });
+            $("#type3").click(function (){
+                $("#typeb").hide();
+                $("#typeB").hide();
+                $("#typeC").show();
+            });
+        })
+
+
     </script>
 </div>
 </body>
