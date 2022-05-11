@@ -41,33 +41,33 @@ try {
         if ($cnt > 0) {
             $arrRtn['code'] = 501;
             $arrRtn['msg']  = "이미 가입된 계정입니다.\n해당 계정으로 로그인 혹은 다른 이메일로 회원 가입을 진행해 주세요.";
-            alertBack("이미 가입된 계정입니다.");
+            alertReplace("이미 가입된 계정입니다.", '/signup/index.php');
             exit;
         }
     }
-        //변수 체크
-        $sql  = " insert into  members
-                (m_sns_type, m_sns_id, m_ip, m_enter_datetime)
-            VALUES
-                ('{$m_sns_type}','{$m_sns_id}','{$ip}', now())";
-        //p($sql);
-        $result = mysqli_query($_mysqli, $sql);
-        if (!$result) {
-            $arrRtn['code'] = 502;
-            echo 502;
-            echo $sql;
-            exit;
-        }
+    //변수 체크
+    $sql = " insert into  members
+            (m_sns_type, m_sns_id, m_ip, m_enter_datetime)
+        VALUES
+            ('{$m_sns_type}','{$m_sns_id}','{$ip}', now())";
+    //p($sql);
+    $result = mysqli_query($_mysqli, $sql);
+    if (!$result) {
+        $arrRtn['code'] = 502;
+        echo 502;
+        echo $sql;
+        exit;
+    }
 
-        $pw         = password_hash($m_sns_type, PASSWORD_DEFAULT);
+    $pw = password_hash($m_sns_type, PASSWORD_DEFAULT);
 
-        $_querystring   = base64_encode("m_sns_id={$m_sns_id}");;
-        $_auth_url  = "/signup/join_07.php?q=". $_querystring;
+    $_querystring = base64_encode("m_sns_id={$m_sns_id}");;
+    $_auth_url = "/signup/join_07.php?q=" . $_querystring;
 
-       //성공
-       $arrRtn['code'] = 200;
-       $arrRtn['id'] = $m_sns_id;
-       $arrRtn['msg']  = "이메일 전송 성공";
+    //성공
+    $arrRtn['code'] = 200;
+    $arrRtn['id'] = $m_sns_id;
+    $arrRtn['msg'] = "이메일 전송 성공";
 
 
     
@@ -81,5 +81,5 @@ try {
     $arrRtn['msg']  = $e->getMessage();
 
 } finally {
-    header('Location:'.$_auth_url);
+    locationReplace($_auth_url);
 }
