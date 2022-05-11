@@ -35,7 +35,7 @@ switch ($_url_f3) {
 <div class="category inner">
     <ul>
         <li class="<?=$_liClass6;?>"><a href="/myPage/myaccount.php">MY ACCOUNT</a></li>
-        <li class="<?=$_liClass7;?>"><a href="/myPage/contactus.php">1 : 1 HISTORY</a></li>
+        <li class="<?=$_liClass7;?>"><a href="/myPage/contactus_history.php">1 : 1 HISTORY</a></li>
         <li class="<?=$_liClass8;?>"><a href="/myPage/cash_history.php">CASH HISTORY</a></li>
         <li class="<?=$_liClass9;?>"><a href="/myPage/fp_history.php">FP HISTORY</a></li>
         <li class="<?=$_liClass10;?>"><a href="/myPage/howtoplay.php">HOW TO PLAY</a></li>
