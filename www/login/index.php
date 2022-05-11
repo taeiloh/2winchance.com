@@ -99,7 +99,7 @@ try {
 
         console.log(FormData);
         $.ajax({
-            url: "login_Proc.php",
+            url: "login_proc.php",
             type: "POST",
             data: formData,
             contentType: false,
