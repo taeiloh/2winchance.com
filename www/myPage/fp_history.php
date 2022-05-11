@@ -124,7 +124,7 @@ try{
                         <tr>
                             <td class="Fgray">{$regdate}</td>
                             <td>{$title}</td>
-                            <td>{$fp}</td>
+                            <td>+ {$fp}</td>
                             <td>{$balance}</td>
                         </tr>
 TR;

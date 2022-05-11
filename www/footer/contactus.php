@@ -1,6 +1,8 @@
 <?php
 require_once __DIR__ .'/../_inc/config.php';
-
+$idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 시퀀스
+$id=!empty($_SESSION['_se_id']) ? $_SESSION['_se_id'] : "";        // 세션 아이디
+$name=!empty($_SESSION['_se_name']) ? $_SESSION['_se_name'] : "";    // 세션 닉네임
 ?>
 <!doctype html>
 <html lang="ko">
@@ -68,7 +70,7 @@ require_once __DIR__ .'/../_inc/config.php';
                         </div>
                         <div>
                             <h4>유저 이름</h4>
-                            <p class="fc-blue">정글못해먹겐네</p>
+                            <p class="fc-blue"><?=$name?></p>
                         </div>
                         <div>
                             <h4>E-mail</h4>
@@ -166,7 +168,7 @@ require_once __DIR__ .'/../_inc/config.php';
                     console.log(data);
                     if (data.code == 200) {
                         alert("등록되었습니다.");
-                        location.href = "contactus.php";
+                        location.href = "../myPage/contactus_history.php";
                     }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {

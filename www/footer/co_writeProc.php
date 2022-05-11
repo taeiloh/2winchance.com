@@ -1,5 +1,8 @@
 <?php
 include_once __DIR__ .'/../_inc/config.php';
+$idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 시퀀스
+$id=!empty($_SESSION['_se_id']) ? $_SESSION['_se_id'] : "";        // 세션 아이디
+$name=!empty($_SESSION['_se_name']) ? $_SESSION['_se_name'] : "";    // 세션 닉네임
 
 $arrRtn     = array(
     'code'  => 500,
@@ -28,7 +31,7 @@ try {
 
 
     //변수정리
-    //$ip         = $_SERVER['REMOTE_ADDR'];
+    $ip         = $_SERVER['REMOTE_ADDR'];
     $thread     = 1000;
     $nowdate    = date('Y-m-d-h-i-s');
     //DB 변수
@@ -41,9 +44,9 @@ try {
 
     $query="
         INSERT INTO contactus
-            (cu_topic, cu_mail, cu_subject, cu_message, cu_response ,cu_req_date, cu_response_id,cu_status)
+            (cu_u_idx, cu_topic, cu_mail, cu_subject, cu_message, cu_response ,cu_req_date, cu_response_id,cu_status)
         VALUES
-            ('{$cu_topic}', '{$cu_mail}', '{$cu_subject}', '{$cu_message}', '', NOW(), '{$cu_response_id}', 1 )
+            ('{$idx}','{$cu_topic}', '{$cu_mail}', '{$cu_subject}', '{$cu_message}', '', NOW(), '{$cu_response_id}', 1 )
     
     ";
 

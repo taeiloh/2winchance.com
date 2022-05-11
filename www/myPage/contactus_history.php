@@ -112,7 +112,7 @@ try{
                         <tbody>
                         <?php
                             if($total_count > 0){
-                                $i = 0;
+                                $i = -1;
                                 while ($dbCu = $result->fetch_assoc()) {
                                     $cu_seq  = empty(!$dbCu['cu_idx']) ? $dbCu['cu_idx'] : '';
                                     $cu_date = empty(!$dbCu['regdate']) ? $dbCu['regdate'] : '';

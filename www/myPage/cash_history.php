@@ -30,7 +30,7 @@ try {
     $query  = "
         select 
               dh_idx, DATE_FORMAT(dh_req_date,'%Y-%m-%d %h:%i:%s') AS regdate, dh_content,
-               dh_condition, dh_amount, dh_balance
+               dh_condition, dh_amount, dh_balance, dh_pay_key
         from deposit_history 
         WHERE dh_u_idx = '{$idx}' 
         order by dh_idx desc 
@@ -121,7 +121,7 @@ try {
                             while ($dbgold = $result->fetch_assoc()) {
                                 $title = empty(!$dbgold['dh_content']) ? $dbgold['dh_content'] : '';
                                 $regdate = empty(!$dbgold['regdate']) ? $dbgold['regdate'] : '';
-                                $tid = empty(!$dbgold['dh_condition']) ? $dbgold['dh_condition'] : '';
+                                $tid = empty(!$dbgold['dh_pay_key']) ? $dbgold['dh_pay_key'] : '';
                                 $amount = empty(!$dbgold['dh_amount']) ? $dbgold['dh_amount'] : '';
                                 $balance = empty(!$dbgold['dh_balance']) ? $dbgold['dh_balance'] : '';
                                 $i++;
@@ -130,9 +130,9 @@ try {
                         <tr>
                             <td class="Fgray">{$regdate}</td>
                             <td>{$title}</td>
-                            <td></td>
-                            <td></td>
                             <td>{$tid}</td>
+                            <td>2winchance</td>
+                            <td>-</td>
                             <td>{$amount}</td>
                             <td>{$balance}</td>
                         </tr>
