@@ -4,14 +4,22 @@
     <?php
     //head
     require_once __DIR__ .'/../common/head.php';
+
     ?>
 </head>
 <body>
 <script>
 $(function(){
-    opener.parent.location='join_03.php';
-    window.close();
+
+    var f= document.forms.popupForm;
+    opener.name = "join_02.php";
+    f.target = opener.name;
+    f.submit();
+    self.close();
 })
 </script>
+<form name="popupForm" action="join_03.php" method="post">
+    <input type="text" name="resultCode" value="<?=$_REQUEST["resultCode"]?>">
+</form>
 </body>
 </html>

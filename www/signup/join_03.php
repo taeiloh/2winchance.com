@@ -5,12 +5,19 @@ require_once __DIR__ .'/../_inc/config.php';
 
 $m_sns_type       = !empty($_POST['m_sns_type'])           ? strtoupper($_POST['m_sns_type'])         : '';
 $m_sns_id       = !empty($_POST['m_sns_id'])           ? strtoupper($_POST['m_sns_id'])         : '';
+$resultCode       = !empty($_POST['resultCode'])           ? $_POST['resultCode']        : '';
+
+if($m_sns_id=="" and $resultCode==""){
+    alertBack("잘 못 된 접근 입니다.");
+}
 
 if($m_sns_id!=""){
     $action="sns_insert_proc.php";
 }else{
     $action="join_04.php";
 }
+
+
 
 
 try {

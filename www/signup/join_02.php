@@ -54,7 +54,7 @@ $flgFixedUser = 'N';           // 특정사용자 고정시 Y
     <input type="hidden" name="directAgency" value="">
 
     <input type="hidden" name="successUrl" value="http://<?=$_SERVER['SERVER_NAME']?>/signup/success.php">
-    <input type="hidden" name="failUrl" value="http://<?=$_SERVER['SERVER_NAME']?>/signup/failUrl.php">
+    <input type="hidden" name="failUrl" value="http://<?=$_SERVER['SERVER_NAME']?>/signup/success.php">
     <!-- successUrl/failUrl 은 분리하여도 됩니다. !-->
 
 </form>
