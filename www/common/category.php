@@ -16,7 +16,7 @@ switch ($_url_f3) {
     case 'myaccount.php':
         $_liClass6  = 'active';
         break;
-    case 'contactus.php':
+    case 'contactus_history.php':
         $_liClass7  = 'active';
         break;
     case 'cash_history.php';
@@ -27,6 +27,9 @@ switch ($_url_f3) {
         break;
     case 'howtoplay.php':
         $_liClass10  = 'active';
+        break;
+    case 'contactus.php':
+        $_liClass11  = 'active';
         break;
     default:
         break;

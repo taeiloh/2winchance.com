@@ -26,7 +26,7 @@ try {
         SELECT
             nt_subject, DATE_FORMAT(nt_date, '%Y.%m.%d') AS regdate, nt_content
         FROM notice
-        WHERE 1
+        WHERE 1=1
         ORDER BY nt_date DESC
         LIMIT {$from_record}, {$rows}
     ";
