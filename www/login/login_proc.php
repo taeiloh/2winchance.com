@@ -50,6 +50,7 @@ try{
             $_SESSION['_se_id']         = $_dbAdmins['m_id'];
             $_SESSION['_se_name']       = $_dbAdmins['m_name'];
             $_SESSION['_se_deposit']       = $_dbAdmins['m_deposit'];
+            $_SESSION['_se_fp']         = $_dbAdmins['m_fp_balance'];
             //성공
             $arrRtn['code']    = 200;
             $arrRtn['msg']     = "로그인 성공하였습니다";

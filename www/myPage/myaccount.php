@@ -5,7 +5,28 @@ $idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 �
 $id=!empty($_SESSION['_se_id']) ? $_SESSION['_se_id'] : "";        // 세션 아이디
 $name=!empty($_SESSION['_se_name']) ? $_SESSION['_se_name'] : "";    // 세션 닉네임
 $deposit=!empty($_SESSION['_se_deposit']) ? $_SESSION['_se_deposit'] : 0;    // 세션 포인트
-$fp=!empty($_SESSION['m_fp_balance']) ? $_SESSION['m_fp_balance'] : 0; // fantasy-point 잔액
+$fp=!empty($_SESSION['_se_fp']) ? $_SESSION['_se_fp'] : 0; // fantasy-point 잔액
+
+try {
+
+    $sql = "select count(*) from contactus where 1=1 and cu_u_idx = '{$idx}'";
+    $tresult = mysqli_query($_mysqli, $sql);
+    $row1   = mysqli_fetch_row($tresult);
+    $total_count = $row1[0]; //전체갯수
+
+    $query = "
+        SELECT *
+        FROM contactus
+        WHERE 1 and cu_u_idx ='{$idx}'
+    ";
+
+    $result = $_mysqli->query($query);
+
+
+}catch (Exception $e) {
+    p($e);
+}
+
 
 ?>
 <!doctype html>
@@ -74,7 +95,7 @@ $fp=!empty($_SESSION['m_fp_balance']) ? $_SESSION['m_fp_balance'] : 0; // fantas
                             <ul>
                                 <li><p>COIN</p><span class="fc-yellow coin"><?=$deposit?></span></li>
                                 <li><p>Fantasy Point</p><span class="fp"><?=$fp?></span></li>
-                                <li><p>문의내역</p><span class="count">6</span></li>
+                                <li><p>문의내역</p><span class="count"><?=$total_count?></span></li>
                             </ul>
                         </div>
                     </div>
