@@ -17,6 +17,15 @@ $_liClass3  = '';
 $_liClass4  = '';
 $_liClass5  = '';
 
+
+//마이페이지 변수
+$_liClass6  = '';
+$_liClass7  = '';
+$_liClass8  = '';
+$_liClass9  = '';
+$_liClass10  = '';
+
+
 $_url   =   $_SERVER['REQUEST_URI'];
 $_url_f     = explode('/',$_url);
 $_url_f3    = explode('?', $_url_f[1])[0];
@@ -40,6 +49,30 @@ switch ($_url_f3) {
     default:
         break;
 }
+switch ($_url_f[2]) {
+    case 'lobby':
+        $_liClass1  = 'active';
+        break;
+    case 'lineups';
+        $_liClass2  = 'active';
+        break;
+    case 'contests':
+        $_liClass3  = 'active';
+        break;
+    case 'store':
+        $_liClass4  = 'active';
+        break;
+    case 'event':
+        $_liClass5  = 'active';
+        break;
+    default:
+        break;
+}
+
+
+
+
+
 ?>
 <div class="inner">
     <h1 class="logo"><a href="/main/"><img src="/images/logo.png" alt="METAGAMES"></a></h1>
@@ -86,7 +119,7 @@ switch ($_url_f3) {
                       <button type="button" class="charge-btn">충전</button>
                   </div>
                   <div class="mypage">
-                      <button type="button" class="mypage-btn">마이페이지 <img src="/images/ico_arrow_blue.svg" alt="마이페이지 메뉴 펼치기"></button>
+                      <button type="button" class="mypage-btn" onclick="location.href='/myPage/myaccount.php'">마이페이지 <img src="/images/ico_arrow_blue.svg" alt="마이페이지 메뉴 펼치기"></button>
                       <ul class="mypage-menu">
                           <li><a href="javascript:void(0)">MY ACCOUNT</a></li>
                           <li><a href="javascript:void(0)">1 : 1 TICKET</a></li>

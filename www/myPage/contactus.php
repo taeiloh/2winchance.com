@@ -29,15 +29,19 @@ require_once __DIR__ .'/../_inc/config.php';
         <div id="content" class="myqna">
             <!--sec-01-->
             <section class="sec sec-01 T0 myAcct">
-                <div class="category inner">
-                    <ul>
-                        <li><a href="javascript:void(0)">MY ACCOUNT</a></li>
-                        <li class="active"><a href="javascript:void(0)">1 : 1 HISTORY</a></li>
-                        <li><a href="javascript:void(0)">CASH HISTORY</a></li>
-                        <li><a href="javascript:void(0)">FP HISTORY</a></li>
-                        <li><a href="javascript:void(0)">HOW TO PLAY</a></li>
-                    </ul>
-                </div>
+                <?php
+                //header
+                require_once __DIR__ . '/../common/category.php';
+                ?>
+<!--                <div class="category inner">-->
+<!--                    <ul>-->
+<!--                        <li><a href="javascript:void(0)">MY ACCOUNT</a></li>-->
+<!--                        <li class="active"><a href="javascript:void(0)">1 : 1 HISTORY</a></li>-->
+<!--                        <li><a href="javascript:void(0)">CASH HISTORY</a></li>-->
+<!--                        <li><a href="javascript:void(0)">FP HISTORY</a></li>-->
+<!--                        <li><a href="javascript:void(0)">HOW TO PLAY</a></li>-->
+<!--                    </ul>-->
+<!--                </div>-->
                 <div class="contents-cont inner qna-wrap">
                     <div class="footer-inner">
                         <h3 class="footer-sub-title">문의하기</h3>

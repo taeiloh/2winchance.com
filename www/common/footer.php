@@ -33,7 +33,7 @@ switch ($_url_f3) {
 ?>
 <div class="inner">
     <ul class="footer-list">
-        <li class="<?=$_liClass1;?>"><a href="/footer/companyinfo.php">회사정보</a></li>
+<!--        <li class="--><?//=$_liClass1;?><!--"><a href="/footer/companyinfo.php">회사정보</a></li>-->
         <li class="<?=$_liClass2;?>"><a href="/footer/notice_list.php">공지사항</a></li>
         <li class="<?=$_liClass3;?>"><a href="/footer/contactus.php">제휴문의</a></li>
         <li class="<?=$_liClass4;?>"><a href="/footer/terms_of_service.php">이용약관</a></li>

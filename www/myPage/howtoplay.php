@@ -26,18 +26,22 @@ require_once __DIR__ .'/../_inc/config.php';
     <!--container-->
     <div id="container">
         <!--content-->
-        <div id="content">
+        <div id="content" class="myqna">
             <!--sec-01-->
-            <section class="sec sec-01 T0 howto">
-                <div class="category inner">
-                    <ul>
-                        <li class="active"><a href="javascript:void(0)">HOW TO PLAY</a></li>
-                        <li><a href="javascript:void(0)">리그 오브 레전드</a></li>
-                        <li><a href="javascript:void(0)">배틀그라운드</a></li>
-                        <li><a href="javascript:void(0)">DOTA2</a></li>
-                        <li><a href="javascript:void(0)">CS:GO</a></li>
-                    </ul>
-                </div>
+            <section class="sec sec-01 T0 myAcct">
+                <?php
+                //header
+                require_once __DIR__ . '/../common/category.php';
+                ?>
+<!--                <div class="category inner">-->
+<!--                    <ul>-->
+<!--                        <li class="active"><a href="javascript:void(0)">HOW TO PLAY</a></li>-->
+<!--                        <li><a href="javascript:void(0)">리그 오브 레전드</a></li>-->
+<!--                        <li><a href="javascript:void(0)">배틀그라운드</a></li>-->
+<!--                        <li><a href="javascript:void(0)">DOTA2</a></li>-->
+<!--                        <li><a href="javascript:void(0)">CS:GO</a></li>-->
+<!--                    </ul>-->
+<!--                </div>-->
                 <div class="mypage-box inner">
 
                 </div>
