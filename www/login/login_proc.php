@@ -49,7 +49,7 @@ try{
             $_SESSION['_se_idx']        = $_dbAdmins['m_idx'];
             $_SESSION['_se_id']         = $_dbAdmins['m_id'];
             $_SESSION['_se_name']       = $_dbAdmins['m_name'];
-
+            $_SESSION['_se_deposit']       = $_dbAdmins['m_deposit'];
             //성공
             $arrRtn['code']    = 200;
             $arrRtn['msg']     = "로그인 성공하였습니다";

@@ -8,6 +8,7 @@ include_once __DIR__.'/../_inc/config.php';
 $idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 시퀀스
 $id=!empty($_SESSION['_se_id']) ? $_SESSION['_se_id'] : "";        // 세션 아이디
 $name=!empty($_SESSION['_se_name']) ? $_SESSION['_se_name'] : "";    // 세션 닉네임
+$deposit=!empty($_SESSION['_se_deposit']) ? $_SESSION['_se_deposit'] : 0;    // 세션 포인트
 
 //변수 정리
 $_liClass1  = '';
@@ -81,7 +82,7 @@ switch ($_url_f3) {
               <div class="user-info">
                   <p class="nickname"><?=$name?></p>
                   <div class="charge">
-                      <p>695,165,300</p>
+                      <p><?=number_format($deposit)?></p>
                       <button type="button" class="charge-btn">충전</button>
                   </div>
                   <div class="mypage">

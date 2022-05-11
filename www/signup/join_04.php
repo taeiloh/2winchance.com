@@ -90,11 +90,6 @@ try {
             $("#m_id").focus();
             return false;
         }
-        if (!validateEmail($("#m_id").val())) {
-            alert("이메일 형식에 맞게 입력해 주세요.");
-            $("#m_id").focus();
-            return false;
-        }
 
         if ($.trim($("#m_pw").val()) == "") {
             alert("비밀번호를 입력해 주세요.");
