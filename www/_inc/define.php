@@ -33,7 +33,7 @@ $config['isOffice']     = in_array( $_SERVER['REMOTE_ADDR'], $config['ip']['offi
 if ( $config['isDev'] ) {
     define('DBHOST',        'localhost');
     define('DBUSERNAME',    'root');
-    define('DBPASSWD',      'root');
+    define('DBPASSWD',      '');
     define('DBNAME',        'db2winchance_web');
     define('WWW',           '//www.2winchance.com');
     define('UPLOAD',        '/uploads');
