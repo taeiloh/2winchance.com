@@ -123,16 +123,12 @@ try {
                             </p>
                         </div>
                     </div>
-                    <div class="captcha mT60">
-                        <form action="?" method="POST">
-                            <div id="html_element"></div>
-                            <!--                                    <br>-->
-                            <!--                                    <input type="submit" value="Submit">-->
-                        </form>
-                        <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-                                async defer>
-                        </script>
-                    </div>
+
+                    <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
+
+
+                    <div id="g-recaptcha"></div>
+
                 </div>
             </div>
         </section>
@@ -144,11 +140,30 @@ try {
     </footer>
 </div>
 <script type="text/javascript">
+
+    //	화면 시작 시 g-recaptcha 생성
     var onloadCallback = function() {
-        grecaptcha.render('html_element', {
-            'sitekey' : 'your_site_key'
+        grecaptcha.render('g-recaptcha', {
+            'sitekey' : '6Ld5Jt8fAAAAAPS-N8YrgXgCx5gOAXgxoud9sPQb',
+            'callback' : verifyCallback,
+            'expired-callback' : expiredCallback,
         });
     };
+
+    //	인증 성공 시
+    var verifyCallback = function(response) {
+        location.href="join_02.php";
+    };
+
+    //	인증 만료 시
+    var expiredCallback = function(response) {
+        alert("인증이 만료 되었습니다.");
+    }
+
+    //	g-recaptcha 리셋
+    var resetCallback = function() {
+        grecaptcha.reset();
+    }
 </script>
 </body>
 </html>
