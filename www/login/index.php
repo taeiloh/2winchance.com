@@ -48,7 +48,7 @@ try {
                                 <p class="invalid-feedback">8자리 이상의 영문,숫자,특수문자 조합의 숫자를 입력하세요.</p>
                             </div>
                             <div class="find-wrap">
-                                <a href="javascript:void(0)" class="fc-blue">회원가입</a>
+                                <a href="javascript:void(0)" class="fc-blue" onclick="location.href='/signup/join_02.php'">회원가입</a>
                                 <a href="javascript:void(0)">아이디찾기</a>
                                 <a href="javascript:void(0)">비밀번호찾기</a>
                             </div>

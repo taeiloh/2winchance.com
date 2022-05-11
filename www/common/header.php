@@ -66,7 +66,7 @@ switch ($_url_f3) {
         ?>
         <div class="login-before">
             <div class="btn-group">
-                <button type="button" id="btnTopSignUp" class="join-btn" onclick="location.href='/signup/index.php'">회원가입</button>
+                <button type="button" id="btnTopSignUp" class="join-btn" onclick="location.href='/signup/join_02.php'">회원가입</button>
                 <button type="button" id="btnTopLogin" class="login-btn" onclick="location.href='/login/index.php'">로그인</button>
             </div>
             <a href="javascript:void(0)">HOW TO PLAY <img src="/images/ico_triangle.svg" alt="HOW TO PLAY"></a>
