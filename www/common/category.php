@@ -28,9 +28,6 @@ switch ($_url_f3) {
     case 'howtoplay.php':
         $_liClass10  = 'active';
         break;
-    case 'contactus.php':
-        $_liClass11  = 'active';
-        break;
     default:
         break;
 }

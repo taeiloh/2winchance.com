@@ -20,7 +20,7 @@ try{
     }
 
     //페이징
-    $sql = "select count(*) from contactus where 1=1";
+    $sql = "select count(*) from contactus where 1=1 and cu_u_idx='{$idx}'";
     $tresult = mysqli_query($_mysqli, $sql);
     $row1   = mysqli_fetch_row($tresult);
     $total_count = $row1[0]; //전체갯수
@@ -34,7 +34,7 @@ try{
         SELECT
             cu_idx, DATE_FORMAT(cu_req_date, '%Y-%m-%d %h:%i:%s') AS regdate, cu_subject, cu_status
         FROM contactus
-        WHERE 1=1 
+        WHERE 1=1 and cu_u_idx='{$idx}'
         ORDER BY cu_req_date DESC
         LIMIT {$from_record}, {$rows}
     ";

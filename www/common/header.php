@@ -18,13 +18,6 @@ $_liClass4  = '';
 $_liClass5  = '';
 
 
-//마이페이지 변수
-$_liClass6  = '';
-$_liClass7  = '';
-$_liClass8  = '';
-$_liClass9  = '';
-$_liClass10  = '';
-
 
 $_url   =   $_SERVER['REQUEST_URI'];
 $_url_f     = explode('/',$_url);
@@ -49,29 +42,6 @@ switch ($_url_f3) {
     default:
         break;
 }
-switch ($_url_f[2]) {
-    case 'lobby':
-        $_liClass1  = 'active';
-        break;
-    case 'lineups';
-        $_liClass2  = 'active';
-        break;
-    case 'contests':
-        $_liClass3  = 'active';
-        break;
-    case 'store':
-        $_liClass4  = 'active';
-        break;
-    case 'event':
-        $_liClass5  = 'active';
-        break;
-    default:
-        break;
-}
-
-
-
-
 
 ?>
 <div class="inner">
@@ -102,7 +72,7 @@ switch ($_url_f[2]) {
                 <button type="button" id="btnTopSignUp" class="join-btn" onclick="location.href='/signup/index.php'">회원가입</button>
                 <button type="button" id="btnTopLogin" class="login-btn" onclick="location.href='/login/index.php'">로그인</button>
             </div>
-            <a href="javascript:void(0)">HOW TO PLAY <img src="/images/ico_triangle.svg" alt="HOW TO PLAY"></a>
+            <a href="/myPage/howtoplay.php">HOW TO PLAY <img src="/images/ico_triangle.svg" alt="HOW TO PLAY"></a>
         </div>
         <!--  로그인 전-->
         <?php
