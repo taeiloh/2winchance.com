@@ -157,6 +157,8 @@ try {
                 //console.log(json);return false;
                 if (json.code == 200) {
                     location.href="join_06.php"
+                }else{
+                    alert(json.msg);
                 }
             },
             beforeSend:function(){

@@ -46,7 +46,7 @@ try {
 
         $title          = '메타게임 회원가입 인증';
         $_querystring   = base64_encode("m_id={$db_id}&key={$pw}");;
-        $_auth_url  = "http://2winchance.com/signup/join_07.php?q=". $_querystring;
+        $_auth_url  = "http://d-www.2winchance.com//signup/join_07.php?q=". $_querystring;
 
         $html       ='<a href="'.$_auth_url.'" target="_blank">메타게임 회원가입 인증</a>';
 

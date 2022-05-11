@@ -29,6 +29,25 @@ $arrRtn     = array(
     'msg'   => ''
 );
 try {
+    $query  = "
+            SELECT COUNT(1) AS CNT FROM members
+            WHERE 1=1
+                AND m_name = '{$m_name}'
+        ";
+    //p($query);
+    $result = $_mysqli->query($query);
+    if ($result) {
+        $_arrMembers    = $result->fetch_array();
+        $cnt            = $_arrMembers['CNT'];
+
+        if ($cnt > 0) {
+            $arrRtn['code'] = 501;
+            $arrRtn['msg']  = "이미 가입된 닉네임입니다.";
+            //alertBack("이미 가입된 닉네임입니다.");
+            echo json_encode($arrRtn);
+            exit;
+        }
+    }
 
     if($m_id!="") {
         //변수 체크
