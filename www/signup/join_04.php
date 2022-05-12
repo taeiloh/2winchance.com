@@ -143,6 +143,8 @@ try {
                 if (json.code == 200) {
                     $("#m_idx").val(json.id);
                     $("#loginFrm").submit();
+                }else{
+                    alert(json.msg);
                 }
             },
             beforeSend:function(){
