@@ -89,7 +89,7 @@ try {
                         <li>
                             <h2>주력 이벤트</h2>
                             <div class="game-thumb" style="background-image: url('../images/thumb_event.png')">
-                                <a href="javascript:void(0)" class="game-info">
+                                <a href="/event/" class="game-info">
                                     <p class="game-title">
                                         부름 |<br/>
                                         2022 시즌 시네마틱
@@ -101,7 +101,7 @@ try {
                         <li>
                             <h2>새로운 소식</h2>
                             <div class="game-thumb" style="background-image: url('../images/thumb_news.png')">
-                                <a href="javascript:void(0)" class="game-info">
+                                <a href="/footer/notice_list.php" class="game-info">
                                     <p class="game-title">
                                         리그 오브 레전드<br/>
                                         3.0A 패치노트
@@ -113,7 +113,7 @@ try {
                         <li>
                             <h2>게임 방법</h2>
                             <div class="game-thumb" style="background-image: url('../images/thumb_method.png')">
-                                <a href="javascript:void(0)" class="game-info">
+                                <a href="/myPage/howtoplay.php" class="game-info">
                                     <p class="game-title">
                                         리그오브 레전드를<br/>
                                         시작하는 방법
