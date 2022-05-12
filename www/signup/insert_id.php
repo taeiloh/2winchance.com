@@ -43,6 +43,8 @@ try {
             $arrRtn['code'] = 501;
             $arrRtn['msg']  = "이미 가입된 계정입니다.\n해당 계정으로 로그인 혹은 다른 이메일로 회원 가입을 진행해 주세요.";
             //alertBack($msg);
+            echo json_encode($arrRtn);
+            exit;
         }
     }
 
@@ -56,8 +58,8 @@ try {
     $result = mysqli_query($_mysqli, $sql);
     if (!$result) {
         $arrRtn['code'] = 502;
-        echo 502;
-        echo $sql;
+        $arrRtn['msg']  = "에러 발생";
+        echo json_encode($arrRtn);
         exit;
     }
 
