@@ -66,6 +66,9 @@ try{
 <!--//head-->
 
 <body>
+<form id="contact" action="contactus_detail.php" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="cu_idx" id="cu_idx" value="">
+</form>
 <div id="wrap" class="sub">
     <!--header-->
     <header id="header">
@@ -126,10 +129,10 @@ try{
                                         $cu_status = '답변완료';
                                     }
                                     echo <<<TR
-                        <tr>
+                        <tr style="cursor: default;">
                             <td>{$no}</td>
                             <td class="Fgray">{$cu_date}</td>
-                            <td>{$cu_title}</td>
+                            <td><a style="width: 100%; cursor: pointer;" onclick="sel_List({$cu_seq})">{$cu_title}</a></td>
                             <td>{$cu_status}</td>
                         </tr>
 TR;
@@ -243,3 +246,9 @@ TR;
 </div>
 </body>
 </html>
+<script type="text/javascript">
+    function sel_List(seq){
+        $("#cu_idx").val(seq);
+        $("#contact").submit();
+    }
+</script>

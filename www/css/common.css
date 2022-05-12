@@ -269,6 +269,20 @@ ul.tabs li a{padding: .5rem;}
 .qna-btn-box > .pagination{justify-self: center;}
 .qna-btn-box > button{font-size: 2.5rem; width: 15rem;}
 
+/* 04_03_01 */
+.myqna .inquiry-wrap {width: 100%; border-top: 1px solid #707070;}
+.myqna .inquiry-wrap .inquiry-title {display: flex; align-items: center; justify-content: space-between; padding: 3rem 0rem; cursor: pointer; border-bottom: 1px dashed #fff;}
+.myqna .inquiry-wrap .inquiry-title > div{text-align: left; margin-right: 2rem;}
+.myqna .inquiry-wrap .inquiry-title p{font-size: 2rem; letter-spacing: 0.1rem; font-weight: 600;}
+.myqna .inquiry-wrap .inquiry-title span{font-weight: 600; margin-top: 2rem; display: inline-block; color:#cecece;}
+.myqna .board-box{width: 52rem;}
+.myqna .board-box .inquiry-title {display: block; padding: 3rem 0rem 2rem; border-bottom: none;}
+.myqna .txt-box{background: #3a3a3a; padding: 4rem 3rem; min-height: 25rem;}
+.myqna .txt-box p.inquiry-type{color: #1e8fff; margin-bottom: 3rem;}
+.myqna .answer-wrap{margin-top: 3rem;}
+.myqna .answer-wrap .inquiry-title p {font-size: 2rem; letter-spacing: 0.1rem;font-weight: 600;}
+
+
 /* 04_05 */
 .howto .category{justify-content: unset; }
 .howto .category ul{width: 50%; display: flex; align-items: center; justify-content: space-evenly;}
