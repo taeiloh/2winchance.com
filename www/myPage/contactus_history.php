@@ -122,11 +122,13 @@ try{
                                     $cu_seq  = empty(!$dbCu['cu_idx']) ? $dbCu['cu_idx'] : '';
                                     $cu_date = empty(!$dbCu['regdate']) ? $dbCu['regdate'] : '';
                                     $cu_title = empty(!$dbCu['cu_subject']) ? $dbCu['cu_subject'] : '';
-                                    $cu_status = empty(!$dbCu['cu_status']) ? $dbCu['cu_status'] : '대기중';
+                                    $cu_status = empty(!$dbCu['cu_status']) ? $dbCu['cu_status'] : 0;
                                     $i++;
                                     $no=$total_count-($i+($page-1)*$rows);
-                                    if($cu_status == 1){
-                                        $cu_status = '답변완료';
+                                    if ($cu_status == 0) {
+                                        $cu_status = '<span style="color: gold">대기중</span>';
+                                    }else if($cu_status == 1){
+                                        $cu_status = '<span style="color: #9f9f9f">상담완료</span>';
                                     }
                                     echo <<<TR
                         <tr style="cursor: default;">
