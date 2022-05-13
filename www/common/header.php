@@ -58,7 +58,13 @@ switch ($_url_f3) {
             </li>
             <li class="<?=$_liClass2;?>"><a href="/lineups/">LINEUPS</a></li>
             <li class="<?=$_liClass3;?>"><a href="/contests/">콘텐츠</a></li>
-            <li class="<?=$_liClass4;?>"><a href="/store/">스토어</a></li>
+            <li class="<?=$_liClass4;?>">
+                <a href="/store/">스토어</a>
+                <ul class="sub-menu">
+                    <li><a href="/store/">CASH</a></li>
+                    <li><a href="/store/item.php">ITEM</a></li>
+                </ul>
+            </li>
             <li class="<?=$_liClass5;?>"><a href="/event/">이벤트</a></li>
         </ul>
     </nav>

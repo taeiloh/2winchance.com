@@ -39,7 +39,7 @@ try {
             <!--sec-01-->
             <section class="sec sec-01 T0 ">
                 <div class="inner store_title">
-                    <h2>캐시 아이템</h2>
+                    <h2>캐시</h2>
                 </div>
                 <div class="contents-cont inner">
                     <div class="coin-charge">

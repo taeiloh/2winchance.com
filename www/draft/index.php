@@ -1,6 +1,24 @@
 <?php
 // config
 require_once __DIR__ .'/../_inc/config.php';
+
+// 파라미터
+$idx        = !empty($_GET['index'])        ? $_GET['index']        : 0;
+
+$query  = "
+    SELECT * FROM game
+          LEFT JOIN game_category
+          ON gc_idx = g_sport
+          WHERE 1=1
+            AND g_idx = {$idx}
+";
+$result = $_mysqli->query($query);
+if (!$result) {
+
+}
+$db = $result->fetch_assoc();
+p($db);
+$pos    = json_decode($db['gc_pos'], true);
 ?>
 <!doctype html>
 <html lang="ko">
@@ -9,6 +27,9 @@ require_once __DIR__ .'/../_inc/config.php';
     //head
     require_once __DIR__ .'/../common/head.php';
     ?>
+    <script src="http://dev.spo-bit.com/public_new/js/moment.js"></script>
+    <script src="http://dev.spo-bit.com/public_new/js/moment-timezone-with-data.js"></script>
+    <script type="text/javascript" src="http://dev.spo-bit.com/public/js/jquery.number.min.js"></script>
     <style>
         .wrap-loading{
             position: fixed;
@@ -34,6 +55,15 @@ require_once __DIR__ .'/../_inc/config.php';
         }
     </style>
     <script>
+        var what_category   = "pubg";
+        var count_time      = $("#game_date").attr('data-next-game');
+        var nextDate        = moment.tz(count_time, "GMT");
+        var total_salary    = parseInt($(".total_salary").text().replace(",", ""));
+        var total_fppg      = 0;
+        var avg_salary      = (50000 - total_salary) / 8;
+        var flex            = false;
+        var tab_draft       = $(".dp_tab_draft");
+
         function get_player_list() {
             // ajax
             var postData = {
@@ -56,6 +86,7 @@ require_once __DIR__ .'/../_inc/config.php';
                     });
 
                     $("#player_list").html(tr);
+                    init_add_player();
                 },
                 beforeSend:function(){
                     $(".wrap-loading").removeClass("display-none");
@@ -86,8 +117,8 @@ require_once __DIR__ .'/../_inc/config.php';
             }
             //
             var tr = '<tr class="pos_' + json[0] + ' ' + class_flex + ' pos_' + json[16] + '">';
-            tr += '<td class="center" style="width:65px;">' + json[1] + '</td>';
-            tr += '<td colspan="2" class="left player_info" style="cursor:pointer" data-category="' + json[15] + '" data-index="' + json[14] + '">';
+            tr += '<td>' + json[1] + '</td>';
+            tr += '<td style="cursor:pointer" data-category="' + json[15] + '" data-index="' + json[14] + '">';
             if (json[15] === 'mlb') {
                 tr += json[2] + ' ' + json[3];
                 name = json[11] + ' ' + json[12];
@@ -107,13 +138,13 @@ require_once __DIR__ .'/../_inc/config.php';
             }
             //
             tr += '</td>';
-            tr += '<td style="width:100px;">' + json[4] + '</td>';
-            tr += '<td style="width:75px;">' + json[5] + '</td>';
+            tr += '<td>' + json[4] + '</td>';
+            tr += '<td>' + json[5] + '</td>';
             /*tr += '<td>' + json[5] + '</td>';
             tr += '<td style="text-align:right">$</td>';*/
-            tr += '<td style="width:75px;">$ ' + json[6];
-            tr += '<td style="width:55px;">';
-            tr += '<img class="add_player" ';
+            tr += '<td>$ ' + json[6];
+            tr += '<td class="tR">';
+            tr += '<button class="btn-plus add_player" ';
             tr += 'data-category="' + json[15] + '" ';
             tr += 'data-flex="' + json[7] + '" ';
             tr += 'data-fppg="' + json[20] + '" ';
@@ -253,15 +284,372 @@ require_once __DIR__ .'/../_inc/config.php';
                 tr += 'data-dpg ="' + dpg + '" ';
                 tr += 'data-rpg ="' + rpg + '" ';
             }
-            tr += 'src="/public_new/img/ico_plus.png" />';
+            tr += '></button>';
             tr += '</td>';
             tr += '</tr>';
 
             return tr;
         }
 
+        function init_add_player() {
+            console.log("init_add_player");
+
+            var add_player = $(".add_player");
+
+            //왼쪽 선수 리스트에서 + 클릭 시
+            add_player.on("click", function () {
+                console.log("add_player click");
+
+                var data_category   = $(this).attr('data-category');
+                var data_flex       = $(this).attr('data-flex');
+                var data_fppg       = $(this).attr('data-fppg');
+                var data_game       = $(this).attr('data-game');
+                var data_img_s      = $(this).attr('data-img_s');
+                var data_img_l      = $(this).attr('data-img_l');
+                var data_index      = $(this).attr('data-index');
+                var data_name       = $(this).attr('data-name');
+                var data_pos        = $(this).attr('data-pos');
+                var data_pos2       = $(this).attr('data-pos2');
+                var data_salary     = $(this).attr('data-salary');
+                var data_team       = $(this).attr('data-team');
+                if (data_category == "nba" || data_category == "nba_allstar") {
+                    var data_mpg        = $(this).attr('data-mpg');
+                    var data_ppg        = $(this).attr('data-ppg');
+                    var data_rpg        = $(this).attr('data-rpg');
+                    var data_apg        = $(this).attr('data-apg');
+                    var data_bpg        = $(this).attr('data-bpg');
+                    var data_gg         = "";
+                    var data_ag         = "";
+                    var data_sg         = "";
+                    var data_crsa       = "";
+                    var data_inta       = "";
+                    var data_dbpg       = "";
+                    var data_kpg        = "";
+                    var data_hkpg       = "";
+                    var data_dpg        = "";
+                    //var data_rpg        = "";
+
+                } else if (data_category == "wc" || data_category == "epl" || data_category == "tsl") {
+                    var data_mpg        = "";
+                    var data_ppg        = "";
+                    var data_rpg        = "";
+                    var data_apg        = "";
+                    var data_bpg        = "";
+                    var data_gg         = $(this).attr('data-gg');
+                    var data_ag         = $(this).attr('data-ag');
+                    var data_sg         = $(this).attr('data-sg');
+                    var data_crsa       = $(this).attr('data-crsa');
+                    var data_inta       = $(this).attr('data-inta');
+                    var data_dbpg       = "";
+                    var data_kpg        = "";
+                    var data_hkpg       = "";
+                    var data_dpg        = "";
+                    //var data_rpg        = "";
+
+                } else if (data_category == "pubg") {
+                    var data_mpg        = "";
+                    var data_ppg        = "";
+                    //var data_rpg        = "";
+                    var data_apg        = "";
+                    var data_bpg        = "";
+                    var data_gg         = "";
+                    var data_ag         = "";
+                    var data_sg         = "";
+                    var data_crsa       = "";
+                    var data_inta       = "";
+                    var data_dbpg       = $(this).attr('data-dbpg');
+                    var data_kpg        = $(this).attr('data-kpg');
+                    var data_hkpg       = $(this).attr('data-hkpg');
+                    var data_dpg        = $(this).attr('data-dpg');
+                    var data_rpg        = $(this).attr('data-rpg');
+                }
+
+                //농구 G, F 포지션 예외 처리
+                //console.log($(".dp_tab_draft").children(".active").attr('data-sort'));
+                if (data_category == "nba" || data_category == "nba_allstar") {
+                    if ($(".dp_tab_draft").children(".active").attr('data-sort') == 'G' || $(".dp_tab_draft").children(".active").attr('data-sort') == 'F') {
+                        data_pos    = data_pos2;
+                    } else if ($(".dp_tab_draft").children(".active").attr('data-sort') == 'UTIL') {
+                        data_pos    = "UTIL";
+                    }
+
+                } else if (data_category == "wc" || data_category == "epl" || data_category == "tsl") {
+                    if ($(".dp_tab_draft").children(".active").attr('data-sort') == 'UTIL') {
+                        data_pos    = "UTIL";
+                    }
+
+                } else if (data_category == "pubg") {
+                    if ($(".dp_tab_draft").children(".active").attr('data-sort') == 'G' || $(".dp_tab_draft").children(".active").attr('data-sort') == 'F') {
+                        data_pos    = data_pos2;
+                    } else if ($(".dp_tab_draft").children(".active").attr('data-sort') == 'UTIL') {
+                        data_pos    = "UTIL";
+                    }
+                }
+                console.log("data_pos: ", data_pos);
+
+                //선수 추가
+                addPlayer(data_pos, data_game, data_index, data_salary, data_name, data_team, data_flex, data_category, data_img_s, data_img_l, data_fppg, data_mpg, data_rpg, data_ppg, data_apg, data_bpg, data_gg, data_ag, data_sg, data_crsa, data_inta, data_dbpg, data_kpg, data_hkpg, data_dpg);
+            });
+        }
+
+        function addPlayer(pos, game_id, id, salary, name, team, data_flex, category, img_s, img_l, fppg, data_mpg, data_rpg, data_ppg, data_apg, data_bpg, data_gg, data_ag, data_sg, data_crsa, data_inta, data_dbpg, data_kpg, data_hkpg, data_dpg) {
+            console.log("addPlayer");
+
+            var cnt = 0;
+
+            if (total_salary - salary < 0) {
+                alert("Salary exceeded the standard.");
+                total_salary    = parseInt(total_salary);
+                total_fppg      = parseFloat(total_fppg);
+                avg_salary      = parseInt(avg_salary);
+                return;
+
+            } else {
+                if (flex === true) {
+                    pos = 'FLEX';
+                    //
+                    if (chk_flex(data_flex, "player_name", name) === false) {
+                        alert('You have already selected that position. (001)');
+                        return false;
+                    }
+                }
+
+                //2018-01-18 진경수 (선수 중복 걸러내기 추가)
+                var overlap = false;
+                $(".del-player").each(function () {
+                    if ($(this).attr("data-del-index") == id) {
+                        overlap = true;
+                    }
+                });
+                if (overlap === true) {
+                    alert('You have already selected that position. (002)');
+                    return;
+                }
+
+                if (input_node(pos, "player_name", name) === true) {
+                    //선택된 선수 개수 찾기
+                    cnt = $(".del-player").length + 1;
+
+                    total_salary    = total_salary - salary;
+                    total_fppg      = total_fppg + parseFloat(fppg);
+                    avg_salary      = (50000 - total_salary) / cnt;
+
+                } else {
+                    alert('You have already selected that position. (003)');
+                    return;
+                }
+
+                //선수 이미지를 위해서 name 파싱
+                if (category == "nba" || category == "nba_allstar") {
+                    name = name.replace(" ", "+");
+                    input_node(pos, 'player_img', '<img src="http://dev.spo-bit.com/public/images/player_images/nba/'+ name +'.png" width="50" alt="" onerror=\'this.src="/public/images/player_images/nba/default.png"\' />');
+
+                } else if (category == "wc" || category == "epl" || category == "tsl") {
+                    name = name.replace(" ", "+");
+                    input_node(pos, 'player_img', '<img src="http://dev.spo-bit.com/public/images/player_images/soc/'+ category + img_s +'" width="50" alt="" onerror=\'this.src="/public/images/player_images/soc/'+ category +'/img_s/home_s.png"\' />');
+
+                } else if (category == "pubg") {
+                    name = name.split(" ");
+                    input_node(pos, 'player_img', '<img src="http://dev.spo-bit.com/public/images/player_images/pubg/'+ name[1] +'.jpg" alt="" onerror=\'this.src="http://dev.spo-bit.com//public/images/player_images/pubg/default.png"\' style="width: 80px;" />');
+
+                }
+
+                input_node(pos, 'team_name', team);
+                input_node(pos, 'point', '0');
+                input_node(pos, 'salary', '$' + $.number(salary));
+                input_node(pos, 'del', '<button class="btn-delete" data-fppg="'+ fppg +'" data-del-index ="' + id + '" data-game ="' + game_id + '" onclick="delPlayer(\''+ category +'\', \'' + id + '\');">삭제</button>');
+                //2018-05-23 진경수 (GG, AG, SG, CrsA, IntA 추가)
+                input_node(pos, 'p_fppg', fppg);
+                if (category == "nba" || category == "nba_allstar") {
+                    input_node(pos, 'p_mpg', data_mpg);
+                    input_node(pos, 'p_ppg', data_ppg);
+                    input_node(pos, 'p_rpg', data_rpg);
+                    input_node(pos, 'p_apg', data_apg);
+                    input_node(pos, 'p_bpg', data_bpg);
+
+                } else if (category == "wc" || category == "epl" || category == "tsl") {
+                    input_node(pos, 'p_gg', data_gg);
+                    input_node(pos, 'p_ag', data_ag);
+                    input_node(pos, 'p_sg', data_sg);
+                    input_node(pos, 'p_crsa', data_crsa);
+                    input_node(pos, 'p_inta', data_inta);
+
+                } else if (category == "pubg") {
+                    input_node(pos, 'p_dbpg', data_dbpg);
+                    input_node(pos, 'p_kpg', data_kpg);
+                    input_node(pos, 'p_hkpg', data_hkpg);
+                    input_node(pos, 'p_dpg', data_dpg);
+                    input_node(pos, 'p_rpg', data_rpg);
+                }
+
+                //Your Lineup 영역 처리
+                $('.total_salary').html($.number(total_salary));
+                $('.total_fppg').html(total_fppg);
+                $('.avg_salary').html($.number(avg_salary));
+
+                //
+                var del_player = $('.del-player');
+                //del_player.css('cursor', 'pointer');
+            }
+        }
+
+        function input_node(pos, node, text) {
+            console.log(pos, node, text);
+
+            var table = $(".lineup_" + pos).find('.' + node);
+            var count = table.length;
+            //
+            for (var i = 0; i < count; i++) {
+                //
+                var innet_eq = table.eq(i);
+                console.log(innet_eq.html());
+
+                //2018-01-18 진경수 (디자인 수정)
+                if (innet_eq.html() == "Name" ||
+                    innet_eq.html() == "Team" ||
+                    innet_eq.html() == "$ 0" ||
+                    innet_eq.html() == '<img src="http://dev.spo-bit.com/public/images/player_images/nba/default.png" width="50">' ||
+                    innet_eq.html() == '<img src="http://dev.spo-bit.com/public/images/player_images/soc/wc/img_s/home_s.png" width="50">' ||
+                    innet_eq.html() == '<img src="http://dev.spo-bit.com/public/images/player_images/soc/epl/img_s/home_s.png" width="50">' ||
+                    innet_eq.html() == '<img src="http://dev.spo-bit.com/public/images/player_images/soc/tsl/img_s/home_s.png" width="50">' ||
+                    innet_eq.html() == '<img src="http://dev.spo-bit.com/public/images/player_images/pubg/default.png" width="80" alt="">' ||
+                    innet_eq.html() == "") {
+                    innet_eq.html(text);
+                    return true;
+
+                } else {
+                    if (node === 'player_name') {
+                        if (text === innet_eq.html()) {
+                            return false;
+                        }
+                    }
+                    continue;
+                }
+            }
+            return false;
+        }
+
+        function chk_flex(data_flex, node, name) {
+            var table = $('.lineup_' + data_flex).find('.' + node);
+            if (table.html() === name) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        function draft_proccess(data, url) {
+            console.log("draft_proccess");
+
+            var data = data;
+            var go_url = '';
+            if (url) {
+                go_url = url;
+            }
+
+            data['player'] = {};
+            var error = true;
+            var del = $('.del').each(function (i) {
+                if ($(this).html() === '') {
+                    alert('You must select all positions.');
+                    error = true;
+                    return false;
+                } else {
+                    data['player'][i] = {};
+                    data['player'][i]['game_id'] = $(this).find('img').attr('data-game');
+                    data['player'][i]['player_id'] = $(this).find('img').attr('data-del-index');
+                    error = false;
+                }
+            });
+            $.when(del).then(function () {
+                if (error === false) {
+                    $.ajax({
+                        url: '/ajax/draftgame.php',
+                        type: 'post',
+                        data: data,
+                        beforeSend: function () {
+                            $('.btn-confrim-draft').attr('disabled', '');
+                        },
+                        success: function (data) {
+                            //console.log(data);
+                            if (data === '100') {
+                                alert('Completed');
+                                location.replace('index.php?menu=contests');
+                                return false;
+                            } else if (data === '411') {
+                                alert('Not enough Gold.');
+                                location.replace('/index.php?menu=store');
+                                return false;
+                            } else if (data === '412') {
+                                alert('You have already reached Max entry limit.');
+                                location.replace('/index.php?menu=lobby');
+                                return false;
+                            } else {
+                                $('.btn-confrim-draft').removeAttr('disabled', '');
+                                alert('Error occurred');
+                                return false;
+                            }
+                        }
+                    });
+                }
+            });
+        }
+
+        // 포지션 별로 정렬
+        function sort(pos) {
+            console.log("sort");
+
+            var tbody = $("#player_list");
+
+            if (pos === "ALL" || pos === "UTIL") {
+                tbody.each(function () {
+                    tbody.find('tr').show();
+                });
+            } else if (pos === "FLEX") {
+                tbody.find('tr').hide();
+                tbody.each(function () {
+                    tbody.find('.pos_' + pos).show();
+                });
+            } else {
+                tbody.find('tr').hide();
+                tbody.each(function () {
+                    tbody.find('.pos_' + pos).show();
+                });
+            }
+        }
+
         $(function () {
             get_player_list();
+
+            $('.btn-confrim-draft').on("click", function () {
+                console.log("btn-confrim-draft click");
+
+                var coin = $(this).attr('data-coin');
+                var category = $(this).attr('data-category');
+                var game = $(this).attr('data-game');
+                var data = {
+                    'id': '10031',
+                    'coin': coin,
+                    'category': category,
+                    'game': game
+                };
+                draft_proccess(data);
+                event.stopPropagation();
+            });
+
+            $(".sort").on("click", function () {
+                console.log("sort click");
+
+                //tab_draft.find('li').removeClass('active');
+                //$(this).addClass('active');
+                var pos = $(this).attr('data-sort');
+                if (pos === 'FLEX') {
+                    flex = true;
+                } else {
+                    flex = false;
+                }
+                sort(pos);
+            });
         });
     </script>
 </head>
@@ -292,7 +680,7 @@ require_once __DIR__ .'/../_inc/config.php';
                         <dl>
                             <dt class="contest-title">LCS</dt>
                             <dd class="contest-date">2022-03-14  IN 39 MINUTES, 12:00</dd>
-                            <dd class="contest-loca"><img src="../images/ico_pin.svg" class="mR5" alt="위치">Lobo Solitário</dd>
+                            <dd class="contest-loca"><img src="/images/ico_pin.svg" class="mR5" alt="위치">Lobo Solitário</dd>
                             <dd class="contest-detail">
                                 <ul>
                                     <li>5v5</li>
@@ -343,128 +731,42 @@ require_once __DIR__ .'/../_inc/config.php';
                         <div class="time-menu">
                             <div class="swiper time-swiper">
                                 <div class="swiper-wrapper">
-                                    <div class="swiper-slide"><a href="javascript:void(0)">
-                                            <p class="team-name">ALL</p>
-                                        </a></div>
                                     <div class="swiper-slide active">
-                                        <a href="javascript:void(0)">
-                                            <p class="team-name">CA</p>
-                                            <p class="date">03월26일</p>
-                                            <p class="time">05:00 AM</p>
+                                        <a href="javascript:void(0)" data-home_id="" data-away_id="">
+                                            <p class="team-name">ALL</p>
                                         </a>
                                     </div>
+                                    <?php
+                                    $game_daily_schedule    = "pubg_game_daily_schedule";
+                                    $query  = "
+                                        SELECT
+                                            home_alias, away_alias, 
+                                            DATE_FORMAT(standard_scheduled, '%b %e') AS sch_date,
+                                            DATE_FORMAT(standard_scheduled, '%h:%i %p') AS sch_time,
+                                            home_id, away_id
+                                        FROM {$game_daily_schedule}
+                                        WHERE 1=1 
+                                        AND DATE_FORMAT(timezone_scheduled, '%Y-%m-%d')=DATE_FORMAT('{$db['g_date']}', '%Y-%m-%d')
+                                        ORDER BY timezone_scheduled
+                                    ";
+                                    //p($query);
+                                    $result = $_mysqli_game->query($query);
+                                    if (!$result) {
+
+                                    }
+                                    while ($db = $result->fetch_assoc()) {
+                                        echo <<<DIV
                                     <div class="swiper-slide">
-                                        <a href="javascript:void(0)">
-                                            <p class="team-name">CA</p>
-                                            <p class="date">03월26일</p>
-                                            <p class="time">05:00 AM</p>
+                                        <a href="javascript:void(0)" data-home_id="{$db['home_id']}" data-away_id="{$db['away_id']}">
+                                            <p class="team-name">{$db['home_alias']} @ {$db['away_alias']}</p>
+                                            <p class="date">{$db['sch_date']}</p>
+                                            <p class="time">{$db['sch_time']}</p>
                                         </a>
                                     </div>
-                                    <div class="swiper-slide">
-                                        <a href="javascript:void(0)">
-                                            <p class="team-name">CA</p>
-                                            <p class="date">03월26일</p>
-                                            <p class="time">05:00 AM</p>
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <a href="javascript:void(0)">
-                                            <p class="team-name">CA</p>
-                                            <p class="date">03월26일</p>
-                                            <p class="time">05:00 AM</p>
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <a href="javascript:void(0)">
-                                            <p class="team-name">CA</p>
-                                            <p class="date">03월26일</p>
-                                            <p class="time">05:00 AM</p>
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <a href="javascript:void(0)">
-                                            <p class="team-name">CA</p>
-                                            <p class="date">03월26일</p>
-                                            <p class="time">05:00 AM</p>
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <a href="javascript:void(0)">
-                                            <p class="team-name">CA</p>
-                                            <p class="date">03월26일</p>
-                                            <p class="time">05:00 AM</p>
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <a href="javascript:void(0)">
-                                            <p class="team-name">CA</p>
-                                            <p class="date">03월26일</p>
-                                            <p class="time">05:00 AM</p>
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <a href="javascript:void(0)">
-                                            <p class="team-name">CA</p>
-                                            <p class="date">03월26일</p>
-                                            <p class="time">05:00 AM</p>
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <a href="javascript:void(0)">
-                                            <p class="team-name">CA</p>
-                                            <p class="date">03월26일</p>
-                                            <p class="time">05:00 AM</p>
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <a href="javascript:void(0)">
-                                            <p class="team-name">CA</p>
-                                            <p class="date">03월26일</p>
-                                            <p class="time">05:00 AM</p>
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <a href="javascript:void(0)">
-                                            <p class="team-name">CA</p>
-                                            <p class="date">03월26일</p>
-                                            <p class="time">05:00 AM</p>
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <a href="javascript:void(0)">
-                                            <p class="team-name">CA</p>
-                                            <p class="date">03월26일</p>
-                                            <p class="time">05:00 AM</p>
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <a href="javascript:void(0)">
-                                            <p class="team-name">CA</p>
-                                            <p class="date">03월26일</p>
-                                            <p class="time">05:00 AM</p>
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <a href="javascript:void(0)">
-                                            <p class="team-name">CA</p>
-                                            <p class="date">03월26일</p>
-                                            <p class="time">05:00 AM</p>
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <a href="javascript:void(0)">
-                                            <p class="team-name">CA</p>
-                                            <p class="date">03월26일</p>
-                                            <p class="time">05:00 AM</p>
-                                        </a>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <a href="javascript:void(0)">
-                                            <p class="team-name">CA</p>
-                                            <p class="date">03월26일</p>
-                                            <p class="time">05:00 AM</p>
-                                        </a>
-                                    </div>
+DIV;
+
+                                    }
+                                    ?>
                                 </div>
                                 <div class="swiper-button-next"></div>
                                 <div class="swiper-button-prev"></div>
@@ -557,13 +859,13 @@ require_once __DIR__ .'/../_inc/config.php';
                             </div>
                         </div>
                         <div class="category-wrap">
-                            <ul class="category">
-                                <li class="active"><a href="javascript:void(0)">ALL</a></li>
-                                <li><a href="javascript:void(0)">TL</a></li>
-                                <li><a href="javascript:void(0)">R</a></li>
-                                <li><a href="javascript:void(0)">GR</a></li>
-                                <li><a href="javascript:void(0)">AR</a></li>
-                                <li><a href="javascript:void(0)">UTIL</a></li>
+                            <ul class="category dp_tab_draft">
+                                <li class="active sort" data-sort="ALL"><a href="javascript:void(0);">ALL</a></li>
+                                <li class="sort" data-sort="TL"><a href="javascript:void(0);">TL</a></li>
+                                <li class="sort" data-sort="R"><a href="javascript:void(0);">R</a></li>
+                                <li class="sort" data-sort="GR"><a href="javascript:void(0);">GR</a></li>
+                                <li class="sort" data-sort="AR"><a href="javascript:void(0);">AR</a></li>
+                                <li class="sort" data-sort="UTIL"><a href="javascript:void(0);">UTIL</a></li>
                             </ul>
                             <button class="random-btn">
                                 <span></span>
@@ -607,14 +909,6 @@ require_once __DIR__ .'/../_inc/config.php';
                                     <col style="width: 282px">
                                 </colgroup>
                                 <tbody id="player_list">
-                                <tr>
-                                    <td>TL</td>
-                                    <td>Deft</td>
-                                    <td>DRX</td>
-                                    <td>60</td>
-                                    <td>$ 3,000</td>
-                                    <td class="tR"><button type="button" class="btn-plus"></button></td>
-                                </tr>
                                 </tbody>
                             </table>
                         </div>
@@ -624,33 +918,34 @@ require_once __DIR__ .'/../_inc/config.php';
                             <li>
                                 <dl>
                                     <dt>Salary Remaining</dt>
-                                    <dd>$ 26,000</dd>
+                                    <dd>$ <span class="total_salary">50,000</span></dd>
                                 </dl>
                             </li>
                             <li>
                                 <dl>
                                     <dt>Total FPPG</dt>
-                                    <dd>1500</dd>
+                                    <dd><span class="total_fppg">0</span></dd>
                                 </dl>
                             </li>
                             <li>
                                 <dl>
                                     <dt>Avg / Player</dt>
-                                    <dd>$ 3,000</dd>
+                                    <dd>$ <span class="avg_salary">0</span></dd>
                                 </dl>
                             </li>
                         </ul>
                         <div class="select-player">
                             <ul>
-                                <li class="player-info">
-                                    <div class="player-img">
-                                        <img src="../images/img_player.png" width="80" alt="이상혁 프로필 사진">
-                                    </div>
+                                <?php
+                                foreach ($pos['pos'] as $key=>$value) {
+                                    echo <<<LI
+                                <li class="player-info lineup_{$value}">
+                                    <div class="player-img player_img"><img src="http://dev.spo-bit.com/public/images/player_images/pubg/default.png" width="80" alt=""></div>
                                     <div class="player-skill">
                                         <div class="skill-top">
                                             <div class="name">
-                                                <h2><span class="fc-blue">T1</span>Faker</h2>
-                                                <p class="player-money">$3,000</p>
+                                                <h2><span class="fc-blue team_name">Team</span><span class="player_name">Name</span></h2>
+                                                <p class="player-money salary">$ 0</p>
                                             </div>
                                             <table class="border-table">
                                                 <colgroup>
@@ -677,123 +972,15 @@ require_once __DIR__ .'/../_inc/config.php';
                                             </table>
                                         </div>
                                     </div>
-                                    <button type="button" class="btn-delete">삭제</button>
+                                    <div class="del"></div>
                                 </li>
-                                <li class="player-info">
-                                    <div class="player-img">
-                                        <img src="../images/img_player.png" width="80" alt="이상혁 프로필 사진">
-                                    </div>
-                                    <div class="player-skill">
-                                        <div class="skill-top">
-                                            <div class="name">
-                                                <h2><span class="fc-blue">T1</span>Faker</h2>
-                                                <p class="player-money">$3,000</p>
-                                            </div>
-                                            <table class="border-table">
-                                                <colgroup>
-                                                    <col>
-                                                    <col>
-                                                    <col>
-                                                    <col>
-                                                    <col>
-                                                </colgroup>
-                                                <tr>
-                                                    <th>M</th>
-                                                    <th>W</th>
-                                                    <th>L</th>
-                                                    <th>승률</th>
-                                                    <th>KDA</th>
-                                                </tr>
-                                                <tr>
-                                                    <td>722</td>
-                                                    <td>238</td>
-                                                    <td>238</td>
-                                                    <td>67%</td>
-                                                    <td>66.1%</td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <button type="button" class="btn-delete">삭제</button>
-                                </li>
-                                <li class="player-info">
-                                    <div class="player-img">
-                                        <img src="../images/img_player.png" width="80" alt="이상혁 프로필 사진">
-                                    </div>
-                                    <div class="player-skill">
-                                        <div class="skill-top">
-                                            <div class="name">
-                                                <h2><span class="fc-blue">T1</span>Faker</h2>
-                                                <p class="player-money">$3,000</p>
-                                            </div>
-                                            <table class="border-table">
-                                                <colgroup>
-                                                    <col>
-                                                    <col>
-                                                    <col>
-                                                    <col>
-                                                    <col>
-                                                </colgroup>
-                                                <tr>
-                                                    <th>M</th>
-                                                    <th>W</th>
-                                                    <th>L</th>
-                                                    <th>승률</th>
-                                                    <th>KDA</th>
-                                                </tr>
-                                                <tr>
-                                                    <td>722</td>
-                                                    <td>238</td>
-                                                    <td>238</td>
-                                                    <td>67%</td>
-                                                    <td>66.1%</td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <button type="button" class="btn-delete">삭제</button>
-                                </li>
-                                <li class="player-info">
-                                    <div class="player-img">
-                                        <img src="../images/img_player.png" width="80" alt="이상혁 프로필 사진">
-                                    </div>
-                                    <div class="player-skill">
-                                        <div class="skill-top">
-                                            <div class="name">
-                                                <h2><span class="fc-blue">T1</span>Faker</h2>
-                                                <p class="player-money">$3,000</p>
-                                            </div>
-                                            <table class="border-table">
-                                                <colgroup>
-                                                    <col>
-                                                    <col>
-                                                    <col>
-                                                    <col>
-                                                    <col>
-                                                </colgroup>
-                                                <tr>
-                                                    <th>M</th>
-                                                    <th>W</th>
-                                                    <th>L</th>
-                                                    <th>승률</th>
-                                                    <th>KDA</th>
-                                                </tr>
-                                                <tr>
-                                                    <td>722</td>
-                                                    <td>238</td>
-                                                    <td>238</td>
-                                                    <td>67%</td>
-                                                    <td>66.1%</td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-                                    <button type="button" class="btn-delete">삭제</button>
-                                </li>
+LI;
+                                }
+                                ?>
                             </ul>
                             <div class="btn-group">
                                 <button type="button" class="btn-8 btn-grey">전부 삭제하기</button>
-                                <button type="button" class="btn-8 btn-blue">라인업 저장하기</button>
+                                <button type="button" class="btn-8 btn-blue btn-confrim-draft" data-coin="5" data-category="20" data-game="24884">라인업 저장하기</button>
                             </div>
                         </div>
                     </div>
