@@ -111,7 +111,5 @@ switch ($_url_f3) {
     <?php
         }
         ?>
-
-
     </div>
 </div>
