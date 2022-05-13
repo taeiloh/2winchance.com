@@ -365,7 +365,7 @@ try {
                 $("#typeC").hide();
             });
             $("#type3").click(function (){
-                $("#typeb").hide();
+                $("#typeA").hide();
                 $("#typeB").hide();
                 $("#typeC").show();
             });
