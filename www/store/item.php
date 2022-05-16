@@ -39,13 +39,13 @@ try {
             <!--sec-01-->
             <section class="sec sec-01 T0 ">
                 <div class="inner store_title">
-                    <h2>아이템</h2>
+                    <h2>캐시 아이템</h2>
                 </div>
                 <div class="contents-cont inner">
                     <div class="current-coin">
                         <ul class="coin-list">
                             <li>보유코인</li>
-                            <li class="fc-yellow"><span class="coin"></span>695,165,300</li>
+                            <li class="fc-yellow"><span></span>695,165,300 <span class="fc-yellow">ⓒ</span></li>
                         </ul>
                         <ul class="coin-input">
                             <li>아이템</li>
@@ -60,21 +60,24 @@ try {
                                 <a href="javascript:void(0);">
                                     <div class="item-pic">
                                         <img src="../images/item_00.png" alt="">
+                                        <p class="get-point fp">+100</p>
                                     </div>
                                     <div class="cash-item-desc">
                                         <p>전투사관학교 교수님</p>
-                                        <span class="coin">2,600</span>
+                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
                                     </div>
                                 </a>
+
                             </li>
                             <li>
                                 <a href="javascript:void(0);">
                                     <div class="item-pic">
                                         <img src="../images/item_02.png" alt="">
+                                        <p class="get-point fp">+100</p>
                                     </div>
                                     <div class="cash-item-desc">
                                         <p>이중용 불리베어</p>
-                                        <span class="coin">2,600</span>
+                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
                                     </div>
                                 </a>
                             </li>
@@ -82,10 +85,11 @@ try {
                                 <a href="javascript:void(0);">
                                     <div class="item-pic">
                                         <img src="../images/item_03.png" alt="">
+                                        <p class="get-point fp">+100</p>
                                     </div>
                                     <div class="cash-item-desc">
                                         <p>동물특공대 메가 </p>
-                                        <span class="coin">2,600</span>
+                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
                                     </div>
                                 </a>
                             </li>
@@ -93,10 +97,11 @@ try {
                                 <a href="javascript:void(0);">
                                     <div class="item-pic">
                                         <img src="../images/item_04.png" alt="">
+                                        <p class="get-point fp">+100</p>
                                     </div>
                                     <div class="cash-item-desc">
                                         <p>K/D ALL OUT 카이샤</p>
-                                        <span class="coin">2,600</span>
+                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
                                     </div>
                                 </a>
                             </li>
@@ -104,10 +109,11 @@ try {
                                 <a href="javascript:void(0);">
                                     <div class="item-pic">
                                         <img src="../images/item_00.png" alt="">
+                                        <p class="get-point fp">+100</p>
                                     </div>
                                     <div class="cash-item-desc">
                                         <p>전투사관학교 교수님</p>
-                                        <span class="coin">2,600</span>
+                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
                                     </div>
                                 </a>
                             </li>
@@ -115,10 +121,11 @@ try {
                                 <a href="javascript:void(0);">
                                     <div class="item-pic">
                                         <img src="../images/item_02.png" alt="">
+                                        <p class="get-point fp">+100</p>
                                     </div>
                                     <div class="cash-item-desc">
                                         <p>이중용 불리베어</p>
-                                        <span class="coin">2,600</span>
+                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
                                     </div>
                                 </a>
                             </li>
@@ -126,10 +133,11 @@ try {
                                 <a href="javascript:void(0);">
                                     <div class="item-pic">
                                         <img src="../images/item_03.png" alt="">
+                                        <p class="get-point fp">+100</p>
                                     </div>
                                     <div class="cash-item-desc">
                                         <p>동물특공대 메가 </p>
-                                        <span class="coin">2,600</span>
+                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
                                     </div>
                                 </a>
                             </li>
@@ -137,10 +145,11 @@ try {
                                 <a href="javascript:void(0);">
                                     <div class="item-pic">
                                         <img src="../images/item_04.png" alt="">
+                                        <p class="get-point fp">+100</p>
                                     </div>
                                     <div class="cash-item-desc">
                                         <p>K/D ALL OUT 카이샤</p>
-                                        <span class="coin">2,600</span>
+                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
                                     </div>
                                 </a>
                             </li>
@@ -148,10 +157,11 @@ try {
                                 <a href="javascript:void(0);">
                                     <div class="item-pic">
                                         <img src="../images/item_00.png" alt="">
+                                        <p class="get-point fp">+100</p>
                                     </div>
                                     <div class="cash-item-desc">
                                         <p>전투사관학교 교수님</p>
-                                        <span class="coin">2,600</span>
+                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
                                     </div>
                                 </a>
                             </li>
@@ -159,10 +169,11 @@ try {
                                 <a href="javascript:void(0);">
                                     <div class="item-pic">
                                         <img src="../images/item_02.png" alt="">
+                                        <p class="get-point fp">+100</p>
                                     </div>
                                     <div class="cash-item-desc">
                                         <p>이중용 불리베어</p>
-                                        <span class="coin">2,600</span>
+                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
                                     </div>
                                 </a>
                             </li>
@@ -170,10 +181,11 @@ try {
                                 <a href="javascript:void(0);">
                                     <div class="item-pic">
                                         <img src="../images/item_03.png" alt="">
+                                        <p class="get-point fp">+100</p>
                                     </div>
                                     <div class="cash-item-desc">
                                         <p>동물특공대 메가 </p>
-                                        <span class="coin">2,600</span>
+                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
                                     </div>
                                 </a>
                             </li>
@@ -181,10 +193,11 @@ try {
                                 <a href="javascript:void(0);">
                                     <div class="item-pic">
                                         <img src="../images/item_04.png" alt="">
+                                        <p class="get-point fp">+100</p>
                                     </div>
                                     <div class="cash-item-desc">
                                         <p>K/D ALL OUT 카이샤</p>
-                                        <span class="coin">2,600</span>
+                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
                                     </div>
                                 </a>
                             </li>

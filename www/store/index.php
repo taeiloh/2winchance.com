@@ -62,7 +62,7 @@ try {
             <!--sec-01-->
             <section class="sec sec-01 T0 ">
                 <div class="inner store_title">
-                    <h2>캐시</h2>
+                    <h2>캐시 아이템</h2>
                 </div>
                 <div class="contents-cont inner">
                     <div class="coin-charge">
@@ -73,7 +73,7 @@ try {
                             </ul>
                             <ul class="intend-charge">
                                 <li>충전 예정</li>
-                                <li class="fc-yellow"><span class="coin" id="total-coin">500</span></li>
+                                <li class="fc-yellow"><span>500 <span class="fc-yellow">ⓒ</span></span></li>
                             </ul>
                             <ul>
                                 <li>결제 알림 매일</li>
@@ -98,51 +98,63 @@ try {
                             <h3>결제 금액</h3>
                             <ul class="amount-list">
                                 <li>
-                                    <a href="javascript:void(0);" data-monay="1">
+                                    <a href="javascript:void(0);">
                                         <div class="coin-price">
-                                            <span><img src="/images/10coin.svg" alt=""></span>
-                                        </div>
-                                        <div class="price-box"><p>1,100</p></div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="javascript:void(0);" data-monay="2">
-                                        <div class="coin-price">
-                                            <span><img src="/images/50coin.svg" alt=""></span>
-                                        </div>
-                                        <div class="price-box"><p>5,500</p></div>
-                                    </a>
-                                </li>
-                                <li class="active">
-                                    <a href="javascript:void(0);" data-monay="3">
-                                        <div class="coin-price">
-                                            <span><img src="/images/100coin.svg" alt=""></span>
+                                            <!--                                            <span><img src="../images/10coin.svg" alt=""></span>-->
+                                            <span>100ⓒ</span>
                                         </div>
                                         <div class="price-box"><p>11,000</p></div>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);" data-monay="4">
+                                    <a href="javascript:void(0);">
                                         <div class="coin-price">
-                                            <span><img src="/images/200coin.svg" alt=""></span>
+                                            <!--                                            <span><img src="../images/50coin.svg" alt=""></span>-->
+                                            <span>200ⓒ</span>
                                         </div>
                                         <div class="price-box"><p>22,000</p></div>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="javascript:void(0);" data-monay="5">
+                                <li class="active">
+                                    <a href="javascript:void(0);">
                                         <div class="coin-price">
-                                            <span><img src="/images/500coin.svg" alt=""></span>
+                                            <!--                                            <span><img src="../images/100coin.svg" alt=""></span>-->
+                                            <span>500ⓒ</span>
                                         </div>
                                         <div class="price-box"><p>55,000</p></div>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);" data-monay="6">
+                                    <a href="javascript:void(0);">
                                         <div class="coin-price">
-                                            <span><img src="/images/1000coin.svg" alt=""></span>
+                                            <p class="txt1">웰컴팩</p>
+                                            <!--                                            <span><img src="../images/200coin.svg" alt=""></span>-->
+                                            <span>100ⓒ</span>
+                                            <p class="txt2">1회 / 인</p>
                                         </div>
-                                        <div class="price-box"><p>110,000</p></div>
+                                        <div class="price-box"><p>4,900</p></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">
+                                        <div class="coin-price">
+                                            <p class="txt1">아머 이건1</p>
+                                            <!--                                            <span><img src="../images/500coin.svg" alt=""></span>-->
+                                            <span>210ⓒ</span>
+                                            <p class="txt2">1회 / 인</p>
+                                        </div>
+                                        <div class="price-box"><p>5,900</p></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);">
+                                        <div class="coin-price">
+                                            <p class="txt1">아머 이건2</p>
+                                            <!--                                            <span><img src="../images/1000coin.svg" alt=""></span>-->
+                                            <span>3,220ⓒ</span>
+                                            <p class="txt2">1회 / 인</p>
+                                        </div>
+                                        <div class="price-box"><p>9,500</p></div>
                                     </a>
                                 </li>
                             </ul>
