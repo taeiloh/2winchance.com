@@ -108,3 +108,20 @@ $(function(){
     }
 
 })
+
+//입력한 문자열 전달
+function inputNumberFormat(obj) {
+    obj.value = comma(uncomma(obj.value));
+}
+
+//콤마찍기
+function comma(str) {
+    str = String(str);
+    return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+}
+
+//콤마풀기
+function uncomma(str) {
+    str = String(str);
+    return str.replace(/[^\d]+/g, '');
+}

@@ -1,7 +1,7 @@
 <?php
 // config
 require_once __DIR__ .'/../_inc/config.php';
-
+$id=!empty($_SESSION['_se_id']) ? $_SESSION['_se_id'] : "";        // 세션 아이디
 
 
 try {
@@ -34,6 +34,29 @@ try {
 
     <!--container-->
     <div id="container">
+
+        <form id="SendPayForm_id" name="" method="POST" >
+
+            <input type="text"    name="goodname" id="goodname" value="" >
+            <input type="text"    name="buyername" id="buyername" value="홍길동" >
+            <input type="text"    name="buyertel" id="buyertel" value="010-1234-5678" >
+            <input type="text"    name="buyeremail" id="buyeremail" value="<?=$id?>" >
+            <input type="text"    name="price" id="price" value="11000" >
+            <input type="hidden"  name="mid" value="INIpayTest" ><!-- 에스크로테스트 : iniescrow0, 빌링(정기과금)테스트 : INIBillTst -->
+            <input type="text"  name="gopaymethod" id="gopaymethod" value="Card" >
+            <input type="hidden"  name="mKey" value="3a9503069192f207491d4b19bd743fc249a761ed94246c8c42fed06c3cd15a33" >
+            <input type="hidden"  name="signature" value="9e21ff2e1629e8f8dbf08a9c7aca2439c31c926b9102c03c16f025010a677480" >
+            <input type="hidden"  name="oid" value="INIpayTest_1652678551157" >
+            <input type="hidden"  name="timestamp" value="1652678551157" >
+            <input type="hidden"  name="version" value="1.0" >
+            <input type="hidden"  name="currency" value="WON" >
+            <input type="hidden"  name="acceptmethod" value="CARDPOINT:va_receipt:HPP(1):below1000" ><!-- 에스크로옵션 : useescrow, 빌링(정기과금)옵션 : BILLAUTH(Card) -->
+            <input type="hidden"  name="returnUrl" value="http://d-www.2winchance.com/store/INIStdPayReturn.php" >
+            <input type="hidden"  name="closeUrl" value="http://localhost/stdpay/close.asp" >
+
+        </form>
+
+
         <!--content-->
         <div id="content" class="store">
             <!--sec-01-->
@@ -46,15 +69,15 @@ try {
                         <div>
                             <ul class="total-coin">
                                 <li>총 결제금액</li>
-                                <li>55,000</li>
+                                <li id="total-money">55,000</li>
                             </ul>
                             <ul class="intend-charge">
                                 <li>충전 예정</li>
-                                <li class="fc-yellow"><span class="coin">500</span></li>
+                                <li class="fc-yellow"><span class="coin" id="total-coin">500</span></li>
                             </ul>
                             <ul>
                                 <li>결제 알림 매일</li>
-                                <li>abC1234@naver.com</li>
+                                <li id="email"><?=$id?></li>
                             </ul>
                         </div>
                         <div class="coin-policy">
@@ -67,7 +90,7 @@ try {
                                 <input type="checkbox" class="" id="policy07" checked="checked">
                                 <label for="policy07" class="">동의합니다.</label>
                             </p>
-                            <button class="btn-blue btn-8">결제하기</button>
+                            <button type="button" class="btn-blue btn-8" onclick="pay()">결제하기</button>
                         </div>
                     </div>
                     <div class="pay-method">
@@ -75,7 +98,7 @@ try {
                             <h3>결제 금액</h3>
                             <ul class="amount-list">
                                 <li>
-                                    <a href="javascript:void(0);">
+                                    <a href="javascript:void(0);" data-monay="1">
                                         <div class="coin-price">
                                             <span><img src="/images/10coin.svg" alt=""></span>
                                         </div>
@@ -83,7 +106,7 @@ try {
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);">
+                                    <a href="javascript:void(0);" data-monay="2">
                                         <div class="coin-price">
                                             <span><img src="/images/50coin.svg" alt=""></span>
                                         </div>
@@ -91,31 +114,31 @@ try {
                                     </a>
                                 </li>
                                 <li class="active">
-                                    <a href="javascript:void(0);">
+                                    <a href="javascript:void(0);" data-monay="3">
                                         <div class="coin-price">
                                             <span><img src="/images/100coin.svg" alt=""></span>
                                         </div>
-                                        <div class="price-box"><p>1,1000</p></div>
+                                        <div class="price-box"><p>11,000</p></div>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);">
+                                    <a href="javascript:void(0);" data-monay="4">
                                         <div class="coin-price">
                                             <span><img src="/images/200coin.svg" alt=""></span>
                                         </div>
-                                        <div class="price-box"><p>2,2000</p></div>
+                                        <div class="price-box"><p>22,000</p></div>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);">
+                                    <a href="javascript:void(0);" data-monay="5">
                                         <div class="coin-price">
                                             <span><img src="/images/500coin.svg" alt=""></span>
                                         </div>
-                                        <div class="price-box"><p>5,5000</p></div>
+                                        <div class="price-box"><p>55,000</p></div>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);">
+                                    <a href="javascript:void(0);" data-monay="6">
                                         <div class="coin-price">
                                             <span><img src="/images/1000coin.svg" alt=""></span>
                                         </div>
@@ -128,13 +151,13 @@ try {
                             <h3>결제 수단</h3>
                             <div class="pay-container">
                                 <ul class="tabs">
-                                    <li class="tab-link current" data-tab="tab-1">간편결제</li>
-                                    <li class="tab-link" data-tab="tab-2">신용카드</li>
-                                    <li class="tab-link" data-tab="tab-3">휴대폰</li>
-                                    <li class="tab-link" data-tab="tab-4">온라인이체</li>
-                                    <li class="tab-link" data-tab="tab-5">상품권류</li>
+                                    <!--li class="tab-link current" data-tab="tab-1" >간편결제</li-->
+                                    <li class="tab-link current" data-tab="tab-2" data-value="Card">신용카드</li>
+                                    <li class="tab-link" data-tab="tab-3" data-value="HPP">휴대폰</li>
+                                    <li class="tab-link" data-tab="tab-4" data-value="DirectBank">온라인이체</li>
+                                    <li class="tab-link" data-tab="tab-5" data-value="Culture">상품권류</li>
                                 </ul>
-                                <div id="tab-1" class="tab-content current">
+                                <!--div id="tab-1" class="tab-content">
                                     <h4>간편결제는 결제하기 버튼을 눌러 선택하신 서비스의 결제 창에서 진행하세요</h4>
                                     <div class="payment-list">
                                         <p class="checkbox">
@@ -155,7 +178,7 @@ try {
                                         <li>카카오페이 고객센터 : 1644-7405 </li>
                                     </ul>
                                 </div>
-                                <div id="tab-2" class="tab-content">
+                                <div id="tab-2" class="tab-content current">
                                     신용카드 내용이 들어갑니다
                                 </div>
                                 <div id="tab-3" class="tab-content">
@@ -166,7 +189,7 @@ try {
                                 </div>
                                 <div id="tab-5" class="tab-content">
                                     상품권류 내용이 들어갑니다
-                                </div>
+                                </div-->
                             </div>
                         </div>
                     </div>
@@ -192,23 +215,86 @@ try {
         ?>
     </footer>
     <!--//footer-->
-    <script type="text/javascript">
-        var onloadCallback = function() {
-            grecaptcha.render('html_element', {
-                'sitekey' : 'your_site_key'
-            });
-        };
+    <script src="https://stdux.inicis.com/stdpay/stdjs/INIStdPay_third-party.js"></script>
+    <script src="https://stdpay.inicis.com/stdjs/INIStdPay.js"></script>
+    <script>
+
+        function pay(){
+            var check=$('#policy07').is(':checked');
+
+            if(!check){
+                alert("가상 재화 정책 동의를 해주세요.");
+                $('#policy07').focus();
+                return false;
+            }
+
+            INIStdPay.pay('SendPayForm_id');
+        }
+
 
         $(document).ready(function(){
 
             $('ul.tabs li').click(function(){
                 var tab_id = $(this).attr('data-tab');
+                var id = $(this).attr('data-value');
+                //alert(id);
+                $("#gopaymethod").val(id);
 
                 $('ul.tabs li').removeClass('current');
                 $('.tab-content').removeClass('current');
 
                 $(this).addClass('current');
                 $("#"+tab_id).addClass('current');
+            })
+
+            $('ul.amount-list li a').click(function(){
+                var money_id = $(this).data('monay');
+
+                $('ul.amount-list li').removeClass('active');
+
+                $(this).parent('li').addClass('active');
+                //$("#"+money_id).addClass('active');
+
+                switch (money_id){
+                    case 1:
+                        $("#goodname").val('10C');
+                        $("#price").val(1100);
+                        $("#total-coin").text('10');
+                        $("#total-money").text('1,100');
+                        break;
+                    case 2:
+                        $("#goodname").val('50C');
+                        $("#price").val(5500);
+                        $("#total-coin").text('50');
+                        $("#total-money").text('5,500');
+                        break;
+                    case 3:
+                        $("#goodname").val('100C');
+                        $("#price").val(11000);
+                        $("#total-coin").text('100');
+                        $("#total-money").text('11,000');
+                        break;
+                    case 4:
+                        $("#goodname").val('200C');
+                        $("#price").val(22000);
+                        $("#total-coin").text('200');
+                        $("#total-money").text('22,000');
+                        break;
+                    case 5:
+                        $("#goodname").val('500C');
+                        $("#price").val(55000);
+                        $("#total-coin").text('500');
+                        $("#total-money").text('55,000');
+                        break;
+                    case 6:
+                        $("#goodname").val('1000C');
+                        $("#price").val(110000);
+                        $("#total-coin").text('1000');
+                        $("#total-money").text('110,000');
+                        break;
+                }
+
+
             })
 
         })
