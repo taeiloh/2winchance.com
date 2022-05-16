@@ -86,7 +86,7 @@ try {
         </form-->
         <form id="SendPayForm_id" name="" method="POST" action="https://stdpay.inicis.com/payMain/pay" accept-charset="UTF-8" target="iframe_13eae6eca05ff4">
             <input type="hidden" name="mid" value="INIpayTest">
-            <input type="hidden" name="goodname" id="goodname" value="100c" spellcheck="false">>
+            <input type="hidden" name="goodname" id="goodname" value="500c" spellcheck="false">>
             <input type="hidden" name="price" id="price" value="55000" spellcheck="false" readonly="">
             <input type="hidden" name="buyername" id="buyername" value="길동이" spellcheck="false">
             <input type="hidden" name="buyertel" id="buyertel" value="010-1111-2222" spellcheck="false">
@@ -100,8 +100,8 @@ try {
             <input type="hidden" name="timestamp" id="timestamp" value="<?=$timestamp?>">
             <input type="hidden" name="signature" id="sign" value="<?=$sign?>">
             <input type="hidden" name="mKey" id="mKey" value="<?=$mKey?>">
-            <input type="hidden" name="returnUrl" value="http://d-www.2winchance.com/store/INIStdPayReturn.php">
-            <input type="hidden" name="closeUrl" value="http://d-www.2winchance.com/store/close.php">
+            <input type="hidden" name="returnUrl" value="http://<?=$_SERVER['SERVER_NAME']?>/store/INIStdPayReturn.php">
+            <input type="hidden" name="closeUrl" value="http://<?=$_SERVER['SERVER_NAME']?>/store/close.php">
             <input type="hidden"  name="acceptmethod" value="CARDPOINT:va_receipt:HPP(1):below1000" >
 
             <input id="requestByJs" name="requestByJs" type="hidden" value="true">
@@ -124,7 +124,7 @@ try {
                             </ul>
                             <ul class="intend-charge">
                                 <li>충전 예정</li>
-                                <li class="fc-yellow"><span>500 <span class="fc-yellow">ⓒ</span></span></li>
+                                <li class="fc-yellow"><span id="total-coin">500 <span class="fc-yellow">ⓒ</span></span></li>
                             </ul>
                             <ul>
                                 <li>결제 알림 매일</li>
@@ -259,12 +259,12 @@ try {
                 </div>
             </section>
             <!--//sec-01-->
-            <div class="pagination">
+            <!--div class="pagination">
                 <a href="javascript:void(0)">1</a>
                 <a class="active" href="javascript:void(0)">2</a>
                 <a href="javascript:void(0)">3</a>
                 <a href="javascript:void(0)">4</a>
-            </div>
+            </div-->
         </div>
         <!--//content-->
     </div>
@@ -322,39 +322,39 @@ try {
                 //alert(money_id);
                 switch (money_id){
                     case 1:
-                        $("#goodname").val('10C');
-                        $("#price").val(1100);
-                        $("#total-coin").text('10');
-                        $("#total-money").text('1,100');
-                        break;
-                    case 2:
-                        $("#goodname").val('50C');
-                        $("#price").val(5500);
-                        $("#total-coin").text('50');
-                        $("#total-money").text('5,500');
-                        break;
-                    case 3:
                         $("#goodname").val('100C');
                         $("#price").val(11000);
-                        $("#total-coin").text('100');
+                        $("#total-coin").html( '100 <span class="fc-yellow">ⓒ</span>');
                         $("#total-money").text('11,000');
+                        break;
+                    case 2:
+                        $("#goodname").val('200C');
+                        $("#price").val(22000);
+                        $("#total-coin").html( '200 <span class="fc-yellow">ⓒ</span>');
+                        $("#total-money").text('22,000');
+                        break;
+                    case 3:
+                        $("#goodname").val('500C');
+                        $("#price").val(55000);
+                        $("#total-coin").html( '500 <span class="fc-yellow">ⓒ</span>');
+                        $("#total-money").text('55,000');
                         break;
                     case 4:
                         $("#goodname").val('100C');
                         $("#price").val(4900);
-                        $("#total-coin").text('100');
+                        $("#total-coin").html( '100 <span class="fc-yellow">ⓒ</span>');
                         $("#total-money").text('4,900');
                         break;
                     case 5:
                         $("#goodname").val('210C');
                         $("#price").val(5900);
-                        $("#total-coin").text('210');
+                        $("#total-coin").html( '210 <span class="fc-yellow">ⓒ</span>');
                         $("#total-money").text('5,900');
                         break;
                     case 6:
                         $("#goodname").val('3220C');
                         $("#price").val(9500);
-                        $("#total-coin").text('3220');
+                        $("#total-coin").html( '3220 <span class="fc-yellow">ⓒ</span>');
                         $("#total-money").text('9,500');
                         break;
                 }
