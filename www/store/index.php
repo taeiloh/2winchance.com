@@ -3,6 +3,34 @@
 require_once __DIR__ .'/../_inc/config.php';
 $id=!empty($_SESSION['_se_id']) ? $_SESSION['_se_id'] : "";        // 세션 아이디
 
+require_once __DIR__ .'/../libs/INIStdPayUtil.php';
+$SignatureUtil = new INIStdPayUtil();
+
+$price     = 55000;
+
+
+$mid = "INIpayTest";  // 가맹점 ID(가맹점 수정후 고정)
+//인증
+$signKey = "SU5JTElURV9UUklQTEVERVNfS0VZU1RS"; // 가맹점에 제공된 웹 표준 사인키(가맹점 수정후 고정)
+$timestamp = $SignatureUtil->getTimestamp();   // util에 의해서 자동생성
+
+$orderNumber = $mid . "_" . $SignatureUtil->getTimestamp(); // 가맹점 주문번호(가맹점에서 직접 설정)
+
+
+$cardNoInterestQuota = "11-2:3:,34-5:12,14-6:12:24,12-12:36,06-9:12,01-3:4";  // 카드 무이자 여부 설정(가맹점에서 직접 설정)
+$cardQuotaBase = "2:3:4:5:6:11:12:24:36";  // 가맹점에서 사용할 할부 개월수 설정
+//###################################
+// 2. 가맹점 확인을 위한 signKey를 해시값으로 변경 (SHA-256방식 사용)
+//###################################
+$mKey = $SignatureUtil->makeHash($signKey, "sha256");
+
+$params = array(
+    "oid" => $orderNumber,
+    "price" => $price,
+    "timestamp" => $timestamp
+);
+$sign = $SignatureUtil->makeSignature($params, "sha256");
+
 
 try {
 
@@ -35,14 +63,14 @@ try {
     <!--container-->
     <div id="container">
 
-        <form id="SendPayForm_id" name="" method="POST" >
+        <!--form id="SendPayForm_id" name="" method="POST" action="https://stdpay.inicis.com/payMain/pay">
 
             <input type="text"    name="goodname" id="goodname" value="" >
             <input type="text"    name="buyername" id="buyername" value="홍길동" >
             <input type="text"    name="buyertel" id="buyertel" value="010-1234-5678" >
             <input type="text"    name="buyeremail" id="buyeremail" value="<?=$id?>" >
             <input type="text"    name="price" id="price" value="11000" >
-            <input type="hidden"  name="mid" value="INIpayTest" ><!-- 에스크로테스트 : iniescrow0, 빌링(정기과금)테스트 : INIBillTst -->
+            <input type="hidden"  name="mid" value="INIpayTest" >
             <input type="text"  name="gopaymethod" id="gopaymethod" value="Card" >
             <input type="hidden"  name="mKey" value="3a9503069192f207491d4b19bd743fc249a761ed94246c8c42fed06c3cd15a33" >
             <input type="hidden"  name="signature" value="9e21ff2e1629e8f8dbf08a9c7aca2439c31c926b9102c03c16f025010a677480" >
@@ -50,10 +78,33 @@ try {
             <input type="hidden"  name="timestamp" value="1652678551157" >
             <input type="hidden"  name="version" value="1.0" >
             <input type="hidden"  name="currency" value="WON" >
-            <input type="hidden"  name="acceptmethod" value="CARDPOINT:va_receipt:HPP(1):below1000" ><!-- 에스크로옵션 : useescrow, 빌링(정기과금)옵션 : BILLAUTH(Card) -->
+            <input type="hidden"  name="acceptmethod" value="CARDPOINT:va_receipt:HPP(1):below1000" >
             <input type="hidden"  name="returnUrl" value="http://d-www.2winchance.com/store/INIStdPayReturn.php" >
-            <input type="hidden"  name="closeUrl" value="http://localhost/stdpay/close.asp" >
+            <input type="hidden"  name="closeUrl" value="http://d-www.2winchance.com/store/close.php" >
+            <input id="requestByJs" name="requestByJs" type="hidden" value="true">
 
+        </form-->
+        <form id="SendPayForm_id" name="" method="POST" action="https://stdpay.inicis.com/payMain/pay" accept-charset="UTF-8" target="iframe_13eae6eca05ff4">
+            <input type="hidden" name="mid" value="INIpayTest">
+            <input type="hidden" name="goodname" id="goodname" value="100c" spellcheck="false">>
+            <input type="hidden" name="price" id="price" value="55000" spellcheck="false" readonly="">
+            <input type="hidden" name="buyername" id="buyername" value="길동이" spellcheck="false">
+            <input type="hidden" name="buyertel" id="buyertel" value="010-1111-2222" spellcheck="false">
+            <input type="hidden" name="buyeremail" value="<?=$id?>" placeholder="이메일을 입력하세요." spellcheck="false">
+            <input type="hidden" name="acceptmethod" value="useescrow" spellcheck="false">
+
+            <input type="hidden" name="version" value="1.0">
+            <input type="hidden" name="currency" value="WON">
+            <input type="hidden" name="gopaymethod" value="">
+            <input type="hidden" name="oid" id="oid" value="<?=$orderNumber?>">
+            <input type="hidden" name="timestamp" id="timestamp" value="<?=$timestamp?>">
+            <input type="hidden" name="signature" id="sign" value="<?=$sign?>">
+            <input type="hidden" name="mKey" id="mKey" value="<?=$mKey?>">
+            <input type="hidden" name="returnUrl" value="http://d-www.2winchance.com/store/INIStdPayReturn.php">
+            <input type="hidden" name="closeUrl" value="http://d-www.2winchance.com/store/close.php">
+            <input type="hidden"  name="acceptmethod" value="CARDPOINT:va_receipt:HPP(1):below1000" >
+
+            <input id="requestByJs" name="requestByJs" type="hidden" value="true">
         </form>
 
 
@@ -98,7 +149,7 @@ try {
                             <h3>결제 금액</h3>
                             <ul class="amount-list">
                                 <li>
-                                    <a href="javascript:void(0);">
+                                    <a href="javascript:void(0);" data-money="1">
                                         <div class="coin-price">
                                             <!--                                            <span><img src="../images/10coin.svg" alt=""></span>-->
                                             <span>100ⓒ</span>
@@ -107,7 +158,7 @@ try {
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);">
+                                    <a href="javascript:void(0);" data-money="2">
                                         <div class="coin-price">
                                             <!--                                            <span><img src="../images/50coin.svg" alt=""></span>-->
                                             <span>200ⓒ</span>
@@ -116,7 +167,7 @@ try {
                                     </a>
                                 </li>
                                 <li class="active">
-                                    <a href="javascript:void(0);">
+                                    <a href="javascript:void(0);" data-money="3">
                                         <div class="coin-price">
                                             <!--                                            <span><img src="../images/100coin.svg" alt=""></span>-->
                                             <span>500ⓒ</span>
@@ -125,7 +176,7 @@ try {
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);">
+                                    <a href="javascript:void(0);" data-money="4">
                                         <div class="coin-price">
                                             <p class="txt1">웰컴팩</p>
                                             <!--                                            <span><img src="../images/200coin.svg" alt=""></span>-->
@@ -136,7 +187,7 @@ try {
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);">
+                                    <a href="javascript:void(0);" data-money="5">
                                         <div class="coin-price">
                                             <p class="txt1">아머 이건1</p>
                                             <!--                                            <span><img src="../images/500coin.svg" alt=""></span>-->
@@ -147,7 +198,7 @@ try {
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="javascript:void(0);">
+                                    <a href="javascript:void(0);" data-money="6">
                                         <div class="coin-price">
                                             <p class="txt1">아머 이건2</p>
                                             <!--                                            <span><img src="../images/1000coin.svg" alt=""></span>-->
@@ -227,8 +278,9 @@ try {
         ?>
     </footer>
     <!--//footer-->
-    <script src="https://stdux.inicis.com/stdpay/stdjs/INIStdPay_third-party.js"></script>
     <script src="https://stdpay.inicis.com/stdjs/INIStdPay.js"></script>
+    <script src="https://stdux.inicis.com/stdpay/stdjs/INIStdPay_third-party.js"></script>
+
     <script>
 
         function pay(){
@@ -260,13 +312,14 @@ try {
             })
 
             $('ul.amount-list li a').click(function(){
-                var money_id = $(this).data('monay');
+                var money_id = $(this).data('money');
 
                 $('ul.amount-list li').removeClass('active');
 
                 $(this).parent('li').addClass('active');
                 //$("#"+money_id).addClass('active');
 
+                //alert(money_id);
                 switch (money_id){
                     case 1:
                         $("#goodname").val('10C');
@@ -287,28 +340,62 @@ try {
                         $("#total-money").text('11,000');
                         break;
                     case 4:
-                        $("#goodname").val('200C');
-                        $("#price").val(22000);
-                        $("#total-coin").text('200');
-                        $("#total-money").text('22,000');
+                        $("#goodname").val('100C');
+                        $("#price").val(4900);
+                        $("#total-coin").text('100');
+                        $("#total-money").text('4,900');
                         break;
                     case 5:
-                        $("#goodname").val('500C');
-                        $("#price").val(55000);
-                        $("#total-coin").text('500');
-                        $("#total-money").text('55,000');
+                        $("#goodname").val('210C');
+                        $("#price").val(5900);
+                        $("#total-coin").text('210');
+                        $("#total-money").text('5,900');
                         break;
                     case 6:
-                        $("#goodname").val('1000C');
-                        $("#price").val(110000);
-                        $("#total-coin").text('1000');
-                        $("#total-money").text('110,000');
+                        $("#goodname").val('3220C');
+                        $("#price").val(9500);
+                        $("#total-coin").text('3220');
+                        $("#total-money").text('9,500');
                         break;
                 }
+                var price=$("#price").val();
+
+
+                var postData = {
+                    "price": price
+                };
+
+                $.ajax({
+                    url: "signature_proc.php",
+                    type: "POST",
+                    async: false,
+                    data: postData,
+                    success: function (data) {
+                        var json = JSON.parse(data);
+                        console.log(json);
+                        if (json.code == 200) {
+                            $("#oid").val(json.oid);
+                            $("#price").val(json.price);
+                            $("#timestamp").val(json.timestamp);
+                            $("#sign").val(json.sign);
+                            $("#mKey").val(json.mKey);
+                        }else{
+                            console.log(json);
+                        }
+                    },
+                    beforeSend:function(){
+                        $(".wrap-loading").removeClass("display-none");
+                    },
+                    complete:function(){
+                        $(".wrap-loading").addClass("display-none");
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log(textStatus, errorThrown);
+                    }
+                });
 
 
             })
-
         })
 
     </script>
