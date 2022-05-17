@@ -1,7 +1,7 @@
 <?php
 // config
 require_once __DIR__ .'/../_inc/config.php';
-
+$rtnUrl     = !empty($_GET['rtnUrl'])       ? $_GET['rtnUrl']       : '/';
 
 
 try {
@@ -140,7 +140,14 @@ try {
                                     var json = JSON.parse(data);
                                     console.log(data);
                                     if (json.code == 200) {
-                                        location.href = "../main/index.php";
+                                        <?php
+                                        if($rtnUrl=="/"){
+                                            echo 'location.href = "../main/index.php"';
+                                        }else{
+                                            echo 'location.href = "'.$rtnUrl.'"';
+                                        }
+                                        ?>
+
                                     }
                                 },
                                 error: function (jqXHR, textStatus, errorThrown) {
