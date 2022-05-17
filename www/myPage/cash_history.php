@@ -8,6 +8,20 @@ $arrRtn     = array(
     'code'  => 500,
     'msg'   => ''
 );
+
+if (!$idx) {
+
+    $url    = $_SERVER['REQUEST_URI'];
+
+    $msg    = '로그인 페이지로 이동합니다.';
+
+    $url    = '/login/index.php?rtnUrl='. $url;
+
+    alertReplace($msg, $url);
+
+    exit;
+
+}
 try {
     //파라미터 정리
     $page = !empty($_GET['page']) ? $_GET['page'] : 1;
@@ -63,6 +77,7 @@ try {
 <!--//head-->
 
 <body>
+
 <div id="wrap" class="sub">
     <!--header-->
     <header id="header">

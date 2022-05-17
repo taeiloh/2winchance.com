@@ -10,6 +10,20 @@ $arrRtn     = array(
     'msg'   => ''
 );
 
+if (!$idx) {
+
+    $url    = $_SERVER['REQUEST_URI'];
+
+    $msg    = '로그인 페이지로 이동합니다.';
+
+    $url    = '/login/index.php?rtnUrl='. $url;
+
+    alertReplace($msg, $url);
+
+    exit;
+
+}
+
 try{
     //파라미터 정리
     $page       = !empty($_GET['page'])     ? $_GET['page']     : 1;
@@ -66,6 +80,7 @@ try{
 <!--//head-->
 
 <body>
+
 <form id="contact" action="contactus_detail.php" method="post" enctype="multipart/form-data">
     <input type="hidden" name="cu_idx" id="cu_idx" value="">
 </form>
