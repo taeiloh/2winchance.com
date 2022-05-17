@@ -56,8 +56,8 @@ try {
                         <button class="btn-blue btn-8">구매하기</button>
                     </div>
 
-                    <div class="store-item-list" id="sp" style="display: none;text-align: center; font-size:50px;">
-                        제품 준비중
+                    <div class="store-item-list prepare" id="sp" style="display: none;">
+                        <p>제품 준비중</p>
                     </div>
                     <div class="store-item-list" id="chi" style="">
                         <ul>
