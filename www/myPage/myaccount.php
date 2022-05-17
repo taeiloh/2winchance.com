@@ -8,20 +8,13 @@ $deposit=!empty($_SESSION['_se_deposit']) ? $_SESSION['_se_deposit'] : 0;    // 
 $fp=!empty($_SESSION['_se_fp']) ? $_SESSION['_se_fp'] : 0; // fantasy-point 잔액
 
 if (!$idx) {
-
     $url    = $_SERVER['REQUEST_URI'];
-
     $msg    = '로그인 페이지로 이동합니다.';
-
     $url    = '/login/index.php?rtnUrl='. $url;
-
     alertReplace($msg, $url);
-
     exit;
-
 }
 try {
-
     $sql = "select count(*) from contactus where 1=1 and cu_u_idx = '{$idx}'";
     $tresult = mysqli_query($_mysqli, $sql);
     $row1   = mysqli_fetch_row($tresult);
@@ -35,6 +28,14 @@ try {
 
     $result = $_mysqli->query($query);
 
+    $query2 = "
+    SELECT *
+        FROM members
+        WHERE 1 and m_idx ='{$idx}'
+    ";
+    $mresult = $_mysqli->query($query2);
+    $_arrMembers = $mresult->fetch_array();
+    $m_sns_type = !empty($_arrMembers['m_sns_type']) ? $_arrMembers['m_sns_type'] : '';
 
 }catch (Exception $e) {
     p($e);
@@ -94,12 +95,29 @@ try {
                                     <li><?=$name?></li>
                                 </ul>
                                 <ul>
-                                    <li>E-MAIL </li>
-                                    <li><?=$id?></li>
+                                    <?php
+                                    if($id){
+                                        ?>
+                                        <li>E-MAIL </li>
+                                        <li><?=$id?></li>
+                                        <?php
+                                    }else{?>
+                                        <li>계정타입 </li>
+                                        <li><?=$m_sns_type?> 계정</li>
+                                        <?php
+                                    }?>
                                 </ul>
                                 <dl>
                                     <dt>비밀번호 변경하기</dt>
-                                    <dd>회원 탈퇴하기</dd>
+                                    <?php
+                                    if($id){
+                                    ?>
+                                        <a href="/remove/index.php"><dd>회원 탈퇴하기</dd></a>
+                                    <?php
+                                    }else{?>
+                                        <a href="/remove/index.php"><dd>회원 탈퇴하기</dd></a>
+                                    <?php
+                                    }?>
                                 </dl>
                             </div>
                         </div>

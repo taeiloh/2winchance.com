@@ -112,7 +112,7 @@ try {
         if ($.trim($("#m_pw_re").val()) == "") {
             alert("비밀번호 확인을 입력해 주세요.");
             $("#m_pw_re").focus();
-            return false
+            return false;
         }
         if  (pw != $("#m_pw_re").val()) {
             alert("비밀번호가 일치하지 않습니다.\n확인 후 다시 입력해 주세요.");
