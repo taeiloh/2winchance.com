@@ -940,6 +940,7 @@ input[type='radio']{width: 2.8rem; height: 2.8rem; margin-right: 1rem;}
 .pay-container .tab-content ul{margin-top: 7.3rem;}
 .pay-container .tab-content ul li{color: #d9d9d9; line-height: 1.8;}
 
+.prepare{display: flex; align-items: center; justify-content: center; font-size: 5rem; margin-left: -5rem; height: 99.6rem;}
 /* 07_01 , 07_02 추가*/
 /*  07_01 */
 .coin-charge{padding-right: 3rem; border-right: 1px solid #fff;}
