@@ -58,7 +58,7 @@ try {
                     <div class="store-item-list" id="sp" style="display: none;text-align: center; font-size:50px;">
                         제품 준비중
                     </div>
-                    <div class="store-item-list" id="chi" style="">
+                    <div class="store-item-list" id="chi" >
                         <ul>
                             <li>
                                 <a href="javascript:void(0);">
