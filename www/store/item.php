@@ -237,10 +237,10 @@ try {
             $('input[type=radio][name=type]').change(function() {
                 if (this.value == 'type1') {
                     $("#sp").css("display","none");
-                    $("#chi").css("display","block");
+                    $("#chi").css("display","flex");
                 }else {
                     $("#chi").css("display","none");
-                    $("#sp").css("display","block");
+                    $("#sp").css("display","flex");
                 }
             });
         });
