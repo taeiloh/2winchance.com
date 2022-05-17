@@ -409,26 +409,26 @@ try {
                     case 7:
                         $("#goodname").val('아머 이건3');
                         $("#price").val(9500);
-                        $("#total-coin").html( '3220 <span class="fc-yellow">ⓒ</span>');
+                        $("#total-coin").html( '3,220 <span class="fc-yellow">ⓒ</span>');
                         $("#total-money").text('9,500');
                         break;
                     case 8:
                         $("#goodname").val('아머 이건4');
                         $("#price").val(14000);
-                        $("#total-coin").html( '8050 <span class="fc-yellow">ⓒ</span>');
+                        $("#total-coin").html( '8,050 <span class="fc-yellow">ⓒ</span>');
                         $("#total-money").text('14,000');
                         break;
                     case 9:
                         $("#goodname").val('보너스 팩');
                         $("#price").val(16000);
-                        $("#total-coin").html( '8050 <span class="fc-yellow">ⓒ</span>');
+                        $("#total-coin").html( '8,050 <span class="fc-yellow">ⓒ</span>');
                         $("#total-money").text('16,000');
                         break;
 
                     case 10:
                         $("#goodname").val('월 구독');
                         $("#price").val(20000);
-                        $("#total-coin").html( '3220 <span class="fc-yellow">ⓒ</span>');
+                        $("#total-coin").html( '10 <span class="fc-yellow">ⓒ</span>');
                         $("#total-money").text('20,000');
                         break;
                 }
