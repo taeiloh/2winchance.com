@@ -135,12 +135,15 @@ ul.tabs li a{padding: .5rem;}
 .event-list .game-thumb .game-info{position: absolute; width: 100%; height: 100%; background-image: url("../images/thumb_shadow.png"); background-repeat: no-repeat; background-size: contain; background-position: left center; padding: 2rem;}
 .event-list .game-thumb .game-info .game-title{font-size: 2rem; font-weight: 600; padding: 0 0 1rem;}
 
+.none-event{position: absolute; width: 100%; height: 100%; top:0; left: 0; background-color: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; font-weight: 700;}
+
 /* 05_01 */
 .rank_label{position: absolute; z-index: 7; top:0; right: 1rem; width: 8.5rem; height: 9.63rem; background: url("../images/icon_rank.svg")no-repeat; display: flex; justify-content: center; font-size: 4.5rem; font-weight: 800;}
 .rank_label span{line-height: 1.8; }
 .event-banner{background-color: #1e8fff; opacity: 0.6; width: 100%; height: 6.9rem; position: absolute; bottom: 0; z-index: 6;}
 .rank-warp .contest-list{margin: 5rem -3.5rem 0rem;}
 .rank-warp .contest-list > li{padding: 0 3.5rem 4rem;}
+.contest-desc.no-event{height: 9.878rem; justify-content: center; font-size: 2.5rem; font-weight: 700;}
 
 /* 01_01.html */
 .sub .sec{padding: 5rem 0;}
@@ -193,8 +196,10 @@ ul.tabs li a{padding: .5rem;}
 .parti-info .participant span{color: #fff; margin-right: 0.5rem;}
 .parti-info p ~ p{margin: 1.6rem 0 0;}
 
+.
 
-/* 02_01.html */
+
+    /* 02_01.html */
 .B0{padding-bottom: 0px!important;}
 .contest-desc.lineUP{display: flex; align-items: flex-end; justify-content: space-between;}
 .conts-desc-l{display: flex; align-items: center;}
@@ -251,7 +256,7 @@ ul.tabs li a{padding: .5rem;}
 .myAcct .category li{ font-weight: 700;}
 .myAcct .cash-table td:nth-of-type(6){color: #dc0909; font-weight: 600;}
 .myAcct .cash-table td:nth-of-type(7){color: #ffdc50; font-weight: 600;}
-.myAcct .cash-table th a:after{content: ''; background: url("../images/icon_filter.svg")no-repeat center/contain;display: inline-block; margin-left: 1rem; width: 1.2rem; height: 1rem;}
+table tr.filter a:after{content: ''; background: url("../images/icon_filter.svg")no-repeat center/contain;display: inline-block; margin-left: 1rem; width: 1.2rem; height: 1rem;}
 .myAcct .cash-table th:nth-of-type(2) a:after{content: none;}
 
 .myAcct .contents-table tbody tr{border-bottom: 0.1rem dashed #fff;}
@@ -268,20 +273,6 @@ ul.tabs li a{padding: .5rem;}
 .qna-btn-box{display: flex; align-items: center; justify-content: space-between;}
 .qna-btn-box > .pagination{justify-self: center;}
 .qna-btn-box > button{font-size: 2.5rem; width: 15rem;}
-
-/* 04_03_01 */
-.myqna .inquiry-wrap {width: 100%; border-top: 1px solid #707070;}
-.myqna .inquiry-wrap .inquiry-title {display: flex; align-items: center; justify-content: space-between; padding: 3rem 0rem; cursor: pointer; border-bottom: 1px dashed #fff;}
-.myqna .inquiry-wrap .inquiry-title > div{text-align: left; margin-right: 2rem;}
-.myqna .inquiry-wrap .inquiry-title p{font-size: 2rem; letter-spacing: 0.1rem; font-weight: 600;}
-.myqna .inquiry-wrap .inquiry-title span{font-weight: 600; margin-top: 2rem; display: inline-block; color:#cecece;}
-.myqna .board-box{width: 52rem;}
-.myqna .board-box .inquiry-title {display: block; padding: 3rem 0rem 2rem; border-bottom: none;}
-.myqna .txt-box{background: #3a3a3a; padding: 4rem 3rem; min-height: 25rem;}
-.myqna .txt-box p.inquiry-type{color: #1e8fff; margin-bottom: 3rem;}
-.myqna .answer-wrap{margin-top: 3rem;}
-.myqna .answer-wrap .inquiry-title p {font-size: 2rem; letter-spacing: 0.1rem;font-weight: 600;}
-
 
 /* 04_05 */
 .howto .category{justify-content: unset; }
@@ -607,6 +598,7 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 .member .sub-content button.btn-blue{margin-top: 9rem;}
 .member .sub-content .sub-txt{font-size: 1.6rem; line-height: 1.6;}
 .member .sub-content .approve-box{background-color: #303030; padding: 3.4rem 0 3.8rem; margin-top: 4rem;}
+.member .sub-content .approve-box > h4{font-size: 2.4rem;}
 .member .sub-content .approve-box > p {font-size: 1.6rem; margin: 4rem 0; line-height: 2;}
 .member .sub-content b {font-size: 3rem; color: #1e8fff;}
 .member .sub-content.email-link{text-align: left;}
@@ -627,6 +619,20 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 .policy-txt p{font-size: 1.4rem; line-height: 1.5;}
 
 #wrap.e-link{width: 100rem; min-height: unset;}
+
+/* 04_03_01  */
+.myqna .inquiry-wrap {width: 100%; border-top: 1px solid #707070;}
+.myqna .inquiry-wrap .inquiry-title {display: flex; align-items: center; justify-content: space-between; padding: 3rem 0rem; cursor: pointer; border-bottom: 1px dashed #fff;}
+.myqna .inquiry-wrap .inquiry-title > div{text-align: left; margin-right: 2rem;}
+.myqna .inquiry-wrap .inquiry-title p{font-size: 2rem; letter-spacing: 0.1rem; font-weight: 600;}
+.myqna .inquiry-wrap .inquiry-title span{font-weight: 600; margin-top: 2rem; display: inline-block; color:#cecece;}
+.myqna .board-box{width: 52rem;}
+.myqna .board-box .inquiry-title {display: block; padding: 3rem 0rem 2rem; border-bottom: none;}
+.myqna .txt-box{background: #3a3a3a; padding: 4rem 3rem; min-height: 25rem;}
+.myqna .txt-box p.inquiry-type{color: #1e8fff; margin-bottom: 3rem;}
+.myqna .answer-wrap{margin-top: 3rem;}
+.myqna .answer-wrap .inquiry-title p {font-size: 2rem; letter-spacing: 0.1rem;font-weight: 600;}
+
 
 /*  06_03.html */
 .member .maintenance.policy-page h2{font-size: 3.4rem; color: #fff;}
@@ -824,11 +830,15 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 .user-detail-info li p{font-size: 3rem; font-weight: 700;}
 .user-detail-info li span{font-size: 3.2rem; font-weight: 400;}
 .user-detail-info li:nth-of-type(2) span{color: #3bff00;}
+.user-detail-info li:nth-of-type(3) span{color: #0b943a;}
 .user-detail-info li:last-of-type p{font-size: 2.4rem;}
 .user-detail-info li:last-of-type span{font-size: 2.8rem; color: #1e8fff;}
 .user-detail-info li:last-of-type{border-top: 0.1rem dashed #fff; padding-top: 4rem; margin-bottom: 0;}
-.coin:before{content: ''; background: url("../images/ico_gold.svg")no-repeat; background-size: contain; width: 2.24rem; height: 2.37rem; display: inline-block; margin-right: 1rem;}
+.coin:before{content: 'ⓒ'; background-size: contain; display: inline-block; margin-right: 1rem; color: #ffdc50;}
+.coin-b:after{content: 'ⓒ'; background-size: contain; display: inline-block; margin-left: 1rem; color: #ffdc50;}
 .fp:after{content: 'FP'; margin-left: 1rem;}
+.hp{color: #0b943a!important;}
+.hp:after{content: 'HP'; margin-left: 1rem; color: #0b943a; }
 .count:after{content: '건'; margin-left: 0.5rem;}
 
 .user-item{width: 77.4rem;}
@@ -871,6 +881,7 @@ input[type='radio']{width: 2.8rem; height: 2.8rem; margin-right: 1rem;}
 .current-coin{border-right: 0.1rem solid #fff; padding-right: 5rem;}
 .current-coin ul{margin-bottom: 4rem;}
 .current-coin ul > li:first-of-type{font-size: 2.6rem; font-weight: 600; margin-bottom: 1.5rem;}
+.current-coin button{width: 22.9rem; font-size: 3rem;margin-top: 5.8rem;}
 
 .coin-list li:last-of-type{font-size: 3rem; display: flex;}
 
@@ -883,65 +894,14 @@ input[type='radio']{width: 2.8rem; height: 2.8rem; margin-right: 1rem;}
 .store-item-list li{width: 20%; margin: 0  5rem 3rem 0; position: relative;}
 .store-item-list li{margin-left: 0;}
 .store-item-list li img{width: 100%;}
+.store-item-list li  .get-point{position: absolute; bottom:2rem; left: 50%; transform: translateX(-50%); color: #ffdc50; font-size: 2.5rem; font-weight: 700;}
 .item-pic{position: relative;}
 .item-pic:before{display: block; content: ''; width: 100%; height: 100%; background-color: rgba(28,28,28,0.4); position: absolute; top:0; left: 0;}
 .cash-item-desc{padding: 2rem 0;  font-size: 2rem; font-weight: 700; }
 .cash-item-desc > span{display: flex; align-items: center; margin-top: 1rem;}
 
-/*  07_01 */
-.coin-charge{padding-right: 3rem; border-right: 1px solid #fff;}
-.coin-charge ul{border-bottom: 1px solid #fff; padding-bottom: 3rem; margin-bottom: 3rem;}
-.coin-charge ul:last-of-type{border-bottom: none; margin-bottom: 10.9rem;}
-.coin-charge li{font-size: 2rem;}
-.total-coin li{position: relative;}
-.total-coin li:first-of-type{font-size: 2.6rem; font-weight: 700; padding-bottom: 1rem;}
-.total-coin li:first-of-type:before{content: ''; width: 6.7rem; height: 0.2rem; background-color: #1e8fff; position: absolute; bottom: 0; left: 0;}
-.total-coin li:last-of-type{color: #3bff00; font-size: 4rem; font-weight: 600; margin-top: 2rem;}
-.coin-policy{width: 26rem; }
-.intend-charge li{font-weight: 700; margin-bottom: 2rem;}
-.intend-charge li:last-of-type{margin-bottom: 0; font-size: 3.8rem; display: flex; align-self: center;}
-.intend-charge li:last-of-type:before{content: ''; background: url("../images/ico_add.svg")no-repeat; margin-right: 1rem; width: 2.5rem; height: 2.5rem; background-size: contain; display: block; align-self: center;}
-
-.coin-policy p{margin-bottom: 2rem; font-size: 2rem; font-weight: 700;}
-.coin-policy span{display: inline-block; margin-bottom: 1.5rem;}
-.coin-policy button{width: 22.9rem; font-size: 3rem; margin-top: 5.8rem;}
-.coin-policy p.checkbox > label{font-weight: 400; font-size: 1.6rem;}
-
-.pay-method{width: 100%; min-width: 105.1rem; margin-left: 5rem;}
-.pay-method h3{font-size: 3rem; font-weight: 600; margin-bottom: 3rem;}
-.pay-amount{margin-bottom: 5rem;}
-.pay-amount ul li{position: relative;}
-
-.amount-list{display: flex;}
-.amount-list li{width: 18rem; margin-right: 0.5rem;}
-.amount-list li:last-of-type{margin-right: 0;}
-.price-box{padding: 3rem 1rem; text-align: center;}
-.price-box p{font-size: 3rem;}
-.price-box p:after{content: '원'; margin-left: 0.5rem;}
-
-.coin-price{position: relative;  width:100%; height: 16rem; padding: 0 1rem;}
-.amount-list li.active .coin-price{border: 0.4rem solid #1e8fff; }
-.amount-list li.active .price-box p{color: #1e8fff;}
-.coin-price:before{content: ''; display: block; width: 100%; height: 100%; background: url("../images/charge_bg.svg")no-repeat; background-size: contain;}
-.coin-price span{position: absolute; top:50%; left: 50%; transform: translate(-50%, -50%);}
-
-
-.pay-container ul.tabs{margin: 0;padding: 0;list-style: none;background-color: #090e10;height: 8rem;}
-.pay-container ul.tabs li{background: none;color: #fff;display: inline-block;padding: 2.8rem 1.5rem;cursor: pointer;width: 15.1rem;text-align: center; margin-left: 0;}
-.pay-container ul.tabs li.current{border: 3px solid #414141; border-bottom: none;}
-.pay-container .tab-content{display: none;padding: 1.5rem 0;background-color: #414141;height: 32.6rem; padding: 3.5rem 4rem;}
-.pay-container .tab-content h4{font-size: 2rem; letter-spacing: 0.12rem;}
-.pay-container .tab-content.current{display: inherit;}
-
-.payment-list{display: flex; margin-top: 6rem; height: 5.3rem;}
-.payment-list label{display: flex; align-items: center; margin-right: 7rem;}
-.payment-list  p.checkbox:last-of-type label{margin-right: 0;}
-
-.pay-container .tab-content ul{margin-top: 7.3rem;}
-.pay-container .tab-content ul li{color: #d9d9d9; line-height: 1.8;}
-
 .prepare{display: flex; align-items: center; justify-content: center; font-size: 5rem; margin-left: -5rem; height: 99.6rem;}
-/* 07_01 , 07_02 추가*/
+
 /*  07_01 */
 .coin-charge{padding-right: 3rem; border-right: 1px solid #fff;}
 .coin-charge ul{border-bottom: 1px solid #fff; padding-bottom: 3rem; margin-bottom: 3rem;}
@@ -986,14 +946,6 @@ input[type='radio']{width: 2.8rem; height: 2.8rem; margin-right: 1rem;}
 .coin-price:before{content: ''; display: block; width: 100%; height: 100%; background: url("../images/charge_bg.svg")no-repeat; background-size: contain;}
 .coin-price span{position: absolute; top:50%; left: 50%; transform: translate(-50%, -50%);}
 
-
-.pay-container ul.tabs{margin: 0;padding: 0;list-style: none;background-color: #090e10;height: 8rem;}
-.pay-container ul.tabs li{background: none;color: #fff;display: inline-block;padding: 2.8rem 1.5rem;cursor: pointer;width: 15.1rem;text-align: center; margin-left: 0;}
-.pay-container ul.tabs li.current{border: 3px solid #414141; border-bottom: none;}
-.pay-container .tab-content{display: none;padding: 1.5rem 0;background-color: #414141;height: 32.6rem; padding: 3.5rem 4rem;}
-.pay-container .tab-content h4{font-size: 2rem; letter-spacing: 0.12rem;}
-.pay-container .tab-content.current{display: inherit;}
-
 .payment-list{display: flex; margin-top: 6rem; height: 5.3rem;}
 .payment-list label{display: flex; align-items: center; margin-right: 7rem;}
 .payment-list  p.checkbox:last-of-type label{margin-right: 0;}
@@ -1007,8 +959,8 @@ input[type='radio']{width: 2.8rem; height: 2.8rem; margin-right: 1rem;}
 /* join_07 */
 .nick > h4{text-align: center; margin-bottom: 5rem;}
 .input-radio{display: flex; align-items: center; justify-content: space-between; margin-top: 2rem; height: 6rem;}
-.input-radio > .radio-wrap{display: flex; width: calc(100% - 12rem);}
-.input-radio > .radio-wrap > p{margin-right: 5rem;}
+.radio-wrap{display: flex; width: calc(100% - 12rem); margin-top: 6rem; height: 5.3rem;}
+.radio-wrap > p{margin-right: 5rem;}
 
 
 
