@@ -55,165 +55,169 @@ try {
                         </ul>
                         <button class="btn-blue btn-8">구매하기</button>
                     </div>
-                    <div class="store-item-list" id="sp" style="display: none;text-align: center; font-size:50px;">
-                        제품 준비중
-                    </div>
-                    <div class="store-item-list" id="chi" >
-                        <ul>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div class="item-pic">
-                                        <img src="../images/item_00.png" alt="">
-                                        <p class="get-point fp">+100</p>
-                                    </div>
-                                    <div class="cash-item-desc">
-                                        <p>전투사관학교 교수님</p>
-                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
-                                    </div>
-                                </a>
+                    <div class="store-item-list" id="sp" style="text-align: center; font-size:50px;">
+                        <div class="store-item-list" id="sp" style="display: none;text-align: center; font-size:50px;">
+                            제품 준비중
+                        </div>
+                        <div class="store-item-list" id="chi" style="">
+                            <div class="store-item-list" id="chi" style="">
+                                <ul>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="item-pic">
+                                                <img src="../images/item_00.png" alt="">
+                                                <p class="get-point fp">+100</p>
+                                            </div>
+                                            <div class="cash-item-desc">
+                                                <p>전투사관학교 교수님</p>
+                                                <span>10 <span class="fc-yellow">ⓒ</span></span>
+                                            </div>
+                                        </a>
 
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div class="item-pic">
-                                        <img src="../images/item_02.png" alt="">
-                                        <p class="get-point fp">+100</p>
-                                    </div>
-                                    <div class="cash-item-desc">
-                                        <p>이중용 불리베어</p>
-                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div class="item-pic">
-                                        <img src="../images/item_03.png" alt="">
-                                        <p class="get-point fp">+100</p>
-                                    </div>
-                                    <div class="cash-item-desc">
-                                        <p>동물특공대 메가 </p>
-                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div class="item-pic">
-                                        <img src="../images/item_04.png" alt="">
-                                        <p class="get-point fp">+100</p>
-                                    </div>
-                                    <div class="cash-item-desc">
-                                        <p>K/D ALL OUT 카이샤</p>
-                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div class="item-pic">
-                                        <img src="../images/item_00.png" alt="">
-                                        <p class="get-point fp">+100</p>
-                                    </div>
-                                    <div class="cash-item-desc">
-                                        <p>전투사관학교 교수님</p>
-                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div class="item-pic">
-                                        <img src="../images/item_02.png" alt="">
-                                        <p class="get-point fp">+100</p>
-                                    </div>
-                                    <div class="cash-item-desc">
-                                        <p>이중용 불리베어</p>
-                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div class="item-pic">
-                                        <img src="../images/item_03.png" alt="">
-                                        <p class="get-point fp">+100</p>
-                                    </div>
-                                    <div class="cash-item-desc">
-                                        <p>동물특공대 메가 </p>
-                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div class="item-pic">
-                                        <img src="../images/item_04.png" alt="">
-                                        <p class="get-point fp">+100</p>
-                                    </div>
-                                    <div class="cash-item-desc">
-                                        <p>K/D ALL OUT 카이샤</p>
-                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div class="item-pic">
-                                        <img src="../images/item_00.png" alt="">
-                                        <p class="get-point fp">+100</p>
-                                    </div>
-                                    <div class="cash-item-desc">
-                                        <p>전투사관학교 교수님</p>
-                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div class="item-pic">
-                                        <img src="../images/item_02.png" alt="">
-                                        <p class="get-point fp">+100</p>
-                                    </div>
-                                    <div class="cash-item-desc">
-                                        <p>이중용 불리베어</p>
-                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div class="item-pic">
-                                        <img src="../images/item_03.png" alt="">
-                                        <p class="get-point fp">+100</p>
-                                    </div>
-                                    <div class="cash-item-desc">
-                                        <p>동물특공대 메가 </p>
-                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div class="item-pic">
-                                        <img src="../images/item_04.png" alt="">
-                                        <p class="get-point fp">+100</p>
-                                    </div>
-                                    <div class="cash-item-desc">
-                                        <p>K/D ALL OUT 카이샤</p>
-                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="item-pic">
+                                                <img src="../images/item_02.png" alt="">
+                                                <p class="get-point fp">+100</p>
+                                            </div>
+                                            <div class="cash-item-desc">
+                                                <p>이중용 불리베어</p>
+                                                <span>10 <span class="fc-yellow">ⓒ</span></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="item-pic">
+                                                <img src="../images/item_03.png" alt="">
+                                                <p class="get-point fp">+100</p>
+                                            </div>
+                                            <div class="cash-item-desc">
+                                                <p>동물특공대 메가 </p>
+                                                <span>10 <span class="fc-yellow">ⓒ</span></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="item-pic">
+                                                <img src="../images/item_04.png" alt="">
+                                                <p class="get-point fp">+100</p>
+                                            </div>
+                                            <div class="cash-item-desc">
+                                                <p>K/D ALL OUT 카이샤</p>
+                                                <span>10 <span class="fc-yellow">ⓒ</span></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="item-pic">
+                                                <img src="../images/item_00.png" alt="">
+                                                <p class="get-point fp">+100</p>
+                                            </div>
+                                            <div class="cash-item-desc">
+                                                <p>전투사관학교 교수님</p>
+                                                <span>10 <span class="fc-yellow">ⓒ</span></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="item-pic">
+                                                <img src="../images/item_02.png" alt="">
+                                                <p class="get-point fp">+100</p>
+                                            </div>
+                                            <div class="cash-item-desc">
+                                                <p>이중용 불리베어</p>
+                                                <span>10 <span class="fc-yellow">ⓒ</span></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="item-pic">
+                                                <img src="../images/item_03.png" alt="">
+                                                <p class="get-point fp">+100</p>
+                                            </div>
+                                            <div class="cash-item-desc">
+                                                <p>동물특공대 메가 </p>
+                                                <span>10 <span class="fc-yellow">ⓒ</span></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="item-pic">
+                                                <img src="../images/item_04.png" alt="">
+                                                <p class="get-point fp">+100</p>
+                                            </div>
+                                            <div class="cash-item-desc">
+                                                <p>K/D ALL OUT 카이샤</p>
+                                                <span>10 <span class="fc-yellow">ⓒ</span></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="item-pic">
+                                                <img src="../images/item_00.png" alt="">
+                                                <p class="get-point fp">+100</p>
+                                            </div>
+                                            <div class="cash-item-desc">
+                                                <p>전투사관학교 교수님</p>
+                                                <span>10 <span class="fc-yellow">ⓒ</span></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="item-pic">
+                                                <img src="../images/item_02.png" alt="">
+                                                <p class="get-point fp">+100</p>
+                                            </div>
+                                            <div class="cash-item-desc">
+                                                <p>이중용 불리베어</p>
+                                                <span>10 <span class="fc-yellow">ⓒ</span></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="item-pic">
+                                                <img src="../images/item_03.png" alt="">
+                                                <p class="get-point fp">+100</p>
+                                            </div>
+                                            <div class="cash-item-desc">
+                                                <p>동물특공대 메가 </p>
+                                                <span>10 <span class="fc-yellow">ⓒ</span></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);">
+                                            <div class="item-pic">
+                                                <img src="../images/item_04.png" alt="">
+                                                <p class="get-point fp">+100</p>
+                                            </div>
+                                            <div class="cash-item-desc">
+                                                <p>K/D ALL OUT 카이샤</p>
+                                                <span>10 <span class="fc-yellow">ⓒ</span></span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
             </section>
             <!--//sec-01-->
             <div class="pagination">
                 <a class="active" href="javascript:void(0)">1</a>
+                <!--a href="javascript:void(0)">2</a>
                 <a href="javascript:void(0)">2</a>
                 <a href="javascript:void(0)">3</a>
+                <a href="javascript:void(0)">4</a-->
                 <a href="javascript:void(0)">4</a>
             </div>
         </div>
@@ -230,11 +234,22 @@ try {
     </footer>
     <!--//footer-->
     <script type="text/javascript">
-        var onloadCallback = function() {
-            grecaptcha.render('html_element', {
-                'sitekey' : 'your_site_key'
-            });
-        };
+        $(function(){
+            $('input[type=radio][name=type]').change(function() {
+                if (this.value == 'type1') {
+                    $("#sp").css("display","none");
+                    $("#chi").css("display","block");
+                }else {
+                    $("#chi").css("display","none");
+                    $("#sp").css("display","block");
+                }
+                var onloadCallback = function() {
+                    grecaptcha.render('html_element', {
+                        'sitekey' : 'your_site_key'
+                    });
+                });
+
+            };
     </script>
 </div>
 </body>
