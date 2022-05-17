@@ -55,10 +55,10 @@ try {
                         </ul>
                         <button class="btn-blue btn-8">구매하기</button>
                     </div>
-                    <div class="store-item-list" id="sp" style="text-align: center; font-size:50px;">
+                    <div class="store-item-list" id="sp" style="display: none;text-align: center; font-size:50px;">
                         제품 준비중
                     </div>
-                    <div class="store-item-list" id="chi" style="display: none">
+                    <div class="store-item-list" id="chi" style="">
                         <ul>
                             <li>
                                 <a href="javascript:void(0);">
@@ -212,9 +212,9 @@ try {
             <!--//sec-01-->
             <div class="pagination">
                 <a class="active" href="javascript:void(0)">1</a>
-                <!--a href="javascript:void(0)">2</a>
+                <a href="javascript:void(0)">2</a>
                 <a href="javascript:void(0)">3</a>
-                <a href="javascript:void(0)">4</a-->
+                <a href="javascript:void(0)">4</a>
             </div>
         </div>
         <!--//content-->
@@ -230,18 +230,11 @@ try {
     </footer>
     <!--//footer-->
     <script type="text/javascript">
-        $(function(){
-            $('input[type=radio][name=type]').change(function() {
-                if (this.value == 'type1') {
-                    $("#sp").css("display","none");
-                    $("#chi").css("display","block");
-                }else {
-                    $("#chi").css("display","none");
-                    $("#sp").css("display","block");
-                }
+        var onloadCallback = function() {
+            grecaptcha.render('html_element', {
+                'sitekey' : 'your_site_key'
             });
-        });
-
+        };
     </script>
 </div>
 </body>
