@@ -115,7 +115,7 @@ try {
                 <div class="inner store_title">
                     <h2>캐시 아이템</h2>
                 </div>
-                <div class="contents-cont inner">
+                <div-- class="contents-cont inner">
                     <div class="coin-charge">
                         <div>
                             <ul class="total-coin">
@@ -175,6 +175,8 @@ try {
                                         <div class="price-box"><p>55,000</p></div>
                                     </a>
                                 </li>
+                            </ul>
+                            <ul class="amount-list">
                                 <li>
                                     <a href="javascript:void(0);" data-money="4">
                                         <div class="coin-price">
@@ -202,25 +204,72 @@ try {
                                         <div class="coin-price">
                                             <p class="txt1">아머 이건2</p>
                                             <!--                                            <span><img src="../images/1000coin.svg" alt=""></span>-->
+                                            <span>230ⓒ</span>
+                                            <p class="txt2">1회 / 인</p>
+                                        </div>
+                                        <div class="price-box"><p>6,900</p></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" data-money="7">
+                                        <div class="coin-price">
+                                            <p class="txt1">아머 이건3</p>
+                                            <!--                                            <span><img src="../images/1000coin.svg" alt=""></span>-->
                                             <span>3,220ⓒ</span>
                                             <p class="txt2">1회 / 인</p>
                                         </div>
                                         <div class="price-box"><p>9,500</p></div>
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="javascript:void(0);" data-money="8">
+                                        <div class="coin-price">
+                                            <p class="txt1">아머 이건4</p>
+                                            <!--                                            <span><img src="../images/1000coin.svg" alt=""></span>-->
+                                            <span>8,050ⓒ</span>
+                                            <p class="txt2">1회 / 인</p>
+                                        </div>
+                                        <div class="price-box"><p>14,000</p></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" data-money="9">
+                                        <div class="coin-price">
+                                            <p class="txt1">보너스 팩</p>
+                                            <!--                                            <span><img src="../images/1000coin.svg" alt=""></span>-->
+                                            <span>8,050ⓒ</span>
+                                            <p class="txt2">1회 / 인</p>
+                                        </div>
+                                        <div class="price-box"><p>16,000</p></div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0);" data-money="10">
+                                        <div class="coin-price ">
+                                            <p class="txt1">월 구독</p>
+                                            <!--                                            <span><img src="../images/1000coin.svg" alt=""></span>-->
+                                            <div class="last">
+                                                <span>10ⓒ /일</span>
+                                                <span>1치장/ 일</span>
+                                            </div>
+                                            <p class="txt2">1회 / 인</p>
+                                        </div>
+                                        <div class="price-box"><p>20,000</p></div>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
-                        <div class="payby">
+                        <!--div class="payby">
                             <h3>결제 수단</h3>
                             <div class="pay-container">
                                 <ul class="tabs">
-                                    <!--li class="tab-link current" data-tab="tab-1" >간편결제</li-->
+                                    <li class="tab-link current" data-tab="tab-1" >간편결제</li>
                                     <li class="tab-link current" data-tab="tab-2" data-value="Card">신용카드</li>
                                     <li class="tab-link" data-tab="tab-3" data-value="HPP">휴대폰</li>
                                     <li class="tab-link" data-tab="tab-4" data-value="DirectBank">온라인이체</li>
                                     <li class="tab-link" data-tab="tab-5" data-value="Culture">상품권류</li>
                                 </ul>
-                                <!--div id="tab-1" class="tab-content">
+                                <div id="tab-1" class="tab-content">
                                     <h4>간편결제는 결제하기 버튼을 눌러 선택하신 서비스의 결제 창에서 진행하세요</h4>
                                     <div class="payment-list">
                                         <p class="checkbox">
@@ -252,9 +301,9 @@ try {
                                 </div>
                                 <div id="tab-5" class="tab-content">
                                     상품권류 내용이 들어갑니다
-                                </div-->
+                                </div>
                             </div>
-                        </div>
+                        </div-->
                     </div>
                 </div>
             </section>
@@ -340,22 +389,47 @@ try {
                         $("#total-money").text('55,000');
                         break;
                     case 4:
-                        $("#goodname").val('100C');
+                        $("#goodname").val('웰컴팩');
                         $("#price").val(4900);
                         $("#total-coin").html( '100 <span class="fc-yellow">ⓒ</span>');
                         $("#total-money").text('4,900');
                         break;
                     case 5:
-                        $("#goodname").val('210C');
+                        $("#goodname").val('아머 이건1');
                         $("#price").val(5900);
                         $("#total-coin").html( '210 <span class="fc-yellow">ⓒ</span>');
                         $("#total-money").text('5,900');
                         break;
                     case 6:
-                        $("#goodname").val('3220C');
+                        $("#goodname").val('아머 이건2');
+                        $("#price").val(6900);
+                        $("#total-coin").html( '230 <span class="fc-yellow">ⓒ</span>');
+                        $("#total-money").text('6,900');
+                        break;
+                    case 7:
+                        $("#goodname").val('아머 이건3');
                         $("#price").val(9500);
                         $("#total-coin").html( '3220 <span class="fc-yellow">ⓒ</span>');
                         $("#total-money").text('9,500');
+                        break;
+                    case 8:
+                        $("#goodname").val('아머 이건4');
+                        $("#price").val(14000);
+                        $("#total-coin").html( '8050 <span class="fc-yellow">ⓒ</span>');
+                        $("#total-money").text('14,000');
+                        break;
+                    case 9:
+                        $("#goodname").val('보너스 팩');
+                        $("#price").val(16000);
+                        $("#total-coin").html( '8050 <span class="fc-yellow">ⓒ</span>');
+                        $("#total-money").text('16,000');
+                        break;
+
+                    case 10:
+                        $("#goodname").val('월 구독');
+                        $("#price").val(20000);
+                        $("#total-coin").html( '3220 <span class="fc-yellow">ⓒ</span>');
+                        $("#total-money").text('20,000');
                         break;
                 }
                 var price=$("#price").val();

@@ -941,17 +941,67 @@ input[type='radio']{width: 2.8rem; height: 2.8rem; margin-right: 1rem;}
 .pay-container .tab-content ul li{color: #d9d9d9; line-height: 1.8;}
 
 /* 07_01 , 07_02 추가*/
+/*  07_01 */
+.coin-charge{padding-right: 3rem; border-right: 1px solid #fff;}
+.coin-charge ul{border-bottom: 1px solid #fff; padding-bottom: 3rem; margin-bottom: 3rem;}
+.coin-charge ul:last-of-type{border-bottom: none; margin-bottom: 10.9rem;}
+.coin-charge li{font-size: 2rem;}
+.total-coin li{position: relative;}
+.total-coin li:first-of-type{font-size: 2.6rem; font-weight: 700; padding-bottom: 1rem;}
+.total-coin li:first-of-type:before{content: ''; width: 6.7rem; height: 0.2rem; background-color: #1e8fff; position: absolute; bottom: 0; left: 0;}
+.total-coin li:last-of-type{color: #3bff00; font-size: 4rem; font-weight: 600; margin-top: 2rem;}
+.coin-policy{width: 26rem; }
+.intend-charge li{font-weight: 700; margin-bottom: 2rem;}
+.intend-charge li:last-of-type{margin-bottom: 0; font-size: 3.8rem; display: flex; align-self: center;}
+.intend-charge li:last-of-type:before{content: ''; background: url("../images/ico_add.svg")no-repeat; margin-right: 1rem; width: 2.5rem; height: 2.5rem; background-size: contain; display: block; align-self: center;}
+
+.coin-policy p{margin-bottom: 2rem; font-size: 2rem; font-weight: 700;}
+.coin-policy span{display: inline-block; margin-bottom: 1.5rem;}
+.coin-policy button{width: 22.9rem; font-size: 3rem; margin-top: 5.8rem;}
+.coin-policy p.checkbox > label{font-weight: 400; font-size: 1.6rem;}
+
+.pay-method{width: 100%; min-width: 105.1rem; margin-left: 5rem;}
+.pay-method h3{font-size: 3rem; font-weight: 600; margin-bottom: 3rem;}
+.pay-amount{margin-bottom: 5rem;}
+.pay-amount ul li{position: relative;}
+
+.amount-list{display: flex; flex-wrap: wrap;}
+.amount-list li{width: 16%; margin-right: 0.6%;}
+.amount-list li:last-of-type{margin-right: 0;}
+.price-box{padding: 3rem 1rem; text-align: center;}
+.price-box p{font-size: 3rem;}
+.price-box p:after{content: '원'; margin-left: 0.5rem;}
+
 .coin-list span.fc-yellow{margin-left: 1rem;}
 .cash-item-desc  span.fc-yellow{margin-left: 1rem;}
+
 .coin-price span{font-weight: 700; font-size: 3rem; color: #ffdc50;}
+.coin-price{position: relative;  width:100%; height: 16rem; padding: 0 1rem;}
 .coin-price .txt1, .coin-price .txt2{position: absolute; width: 100%; height: 3rem;  line-height: 3rem; text-align: center; background-color: rgba(30,143,255,0.5); left: 50%; transform: translateX(-50%); color: #ffdc50;}
 .coin-price .txt1{top:0; }
 .coin-price .txt2{bottom: 0;}
+.amount-list li.active .coin-price{border: 0.4rem solid #1e8fff; }
+.amount-list li.active .price-box p{color: #1e8fff;}
+.coin-price:before{content: ''; display: block; width: 100%; height: 100%; background: url("../images/charge_bg.svg")no-repeat; background-size: contain;}
+.coin-price span{position: absolute; top:50%; left: 50%; transform: translate(-50%, -50%);}
 
-.store-item-list li  .get-point{position: absolute; bottom:2rem; left: 50%; transform: translateX(-50%); color: #ffdc50; font-size: 2.5rem; font-weight: 700;}
-.item-pic{position: relative;}
-.radio-wrap{display: flex; width: calc(100% - 12rem); margin-top: 6rem; height: 5.3rem;}
-.radio-wrap > p{margin-right: 5rem;}
+
+.pay-container ul.tabs{margin: 0;padding: 0;list-style: none;background-color: #090e10;height: 8rem;}
+.pay-container ul.tabs li{background: none;color: #fff;display: inline-block;padding: 2.8rem 1.5rem;cursor: pointer;width: 15.1rem;text-align: center; margin-left: 0;}
+.pay-container ul.tabs li.current{border: 3px solid #414141; border-bottom: none;}
+.pay-container .tab-content{display: none;padding: 1.5rem 0;background-color: #414141;height: 32.6rem; padding: 3.5rem 4rem;}
+.pay-container .tab-content h4{font-size: 2rem; letter-spacing: 0.12rem;}
+.pay-container .tab-content.current{display: inherit;}
+
+.payment-list{display: flex; margin-top: 6rem; height: 5.3rem;}
+.payment-list label{display: flex; align-items: center; margin-right: 7rem;}
+.payment-list  p.checkbox:last-of-type label{margin-right: 0;}
+
+.pay-container .tab-content ul{margin-top: 7.3rem;}
+.pay-container .tab-content ul li{color: #d9d9d9; line-height: 1.8;}
+
+.coin-price .last{position: absolute; top: 55%; left: 50%; transform: translate(-50% ,-50%);}
+.coin-price .last > span{font-size: 2.3rem;  position: relative; display: block;}
 
 /* join_07 */
 .nick > h4{text-align: center; margin-bottom: 5rem;}
