@@ -49,7 +49,7 @@ try {
                             </div>
                             <div class="find-wrap">
                                 <a href="javascript:void(0)" class="fc-blue" onclick="location.href='/signup/index.php'">회원가입</a>
-                                <a href="javascript:void(0)">아이디찾기</a>
+                                <a href="../signup/id_check.php">아이디찾기</a>
                                 <a href="javascript:void(0)">비밀번호찾기</a>
                             </div>
                         </div>
