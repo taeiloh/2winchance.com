@@ -1,3 +1,15 @@
+<?php
+// config
+require_once __DIR__ .'/../_inc/config.php';
+
+
+
+try {
+
+} catch (Exception $e) {
+    p($e);
+}
+?>
 <!doctype html>
 <html lang="ko">
 <head>
