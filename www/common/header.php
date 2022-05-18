@@ -1,5 +1,6 @@
 <?php
 // 파라미터 정리
+checkmobile();
 $cate       = !empty($_GET['cate'])     ? $_GET['cate']     : '';
 
 // 변수 정리
