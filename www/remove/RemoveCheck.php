@@ -31,9 +31,7 @@ $idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 �
                     </h3>
                     <div class="confirm-wrap">
                         <button class="btn-blue btn-6" onclick="location.href='../main'">홈으로</button></a>
-                    </div>
-                    <div class="confirm-wrap">
-                        <button class="btn-blue btn-6" onclick="location.href='RemovceComplete.php'">탈퇴하기</button></a>
+                        <button class="btn-red btn-6" onclick="location.href='RemovceComplete.php'">탈퇴하기</button></a>
                     </div>
                 </div>
             </div>
