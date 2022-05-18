@@ -45,7 +45,7 @@ $idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 �
                                 </p>
                             </div>
                         </div>
-                        <a href ="RemoveInfo.php"><button type="button" class="btn-blue btn-6">다음</button></a>
+                        <button type="button" class="btn-blue btn-6" onclick="location.href='RemoveInfo.php'">다음</button>
                     </div>
                 </form>
             </div>
