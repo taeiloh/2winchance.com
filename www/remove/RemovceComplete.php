@@ -38,7 +38,7 @@ try {
                         이용해 주셔서 감사합니다.
                     </h3>
                     <div class="confirm-wrap">
-                        <button type="button" class="btn-blue btn-6">홈으로</button>
+                        <a href="../login/logout.php"><button type="button" class="btn-blue btn-6">홈으로</button>
                     </div>
                 </div>
             </div>
