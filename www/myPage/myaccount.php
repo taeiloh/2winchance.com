@@ -115,7 +115,7 @@ try {
                                         <a href="/remove/index.php"><dd>회원 탈퇴하기</dd></a>
                                     <?php
                                     }else{?>
-                                        <a href="/remove/index.php"><dd>회원 탈퇴하기</dd></a>
+                                        <a href="/remove/RemoveAccept.php"><dd>회원 탈퇴하기</dd></a>
                                     <?php
                                     }?>
                                 </dl>
