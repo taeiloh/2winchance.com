@@ -1,6 +1,6 @@
 <?php
 //config
-include_once __DIR__.'/../_inc/config.php';
+include_once __DIR__ . '/../_inc/config.php';
 
 //변수 정리
 $arrRtn     = array(
@@ -13,6 +13,7 @@ try{
     //파라미터 정리
     $m_id        = isset($_POST['m_id'])        ?   $_POST['m_id']     : '';
     $m_pw        = isset($_POST['m_pw'])        ?   $_POST['m_pw']     : '';
+
 
     //필수 파라미터 체크
     if(empty($m_id) || empty($m_pw)) {
@@ -31,16 +32,23 @@ try{
 
     //DB
     $query  = "
+        SELECT count(*) as cnt FROM members
+        WHERE 1=1
+            AND m_id = '{$m_id}'
+        LIMIT 1
+    ";
+    $result = $_mysqli->query($query);
+    $_dbAdmins = $result->fetch_assoc();
+
+    if ($_dbAdmins['cnt'] > 0) {
+        $query  = "
         SELECT * FROM members
         WHERE 1=1
             AND m_id = '{$m_id}'
         LIMIT 1
     ";
-    //p($query);
-    $result = $_mysqli->query($query);
-    if ($result) {
+        $result = $_mysqli->query($query);
         $_dbAdmins = $result->fetch_assoc();
-
         //비밀번호 확인
         if (password_verify($m_pw, $_dbAdmins['m_pw'])) {
             //승인여부 체크
@@ -64,7 +72,7 @@ try{
         }
     } else {
         $code    = 503;
-        $msg     = "로그인 중 오류가 발생했습니다.(code {$code})\n관리자에게 문의해 주세요.";
+        $msg     = "가입된 계정이 없습니다. (code {$code})\n";
         throw new mysqli_sql_exception($msg, $code);
     }
 

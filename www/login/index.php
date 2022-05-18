@@ -149,6 +149,9 @@ try {
                                         ?>
 
                                     }
+                                    else{
+                                        alert("가입된 계정이 없습니다.");
+                                    }
                                 },
                                 error: function (jqXHR, textStatus, errorThrown) {
                                     console.log(textStatus, errorThrown);
