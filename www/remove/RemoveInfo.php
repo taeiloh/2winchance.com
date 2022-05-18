@@ -40,8 +40,16 @@ try {
                 </div>
                 <div>
                     <ul class="remove-acct">
-                        <li><a href="javascript:void(0);"><?=$m_id?></a></li>
-                        <li><a href="javascript:void(0);"><?=$m_name?></a></li>
+                        <?php
+                        if($m_id){
+                            ?>
+                            <li><a href="javascript:void(0);"><?=$m_id?></a></li>
+                            <li><a href="javascript:void(0);"><?=$m_name?></a></li>
+                            <?php
+                        }else{?>
+                            <li><a href="javascript:void(0);"><?=$m_name?></a></li>
+                            <?php
+                        }?>
                     </ul>
                     <div class="recent-point">
                         <h3>잔여포인트</h3>
