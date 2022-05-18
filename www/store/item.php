@@ -213,8 +213,8 @@ try {
             <!--//sec-01-->
             <div class="pagination">
                 <a class="active" href="javascript:void(0)">1</a>
+                <!--<a href="javascript:void(0)">2</a>
                 <a href="javascript:void(0)">2</a>
-                <!--a href="javascript:void(0)">2</a>
                 <a href="javascript:void(0)">3</a>
                 <a href="javascript:void(0)">4</a>
                 <a href="javascript:void(0)">4</a-->
