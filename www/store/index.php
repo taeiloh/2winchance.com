@@ -86,7 +86,7 @@ try {
         </form-->
         <form id="SendPayForm_id" name="" method="POST" action="https://stdpay.inicis.com/payMain/pay" accept-charset="UTF-8" target="iframe_13eae6eca05ff4">
             <input type="hidden" name="mid" value="INIpayTest">
-            <input type="hidden" name="goodname" id="goodname" value="500c" spellcheck="false">>
+            <input type="hidden" name="goodname" id="goodname" value="500c" spellcheck="false">
             <input type="hidden" name="price" id="price" value="55000" spellcheck="false" readonly="">
             <input type="hidden" name="buyername" id="buyername" value="길동이" spellcheck="false">
             <input type="hidden" name="buyertel" id="buyertel" value="010-1111-2222" spellcheck="false">
@@ -113,7 +113,7 @@ try {
             <!--sec-01-->
             <section class="sec sec-01 T0 ">
                 <div class="inner store_title">
-                    <h2>캐시 아이템</h2>
+                    <h2>캐시 충전</h2>
                 </div>
                 <div-- class="contents-cont inner">
                     <div class="coin-charge">
