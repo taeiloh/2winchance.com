@@ -108,13 +108,14 @@ try {
                                     }?>
                                 </ul>
                                 <dl>
-                                    <dt>비밀번호 변경하기</dt>
                                     <?php
                                     if($id){
                                     ?>
+                                        <a href="../signup/pwd_change.php"><dt>비밀번호 변경하기</dt></a>
                                         <a href="/remove/index.php"><dd>회원 탈퇴하기</dd></a>
                                     <?php
                                     }else{?>
+                                        <dt>비밀번호 변경불가</dt>
                                         <a href="/remove/RemoveAccept.php"><dd>회원 탈퇴하기</dd></a>
                                     <?php
                                     }?>
