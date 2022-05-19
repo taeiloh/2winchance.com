@@ -246,7 +246,6 @@ video{max-width: 140rem; width: 100%; margin: 0 auto; display: block;}
 .entries-table thead th:nth-of-type(1):after{content: ''; display: block; width: 0.1rem; height: 1.8rem; background-color: #fff; position: absolute; right: 0; top:60%; transform: translateY(-50%);}
 .entries-table tbody td{padding: 0.98rem 1rem 2rem;}
 
-.game-total ul{}
 .game-total ul > li{display: flex; justify-content: space-between; margin-bottom: 1rem;}
 .game-total ul > li:last-of-type{margin-bottom: 0;}
 .game-total ul > li > p{text-align: left;}
@@ -255,7 +254,7 @@ video{max-width: 140rem; width: 100%; margin: 0 auto; display: block;}
 
 
 
-    /* 04_01 */
+/* 04_01 */
 .myAcct .category{justify-content: unset; }
 .myAcct .category ul{width: 70%; display: flex; align-items: center; justify-content: space-evenly;}
 .myAcct .category li{ font-weight: 700;}
@@ -822,6 +821,42 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 
 .cash-limit dt, .cash-limit dd{color: #ff0000; font-weight: 500;}
 
+.myAcct .title{width: 100%; max-width: 62rem; margin: 0 auto; text-align: center;}
+.myAcct .title h2{font-weight: 700; font-size: 3rem; color: #d9d9d9; background-image: url("../images/img_title_bg.svg"); background-repeat: no-repeat;background-position: center; background-size: contain; height: 12.3rem; line-height: 12.3rem; margin: 3rem 0 0;}
+.myAcct .sub-content{width: 100%; max-width: 52rem; margin: 0 auto;  text-align: center;}
+.myAcct .sub-content h3{padding: 3rem 0 3rem; font-size: 1.8rem; font-weight: 600; line-height: 1.7;}
+.myAcct .sub-content .login-box input{width: 100%;}
+.myqna >  footer {font-size: 1.2rem;color: #9f9f9f;text-align: center;margin-top: auto;padding: 4.8rem 0;}
+
+.limit-input{display: flex; padding-left: 1.5rem; font-weight: 600;}
+.limit-input #drop4 .select, .limit-input #drop3 .select{width: 20.3rem;}
+.limit-input #drop3 .select{
+    z-index: 1;}
+.limit-input span{width: unset;}
+.limit-select{display: flex; align-items: center; height: 4rem;}
+.limit-select span{margin-left: 0.5rem; height: 4rem; width: 3.6rem;}
+.limit-input-wrap{border-bottom: 1px solid #707070; padding-bottom: 6rem;}
+.limit-input-wrap h3{text-align: left;}
+.limit-select > p{display: block; line-height: 3; height: 4rem;}
+.save-alert{display: block; margin-top: 3rem;}
+.save-alert.save{color: #1e8fff;}
+.save-alert.error{color: #ff0000;}
+
+.money-limit{font-weight: 600;}
+.money-limit h3{text-align: left; font-size: 2rem;}
+.limit-days{text-align: left; font-size: 1.8rem; padding-left: 1.5rem;}
+.limit-days > p:last-of-type{margin-top: 2rem;}
+.limit-days > p > span:last-of-type > img{margin-right: 0.5rem;}
+.limit-money{color: #3bff00; margin-right: 1rem;}
+.limit-money:after{content: '원';}
+
+#drop4 .select, #drop3 .select{position: relative; background: #ffffff url("../images/ico_arrow_select.svg") no-repeat 98% 50%; height: 4rem; cursor: pointer; color: #707070; width: 40rem; display: flex; align-items: center; padding-left: 1rem; transition: all .3s;}
+#drop4 .select .text, #drop3 .select .text {margin-bottom: 0;}
+#drop4 .select .option-list, #drop3 .select .option-list {position: absolute; top: 100%; left: 0; width: 100%; overflow: hidden; max-height: 0; list-style: none; padding: 0; background: #ffffff;}
+#drop4 .select.active .option-list, #drop3 .select.active .option-list {max-height: none;}
+#drop4 .select.active .option-list .option, #drop3 .select.active .option-list .option {padding: 1rem 2rem; border-bottom: 1px solid #deebf4;}
+#drop4 .select:hover, #drop3 .select:hover {color: #333;}
+#drop4 .select.active .option-list .option:hover, #drop3 .select.active .option-list .option:hover {background-color: #f2f2f2;}
 
 /* user-acct */
 .user-acct{height: 72rem; display: flex; flex-direction: column; justify-content: space-between}

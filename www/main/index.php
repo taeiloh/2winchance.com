@@ -107,7 +107,7 @@ try {
                         <li>
                             <h2>게임 방법</h2>
                             <div class="game-thumb" style="background-image: url('../images/main_thumb_03.jpg')">
-                                <a href="javascript:void(0)" class="game-info">
+                                <a href="/myPage/howtoplay.php" class="game-info">
                                     <p class="game-title">2WC 200% 즐기기</p>
                                     <p class="game-type"></p>
                                 </a>
