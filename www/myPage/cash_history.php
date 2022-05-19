@@ -123,7 +123,7 @@ try {
                             <th><a href="javascript:void(0);">일자</a></th>
                             <th>내용</th>
                             <th><a href="javascript:void(0);">거래ID</a></th>
-                            <th><a href="javascript:void(0);">결재 정보</a></th>
+                            <th><a href="javascript:void(0);">결제 정보</a></th>
                             <th><a href="javascript:void(0);">금액(KRW)</a></th>
                             <th><a href="javascript:void(0);">캐시</a></th>
                             <th><a href="javascript:void(0);">캐시 잔액</a></th>

@@ -41,7 +41,7 @@ switch ($_url_f3) {
 <div class="inner">
     <div class="ft-left">
         <h1 class="footer-logo">
-            <a href="../html/index.html"><img src="../images/logo_footer.png" alt="METAGAMES"></a>
+            <a href="/main/"><img src="../images/logo_footer.png" alt="METAGAMES"></a>
         </h1>
         <ul class="footer-list">
             <li class="<?=$_liClass2;?>"><a href="/footer/notice_list.php">공지사항</a></li>

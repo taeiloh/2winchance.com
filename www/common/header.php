@@ -52,7 +52,7 @@ switch ($_url_f3) {
             <li class="<?=$_liClass1;?>"><a href="/lobby/">로비</a>
                 <ul class="sub-menu">
 <!--                    <li class="--><?//=($cate==21)?'active':'';?><!--"><a href="/lobby/?cate=21">리그 오브 레전드</a></li>-->
-                    <li class="<?=($cate==20)?'active':'';?>"><a href="/lobby/?cate=20">배틀그라운드</a></li>
+                    <li class="<?=$_liClass1;?> <?=($cate==20)?'active':'';?>"><a href="/lobby/?cate=20">배틀그라운드</a></li>
 <!--                    <li><a href="javascript:void(0)" onclick="alert('준비중입니다.');">DOTA2</a></li>-->
 <!--                    <li><a href="javascript:void(0)" onclick="alert('준비중입니다.');">GS:GO</a></li>-->
                 </ul>

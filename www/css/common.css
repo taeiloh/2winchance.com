@@ -820,17 +820,19 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 .pf-pic .emblem{width: 22.6rem; height: 22.6rem; position: absolute; background-color: rgba(28,28,28,0.7); top:0; left: 0; display: flex; align-items: center; justify-content: center; }
 .emblem p{font-size: 2rem; font-weight: 700; color: #1e8fff;}
 
+.cash-limit dt, .cash-limit dd{color: #ff0000; font-weight: 500;}
+
 
 /* user-acct */
 .user-acct{height: 72rem; display: flex; flex-direction: column; justify-content: space-between}
 
 .pf-info{flex-grow: 1; margin-left: 3rem; height: 22.6rem;}
-.pf-info dl{margin-top: 2.5rem; display: flex; align-items: center; color: #1e8fff;}
-.pf-info dt{ position: relative; padding-right: 1.7rem;}
-.pf-info dd{padding-left: 1.3rem;}
+.pf-info dl{margin-top: 2.5rem; display: flex; align-items: center; color: #1e8fff; }
+.pf-info dt{ position: relative; padding-right: 1.7rem; font-weight: 500;}
+.pf-info dd{padding-left: 1.3rem; font-weight: 500;}
 .pf-info dt:after{content: ''; width: 0.4rem; height: 2.1rem; background-color: #3a3a3a; display: block; position: absolute; right: 0; top:50%; transform: translateY(-50%); }
 
-.user-detail-info{background-color: #414141; width: 59.2rem; padding: 4rem;}
+.user-detail-info{background-color: #414141; width: 59.2rem; padding: 3rem;}
 .user-detail-info h3{font-size: 2.6rem; margin-bottom: 3rem; display: inline-block;}
 .user-detail-info h3:after{content: ''; width:100%; height: 0.2rem; background-color: #1e8fff; display: block; margin-top: 0.9rem;}
 
