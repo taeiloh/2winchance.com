@@ -119,14 +119,14 @@ try {
                             <col style="width:12%">
                         </colgroup>
                         <thead>
-                        <tr>
-                            <th><a href="javascript:void(0);">DATE</a></th>
-                            <th>CONTENT</th>
-                            <th><a href="javascript:void(0);">TID</a></th>
-                            <th><a href="javascript:void(0);">PG</a></th>
-                            <th><a href="javascript:void(0);">AMOUNT</a></th>
-                            <th><a href="javascript:void(0);">CASH</a></th>
-                            <th><a href="javascript:void(0);">BALANCE</a></th>
+                        <tr class="filter">
+                            <th><a href="javascript:void(0);">일자</a></th>
+                            <th>내용</th>
+                            <th><a href="javascript:void(0);">거래ID</a></th>
+                            <th><a href="javascript:void(0);">결재 정보</a></th>
+                            <th><a href="javascript:void(0);">금액(KRW)</a></th>
+                            <th><a href="javascript:void(0);">캐시</a></th>
+                            <th><a href="javascript:void(0);">캐시 잔액</a></th>
                         </tr>
                         </thead>
                         <tbody>

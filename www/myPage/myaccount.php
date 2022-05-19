@@ -119,14 +119,19 @@ try {
                                     <?php
                                     }?>
                                 </dl>
+                                <dl class="cash-limit">
+                                    <dt><a href="javascript:void(0);">캐시 구매 잔여 한도 내역</a></dt>
+                                    <dd><a href="javascript:void(0);">FP 사용 제한 설정</a></dd>
+                                </dl>
                             </div>
                         </div>
                         <div class="user-detail-info">
                             <h3>상세정보</h3>
                             <ul>
-                                <li><p>COIN</p><span class="fc-yellow coin"><?=$deposit?></span></li>
-                                <li><p>Fantasy Point</p><span class="fp"><?=$fp?></span></li>
-                                <li><p>문의내역</p><span class="count"><?=$total_count?></span></li>
+                                <li><p>캐시</p><span class="fc-yellow coin"><?=$deposit?></span></li>
+                                <li><p>파이트 포인트</p><span class="fp"><?=$fp?></span></li>
+                                <li><p>명예 포인트</p><span class="hp">10</span></li>
+                                <li><p>진행 중 문의</p><span class="count"><?=$total_count?></span></li>
                             </ul>
                         </div>
                     </div>

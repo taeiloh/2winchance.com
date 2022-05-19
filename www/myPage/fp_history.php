@@ -117,11 +117,11 @@ try{
                             <col style="width:25%">
                         </colgroup>
                         <thead>
-                        <tr>
-                            <th><a href="javascript:void(0);">DATE</a></th>
-                            <th><a href="javascript:void(0);">CONTENT</a></th>
+                        <tr class="filter">
+                            <th><a href="javascript:void(0);">일자</a></th>
+                            <th><a href="javascript:void(0);">내용</a></th>
                             <th><a href="javascript:void(0);">FP</a></th>
-                            <th><a href="javascript:void(0);">BALANCE</a></th>
+                            <th><a href="javascript:void(0);">FP 잔액</a></th>
                         </tr>
                         </thead>
                         <tbody>
