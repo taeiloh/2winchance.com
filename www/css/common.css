@@ -115,15 +115,17 @@ ul.tabs li a{padding: .5rem;}
 .sec {display: flex; flex-direction: column; align-items: center; justify-content: center;}
 
 /* footer */
-#footer {width: 100%; height: 22.3rem; display: flex; align-items: center; background: #1c1c1c; margin-top: auto; font-weight: 500;}
-#footer .inner{display: flex; justify-content: space-between; align-items: center;}
+#footer {width: 100%; display: flex; align-items: center; background: #1c1c1c; margin-top: auto; font-weight: 500; padding:2rem 0 5rem;}
+#footer .inner{display: flex; justify-content: space-between; align-items: flex-end; }
 /* 220530 font-size 추가  */
-#footer .footer-list {display: flex; align-items: center; justify-content: center; font-size: 1.6rem;}
+#footer .footer-list {display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 1.5rem; color: #d9d9d9;}
 /* 220530 font-size 추가완료  */
 #footer .footer-list li ~ li{margin-left: 5rem;}
 #footer .footer-list li.active{color: #1e8fff;}
-#footer .footer-logo{text-align: right;}
+#footer .footer-logo{width: 16.1rem; height: 11.2rem;}
 #footer .footer-logo p{font-size: 1.2rem; color: #9f9f9f;}
+#footer .ft-left{text-align: left;}
+.business-info li{ color: #a1a1a1;}
 
 /* main - section */
 .main .sec{padding: 6rem 0 10rem;}
@@ -174,6 +176,8 @@ ul.tabs li a{padding: .5rem;}
 .more-line:before{content:''; display: block; position: absolute; top: 50%; transform: translateY(-50%); width: 100%; height: 0.1rem; background: #1e8fff; z-index: -1;}
 .more-line button{display: flex; align-items: center; justify-content: center; color: #1e8fff; background: #1c1c1c; padding: 0 3rem; font-size: 2.5rem; margin: 0 auto;}
 
+video{max-width: 140rem; width: 100%; margin: 0 auto; display: block;}
+
 /*  01_02.html */
 .sub #visual .inner{display: flex; flex-wrap: wrap; align-items: stretch; background: #303030; padding: 5.5rem 10rem;}
 .visual-detail{display: flex; flex-direction: column; padding-left: 3rem; flex: 1 1 auto; font-size: 2.4rem;}
@@ -196,8 +200,6 @@ ul.tabs li a{padding: .5rem;}
 .parti-info .participant span{color: #fff; margin-right: 0.5rem;}
 .parti-info p ~ p{margin: 1.6rem 0 0;}
 
-.
-
 
 /* 02_01.html */
 .B0{padding-bottom: 0px!important;}
@@ -219,7 +221,10 @@ ul.tabs li a{padding: .5rem;}
 .lineup-list > li{padding-bottom: 4rem;}
 .lineup-list li a{position: relative;}
 .lineup-list li.edit a.active{border: 5px solid #ff00dd; }
-.lineup-list li.edit a.active > .line-up-badge{background-color: #ff00dd;}
+.lineup-list li.edit a.active > .line-up-badge{width: 90px;  height: 44px; background: linear-gradient(235deg, #ff00dd, #ff92f9, #a100c8); transition: all 0.2s;}
+.lineup-list li.edit a.active > .line-up-badge.btnPush {box-shadow: 0px 5px 0px 0px #6d0186;}
+.lineup-list li.edit a.active > .line-up-badge.btnPush:hover {box-shadow: 0px 0px 0px 0px transparent;}
+.btnPush:hover {margin-top: 5px; margin-bottom: 5px;}
 .lineup-list li.live a.active{border: 5px solid #ff0000;}
 .lineup-list li.live a.active > .line-up-badge{background-color: #ff0000;}
 .lineup-list li.finished a.active{border: 5px solid #3a3a3a;}
@@ -639,11 +644,13 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 .member .maintenance.policy-page .sub-content{text-align: left;}
 .member .maintenance.policy-page .sub-content h2{margin-bottom: 2rem;}
 .member .maintenance.policy-page .sub-content h3{padding: 5rem 0 3rem; font-size: 2.5rem;}
-.member .maintenance.policy-page .sub-content .sub-txt{font-size: 2rem; line-height: 1.2; font-weight: 400;}
+.member .maintenance.policy-page .sub-content .sub-txt{font-size: 2rem; line-height: 1.8; font-weight: 400;}
 
 /*  06_03.html */
-.per-policy li{margin-bottom: 2rem; position: relative; padding:0 0 0 3.2rem;}
-.per-policy li::before{content: ''; background-image: url("../images/bullet.svg"); width: 1.4rem; height: 1.4rem; margin-right: 1.8rem; position: absolute; top:0.5rem; left: 0; background-repeat: no-repeat; }
+.per-policy li > ul > li{margin-bottom: 2rem; padding:0 0 0 3rem;}
+.policy-sub-txt{margin-top: 2rem;}
+.per-policy > li{margin-top: 3rem;}
+.policy-sub-txt li{}
 
 /* 00_login.html, 00_join_04.html */
 .login-box{text-align: left; border-top: 1px solid #707070; border-bottom: 1px solid #707070; padding: 5rem 0;}
@@ -767,6 +774,7 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 .footer-cont.ask div .alert img {margin-right: 1rem;}
 .footer-cont.ask div textarea {width: 100%; height: 8rem;}
 .footer-inner button {width: 10.2rem; height: 6rem; color: #ffffff; font-size: 2.4rem; margin: 0 auto;}
+
 .btn-blue {background: #1e8fff;}
 .btn-center {display: flex; align-items: center;}
 .footer-inner .add-ask {margin-top: 8rem; text-align: center;}

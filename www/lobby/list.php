@@ -85,7 +85,7 @@ switch ($sub_menu) {
                     </div>
 
                     <div class="parti-info">
-                        <p class="prize-money">총 상금 <img src="/images/ico_gold.svg" alt="총 상금"> <b>650,000,000</b><span> point</span></p>
+                        <p class="prize-money">총 상금 <b class="coin">650,000,000</b><span> point</span></p>
                         <p class="participant"><img src="/images/ico_peple.svg" alt="참여자 수" class="mR13"><span>978,673 </span> / 1,000,000</p>
                     </div>
                 </div>
@@ -170,8 +170,8 @@ switch ($sub_menu) {
                                                     <th>My Entry</th>
                                                 </tr>
                                                 <tr>
-                                                    <td>{$db['prize']}<img src="/images/ico_gold.svg" alt="총 상금" class="mL5"></td>
-                                                    <td>{$db['g_fee']}<img src="/images/ico_gold.svg" alt="총 상금" class="mL5"></td>
+                                                    <td class="coin-b">{$db['prize']}</td>
+                                                    <td class="coin-b">{$db['g_fee']}</td>
                                                     <td>{$db['g_entry']} <span class="total">/ {$db['g_size']}</span></td>
                                                     <td>{$db['g_multi_max']}</td>
                                                     <td>{$db['g_entry']}</td>
