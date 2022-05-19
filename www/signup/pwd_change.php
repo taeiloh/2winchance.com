@@ -2,6 +2,8 @@
 // config
 require_once __DIR__ .'/../_inc/config.php';
 checkmobile();
+$idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 시퀀스
+$id=!empty($_SESSION['_se_id']) ? $_SESSION['_se_id'] : "";        // 세션 아이디
 
 try {
 
@@ -19,7 +21,7 @@ try {
     ?>
 </head>
 <body>
-<form id="loginFrm" name="loginFrm" method="post" action="/">
+<form id="loginFrm" name="loginFrm" method="post" action="../myPage/myaccount.php">
     <input type="hidden" name="m_idx" id="m_idx" />
 <div id="wrap" class="member">
     <!--content-->
@@ -89,6 +91,12 @@ try {
             $("#m_pw").focus();
             return false;
         }
+
+        if($.trim($("#now_pw").val()) == $.trim($("#m_pw").val())){
+            alert("현재 비밀번호가 신규비밀번호가 동일합니다.");
+            $("#m_pw").focus();
+            return false;
+        }
         var pw = $("#m_pw").val();
         var checkNumber = pw.search(/[0-9]/g);
         var checkEnglish = pw.search(/[a-z]/ig);
@@ -118,6 +126,40 @@ try {
             $("#m_pw_re").focus();
             return false;
         }
+        var now_pw = $("#now_pw").val();
+        var m_pw = $("#m_pw").val();
+
+        var postData = {
+          "now_pw" : now_pw,
+          "m_pw" : m_pw
+        };
+
+        $.ajax({
+            url: "update_pw.php",
+            type: "POST",
+            async: false,
+            data: postData,
+            success: function (data) {
+                var json = JSON.parse(data);
+                //console.log(json);return false;
+                if (json.code == 200) {
+                    $("#m_idx").val(json.id);
+                    $("#loginFrm").submit();
+                }
+                else{
+                    alert("현재 비밀번호가 일치하지 않습니다");
+                }
+            },
+            beforeSend:function(){
+                $(".wrap-loading").removeClass("display-none");
+            },
+            complete:function(){
+                $(".wrap-loading").addClass("display-none");
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus, errorThrown);
+            }
+        });
     }
 </script>
 </body>
