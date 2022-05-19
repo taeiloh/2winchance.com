@@ -25,7 +25,7 @@ switch ($_url_f3) {
 }
 ?>
 <ul class="">
-    <li class="<?=$_liClass1;?>"><a href="/contests/">UP COMMING</a></li>
+    <li class="<?=$_liClass1;?>"><a href="/contests/">대기</a></li>
     <li class="<?=$_liClass2;?>"><a href="/contests/live.php">LIVE</a></li>
-    <li class="<?=$_liClass3;?>"><a href="/contests/finished.php">FINISHED</a></li>
+    <li class="<?=$_liClass3;?>"><a href="/contests/finished.php">결과</a></li>
 </ul>

@@ -10,6 +10,8 @@ try {
     p($e);
 }
 ?>
+<!doctype html>
+<html lang="ko">
 <head>
     <?php
     //head
@@ -23,10 +25,10 @@ try {
 <div id="wrap" class="sub">
     <!--header-->
     <header id="header">
-        <?php
-        //header
-        require_once __DIR__ .'/../common/header.php';
-        ?>
+    <?php
+    //header
+    require_once __DIR__ .'/../common/header.php';
+    ?>
     </header>
     <!--//header-->
 
@@ -56,11 +58,11 @@ try {
                         </colgroup>
                         <thead>
                         <tr class="filter">
-                            <th>Contest</th>
-                            <th><a href="javascript:void(0);">Completed</a></th>
-                            <th><a href="javascript:void(0);">Multi</a></th>
-                            <th><a href="javascript:void(0);">My Score</a></th>
-                            <th><a href="javascript:void(0);">Entry Fee</a></th>
+                            <th>콘테스트</th>
+                            <th><a href="javascript:void(0);">경기 종료 시간</a></th>
+                            <th><a href="javascript:void(0);">중복</a></th>
+                            <th><a href="javascript:void(0);">내 점수</a></th>
+                            <th><a href="javascript:void(0);">사용 FP</a></th>
                             <th><a href="javascript:void(0);">Won</a></th>
                             <th>
                                 <input type="search" placeholder="플레이어를 검색해주세요.">
@@ -77,7 +79,7 @@ try {
                             <td>50</td>
                             <td>50</td>
                             <td>
-                                <p>RESULT</p>
+                                <p>결과보기</p>
                                 <img src="../images/ico_arrow_blue.svg" alt="결과 보기">
                             </td>
                         </tr>
@@ -90,10 +92,10 @@ try {
                                             <table>
                                                 <thead>
                                                 <tr>
-                                                    <th>RANK</th>
+                                                    <th>순위</th>
                                                     <th>ID</th>
-                                                    <th>PRIZE</th>
-                                                    <th>SCORE</th>
+                                                    <th>상금</th>
+                                                    <th>점수</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -135,11 +137,11 @@ try {
                                             <table>
                                                 <thead>
                                                 <tr>
-                                                    <th>POS</th>
-                                                    <th>NAME</th>
-                                                    <th>CONTEST</th>
-                                                    <th>DETAILS</th>
-                                                    <th>SCORE</th>
+                                                    <th>포지션</th>
+                                                    <th>이름</th>
+                                                    <th>콘테스트</th>
+                                                    <th>상세 내용</th>
+                                                    <th>점수</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -218,7 +220,7 @@ try {
                             <td>50</td>
                             <td>50</td>
                             <td>
-                                <p>RESULT</p>
+                                <p>결과보기</p>
                                 <img src="../images/ico_arrow_blue.svg" alt="결과 보기">
                             </td>
                         </tr>
@@ -231,10 +233,10 @@ try {
                                             <table>
                                                 <thead>
                                                 <tr>
-                                                    <th>RANK</th>
+                                                    <th>순위</th>
                                                     <th>ID</th>
-                                                    <th>PRIZE</th>
-                                                    <th>SCORE</th>
+                                                    <th>상금</th>
+                                                    <th>점수</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -276,11 +278,11 @@ try {
                                             <table>
                                                 <thead>
                                                 <tr>
-                                                    <th>POS</th>
-                                                    <th>NAME</th>
-                                                    <th>CONTEST</th>
-                                                    <th>DETAILS</th>
-                                                    <th>SCORE</th>
+                                                    <th>포지션</th>
+                                                    <th>이름</th>
+                                                    <th>콘테스트</th>
+                                                    <th>상세 내용</th>
+                                                    <th>점수</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -345,7 +347,7 @@ try {
                             <td>50</td>
                             <td>50</td>
                             <td>
-                                <p>RESULT</p>
+                                <p>결과보기</p>
                                 <img src="../images/ico_arrow_blue.svg" alt="결과 보기">
                             </td>
                         </tr>
@@ -358,10 +360,10 @@ try {
                                             <table>
                                                 <thead>
                                                 <tr>
-                                                    <th>RANK</th>
+                                                    <th>순위</th>
                                                     <th>ID</th>
-                                                    <th>PRIZE</th>
-                                                    <th>SCORE</th>
+                                                    <th>상금</th>
+                                                    <th>점수</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -403,11 +405,11 @@ try {
                                             <table>
                                                 <thead>
                                                 <tr>
-                                                    <th>POS</th>
-                                                    <th>NAME</th>
-                                                    <th>CONTEST</th>
-                                                    <th>DETAILS</th>
-                                                    <th>SCORE</th>
+                                                    <th>포지션</th>
+                                                    <th>이름</th>
+                                                    <th>콘테스트</th>
+                                                    <th>상세 내용</th>
+                                                    <th>점수</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -472,7 +474,7 @@ try {
                             <td>50</td>
                             <td>50</td>
                             <td>
-                                <p>RESULT</p>
+                                <p>결과보기</p>
                                 <img src="../images/ico_arrow_blue.svg" alt="결과 보기">
                             </td>
                         </tr>
@@ -485,10 +487,10 @@ try {
                                             <table>
                                                 <thead>
                                                 <tr>
-                                                    <th>RANK</th>
+                                                    <th>순위</th>
                                                     <th>ID</th>
-                                                    <th>PRIZE</th>
-                                                    <th>SCORE</th>
+                                                    <th>상금</th>
+                                                    <th>점수</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -530,11 +532,11 @@ try {
                                             <table>
                                                 <thead>
                                                 <tr>
-                                                    <th>POS</th>
-                                                    <th>NAME</th>
-                                                    <th>CONTEST</th>
-                                                    <th>DETAILS</th>
-                                                    <th>SCORE</th>
+                                                    <th>포지션</th>
+                                                    <th>이름</th>
+                                                    <th>콘테스트</th>
+                                                    <th>상세 내용</th>
+                                                    <th>점수</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -599,7 +601,7 @@ try {
                             <td>50</td>
                             <td>50</td>
                             <td>
-                                <p>RESULT</p>
+                                <p>결과보기</p>
                                 <img src="../images/ico_arrow_blue.svg" alt="결과 보기">
                             </td>
                         </tr>
@@ -612,10 +614,10 @@ try {
                                             <table>
                                                 <thead>
                                                 <tr>
-                                                    <th>RANK</th>
+                                                    <th>순위</th>
                                                     <th>ID</th>
-                                                    <th>PRIZE</th>
-                                                    <th>SCORE</th>
+                                                    <th>상금</th>
+                                                    <th>점수</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -657,11 +659,11 @@ try {
                                             <table>
                                                 <thead>
                                                 <tr>
-                                                    <th>POS</th>
-                                                    <th>NAME</th>
-                                                    <th>CONTEST</th>
-                                                    <th>DETAILS</th>
-                                                    <th>SCORE</th>
+                                                    <th>포지션</th>
+                                                    <th>이름</th>
+                                                    <th>콘테스트</th>
+                                                    <th>상세 내용</th>
+                                                    <th>점수</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -726,7 +728,7 @@ try {
                             <td>50</td>
                             <td>50</td>
                             <td>
-                                <p>RESULT</p>
+                                <p>결과보기</p>
                                 <img src="../images/ico_arrow_blue.svg" alt="결과 보기">
                             </td>
                         </tr>
@@ -739,10 +741,10 @@ try {
                                             <table>
                                                 <thead>
                                                 <tr>
-                                                    <th>RANK</th>
+                                                    <th>순위</th>
                                                     <th>ID</th>
-                                                    <th>PRIZE</th>
-                                                    <th>SCORE</th>
+                                                    <th>상금</th>
+                                                    <th>점수</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -784,11 +786,11 @@ try {
                                             <table>
                                                 <thead>
                                                 <tr>
-                                                    <th>POS</th>
-                                                    <th>NAME</th>
-                                                    <th>CONTEST</th>
-                                                    <th>DETAILS</th>
-                                                    <th>SCORE</th>
+                                                    <th>포지션</th>
+                                                    <th>이름</th>
+                                                    <th>콘테스트</th>
+                                                    <th>상세 내용</th>
+                                                    <th>점수</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -853,7 +855,7 @@ try {
                             <td>50</td>
                             <td>50</td>
                             <td>
-                                <p>RESULT</p>
+                                <p>결과보기</p>
                                 <img src="../images/ico_arrow_blue.svg" alt="결과 보기">
                             </td>
                         </tr>
@@ -866,10 +868,10 @@ try {
                                             <table>
                                                 <thead>
                                                 <tr>
-                                                    <th>RANK</th>
+                                                    <th>순위</th>
                                                     <th>ID</th>
-                                                    <th>PRIZE</th>
-                                                    <th>SCORE</th>
+                                                    <th>상금</th>
+                                                    <th>점수</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -911,11 +913,11 @@ try {
                                             <table>
                                                 <thead>
                                                 <tr>
-                                                    <th>POS</th>
-                                                    <th>NAME</th>
-                                                    <th>CONTEST</th>
-                                                    <th>DETAILS</th>
-                                                    <th>SCORE</th>
+                                                    <th>포지션</th>
+                                                    <th>이름</th>
+                                                    <th>콘테스트</th>
+                                                    <th>상세 내용</th>
+                                                    <th>점수</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -980,7 +982,7 @@ try {
                             <td>50</td>
                             <td>50</td>
                             <td>
-                                <p>RESULT</p>
+                                <p>결과보기</p>
                                 <img src="../images/ico_arrow_blue.svg" alt="결과 보기">
                             </td>
                         </tr>
@@ -993,10 +995,10 @@ try {
                                             <table>
                                                 <thead>
                                                 <tr>
-                                                    <th>RANK</th>
+                                                    <th>순위</th>
                                                     <th>ID</th>
-                                                    <th>PRIZE</th>
-                                                    <th>SCORE</th>
+                                                    <th>상금</th>
+                                                    <th>점수</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -1038,11 +1040,11 @@ try {
                                             <table>
                                                 <thead>
                                                 <tr>
-                                                    <th>POS</th>
-                                                    <th>NAME</th>
-                                                    <th>CONTEST</th>
-                                                    <th>DETAILS</th>
-                                                    <th>SCORE</th>
+                                                    <th>포지션</th>
+                                                    <th>이름</th>
+                                                    <th>콘테스트</th>
+                                                    <th>상세 내용</th>
+                                                    <th>점수</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -1107,7 +1109,7 @@ try {
                             <td>50</td>
                             <td>50</td>
                             <td>
-                                <p>RESULT</p>
+                                <p>결과보기</p>
                                 <img src="../images/ico_arrow_blue.svg" alt="결과 보기">
                             </td>
                         </tr>
@@ -1120,10 +1122,10 @@ try {
                                             <table>
                                                 <thead>
                                                 <tr>
-                                                    <th>RANK</th>
+                                                    <th>순위</th>
                                                     <th>ID</th>
-                                                    <th>PRIZE</th>
-                                                    <th>SCORE</th>
+                                                    <th>상금</th>
+                                                    <th>점수</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -1165,11 +1167,11 @@ try {
                                             <table>
                                                 <thead>
                                                 <tr>
-                                                    <th>POS</th>
-                                                    <th>NAME</th>
-                                                    <th>CONTEST</th>
-                                                    <th>DETAILS</th>
-                                                    <th>SCORE</th>
+                                                    <th>포지션</th>
+                                                    <th>이름</th>
+                                                    <th>콘테스트</th>
+                                                    <th>상세 내용</th>
+                                                    <th>점수</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -1234,7 +1236,7 @@ try {
                             <td>50</td>
                             <td>50</td>
                             <td>
-                                <p>RESULT</p>
+                                <p>결과보기</p>
                                 <img src="../images/ico_arrow_blue.svg" alt="결과 보기">
                             </td>
                         </tr>
@@ -1247,10 +1249,10 @@ try {
                                             <table>
                                                 <thead>
                                                 <tr>
-                                                    <th>RANK</th>
+                                                    <th>순위</th>
                                                     <th>ID</th>
-                                                    <th>PRIZE</th>
-                                                    <th>SCORE</th>
+                                                    <th>상금</th>
+                                                    <th>점수</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -1292,11 +1294,11 @@ try {
                                             <table>
                                                 <thead>
                                                 <tr>
-                                                    <th>POS</th>
-                                                    <th>NAME</th>
-                                                    <th>CONTEST</th>
-                                                    <th>DETAILS</th>
-                                                    <th>SCORE</th>
+                                                    <th>포지션</th>
+                                                    <th>이름</th>
+                                                    <th>콘테스트</th>
+                                                    <th>상세 내용</th>
+                                                    <th>점수</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -1361,7 +1363,7 @@ try {
                             <td>50</td>
                             <td>50</td>
                             <td>
-                                <p>RESULT</p>
+                                <p>결과보기</p>
                                 <img src="../images/ico_arrow_blue.svg" alt="결과 보기">
                             </td>
                         </tr>
@@ -1374,10 +1376,10 @@ try {
                                             <table>
                                                 <thead>
                                                 <tr>
-                                                    <th>RANK</th>
+                                                    <th>순위</th>
                                                     <th>ID</th>
-                                                    <th>PRIZE</th>
-                                                    <th>SCORE</th>
+                                                    <th>상금</th>
+                                                    <th>점수</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -1419,11 +1421,11 @@ try {
                                             <table>
                                                 <thead>
                                                 <tr>
-                                                    <th>POS</th>
-                                                    <th>NAME</th>
-                                                    <th>CONTEST</th>
-                                                    <th>DETAILS</th>
-                                                    <th>SCORE</th>
+                                                    <th>포지션</th>
+                                                    <th>이름</th>
+                                                    <th>콘테스트</th>
+                                                    <th>상세 내용</th>
+                                                    <th>점수</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -1488,7 +1490,7 @@ try {
                             <td>50</td>
                             <td>50</td>
                             <td>
-                                <p>RESULT</p>
+                                <p>결과보기</p>
                                 <img src="../images/ico_arrow_blue.svg" alt="결과 보기">
                             </td>
                         </tr>
@@ -1501,10 +1503,10 @@ try {
                                             <table>
                                                 <thead>
                                                 <tr>
-                                                    <th>RANK</th>
+                                                    <th>순위</th>
                                                     <th>ID</th>
-                                                    <th>PRIZE</th>
-                                                    <th>SCORE</th>
+                                                    <th>상금</th>
+                                                    <th>점수</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -1546,11 +1548,11 @@ try {
                                             <table>
                                                 <thead>
                                                 <tr>
-                                                    <th>POS</th>
-                                                    <th>NAME</th>
-                                                    <th>CONTEST</th>
-                                                    <th>DETAILS</th>
-                                                    <th>SCORE</th>
+                                                    <th>포지션</th>
+                                                    <th>이름</th>
+                                                    <th>콘테스트</th>
+                                                    <th>상세 내용</th>
+                                                    <th>점수</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
@@ -1613,8 +1615,8 @@ try {
             </section>
             <!--//sec-01-->
             <div class="pagination">
-                <a class="active" href="javascript:void(0)">1</a>
-                <a href="javascript:void(0)">2</a>
+                <a href="javascript:void(0)">1</a>
+                <a class="active" href="javascript:void(0)">2</a>
                 <a href="javascript:void(0)">3</a>
                 <a href="javascript:void(0)">4</a>
             </div>
