@@ -866,6 +866,7 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 .pf-info dl{margin-top: 2.5rem; display: flex; align-items: center; color: #1e8fff; }
 .pf-info dt{  padding-right: 1.7rem; font-weight: 500;}
 .pf-info dd{padding-left: 1.3rem; font-weight: 500; position: relative;}
+.pf-info dd:first-of-type{padding-left: 0;}
 .pf-info dd ~ dd:after{content: ''; width: 0.4rem; height: 2.1rem; background-color: #3a3a3a; display: block; position: absolute; left: 0; top:50%; transform: translateY(-50%); margin-left: 0.5rem;}
 .cash-limit{color: #ff0000; text-align: center;}
 .cash-limit:hover{color: #ff0000;}
