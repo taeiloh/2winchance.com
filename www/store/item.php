@@ -2,10 +2,44 @@
 // config
 require_once __DIR__ .'/../_inc/config.php';
 
-
-
+$idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 시퀀스
+$fp=!empty($_SESSION['_se_fp']) ? $_SESSION['_se_fp'] : 0; // fantasy-point 잔액
 try {
+    $query2 = "
+    SELECT *
+        FROM members
+        WHERE 1 and m_idx ='{$idx}'
+    ";
+    $mresult = $_mysqli->query($query2);
+    $_arrMembers = $mresult->fetch_array();
 
+    $m_deposit = !empty($_arrMembers['m_deposit']) ? $_arrMembers['m_deposit'] : '';
+
+    $page = !empty($_GET['page']) ? $_GET['page'] : 1;
+
+    //파라미터 체크
+    if(!is_numeric($page)){
+        $page       =   1;
+    }
+
+    $sql ="select count(*) from item where 1=1";
+    $tresult = mysqli_query($_mysqli, $sql);
+    $row1   = mysqli_fetch_row($tresult);
+    $total_count = $row1[0]; //전체갯수
+    $rows = 8;
+    $total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
+    if ($page < 1) { $page = 1; } // 페이지가 없으면 첫 페이지 (1 페이지)
+    $from_record = ($page - 1) * $rows; // 시작 열을 구함
+
+    $query  = "
+        SELECT *
+        FROM item
+        WHERE 1
+        ORDER BY i_num DESC
+        LIMIT {$from_record}, {$rows}
+    ";
+
+    $result = $_mysqli->query($query);
 } catch (Exception $e) {
     p($e);
 }
@@ -45,7 +79,7 @@ try {
                     <div class="current-coin">
                         <ul class="coin-list">
                             <li>보유코인</li>
-                            <li class="fc-yellow"><span></span>695,165,300 <span class="fc-yellow">ⓒ</span></li>
+                            <li class="fc-yellow"><span></span><?=number_format($m_deposit)?><span class="fc-yellow">ⓒ</span></li>
                         </ul>
                         <ul class="coin-input">
                             <li>아이템</li>
@@ -60,159 +94,52 @@ try {
                         <p>제품 준비중</p>
                     </div>
                     <div class="store-item-list" id="chi" style="">
-                        <ul>
-                            <li>
-                                <a href="javascript:void(0);">
+                        <ul class="item-list">
+                            <?php
+                            if($total_count > 0){
+                                $i=0;
+                                while($_db = $result -> fetch_assoc()){
+                                    $i_price = $_db['i_price'];
+                                    $i_type = $_db['i_type'];
+                                    $i_fp = $_db['i_fp'];
+                                    $i_src = $_db['i_src'];
+                                    $i_name = $_db['i_name'];
+                                    $i++;
+                                    $no=$total_count-($i+($page-1)*$rows);
+                                    ?>
+                                        <li>
+                                    <a href="javascript:void(0);">
                                     <div class="item-pic">
-                                        <img src="../images/item_00.png" alt="">
-                                        <p class="get-point fp">+100</p>
+                                        <img src="<?=$i_src?>" alt="">
+                                        <p class="get-point fp">+<?=$i_fp?></p>
                                     </div>
                                     <div class="cash-item-desc">
-                                        <p>전투사관학교 교수님</p>
-                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
+                                        <p><?=$i_name?></p>
+                                        <span><?=$i_price?><span class="fc-yellow">ⓒ</span></span>
                                     </div>
-                                </a>
-
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div class="item-pic">
-                                        <img src="../images/item_02.png" alt="">
-                                        <p class="get-point fp">+100</p>
-                                    </div>
-                                    <div class="cash-item-desc">
-                                        <p>이중용 불리베어</p>
-                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div class="item-pic">
-                                        <img src="../images/item_03.png" alt="">
-                                        <p class="get-point fp">+100</p>
-                                    </div>
-                                    <div class="cash-item-desc">
-                                        <p>동물특공대 메가 </p>
-                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div class="item-pic">
-                                        <img src="../images/item_04.png" alt="">
-                                        <p class="get-point fp">+100</p>
-                                    </div>
-                                    <div class="cash-item-desc">
-                                        <p>K/D ALL OUT 카이샤</p>
-                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div class="item-pic">
-                                        <img src="../images/item_00.png" alt="">
-                                        <p class="get-point fp">+100</p>
-                                    </div>
-                                    <div class="cash-item-desc">
-                                        <p>전투사관학교 교수님</p>
-                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div class="item-pic">
-                                        <img src="../images/item_02.png" alt="">
-                                        <p class="get-point fp">+100</p>
-                                    </div>
-                                    <div class="cash-item-desc">
-                                        <p>이중용 불리베어</p>
-                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div class="item-pic">
-                                        <img src="../images/item_03.png" alt="">
-                                        <p class="get-point fp">+100</p>
-                                    </div>
-                                    <div class="cash-item-desc">
-                                        <p>동물특공대 메가 </p>
-                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div class="item-pic">
-                                        <img src="../images/item_04.png" alt="">
-                                        <p class="get-point fp">+100</p>
-                                    </div>
-                                    <div class="cash-item-desc">
-                                        <p>K/D ALL OUT 카이샤</p>
-                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div class="item-pic">
-                                        <img src="../images/item_00.png" alt="">
-                                        <p class="get-point fp">+100</p>
-                                    </div>
-                                    <div class="cash-item-desc">
-                                        <p>전투사관학교 교수님</p>
-                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div class="item-pic">
-                                        <img src="../images/item_02.png" alt="">
-                                        <p class="get-point fp">+100</p>
-                                    </div>
-                                    <div class="cash-item-desc">
-                                        <p>이중용 불리베어</p>
-                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div class="item-pic">
-                                        <img src="../images/item_03.png" alt="">
-                                        <p class="get-point fp">+100</p>
-                                    </div>
-                                    <div class="cash-item-desc">
-                                        <p>동물특공대 메가 </p>
-                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0);">
-                                    <div class="item-pic">
-                                        <img src="../images/item_04.png" alt="">
-                                        <p class="get-point fp">+100</p>
-                                    </div>
-                                    <div class="cash-item-desc">
-                                        <p>K/D ALL OUT 카이샤</p>
-                                        <span>10 <span class="fc-yellow">ⓒ</span></span>
-                                    </div>
-                                </a>
-                            </li>
+                                    </a>
+                                        </li>
+                            <?php
+                                }
+                            }
+                            else{?>
+                            <div class="store-item-list prepare" id="sp" style="display: none;">
+                                <p>제품 준비중</p>
+                            </div>
+                            <?php
+                            }
+                            $result->free();
+                            ?>
                         </ul>
                     </div>
 
             </section>
             <!--//sec-01-->
             <div class="pagination">
-                <a class="active" href="javascript:void(0)">1</a>
+                <?php
+                echo paging($page,$total_page,5,"{$_SERVER['SCRIPT_NAME']}?page=");
+                ?>
+                <!--<a class="active" href="javascript:void(0)">1</a>-->
                 <!--<a href="javascript:void(0)">2</a>
                 <a href="javascript:void(0)">2</a>
                 <a href="javascript:void(0)">3</a>
@@ -232,7 +159,7 @@ try {
         ?>
     </footer>
     <!--//footer-->
-    <script type="text/javascript">
+    <script>
         $(function(){
             $('input[type=radio][name=type]').change(function() {
                 if (this.value == 'type1') {
@@ -244,7 +171,12 @@ try {
                 }
             });
         });
-
+        $(document).ready(function(){
+            $('ul.item-list li a').click(function(){
+                $('ul.item-list li').removeClass('active');
+                $(this).parent('li').addClass('active');
+            })
+        })
     </script>
 </div>
 </body>
