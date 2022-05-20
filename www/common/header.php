@@ -18,6 +18,7 @@ $_liClass3  = '';
 $_liClass4  = '';
 $_liClass5  = '';
 
+$_menu1 = '';
 
 
 $_url   =   $_SERVER['REQUEST_URI'];
@@ -43,6 +44,16 @@ switch ($_url_f3) {
     default:
         break;
 }
+switch ($_url_f[2]){
+    case '':
+        $_menu1 = 'active';
+        break;
+    case 'item.php':
+        $_menu2 = 'active';
+        break;
+    default:
+        break;
+}
 
 ?>
 <div class="inner">
@@ -62,8 +73,8 @@ switch ($_url_f3) {
             <li class="<?=$_liClass4;?>">
                 <a href="/store/">스토어</a>
                 <ul class="sub-menu">
-                    <li><a href="/store/">캐시</a></li>
-                    <li><a href="/store/item.php">아이템</a></li>
+                    <li class="<?=$_menu1?>"><a href="/store/">캐시</a></li>
+                    <li class="<?=$_menu2?>"><a href="/store/item.php">아이템</a></li>
                 </ul>
             </li>
             <li class="<?=$_liClass5;?>"><a href="/event/">이벤트</a></li>

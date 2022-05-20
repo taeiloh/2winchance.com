@@ -44,6 +44,7 @@ try {
     ";
     $hpresult = $_mysqli->query($queryhp);
     $dbhp = $hpresult->fetch_assoc();
+    $hp = !empty($dbhp['pg_amount']) ? $dbhp['pg_amount'] : 0;
 
 }catch (Exception $e) {
     p($e);
@@ -138,7 +139,7 @@ try {
                                 <li><p>캐시</p><span class="fc-yellow coin"><?=$deposit?></span></li>
                                 <li><p>파이트 포인트</p><span class="fp"><?=$fp?></span></li>
 <!--                                <li><p>명예 포인트</p><span class="hp">--><?//=$dbhp['pg_amount']?><!--</span></li>-->
-                                <li><p>명예 포인트</p><span class="hp">10</span></li>
+                                <li><p>명예 포인트</p><span class="hp"><?=$hp?></span></li>
                                 <li><p>진행 중 문의</p><span class="count"><?=$total_count?></span></li>
                             </ul>
                         </div>
