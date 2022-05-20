@@ -128,7 +128,7 @@ try {
                                         <dd><a href="/remove/RemoveAccept.php">회원 탈퇴하기</dd></a>
                                     <?php
                                     }?>
-                                    <dd><a href="javascript:void(0);" class="cash-limit">한도 설정</a></dd>
+                                    <dd><a href="/myPage/setting_pw.php" class="cash-limit">한도 설정</a></dd>
                                 </dl>
 
                             </div>

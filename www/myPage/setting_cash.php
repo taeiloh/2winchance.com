@@ -7,6 +7,8 @@ $name=!empty($_SESSION['_se_name']) ? $_SESSION['_se_name'] : "";    // 세션 �
 $deposit=!empty($_SESSION['_se_deposit']) ? $_SESSION['_se_deposit'] : 0;    // 세션 포인트
 $fp=!empty($_SESSION['_se_fp']) ? $_SESSION['_se_fp'] : 0; // fantasy-point 잔액
 
+$m_pw      = isset($_POST['m_pw'])        ?     $_POST['m_pw']       : '';
+
 if (!$idx) {
     $url    = $_SERVER['REQUEST_URI'];
     $msg    = '로그인 페이지로 이동합니다.';
