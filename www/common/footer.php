@@ -52,7 +52,7 @@ switch ($_url_f3) {
         <ul class="business-info">
             <li>서울시 강남구 선릉로 703 H&S타워 8F</li>
             <li>TEL : +82-2-515-0630 / FAX +82-0-000-0000</li>
-            <li>상호 : ㈜메타록 대표이사 : 서해영</li>
+            <li>상호 : ㈜매타록 대표이사 : 서해영</li>
             <li>게임 관련 문의 00000@Metarock.co.kr | 사업 문의 00000@Metarock.co.kr</li>
             <li>사업자번호: 831-87-01160 | 통신판매업 신고번호: ~~(신고 진행 중, 자리 비워둘 것 )~~</li>
             <li>ⓒ 2021-2022, Metarock Inc., All rights Reserved.</li>
