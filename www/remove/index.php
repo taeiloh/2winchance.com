@@ -9,6 +9,7 @@ try {
     $result = $_mysqli->query($query);
     $_arrMembers = $result->fetch_array();
     $m_id = !empty($_arrMembers['m_id']) ? $_arrMembers['m_id'] : '';
+    $m_name = !empty($_arrMembers['m_name']) ? $_arrMembers['m_name'] : '';
 
 } catch (Exception $e) {
     p($e);
@@ -33,7 +34,7 @@ try {
     <!--content-->
     <div id="content">
         <!--sec-01-->
-        <h1 class="logo"><a href="../html/index.html"><img src="../images/logo.png" alt="METAGAMES"></a></h1>
+        <h1 class="logo"><a href="../main/index.php"><img src="../images/logo.png" alt="METAGAMES"></a></h1>
         <section class="sec sec-01">
             <div class="inner remove-policy">
                 <div class="title">
@@ -42,7 +43,7 @@ try {
                 <div>
                     <ul class="remove-acct">
                         <li><a href="javascript:void(0);"><span><?=$m_id?></span></a></li>
-                        <li><a href="javascript:void(0);">정글못해먹겐네</a></li>
+                        <li><a href="javascript:void(0);"><?=$m_name?></a></li>
                     </ul>
                     <div class="recent-point">
                         <h3>잔여포인트</h3>

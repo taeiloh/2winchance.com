@@ -124,8 +124,8 @@ try {
                                         <dd><a href="/remove/index.php">회원 탈퇴하기</a></dd>
                                     <?php
                                     }else{?>
-                                        <dt>비밀번호 변경불가</dt>
-                                        <a href="/remove/RemoveAccept.php"><dd>회원 탈퇴하기</dd></a>
+                                        <dd>비밀번호 변경불가</dd>
+                                        <dd><a href="/remove/RemoveAccept.php">회원 탈퇴하기</dd></a>
                                     <?php
                                     }?>
                                     <dd><a href="javascript:void(0);" class="cash-limit">한도 설정</a></dd>
