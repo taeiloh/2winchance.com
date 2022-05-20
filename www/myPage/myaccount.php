@@ -120,10 +120,7 @@ try {
                                     <?php
                                     }?>
                                 </dl>
-                                <dl class="cash-limit">
-                                    <dt><a href="javascript:void(0);">캐시 구매 잔여 한도 내역</a></dt>
-                                    <dd><a href="javascript:void(0);">FP 사용 제한 설정</a></dd>
-                                </dl>
+                                <a class="cash-limit" href="javascript:void(0);">한도 설정</a>
                             </div>
                         </div>
                         <div class="user-detail-info">
