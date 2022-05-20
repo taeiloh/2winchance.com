@@ -11,6 +11,7 @@ try {
     $_arrMembers = $result->fetch_array();
     $m_id = !empty($_arrMembers['m_id']) ? $_arrMembers['m_id'] : '';
     $m_name = !empty($_arrMembers['m_name']) ? $_arrMembers['m_name'] : '';
+    $m_sns_type = !empty($_arrMembers['m_sns_type']) ? $_arrMembers['m_sns_type'] : '';
 
 } catch (Exception $e) {
     p($e);
@@ -47,6 +48,7 @@ try {
                             <li><a href="javascript:void(0);"><?=$m_name?></a></li>
                             <?php
                         }else{?>
+                            <li><a href="javascript:void(0);"><?=$m_sns_type?> 계정</a></li>
                             <li><a href="javascript:void(0);"><?=$m_name?></a></li>
                             <?php
                         }?>
