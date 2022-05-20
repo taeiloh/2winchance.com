@@ -6,18 +6,33 @@ require_once __DIR__ .'/../_inc/config.php';
 $m_sns_type       = !empty($_POST['m_sns_type'])           ? strtoupper($_POST['m_sns_type'])         : '';
 $m_sns_id       = !empty($_POST['m_sns_id'])           ? strtoupper($_POST['m_sns_id'])         : '';
 $resultCode       = !empty($_POST['resultCode'])           ? $_POST['resultCode']        : '';
+$userBirthday       = !empty($_POST['userBirthday'])           ? $_POST['userBirthday']        : '';
+$userBirthday = substr($userBirthday,0,4);
+$userPhone = !empty($_POST['userPhone'])           ? $_POST['userPhone']        : '';
+$year = date("Y");
 
 if($m_sns_id=="" and $resultCode==""){
     alertBack("잘 못 된 접근 입니다.");
 }
 
+if($userBirthday and $userPhone) {
+    $age = $year - $userBirthday;
+    $query = "SELECT COUNT(*) FROM members WHERE m_tel = $userPhone";
+    $result = $_mysqli->query($query);
+    $cnt = (int)$result;
+}
+
 if($m_sns_id!=""){
     $action="sns_insert_proc.php";
+}else if($age < 18)
+{
+    $action="../main/";
+}else if($cnt > 0)
+{
+    $action="../signup/id_check.php";
 }else{
     $action="join_04.php";
 }
-
-
 
 
 try {
@@ -76,5 +91,16 @@ try {
     </footer>
 </div>
 </form>
+<script type="text/javascript">
+    function next(){
+
+        if((<?=$age?>)<18){
+            alert("만18세 미만은 이용하실 수 없습니다.");
+        }
+        if((<?=$cnt?>)>0){
+            alert("해당 휴대폰번호로 가입된 계정이 있습니다.");
+        }
+    }
+</script>
 </body>
 </html>
