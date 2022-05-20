@@ -99,6 +99,7 @@ ul.tabs li a{padding: .5rem;}
 
 
 /* visual */
+.main #visual{max-width: 140rem; margin: 0 auto;}
 #visual {display: flex; align-items: center; justify-content: center;}
 #visual .swiper {width: 100%; height: 100%; overflow: hidden; position: relative;}
 #visual .swiper-slide {text-align: center;  display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; -webkit-justify-content: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; -webkit-align-items: center; align-items: center; width: 100%;}
@@ -819,7 +820,7 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 .pf-pic .emblem{width: 22.6rem; height: 22.6rem; position: absolute; background-color: rgba(28,28,28,0.7); top:0; left: 0; display: flex; align-items: center; justify-content: center; }
 .emblem p{font-size: 2rem; font-weight: 700; color: #1e8fff;}
 
-.cash-limit{width: 10rem; padding: 0.5rem 1rem; background: #ff0000; color: #fff; border-radius: 0.5rem; text-align: center; margin-top: 1rem;}
+
 
 .myAcct .title{width: 100%; max-width: 62rem; margin: 0 auto; text-align: center;}
 .myAcct .title h2{font-weight: 700; font-size: 3rem; color: #d9d9d9; background-image: url("../images/img_title_bg.svg"); background-repeat: no-repeat;background-position: center; background-size: contain; height: 12.3rem; line-height: 12.3rem; margin: 3rem 0 0;}
@@ -863,9 +864,11 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 
 .pf-info{flex-grow: 1; margin-left: 3rem; height: 22.6rem;}
 .pf-info dl{margin-top: 2.5rem; display: flex; align-items: center; color: #1e8fff; }
-.pf-info dt{ position: relative; padding-right: 1.7rem; font-weight: 500;}
+.pf-info dt{  padding-right: 1.7rem; font-weight: 500;}
 .pf-info dd{padding-left: 1.3rem; font-weight: 500; position: relative;}
-.pf-info dt:after{content: ''; width: 0.4rem; height: 2.1rem; background-color: #3a3a3a; display: block; position: absolute; right: 0; top:50%; transform: translateY(-50%); }
+.pf-info dd ~ dd:after{content: ''; width: 0.4rem; height: 2.1rem; background-color: #3a3a3a; display: block; position: absolute; left: 0; top:50%; transform: translateY(-50%); margin-left: 0.5rem;}
+.cash-limit{color: #ff0000; text-align: center;}
+.cash-limit:hover{color: #ff0000;}
 
 .user-detail-info{background-color: #414141; width: 59.2rem; padding: 3rem;}
 .user-detail-info h3{font-size: 2.6rem; margin-bottom: 3rem; display: inline-block;}

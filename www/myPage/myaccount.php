@@ -37,6 +37,14 @@ try {
     $_arrMembers = $mresult->fetch_array();
     $m_sns_type = !empty($_arrMembers['m_sns_type']) ? $_arrMembers['m_sns_type'] : '';
 
+    $queryhp ="
+        SELECT *
+        FROM history_push_gold
+        WHERE 1 and pg_g_idx ='{$idx}'
+    ";
+    $hpresult = $_mysqli->query($queryhp);
+    $dbhp = $hpresult->fetch_assoc();
+
 }catch (Exception $e) {
     p($e);
 }
@@ -111,16 +119,17 @@ try {
                                     <?php
                                     if($id){
                                     ?>
-                                        <a href="../signup/pwd_change.php"><dt>비밀번호 변경하기</dt></a>
-                                        <a href="/remove/index.php"><dd>회원 탈퇴하기</dd></a>
+                                        <dd><a href="../signup/pwd_change.php">비밀번호 변경하기</a></dd>
+                                        <dd><a href="/remove/index.php">회원 탈퇴하기</a></dd>
                                     <?php
                                     }else{?>
                                         <dt>비밀번호 변경불가</dt>
                                         <a href="/remove/RemoveAccept.php"><dd>회원 탈퇴하기</dd></a>
                                     <?php
                                     }?>
+                                    <dd><a href="javascript:void(0);" class="cash-limit">한도 설정</a></dd>
                                 </dl>
-                                <a class="cash-limit" href="javascript:void(0);">한도 설정</a>
+
                             </div>
                         </div>
                         <div class="user-detail-info">
@@ -128,6 +137,7 @@ try {
                             <ul>
                                 <li><p>캐시</p><span class="fc-yellow coin"><?=$deposit?></span></li>
                                 <li><p>파이트 포인트</p><span class="fp"><?=$fp?></span></li>
+<!--                                <li><p>명예 포인트</p><span class="hp">--><?//=$dbhp['pg_amount']?><!--</span></li>-->
                                 <li><p>명예 포인트</p><span class="hp">10</span></li>
                                 <li><p>진행 중 문의</p><span class="count"><?=$total_count?></span></li>
                             </ul>
