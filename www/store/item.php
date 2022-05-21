@@ -4,6 +4,7 @@ require_once __DIR__ .'/../_inc/config.php';
 
 $idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 시퀀스
 $fp=!empty($_SESSION['_se_fp']) ? $_SESSION['_se_fp'] : 0; // fantasy-point 잔액
+
 try {
     $query2 = "
     SELECT *
@@ -87,7 +88,7 @@ try {
                             <li><label><input type="radio" name="type" value="type2">편의형</label></li>
                             <li><label><input type="radio" name="type" value="type3">스페셜</label></li>
                         </ul>
-                        <button class="btn-blue btn-8">구매하기</button>
+                        <button class="btn-blue btn-8" onclick="buy()">구매하기</button>
                     </div>
 
                     <div class="store-item-list prepare" id="sp" style="display: none;">
@@ -104,11 +105,27 @@ try {
                                     $i_fp = $_db['i_fp'];
                                     $i_src = $_db['i_src'];
                                     $i_name = $_db['i_name'];
+                                    $i_num = $_db['i_num'];
                                     $i++;
                                     $no=$total_count-($i+($page-1)*$rows);
+                                    if($i==1){?>
+                                        <li class = "active">
+                                            <a href="javascript:void(0);" data-item = "<?=$i_num?>">
+                                                <div class="item-pic">
+                                                    <img src="<?=$i_src?>" alt="">
+                                                    <p class="get-point fp">+<?=$i_fp?></p>
+                                                </div>
+                                                <div class="cash-item-desc">
+                                                    <p><?=$i_name?></p>
+                                                    <span><?=$i_price?><span class="fc-yellow">ⓒ</span></span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    <?php
+                                    }else{
                                     ?>
                                         <li>
-                                    <a href="javascript:void(0);">
+                                    <a href="javascript:void(0);" data-item = "<?=$i_num?>">
                                     <div class="item-pic">
                                         <img src="<?=$i_src?>" alt="">
                                         <p class="get-point fp">+<?=$i_fp?></p>
@@ -120,6 +137,7 @@ try {
                                     </a>
                                         </li>
                             <?php
+                                    }
                                 }
                             }
                             else{?>
@@ -160,6 +178,7 @@ try {
     </footer>
     <!--//footer-->
     <script>
+        var buy_item_id = 0;
         $(function(){
             $('input[type=radio][name=type]').change(function() {
                 if (this.value == 'type1') {
@@ -173,10 +192,28 @@ try {
         });
         $(document).ready(function(){
             $('ul.item-list li a').click(function(){
+                var item_id = $(this).data('item');
                 $('ul.item-list li').removeClass('active');
                 $(this).parent('li').addClass('active');
+                buy_item_id = item_id;
             })
         })
+
+        function buy(){
+            if(confirm("해당아이템을 구매하시겠습니까?"))
+            {
+                if(buy_item_id > 0 ){
+                    <?php
+                        $query = "insert into m_item (m_idx, m_num) VALUES ('{$idx}',echo'{buy_item_id}')";
+                    ?>
+                    alert("해당아이템 구매가 완료되었습니다.");
+                }
+            }
+            else
+            {
+               alert("구매가 취소되었습니다.");
+            }
+        }
     </script>
 </div>
 </body>
