@@ -95,7 +95,7 @@ try {
                         <p>제품 준비중</p>
                     </div>
                     <div class="store-item-list" id="chi" style="">
-                        <ul class="item-list">
+                        <ul class="buy-item-list">
                             <?php
                             if($total_count > 0){
                                 $i=0;
@@ -191,9 +191,9 @@ try {
             });
         });
         $(document).ready(function(){
-            $('ul.item-list li a').click(function(){
+            $('ul.buy-item-list li a').click(function(){
                 var item_id = $(this).data('item');
-                $('ul.item-list li').removeClass('active');
+                $('ul.buy-item-list li').removeClass('active');
                 $(this).parent('li').addClass('active');
                 buy_item_id = item_id;
             })

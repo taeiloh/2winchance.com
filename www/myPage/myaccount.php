@@ -136,7 +136,7 @@ try {
                         <div class="user-detail-info">
                             <h3>상세정보</h3>
                             <ul>
-                                <li><p>캐시</p><span class="fc-yellow coin"><?=$deposit?></span></li>
+                                <li><p>캐시</p><span class="fc-yellow coin"><?=number_format($deposit)?></span></li>
                                 <li><p>파이트 포인트</p><span class="fp"><?=$fp?></span></li>
 <!--                                <li><p>명예 포인트</p><span class="hp">--><?//=$dbhp['pg_amount']?><!--</span></li>-->
                                 <li><p>명예 포인트</p><span class="hp"><?=$hp?></span></li>
@@ -155,7 +155,7 @@ try {
                                 <li class="active"><a href="javascript:void(0);"><img src="../images/item2.png" alt=""></a></li>
                                 <li class="disabled"><a href="javascript:void(0);"><img src="../images/item6.png" alt=""></a></li>
                                 <li><a href="javascript:void(0);"><img src="../images/item4.png" alt=""></a></li>
-                                <li><a href="javascript:void(0);"><img src="../images/item5.png" alt=""></a></li>
+                                <!--<li><a href="javascript:void(0);"><img src="../images/item5.png" alt=""></a></li>
                                 <li><a href="javascript:void(0);"><img src="../images/item6.png" alt=""></a></li>
                                 <li><a href="javascript:void(0);"><img src="../images/item2.png" alt=""></a></li>
                                 <li><a href="javascript:void(0);"><img src="../images/item6.png" alt=""></a></li>
@@ -181,7 +181,7 @@ try {
                                 <li><a href="javascript:void(0);"><img src="../images/item4.png" alt=""></a></li>
                                 <li><a href="javascript:void(0);"><img src="../images/item5.png" alt=""></a></li>
                                 <li><a href="javascript:void(0);"><img src="../images/item6.png" alt=""></a></li>
-                                <li><a href="javascript:void(0);"><img src="../images/item6.png" alt=""></a></li>
+                                <li><a href="javascript:void(0);"><img src="../images/item6.png" alt=""></a></li>-->
                             </ul>
                         </div>
 

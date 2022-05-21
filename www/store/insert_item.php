@@ -42,7 +42,7 @@ try{
                 exit;
             } else {
                 $arrRtn['code'] = 200;
-                $arrRtn['msg'] = "아이템 구매 성공";
+                $arrRtn['msg'] = "해당 아이템을 구매하였습니다.";
             }
         }
     }
