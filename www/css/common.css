@@ -891,8 +891,10 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 .count:after{content: '건'; margin-left: 0.5rem;}
 
 .user-item{width: 77.4rem;}
-.item-list{background-color: #090e10; padding: 3rem 5rem; width: 77.8rem; display: flex;}
+.item-list{background-color: #1c1c1c; }
 .item-list label{font-size: 2rem; font-weight: 700; margin-right: 5rem; display: flex; justify-content: center;}
+.item-list li{ width: 14.3%;  background-color: #1c1c1c; margin: 1.25rem 1.5rem; margin-right: 0;}
+.item-list li.active{border: 0.6rem solid #1e8fff;}
 .user-item-list{background-color: #414141; height: 64rem; width: 77.8rem;}
 
 .user-item-list > ul{display: flex; flex-wrap: wrap; }
