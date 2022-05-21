@@ -2,6 +2,8 @@
 require __DIR__ .'/../_inc/config.php';
 
 $m_num     = isset($_POST['m_num'])        ?     $_POST['m_num']       :0;
+$price     = isset($_POST['price'])        ?     $_POST['price']       :0;
+$fp     = isset($_POST['fp'])        ?     $_POST['fp']       :0;
 $idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 시퀀스
 
 
@@ -35,6 +37,12 @@ try{
                             ('{$idx}','{$m_num}')";
             $result = $_mysqli->query($query);
 
+            $query2 = "UPDATE members SET m_deposit = m_deposit - '{$price}',m_fp_balance = m_fp_balance + '{$fp}' where m_idx = '{$idx}'";
+            $result2 = $_mysqli->query($query2);
+
+            $query3 = "UPDATE item SET i_status = 1 where i_num = '{$m_num}'";
+            $result3 = $_mysqli->query($query3);
+
             if (!$result) {
                 $arrRtn['code'] = 502;
                 $arrRtn['msg'] = "에러 발생";
@@ -43,6 +51,7 @@ try{
             } else {
                 $arrRtn['code'] = 200;
                 $arrRtn['msg'] = "해당 아이템을 구매하였습니다.";
+
             }
         }
     }

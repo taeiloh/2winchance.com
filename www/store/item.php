@@ -6,6 +6,7 @@ $idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 �
 $fp=!empty($_SESSION['_se_fp']) ? $_SESSION['_se_fp'] : 0; // fantasy-point 잔액
 
 try {
+
     $query2 = "
     SELECT *
         FROM members
@@ -106,14 +107,22 @@ try {
                                     $i_src = $_db['i_src'];
                                     $i_name = $_db['i_name'];
                                     $i_num = $_db['i_num'];
+                                    $i_status = $_db['i_status'];
                                     $i++;
                                     $no=$total_count-($i+($page-1)*$rows);
                                     if($i==1){?>
                                         <li class = "active">
-                                            <a href="javascript:void(0);" data-item = "<?=$i_num?>">
+                                            <a href="javascript:void(0);" data-item = "<?=$i_num?>" data-price ="<?=$i_price?>" data-fp="<?=$i_fp?>">
                                                 <div class="item-pic">
                                                     <img src="<?=$i_src?>" alt="">
-                                                    <p class="get-point fp">+<?=$i_fp?></p>
+                                                    <?php
+                                                    if($i_status == 1){?>
+                                                        <p class="get-point">SOLD OUT</p>
+                                                    <?php
+                                                    } else{?>
+                                                        <p class="get-point fp">+<?=$i_fp?></p>
+                                                    <?php
+                                                    }?>
                                                 </div>
                                                 <div class="cash-item-desc">
                                                     <p><?=$i_name?></p>
@@ -125,10 +134,17 @@ try {
                                     }else{
                                     ?>
                                         <li>
-                                    <a href="javascript:void(0);" data-item = "<?=$i_num?>">
+                                    <a href="javascript:void(0);" data-item = "<?=$i_num?>" data-price ="<?=$i_price?>" data-fp="<?=$i_fp?>">
                                     <div class="item-pic">
                                         <img src="<?=$i_src?>" alt="">
-                                        <p class="get-point fp">+<?=$i_fp?></p>
+                                        <?php
+                                        if($i_status == 1){?>
+                                            <p class="get-point">SOLD OUT</p>
+                                            <?php
+                                        } else{?>
+                                            <p class="get-point fp">+<?=$i_fp?></p>
+                                            <?php
+                                        }?>
                                     </div>
                                     <div class="cash-item-desc">
                                         <p><?=$i_name?></p>
@@ -179,6 +195,8 @@ try {
     <!--//footer-->
     <script>
         var buy_item_id = 0;
+        var buy_item_price =0;
+        var buy_item_fp=0;
         $(function(){
             $('input[type=radio][name=type]').change(function() {
                 if (this.value == 'type1') {
@@ -193,19 +211,24 @@ try {
         $(document).ready(function(){
             $('ul.buy-item-list li a').click(function(){
                 var item_id = $(this).data('item');
+                var item_price = $(this).data('price');
+                var item_fp = $(this).data('fp');
                 $('ul.buy-item-list li').removeClass('active');
                 $(this).parent('li').addClass('active');
                 buy_item_id = item_id;
+                buy_item_price = item_price;
+                buy_item_fp = item_fp;
             })
         })
 
         function buy(){
-
             if(confirm("해당아이템을 구매하시겠습니까?"))
             {
                 if(buy_item_id > 0 ){
                     var postData = {
-                        "m_num": buy_item_id
+                        "m_num": buy_item_id,
+                        "price": buy_item_price,
+                        "fp":buy_item_fp
                     };
                     $.ajax({
                         url: "insert_item.php",
