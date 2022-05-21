@@ -46,6 +46,32 @@ try {
     $dbhp = $hpresult->fetch_assoc();
     $hp = !empty($dbhp['pg_amount']) ? $dbhp['pg_amount'] : 0;
 
+
+    $page = !empty($_GET['page']) ? $_GET['page'] : 1;
+
+    //파라미터 체크
+    if(!is_numeric($page)){
+        $page       =   1;
+    }
+
+    $sql ="select count(*) from m_item where 1=1";
+    $tresult = mysqli_query($_mysqli, $sql);
+    $row1   = mysqli_fetch_row($tresult);
+    $total_count = $row1[0]; //전체갯수
+    $rows = 8;
+    $total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
+    if ($page < 1) { $page = 1; } // 페이지가 없으면 첫 페이지 (1 페이지)
+    $from_record = ($page - 1) * $rows; // 시작 열을 구함
+
+    $query3  = "
+        SELECT *
+        FROM m_item LEFT JOIN item ON i_num = m_num
+        ORDER BY m_num DESC
+        LIMIT {$from_record}, {$rows}
+    ";
+
+    $result3 = $_mysqli->query($query3);
+
 }catch (Exception $e) {
     p($e);
 }
@@ -151,37 +177,46 @@ try {
                             <label><input type="radio" name="type" value="type3" id="type3">스페셜</label>
                         </div>
                         <div class="user-item-list scroll" id="typeA">
-                            <ul>
-                                <li class="active"><a href="javascript:void(0);"><img src="../images/item2.png" alt=""></a></li>
-                                <li class="disabled"><a href="javascript:void(0);"><img src="../images/item6.png" alt=""></a></li>
-                                <li><a href="javascript:void(0);"><img src="../images/item4.png" alt=""></a></li>
-                                <!--<li><a href="javascript:void(0);"><img src="../images/item5.png" alt=""></a></li>
-                                <li><a href="javascript:void(0);"><img src="../images/item6.png" alt=""></a></li>
-                                <li><a href="javascript:void(0);"><img src="../images/item2.png" alt=""></a></li>
-                                <li><a href="javascript:void(0);"><img src="../images/item6.png" alt=""></a></li>
-                                <li><a href="javascript:void(0);"><img src="../images/item4.png" alt=""></a></li>
-                                <li><a href="javascript:void(0);"><img src="../images/item5.png" alt=""></a></li>
-                                <li><a href="javascript:void(0);"><img src="../images/item6.png" alt=""></a></li>
-                                <li><a href="javascript:void(0);"><img src="../images/item2.png" alt=""></a></li>
-                                <li><a href="javascript:void(0);"><img src="../images/item6.png" alt=""></a></li>
-                                <li><a href="javascript:void(0);"><img src="../images/item4.png" alt=""></a></li>
-                                <li><a href="javascript:void(0);"><img src="../images/item5.png" alt=""></a></li>
-                                <li><a href="javascript:void(0);"><img src="../images/item6.png" alt=""></a></li>
-                                <li><a href="javascript:void(0);"><img src="../images/item2.png" alt=""></a></li>
-                                <li><a href="javascript:void(0);"><img src="../images/item6.png" alt=""></a></li>
-                                <li><a href="javascript:void(0);"><img src="../images/item4.png" alt=""></a></li>
-                                <li><a href="javascript:void(0);"><img src="../images/item5.png" alt=""></a></li>
-                                <li><a href="javascript:void(0);"><img src="../images/item6.png" alt=""></a></li>
-                                <li><a href="javascript:void(0);"><img src="../images/item2.png" alt=""></a></li>
-                                <li><a href="javascript:void(0);"><img src="../images/item6.png" alt=""></a></li>
-                                <li><a href="javascript:void(0);"><img src="../images/item4.png" alt=""></a></li>
-                                <li><a href="javascript:void(0);"><img src="../images/item5.png" alt=""></a></li>
-                                <li><a href="javascript:void(0);"><img src="../images/item6.png" alt=""></a></li>
-                                <li><a href="javascript:void(0);"><img src="../images/item6.png" alt=""></a></li>
-                                <li><a href="javascript:void(0);"><img src="../images/item4.png" alt=""></a></li>
-                                <li><a href="javascript:void(0);"><img src="../images/item5.png" alt=""></a></li>
-                                <li><a href="javascript:void(0);"><img src="../images/item6.png" alt=""></a></li>
-                                <li><a href="javascript:void(0);"><img src="../images/item6.png" alt=""></a></li>-->
+                            <ul class="user-item">
+                                <?php
+                                if($total_count > 0){
+                                    $i=0;
+                                    while($_db = $result3 -> fetch_assoc()){
+                                        $i_price = $_db['i_price'];
+                                        $i_type = $_db['i_type'];
+                                        $i_fp = $_db['i_fp'];
+                                        $i_src = $_db['i_src'];
+                                        $i_name = $_db['i_name'];
+                                        $i_num = $_db['i_num'];
+                                        $m_num = $_db['m_num'];
+                                        $i++;
+                                        $no=$total_count-($i+($page-1)*$rows);
+                                        if($i==1){?>
+                                            <li class = "active">
+                                                <a href="javascript:void(0);" data-item = "<?=$i_num?>">
+                                                        <img src="<?=$i_src?>" alt="">
+                                                </a>
+                                            </li>
+                                            <?php
+                                        }else{
+                                            ?>
+                                            <li>
+                                                <a href="javascript:void(0);" data-item = "<?=$i_num?>">
+                                                        <img src="<?=$i_src?>" alt="">
+                                                </a>
+                                            </li>
+                                            <?php
+                                        }
+                                    }
+                                }
+                                else{?>
+                                    <div class="store-item-list prepare" id="sp" style="display: none;">
+                                        <p>제품 준비중</p>
+                                    </div>
+                                    <?php
+                                }
+                                $result->free();
+                                ?>
                             </ul>
                         </div>
 
@@ -415,7 +450,14 @@ try {
                 $("#typeC").show();
             });
         })
-
+        $(document).ready(function(){
+            $('ul.user-item li a').click(function(){
+                var item_id = $(this).data('item');
+                $('ul.user-item li').removeClass('active');
+                $(this).parent('li').addClass('active');
+                buy_item_id = item_id;
+            })
+        })
 
     </script>
 </div>
