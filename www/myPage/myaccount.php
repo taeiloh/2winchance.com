@@ -36,7 +36,6 @@ try {
     $mresult = $_mysqli->query($query2);
     $_arrMembers = $mresult->fetch_array();
     $m_sns_type = !empty($_arrMembers['m_sns_type']) ? $_arrMembers['m_sns_type'] : '';
-    $m_deposit = !empty($_arrMembers['m_deposit']) ? $_arrMembers['m_deposit'] : '';
 
     $queryhp ="
         SELECT *
@@ -137,7 +136,7 @@ try {
                         <div class="user-detail-info">
                             <h3>상세정보</h3>
                             <ul>
-                                <li><p>캐시</p><span class="fc-yellow coin"><?=number_format($m_deposit)?></span></li>
+                                <li><p>캐시</p><span class="fc-yellow coin"><?=$deposit?></span></li>
                                 <li><p>파이트 포인트</p><span class="fp"><?=$fp?></span></li>
 <!--                                <li><p>명예 포인트</p><span class="hp">--><?//=$dbhp['pg_amount']?><!--</span></li>-->
                                 <li><p>명예 포인트</p><span class="hp"><?=$hp?></span></li>

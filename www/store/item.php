@@ -200,13 +200,42 @@ try {
         })
 
         function buy(){
+
             if(confirm("해당아이템을 구매하시겠습니까?"))
             {
                 if(buy_item_id > 0 ){
-                    <?php
-                        $query = "insert into m_item (m_idx, m_num) VALUES ('{$idx}',echo'{buy_item_id}')";
-                    ?>
-                    alert("해당아이템 구매가 완료되었습니다.");
+                    var postData = {
+                        "m_num": buy_item_id
+                    };
+                    $.ajax({
+                        url: "insert_item.php",
+                        type: "POST",
+                        async: false,
+                        data: postData,
+                        success: function (data) {
+                            //console.log(data);
+                            var json = JSON.parse(data);
+                            //console.log(json);
+                            if (json.code == 200) {
+                                alert(json.msg);
+                            }else{
+                                alert(json.msg);
+                                //console.log(json);
+                            }
+                        },
+                        beforeSend:function(){
+                            $(".wrap-loading").removeClass("display-none");
+                        },
+                        complete:function(){
+                            $(".wrap-loading").addClass("display-none");
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            console.log(textStatus, errorThrown);
+                        }
+                    });
+                }
+                else{
+                    alert("구매하실 아이템을 선택하여주세요");
                 }
             }
             else
