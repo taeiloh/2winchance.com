@@ -1,5 +1,6 @@
 <?php
 // 파라미터 정리
+checkmobile();
 $cate       = !empty($_GET['cate'])     ? $_GET['cate']     : '';
 
 // 변수 정리
@@ -17,6 +18,7 @@ $_liClass3  = '';
 $_liClass4  = '';
 $_liClass5  = '';
 
+$_menu1 = '';
 
 
 $_url   =   $_SERVER['REQUEST_URI'];
@@ -42,6 +44,16 @@ switch ($_url_f3) {
     default:
         break;
 }
+switch ($_url_f[2]){
+    case '':
+        $_menu1 = 'active';
+        break;
+    case 'item.php':
+        $_menu2 = 'active';
+        break;
+    default:
+        break;
+}
 
 ?>
 <div class="inner">
@@ -50,19 +62,19 @@ switch ($_url_f3) {
         <ul>
             <li class="<?=$_liClass1;?>"><a href="/lobby/">로비</a>
                 <ul class="sub-menu">
-                    <li class="<?=($cate==21)?'active':'';?>"><a href="/lobby/?cate=21">리그 오브 레전드</a></li>
-                    <li class="<?=($cate==20)?'active':'';?>"><a href="/lobby/?cate=20">배틀그라운드</a></li>
-                    <li><a href="javascript:void(0)" onclick="alert('준비중입니다.');">DOTA2</a></li>
-                    <li><a href="javascript:void(0)" onclick="alert('준비중입니다.');">GS:GO</a></li>
+<!--                    <li class="--><?//=($cate==21)?'active':'';?><!--"><a href="/lobby/?cate=21">리그 오브 레전드</a></li>-->
+                    <li class="<?=$_liClass1;?> <?=($cate==20)?'active':'';?>"><a href="/lobby/?cate=20">배틀그라운드</a></li>
+<!--                    <li><a href="javascript:void(0)" onclick="alert('준비중입니다.');">DOTA2</a></li>-->
+<!--                    <li><a href="javascript:void(0)" onclick="alert('준비중입니다.');">GS:GO</a></li>-->
                 </ul>
             </li>
-            <li class="<?=$_liClass2;?>"><a href="/lineups/">LINEUPS</a></li>
-            <li class="<?=$_liClass3;?>"><a href="/contests/">콘텐츠</a></li>
+            <li class="<?=$_liClass2;?>"><a href="/lineups/">라인업</a></li>
+            <li class="<?=$_liClass3;?>"><a href="/contests/">콘테스트</a></li>
             <li class="<?=$_liClass4;?>">
                 <a href="/store/">스토어</a>
                 <ul class="sub-menu">
-                    <li><a href="/store/">CASH</a></li>
-                    <li><a href="/store/item.php">ITEM</a></li>
+                    <li class="<?=$_menu1?>"><a href="/store/">캐시</a></li>
+                    <li class="<?=$_menu2?>"><a href="/store/item.php">아이템</a></li>
                 </ul>
             </li>
             <li class="<?=$_liClass5;?>"><a href="/event/">이벤트</a></li>
@@ -92,7 +104,7 @@ switch ($_url_f3) {
                   <p class="nickname"><?=$name?></p>
                   <div class="charge">
                       <p><?=number_format($deposit)?></p>
-                      <button type="button" class="charge-btn">충전</button>
+                      <button type="button" class="charge-btn" onclick="location.href='../store/'">충전</button>
                   </div>
                   <div class="mypage">
                       <button type="button" class="mypage-btn" onclick="location.href='/myPage/myaccount.php'">마이페이지 <img src="/images/ico_arrow_blue.svg" alt="마이페이지 메뉴 펼치기"></button>
@@ -111,7 +123,5 @@ switch ($_url_f3) {
     <?php
         }
         ?>
-
-
     </div>
 </div>

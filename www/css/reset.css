@@ -225,7 +225,7 @@ a:hover{color:inherit;}
 .mT35{margin-top:35px;}
 .mT38{margin-top:38px;}
 .mT40{margin-top:40px;}
-.mT50{margin-top:50px;}
+.mT50{margin-top:50px!important;}
 .mT60{margin-top:60px;}
 .mT65{margin-top:65px;}
 .mT80{margin-top:80px;}

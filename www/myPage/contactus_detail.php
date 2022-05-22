@@ -6,7 +6,19 @@ $id=!empty($_SESSION['_se_id']) ? $_SESSION['_se_id'] : "";        // 세션 아
 $name=!empty($_SESSION['_se_name']) ? $_SESSION['_se_name'] : "";    // 세션 닉네임
 
 $_topic = '';
+if (!$idx) {
 
+    $url    = $_SERVER['REQUEST_URI'];
+
+    $msg    = '로그인 페이지로 이동합니다.';
+
+    $url    = '/login/index.php?rtnUrl='. $url;
+
+    alertReplace($msg, $url);
+
+    exit;
+
+}
 try {
 
     $cu_idx =!empty($_POST['cu_idx']) ? $_POST['cu_idx'] : '';

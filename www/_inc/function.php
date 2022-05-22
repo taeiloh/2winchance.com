@@ -147,3 +147,23 @@ function paging($page,$total_page,$move_page,$url) {
     }
     */
 }
+
+function checkmobile(){
+
+//check mobile
+    $mAgent = array("iPhone","iPod","Android","Blackberry",
+        "Opera Mini", "Windows ce", "Nokia", "sony" );
+    $chkMobile = false;
+    for($i=0; $i<sizeof($mAgent); $i++){
+        if(stripos( $_SERVER['HTTP_USER_AGENT'], $mAgent[$i] )){
+            $chkMobile = true;
+            break;
+        }
+    }
+    if($chkMobile){
+        echo <<<SCRIPT
+        <script> location.replace("http://m.2winchance.com");
+        </script>
+        SCRIPT;
+    }
+}

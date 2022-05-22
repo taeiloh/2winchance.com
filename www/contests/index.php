@@ -59,15 +59,15 @@ try {
                         </colgroup>
                         <thead>
                         <tr>
-                            <th>Contest</th>
-                            <th>Live IN</th>
-                            <th>Total Prize</th>
-                            <th>Top Prize</th>
-                            <th>Entries</th>
-                            <th>Multi</th>
-                            <th>status</th>
+                            <th>콘테스트</th>
+                            <th>경기시작 시간</th>
+                            <th>총 상금</th>
+                            <th>1등 상금</th>
+                            <th>참여자 수</th>
+                            <th>중복</th>
+                            <th>상태</th>
                             <th>
-                                <input type="search" placeholder="플레이어를 검색해주세요.">
+                                <input type="search" placeholder="콘테스트를 검색해주세요.">
                                 <button class="search-btn"></button>
                             </th>
                         </tr>
@@ -80,8 +80,8 @@ try {
                             <td>50</td>
                             <td>1,000</td>
                             <td>1</td>
-                            <td><button type="button">Edit</button></td>
-                            <td><button type="button"><img src="/images/ico_share_blue.svg" alt="공유하기">invite</button></td>
+                            <td><button type="button">수정</button></td>
+                            <td><button type="button"><img src="../images/ico_share_blue.svg" alt="공유하기">초대</button></td>
                         </tr>
                         <tr>
                             <td>2022 LoL 챔피언스 코리아 스프링</td>
@@ -90,8 +90,8 @@ try {
                             <td>50</td>
                             <td>1,000</td>
                             <td>1</td>
-                            <td><button type="button">Edit</button></td>
-                            <td><button type="button"><img src="/images/ico_share_blue.svg" alt="공유하기">invite</button></td>
+                            <td><button type="button">수정</button></td>
+                            <td><button type="button"><img src="../images/ico_share_blue.svg" alt="공유하기">초대</button></td>
                         </tr>
                         <tr>
                             <td>2022 LoL 챔피언스 코리아 스프링</td>
@@ -100,8 +100,8 @@ try {
                             <td>50</td>
                             <td>1,000</td>
                             <td>1</td>
-                            <td><button type="button">Edit</button></td>
-                            <td><button type="button"><img src="/images/ico_share_blue.svg" alt="공유하기">invite</button></td>
+                            <td><button type="button">수정</button></td>
+                            <td><button type="button"><img src="../images/ico_share_blue.svg" alt="공유하기">초대</button></td>
                         </tr>
                         <tr>
                             <td>2022 LoL 챔피언스 코리아 스프링</td>
@@ -110,8 +110,8 @@ try {
                             <td>50</td>
                             <td>1,000</td>
                             <td>1</td>
-                            <td><button type="button">Edit</button></td>
-                            <td><button type="button"><img src="/images/ico_share_blue.svg" alt="공유하기">invite</button></td>
+                            <td><button type="button">수정</button></td>
+                            <td><button type="button"><img src="../images/ico_share_blue.svg" alt="공유하기">초대</button></td>
                         </tr>
                         <tr>
                             <td>2022 LoL 챔피언스 코리아 스프링</td>
@@ -120,8 +120,8 @@ try {
                             <td>50</td>
                             <td>1,000</td>
                             <td>1</td>
-                            <td><button type="button">Edit</button></td>
-                            <td><button type="button"><img src="/images/ico_share_blue.svg" alt="공유하기">invite</button></td>
+                            <td><button type="button">수정</button></td>
+                            <td><button type="button"><img src="../images/ico_share_blue.svg" alt="공유하기">초대</button></td>
                         </tr>
                         <tr>
                             <td>2022 LoL 챔피언스 코리아 스프링</td>
@@ -130,8 +130,8 @@ try {
                             <td>50</td>
                             <td>1,000</td>
                             <td>1</td>
-                            <td><button type="button">Edit</button></td>
-                            <td><button type="button"><img src="/images/ico_share_blue.svg" alt="공유하기">invite</button></td>
+                            <td><button type="button">수정</button></td>
+                            <td><button type="button"><img src="../images/ico_share_blue.svg" alt="공유하기">초대</button></td>
                         </tr>
                         <tr>
                             <td>2022 LoL 챔피언스 코리아 스프링</td>
@@ -140,8 +140,8 @@ try {
                             <td>50</td>
                             <td>1,000</td>
                             <td>1</td>
-                            <td><button type="button">Edit</button></td>
-                            <td><button type="button"><img src="/images/ico_share_blue.svg" alt="공유하기">invite</button></td>
+                            <td><button type="button">수정</button></td>
+                            <td><button type="button"><img src="../images/ico_share_blue.svg" alt="공유하기">초대</button></td>
                         </tr>
                         <tr>
                             <td>2022 LoL 챔피언스 코리아 스프링</td>
@@ -150,8 +150,8 @@ try {
                             <td>50</td>
                             <td>1,000</td>
                             <td>1</td>
-                            <td><button type="button">Edit</button></td>
-                            <td><button type="button"><img src="/images/ico_share_blue.svg" alt="공유하기">invite</button></td>
+                            <td><button type="button">수정</button></td>
+                            <td><button type="button"><img src="../images/ico_share_blue.svg" alt="공유하기">초대</button></td>
                         </tr>
                         <tr>
                             <td>2022 LoL 챔피언스 코리아 스프링</td>
@@ -160,8 +160,8 @@ try {
                             <td>50</td>
                             <td>1,000</td>
                             <td>1</td>
-                            <td><button type="button">Edit</button></td>
-                            <td><button type="button"><img src="/images/ico_share_blue.svg" alt="공유하기">invite</button></td>
+                            <td><button type="button">수정</button></td>
+                            <td><button type="button"><img src="../images/ico_share_blue.svg" alt="공유하기">초대</button></td>
                         </tr>
                         <tr>
                             <td>2022 LoL 챔피언스 코리아 스프링</td>
@@ -170,8 +170,8 @@ try {
                             <td>50</td>
                             <td>1,000</td>
                             <td>1</td>
-                            <td><button type="button">Edit</button></td>
-                            <td><button type="button"><img src="/images/ico_share_blue.svg" alt="공유하기">invite</button></td>
+                            <td><button type="button">수정</button></td>
+                            <td><button type="button"><img src="../images/ico_share_blue.svg" alt="공유하기">초대</button></td>
                         </tr>
                         <tr>
                             <td>2022 LoL 챔피언스 코리아 스프링</td>
@@ -180,8 +180,8 @@ try {
                             <td>50</td>
                             <td>1,000</td>
                             <td>1</td>
-                            <td><button type="button">Edit</button></td>
-                            <td><button type="button"><img src="/images/ico_share_blue.svg" alt="공유하기">invite</button></td>
+                            <td><button type="button">수정</button></td>
+                            <td><button type="button"><img src="../images/ico_share_blue.svg" alt="공유하기">초대</button></td>
                         </tr>
                         <tr>
                             <td>2022 LoL 챔피언스 코리아 스프링</td>
@@ -190,8 +190,8 @@ try {
                             <td>50</td>
                             <td>1,000</td>
                             <td>1</td>
-                            <td><button type="button">Edit</button></td>
-                            <td><button type="button"><img src="/images/ico_share_blue.svg" alt="공유하기">invite</button></td>
+                            <td><button type="button">수정</button></td>
+                            <td><button type="button"><img src="../images/ico_share_blue.svg" alt="공유하기">초대</button></td>
                         </tr>
                         </tbody>
                     </table>

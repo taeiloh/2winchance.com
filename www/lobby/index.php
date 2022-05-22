@@ -1,6 +1,7 @@
 <?php
 // config
 require_once __DIR__ .'/../_inc/config.php';
+
 ?>
 <!doctype html>
 <html lang="ko">
@@ -27,36 +28,15 @@ require_once __DIR__ .'/../_inc/config.php';
         <!--content-->
         <div id="content">
             <!--sec-01-->
-            <section class="sec sec-01 bg-black">
-                <div class="inner">
-                    <ul class="game-list">
-                        <li>
-                            <a href="javascript:void(0)" class="game-info">
-                                <div class="game-thumb" style="background-image: url('../images/thumb_lol.png')"></div>
-                                <h2>리그 오브 레전드</h2>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" class="game-info">
-                                <div class="game-thumb" style="background-image: url('../images/thumb_battle.png')"></div>
-                                <h2>배틀그라운드</h2>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" class="game-info">
-                                <div class="game-thumb" style="background-image: url('../images/thumb_dota.png')"></div>
-                                <h2>DOTA 2</h2>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)" class="game-info">
-                                <div class="game-thumb" style="background-image: url('../images/thumb_csgo.png')"></div>
-                                <h2>CS:GO</h2>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </section>
+            <!--visual-->
+            <div id="visual">
+                <!-- Swiper -->
+                <video autoplay="autoplay" muted="muted">
+                    <source src="../images/banner_video.mp4" type="video/mp4">
+                    <strong>Your browser does not support the video tag.</strong>
+                </video>
+            </div>
+            <!--//visual-->
             <!--//sec-01-->
             <!--sec-02-->
             <section class="sec sec-02">
@@ -99,6 +79,8 @@ require_once __DIR__ .'/../_inc/config.php';
                                         <dt class="contest-schedule">{$db['games_timezone_scheduled']}</dt>
                                         <!--<dt class="contest-title">COD:M 커뮤니티</dt>-->
                                         <dt class="contest-title">{$db['count']} GAMES</dt>
+                                        <dt class="contest-schedule fc-yellow">오늘 경기 종료</dt>
+                                        <dt class="contest-title">COD:M 커뮤니티</dt>
                                         <dd class="contest-detail">
                                             <ul>
                                                 <li><img src="/images/ico_pin.svg" class="mR5" alt="위치">LAS</li>

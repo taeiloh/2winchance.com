@@ -1,3 +1,15 @@
+<?php
+// config
+require_once __DIR__ .'/../_inc/config.php';
+
+
+
+try {
+
+} catch (Exception $e) {
+    p($e);
+}
+?>
 <!doctype html>
 <html lang="ko">
 <head>
@@ -46,12 +58,12 @@
                         </colgroup>
                         <thead>
                         <tr>
-                            <th>Contest</th>
-                            <th>Entries</th>
-                            <th>My Rank</th>
-                            <th>My Score</th>
-                            <th>Top Score</th>
-                            <th>Entry Fee</th>
+                            <th>콘테스트</th>
+                            <th>참여자 수</th>
+                            <th>순위</th>
+                            <th>내 점수</th>
+                            <th>탑 점수</th>
+                            <th>사용 FP</th>
                             <th>
                                 <input type="search" placeholder="플레이어를 검색해주세요.">
                                 <button class="search-btn"></button>

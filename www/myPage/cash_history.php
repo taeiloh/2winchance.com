@@ -8,6 +8,20 @@ $arrRtn     = array(
     'code'  => 500,
     'msg'   => ''
 );
+
+if (!$idx) {
+
+    $url    = $_SERVER['REQUEST_URI'];
+
+    $msg    = '로그인 페이지로 이동합니다.';
+
+    $url    = '/login/index.php?rtnUrl='. $url;
+
+    alertReplace($msg, $url);
+
+    exit;
+
+}
 try {
     //파라미터 정리
     $page = !empty($_GET['page']) ? $_GET['page'] : 1;
@@ -63,6 +77,7 @@ try {
 <!--//head-->
 
 <body>
+
 <div id="wrap" class="sub">
     <!--header-->
     <header id="header">
@@ -104,14 +119,14 @@ try {
                             <col style="width:12%">
                         </colgroup>
                         <thead>
-                        <tr>
-                            <th><a href="javascript:void(0);">DATE</a></th>
-                            <th>CONTENT</th>
-                            <th><a href="javascript:void(0);">TID</a></th>
-                            <th><a href="javascript:void(0);">PG</a></th>
-                            <th><a href="javascript:void(0);">AMOUNT</a></th>
-                            <th><a href="javascript:void(0);">CASH</a></th>
-                            <th><a href="javascript:void(0);">BALANCE</a></th>
+                        <tr class="filter">
+                            <th><a href="javascript:void(0);">일자</a></th>
+                            <th>내용</th>
+                            <th><a href="javascript:void(0);">거래ID</a></th>
+                            <th><a href="javascript:void(0);">결제 정보</a></th>
+                            <th><a href="javascript:void(0);">금액(KRW)</a></th>
+                            <th><a href="javascript:void(0);">캐시</a></th>
+                            <th><a href="javascript:void(0);">캐시 잔액</a></th>
                         </tr>
                         </thead>
                         <tbody>

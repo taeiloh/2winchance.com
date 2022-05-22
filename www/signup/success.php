@@ -9,14 +9,13 @@
 </head>
 <body>
 <script>
-$(function(){
-
-    var f= document.forms.popupForm;
-    opener.name = "join_02.php";
-    f.target = opener.name;
-    f.submit();
-    self.close();
-})
+    $(document).ready(function(){
+        var f= document.forms.popupForm;
+        opener.name = "join_02.php";
+        f.target = opener.name;
+        f.submit();
+        self.close();
+    })
 </script>
 <form name="popupForm" action="join_03.php" method="post">
     <input type="text" name="resultCode" value="<?=$_REQUEST["resultCode"]?>">

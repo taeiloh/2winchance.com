@@ -1,7 +1,7 @@
 <?php
 // config
 require_once __DIR__ .'/../_inc/config.php';
-
+$rtnUrl     = !empty($_GET['rtnUrl'])       ? $_GET['rtnUrl']       : '/';
 
 
 try {
@@ -49,7 +49,7 @@ try {
                             </div>
                             <div class="find-wrap">
                                 <a href="javascript:void(0)" class="fc-blue" onclick="location.href='/signup/index.php'">회원가입</a>
-                                <a href="javascript:void(0)">아이디찾기</a>
+                                <a href="../signup/id_check.php">아이디찾기</a>
                                 <a href="javascript:void(0)">비밀번호찾기</a>
                             </div>
                         </div>
@@ -140,7 +140,17 @@ try {
                                     var json = JSON.parse(data);
                                     console.log(data);
                                     if (json.code == 200) {
-                                        location.href = "../main/index.php";
+                                        <?php
+                                        if($rtnUrl=="/"){
+                                            echo 'location.href = "../main/index.php"';
+                                        }else{
+                                            echo 'location.href = "'.$rtnUrl.'"';
+                                        }
+                                        ?>
+
+                                    }
+                                    else{
+                                        alert("가입된 계정이 없습니다.");
                                     }
                                 },
                                 error: function (jqXHR, textStatus, errorThrown) {

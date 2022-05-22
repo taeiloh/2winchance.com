@@ -5,6 +5,19 @@ $idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 �
 $id=!empty($_SESSION['_se_id']) ? $_SESSION['_se_id'] : "";        // 세션 아이디
 $name=!empty($_SESSION['_se_name']) ? $_SESSION['_se_name'] : "";    // 세션 닉네임
 
+if (!$idx) {
+
+    $url    = $_SERVER['REQUEST_URI'];
+
+    $msg    = '로그인 페이지로 이동합니다.';
+
+    $url    = '/login/index.php?rtnUrl='. $url;
+
+    alertReplace($msg, $url);
+
+    exit;
+
+}
 ?>
 <!doctype html>
 <html lang="ko">
@@ -17,6 +30,7 @@ $name=!empty($_SESSION['_se_name']) ? $_SESSION['_se_name'] : "";    // 세션 �
 <!--//head-->
 
 <body>
+
 <div id="wrap" class="sub">
     <!--header-->
     <header id="header">
