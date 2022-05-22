@@ -36,6 +36,7 @@ try {
     $mresult = $_mysqli->query($query2);
     $_arrMembers = $mresult->fetch_array();
     $m_sns_type = !empty($_arrMembers['m_sns_type']) ? $_arrMembers['m_sns_type'] : '';
+    $m_fp = !empty($_arrMembers['m_fp_balance']) ? $_arrMembers['m_fp_balance'] : '';
 
     $queryhp ="
         SELECT *
@@ -71,6 +72,11 @@ try {
     ";
 
     $result3 = $_mysqli->query($query3);
+
+ /*   $query4 = "SELECT i_src FROM item WHERE main_item =1";
+    $result4 = $_mysqli->query($query4);
+    $main = $result4 ->fetch_array();
+    $main_src = $main['i_src'];*/
 
 }catch (Exception $e) {
     p($e);
@@ -121,8 +127,8 @@ try {
                 <div class="contents-cont inner item-page">
                     <div class="user-acct">
                         <div class="user-profile">
-                            <div class="pf-pic">
-                                <img src="../images/item1.png" alt="profile">
+                            <div class="pf-info">
+                                        <img src="<?=$main_src?>" alt="profile">
                             </div>
                             <div class="pf-info">
                                 <ul>
@@ -163,7 +169,7 @@ try {
                             <h3>상세정보</h3>
                             <ul>
                                 <li><p>캐시</p><span class="fc-yellow coin"><?=number_format($deposit)?></span></li>
-                                <li><p>파이트 포인트</p><span class="fp"><?=$fp?></span></li>
+                                <li><p>파이트 포인트</p><span class="fp"><?=$m_fp?></span></li>
 <!--                                <li><p>명예 포인트</p><span class="hp">--><?//=$dbhp['pg_amount']?><!--</span></li>-->
                                 <li><p>명예 포인트</p><span class="hp"><?=$hp?></span></li>
                                 <li><p>진행 중 문의</p><span class="count"><?=$total_count?></span></li>
@@ -193,7 +199,7 @@ try {
                                         $no=$total_count-($i+($page-1)*$rows);
                                         if($i==1){?>
                                             <li class = "active">
-                                                <a href="javascript:void(0);" data-item = "<?=$i_num?>">
+                                                <a href="javascript:void(0);" data-item = "<?=$i_num?>" >
                                                         <img src="<?=$i_src?>" alt="">
                                                 </a>
                                             </li>
@@ -201,7 +207,7 @@ try {
                                         }else{
                                             ?>
                                             <li>
-                                                <a href="javascript:void(0);" data-item = "<?=$i_num?>">
+                                                <a href="javascript:void(0);" data-item = "<?=$i_num?>" >
                                                         <img src="<?=$i_src?>" alt="">
                                                 </a>
                                             </li>
@@ -427,6 +433,7 @@ try {
     </footer>
     <!--//footer-->
     <script type="text/javascript">
+        var buy_item_id = 0;
         var onloadCallback = function() {
             grecaptcha.render('html_element', {
                 'sitekey' : 'your_site_key'
@@ -456,6 +463,34 @@ try {
                 $('ul.user-item li').removeClass('active');
                 $(this).parent('li').addClass('active');
                 buy_item_id = item_id;
+
+                var postData = {
+                    "m_num": buy_item_id,
+                };
+
+                /*$.ajax({
+                    url: "selected_item.php",
+                    type: "POST",
+                    async: false,
+                    data: postData,
+                    success: function (data) {
+                        var json = JSON.parse(data);
+                        console.log(json);
+                        if (json.code == 200) {
+                        }else{
+                            console.log(json);
+                        }
+                    },
+                    beforeSend:function(){
+                        $(".wrap-loading").removeClass("display-none");
+                    },
+                    complete:function(){
+                        $(".wrap-loading").addClass("display-none");
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log(textStatus, errorThrown);
+                    }
+                });*/
             })
         })
 
