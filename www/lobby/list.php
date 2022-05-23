@@ -193,7 +193,6 @@ switch ($sub_menu) {
                             <div class="league-thumb-box">
                                 <div class="league-thumb">
                                     <img src="/images/img_lol.png" alt="Marathon Legends - The Push">
-                                    <p class="status">경기중</p>
                                     <div class="game-logo"></div>
                                 </div>
                                 <div class="status-detail">

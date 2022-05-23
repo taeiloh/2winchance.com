@@ -31,7 +31,7 @@ require_once __DIR__ .'/../_inc/config.php';
             <!--visual-->
             <div id="visual">
                 <!-- Swiper -->
-                <video autoplay="autoplay" muted="muted">
+                <video autoplay="autoplay" muted="muted" loop>
                     <source src="../images/banner_video.mp4" type="video/mp4">
                     <strong>Your browser does not support the video tag.</strong>
                 </video>
