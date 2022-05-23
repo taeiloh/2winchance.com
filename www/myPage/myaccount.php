@@ -90,7 +90,7 @@ try {
     $main = $result4 ->fetch_array();
     $main_src = $main['i_src'];
 
-    $query5 = "SELECT COUNT(i_src) FROM m_item WHERE main_emblem = 1 and m_idx = '{$idx}'";
+    $query5 = "SELECT COUNT(i_src) FROM m_item WHERE  m_idx = '{$idx}'";
     $result5 = $_mysqli->query($query5);
     $CNT= $result5->fetch_array();
     $ITEM_CNT = $CNT[0];
@@ -146,19 +146,28 @@ try {
                         <div class="user-profile">
                             <div class="pf-pic">
                                 <?php
-                                if($ITEM_CNT > 0){
-                                    ?>
-                                    <img id="main_item" src="<?=$main_src?>" alt="profile">
-                                    <button type="button" class="emblem" onclick="emblem_change()">
-                                        <p>엠블럼 저장하기</p>
-                                    </button>
-                                    <?php
-                                }else{?>
+                                if($ITEM_CNT == 0){?>
                                     <p>대표 아이템이 없습니다</p>
-                                    <button type="button" class="emblem" onclick="emblem_change()">
+                                <?php
+                                }else if($ITEM_CNT == 1){
+                                    if($main_src){?>
+                                        <img id="main_item" src="<?=$main_src?>" alt="profile">
+                                        <button type="button" class="emblem" id="main_emblem" onclick="emblem_change()">
+                                        <p>엠블럼 저장하기</p>
+                                        </button>
+                                <?php
+                                    }else{?>
+                                        <button type="button" class="emblem" id="main_emblem" onclick="emblem_change()">
+                                            <p>엠블럼 저장하기</p>
+                                        </button>
+                                        <?php
+                                    }
+                                }else{?>
+                                    <img id="main_item" src="<?=$main_src?>" alt="profile">
+                                    <button type="button" class="emblem" id="main_emblem" onclick="emblem_change()">
                                         <p>엠블럼 저장하기</p>
                                     </button>
-                                    <?php
+                                <?php
                                 }?>
                             </div>
                             <div class="pf-info">
