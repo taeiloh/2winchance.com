@@ -80,7 +80,7 @@ try {
                     <p class="sub-txt">
                         본인 인증이 완료 되었습니다.
                     </p>
-                    <button type="submit" class="btn-blue btn-6" >다음</button>
+                    <button type="submit" class="btn-blue btn-6" onclick="next()" >다음</button>
                 </div>
             </div>
         </section>
