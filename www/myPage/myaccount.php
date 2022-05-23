@@ -131,11 +131,14 @@ try {
                 <div class="contents-cont inner item-page">
                     <div class="user-acct">
                         <div class="user-profile">
-                            <div class="pf-info">
+                            <div class="pf-pic">
                                 <?php
                                 if($ITEM_CNT > 0){
                                     ?>
                                     <img id="main_item" src="<?=$main_src?>" alt="profile">
+                                    <button type="button" class="emblem" onclick="emblem_change()">
+                                        <p>엠블럼 저장하기</p>
+                                    </button>
                                     <?php
                                 }else{?>
                                     <p>대표 아이템이 없습니다</p>
@@ -479,6 +482,11 @@ try {
 
                 $("#main_item").attr("src",main_item_src);
 
+
+            })
+        })
+        function emblem_change() {
+            if (confirm("해당엠블럼을 메인엠블럼으로 지정하시겠습니까?")) {
                 var postData = {
                     "m_num": buy_item_id,
                 };
@@ -492,22 +500,26 @@ try {
                         var json = JSON.parse(data);
                         console.log(json);
                         if (json.code == 200) {
-                        }else{
+                            alert(json.msg);
+                        } else {
                             console.log(json);
                         }
                     },
-                    beforeSend:function(){
+                    beforeSend: function () {
                         $(".wrap-loading").removeClass("display-none");
                     },
-                    complete:function(){
+                    complete: function () {
                         $(".wrap-loading").addClass("display-none");
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         console.log(textStatus, errorThrown);
                     }
                 });
-            })
-        })
+            }
+            else{
+                alert("엠블럼 변경을 취소하였습니다");
+            }
+        }
 
     </script>
 </div>

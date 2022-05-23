@@ -29,7 +29,7 @@ try{
             exit;
         } else {
             $arrRtn['code'] = 200;
-            $arrRtn['msg'] = "해당 아이템 선택";
+            $arrRtn['msg'] = "메인 엠블럼으로 저장하였습니다";
 
         }
     }
