@@ -108,9 +108,9 @@ $flgFixedUser = 'N';           // 특정사용자 고정시 Y
                     <div class="sns-login">
                         <p>간편 로그인</p>
                         <ul>
-                            <li><a href="javascript:void(0)"><img src="../images/ico_facebook.png" alt="페이스북 로그인"></a></li>
+                            <!--<li><a href="javascript:void(0)"><img src="../images/ico_facebook.png" alt="페이스북 로그인"></a></li>
                             <li><a href="javascript:void(0)"><img src="../images/ico_naver.png" alt="네이버 로그인"></a></li>
-                            <li><a href="javascript:void(0)"><img src="../images/ico_twitter.png" alt="트위터 로그인"></a></li>
+                            <li><a href="javascript:void(0)"><img src="../images/ico_twitter.png" alt="트위터 로그인"></a></li>-->
                             <li><a href="javascript:void(0)" onclick="javascript:joinKakao1();"><img src="../images/ico_kakao.png" alt="카카오 로그인"></a></li>
                         </ul>
                     </div>

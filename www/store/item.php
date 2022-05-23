@@ -239,8 +239,8 @@ try {
                                 var json = JSON.parse(data);
                                 //console.log(json);
                                 if (json.code == 200) {
-                                    $("#SOLD_OUT" + buy_item_id).text('SOLD OUT');
-                                    $("#SOLD_OUT" + buy_item_id).removeClass('fp');
+                                    /*$("#SOLD_OUT" + buy_item_id).text('SOLD OUT');
+                                    $("#SOLD_OUT" + buy_item_id).removeClass('fp');*/
                                     alert(json.msg);
                                 } else {
                                     alert(json.msg);

@@ -64,9 +64,19 @@ switch ($_url_f[2]){
         break;
 }
 
+try{
 $sql = "SELECT * FROM members WHERE m_idx = '{$idx}' ";
 $result = $_mysqli->query($sql);
 $arraymembers = $result->fetch_array();
+
+$query4 = "SELECT i_src FROM m_item WHERE main_emblem =1 and m_idx = '{$idx}'";
+$result4 = $_mysqli->query($query4);
+$main = $result4 ->fetch_array();
+$main_src = !empty($main['i_src']) ? $main['i_src']:'';
+}catch (Exception $e) {
+    p($e);
+}
+
 ?>
 <div class="inner">
     <h1 class="logo"><a href="/main/"><img src="/images/logo.png" alt="METAGAMES"></a></h1>
@@ -111,7 +121,16 @@ $arraymembers = $result->fetch_array();
             ?>
             <!--로그인 후    // css 처리 따로 없고 주석 처리만 되어 있습니다 -->
             <div class="login-after">
-                <div class="profile-img"><img src="/images/item1.png" alt="유저 프로필 사진"></div>
+                <div class="profile-img">
+                    <?php
+                    if($main_src){?>
+                    <img src="<?=$main_src?>" alt="유저 프로필 사진"></div>
+                    <?php
+                    }else{?>
+                        <p>대표엠블렘이없습니다.</p>
+                    <?php
+                    }
+                    ?>
                 <div class="user-info">
                     <p class="nickname"><?=$name?></p>
                     <div class="charge">
