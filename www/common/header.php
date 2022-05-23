@@ -90,7 +90,7 @@ switch ($_url_f[2]){
                 <button type="button" id="btnTopSignUp" class="join-btn" onclick="location.href='/signup/index.php'">회원가입</button>
                 <button type="button" id="btnTopLogin" class="login-btn" onclick="location.href='/login/index.php'">로그인</button>
             </div>
-            <a href="/myPage/howtoplay.php">HOW TO PLAY <img src="/images/ico_triangle.svg" alt="HOW TO PLAY"></a>
+            <a href="/myPage/howtoplay.php">게임 가이드 <img src="/images/ico_triangle.svg" alt="게임 가이드"></a>
         </div>
         <!--  로그인 전-->
         <?php
@@ -113,7 +113,7 @@ switch ($_url_f[2]){
                           <li><a href="javascript:void(0)">1 : 1 TICKET</a></li>
                           <li><a href="javascript:void(0)">GOLD</a></li>
                           <li><a href="javascript:void(0)">FP</a></li>
-                          <li><a href="javascript:void(0)">HOW TO PLAY</a></li>
+                          <li><a href="javascript:void(0)">게임 가이드</a></li>
                       </ul>
                   </div>
               </div>

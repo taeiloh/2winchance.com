@@ -42,7 +42,7 @@ require_once __DIR__ .'/../_inc/config.php';
 <!--                        <li><a href="javascript:void(0)">캐시 내역</a></li>-->
 <!--                        <li><a href="javascript:void(0)">FP 내역</a></li>-->
 <!--                        <li class="active"><a href="javascript:void(0)">HP 내역</a></li>-->
-<!--                        <li><a href="javascript:void(0)">HOW TO PLAY</a></li>-->
+<!--                        <li><a href="javascript:void(0)">게임 가이드</a></li>-->
 <!--                    </ul>-->
 <!--                </div>-->
                 <div class="contents-cont inner">
