@@ -882,7 +882,7 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 .pf-info ul li{font-size: 3rem; font-weight: 800; margin-bottom: 1rem;}
 .pf-info ul li:nth-of-type(2){font-size: 2.6rem;  color:#d9d9d9; font-weight: 400;}
 .pf-info ul li:last-of-type{margin-bottom: 0rem;}
-.pf-pic{width: 22.6rem; height: 22.6rem; background-color: transparent; position: relative;}
+.pf-pic{width: 22.6rem; height: 22.6rem; background-color: rgba(255,255,255,0.4); position: relative; display: flex; align-items: center; justify-content: center;}
 .pf-pic .emblem{width: 22.6rem; height: 22.6rem; position: absolute; background-color: rgba(28,28,28,0.7); top:0; left: 0; display: flex; align-items: center; justify-content: center; }
 .emblem p{font-size: 2rem; font-weight: 700; color: #1e8fff;}
 
@@ -962,7 +962,7 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 
 .buy-item-list{background-color: #1c1c1c; }
 .buy-item-list label{font-size: 2rem; font-weight: 700; margin-right: 5rem; display: flex; justify-content: center;}
-.buy-item-list li.active{border: 0.6rem solid #1e8fff;}
+.buy-item-list li.active .item-pic{border: 0.6rem solid #1e8fff;}
 
 .user-item-list{background-color: #414141; height: 64rem; width: 77.8rem;}
 
