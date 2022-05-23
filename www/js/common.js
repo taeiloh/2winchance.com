@@ -154,4 +154,8 @@ $(function(){
         option4.addEventListener("click", onClickOption4);
     }
 
+    $('.game-schedule li').click(function(){
+        $('.game-schedule li').removeClass('active');
+        $(this).addClass('active');
+    })
 })

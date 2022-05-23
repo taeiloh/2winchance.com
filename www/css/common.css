@@ -275,7 +275,7 @@ video{max-width: 140rem; width: 100%; margin: 0 auto; display: block;}
 
 
 
-    /* 04_01 */
+/* 04_01 */
 .myAcct .category{justify-content: unset; }
 .myAcct .category ul{width: 70%; display: flex; align-items: center; justify-content: space-evenly;}
 .myAcct .category li{ font-weight: 700;}
@@ -524,7 +524,7 @@ table.border-table th, td{padding: 1rem 0;}
 .league-left .contents-table tbody tr:last-child{border-bottom: none;}
 .league-left .contents-table tbody tr td{position: relative; padding: 2rem 1rem;}
 .league-left .contents-table tbody tr td ~ td:after { position: absolute; content: ''; display: block; left: 0; top: 50%; transform: translateY(-50%); width: 1px; height: 3rem; background: #707070;}
-
+.league-left .contents-table tbody tr td:nth-child(3):after{display:none;}
 .scroll-tbody{width: 100%; background: #303030; min-height: 80rem; height: 80rem; overflow-y: auto;}
 .league-left .contents-table tbody tr td.tR{ padding: 2rem 3rem 2rem 1rem;}
 .league-left .contents-table tbody tr td:last-child:after{display: none;}

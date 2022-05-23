@@ -82,9 +82,9 @@ $(function(){
 
     // 공지사항
     $('.notice-title').click(function(){
-       $(this).parent($('.notice-wrap')).toggleClass('open').siblings().removeClass('open');
-       $(this).parent($('.notice-wrap')).siblings().find($('.notice-cont')).slideUp(300);
-       $(this).next($('.notice-cont')).slideToggle(300);
+        $(this).parent($('.notice-wrap')).toggleClass('open').siblings().removeClass('open');
+        $(this).parent($('.notice-wrap')).siblings().find($('.notice-cont')).slideUp(300);
+        $(this).next($('.notice-cont')).slideToggle(300);
     });
 
     // select dropdown
@@ -154,4 +154,8 @@ $(function(){
         option4.addEventListener("click", onClickOption4);
     }
 
+    $('.game-schedule li').click(function(){
+        $('.game-schedule li').removeClass('active');
+        $(this).addClass('active');
+    })
 })
