@@ -77,6 +77,12 @@ try {
 </div>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script type="text/javascript">
+    $("#loginFrm").keypress(function (e){
+        if(e.keyCode === 13){
+            login();
+        }
+    });
+
     function login(){
         if ($.trim($("#m_id").val()) == "") {
             alert("아이디를 입력해 주세요");
