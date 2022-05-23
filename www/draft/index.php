@@ -705,8 +705,8 @@ $pos    = json_decode($db['gc_pos'], true);
                                     <th>총 상금</th>
                                     <th>참가비</th>
                                     <th>참가자 수</th>
-                                    <th>Max Multi</th>
-                                    <th>My Entry</th>
+                                    <th>중복 참여 가능</th>
+                                    <th>나의 참여</th>
                                 </tr>
                                 <tr>
                                     <td>702<img src="../images/ico_gold.svg" alt="총 상금" class="mL5"></td>

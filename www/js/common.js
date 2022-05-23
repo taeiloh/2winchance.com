@@ -87,7 +87,9 @@ $(function(){
        $(this).next($('.notice-cont')).slideToggle(300);
     });
 
-    $("#dropdown .select").click(function (e){
+    // select dropdown
+
+    $(".dropdown .select").click(function (e){
         const isActive = e.currentTarget.className.indexOf("active") !== -1;
         if (isActive) {
             e.currentTarget.className = "select";
@@ -96,32 +98,60 @@ $(function(){
         }
     })
 
-    function onClickOption(e) {
-        const selectedValue = e.currentTarget.innerHTML;
-        document.querySelector("#dropdown .text").innerHTML = selectedValue;
+    function onClickOption0(e) {
+        const selectedValue0 = e.currentTarget.innerHTML;
+        document.querySelector("#dropdown .text").innerHTML = selectedValue0;
     }
 
-    var optionList = document.querySelectorAll("#dropdown .option");
-    for (var i = 0; i < optionList.length; i++) {
-        var option = optionList[i];
-        option.addEventListener("click", onClickOption);
+    var optionList0 = document.querySelectorAll("#dropdown .option");
+    for (var i = 0; i < optionList0.length; i++) {
+        var option0 = optionList0[i];
+        option0.addEventListener("click", onClickOption0);
+    }
+
+
+    function onClickOption1(e) {
+        const selectedValue1 = e.currentTarget.innerHTML;
+        document.querySelector("#drop1 .text").innerHTML = selectedValue1;
+    }
+
+    var optionList1 = document.querySelectorAll("#drop1 .option");
+    for (var i = 0; i < optionList1.length; i++) {
+        var option1 = optionList1[i];
+        option1.addEventListener("click", onClickOption1);
+    }
+
+    function onClickOption2(e) {
+        const selectedValue2 = e.currentTarget.innerHTML;
+        document.querySelector("#drop2 .text").innerHTML = selectedValue2;
+    }
+
+    var optionList2 = document.querySelectorAll("#drop2 .option");
+    for (var i = 0; i < optionList2.length; i++) {
+        var option2 = optionList2[i];
+        option2.addEventListener("click", onClickOption2);
+    }
+
+    function onClickOption3(e) {
+        const selectedValue3 = e.currentTarget.innerHTML;
+        document.querySelector("#drop3 .text").innerHTML = selectedValue3;
+    }
+
+    var optionList3 = document.querySelectorAll("#drop3 .option");
+    for (var i = 0; i < optionList3.length; i++) {
+        var option3 = optionList3[i];
+        option3.addEventListener("click", onClickOption3);
+    }
+
+    function onClickOption4(e) {
+        const selectedValue4 = e.currentTarget.innerHTML;
+        document.querySelector("#drop4 .text").innerHTML = selectedValue4;
+    }
+
+    var optionList4 = document.querySelectorAll("#drop4 .option");
+    for (var i = 0; i < optionList3.length; i++) {
+        var option4 = optionList4[i];
+        option4.addEventListener("click", onClickOption4);
     }
 
 })
-
-//입력한 문자열 전달
-function inputNumberFormat(obj) {
-    obj.value = comma(uncomma(obj.value));
-}
-
-//콤마찍기
-function comma(str) {
-    str = String(str);
-    return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
-}
-
-//콤마풀기
-function uncomma(str) {
-    str = String(str);
-    return str.replace(/[^\d]+/g, '');
-}

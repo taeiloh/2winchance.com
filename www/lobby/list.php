@@ -63,34 +63,96 @@ switch ($sub_menu) {
     <div id="container">
         <!--visual-->
         <div id="visual">
-            <a class="inner" href="javascript:void(0)">
-                <div class="visual-thumb">
-                    <img src="/images/img_lcs.png" alt="LCS">
-                </div>
-                <div class="visual-detail">
-                    <div class="contest-info">
-                        <dl>
-                            <dt class="contest-title">LCS</dt>
-                            <dd class="contest-date">2022-03-14  IN 39 MINUTES, 12:00</dd>
-                            <dd class="contest-loca"><img src="/images/ico_pin.svg" class="mR5" alt="위치">Lobo Solitário</dd>
-                            <dd class="contest-detail">
-                                <ul>
-                                    <li>5v5</li>
-                                    <li>€150.00</li>
-                                    <li>1,254 Slots</li>
-                                </ul>
-                            </dd>
-                        </dl>
-                        <img src="/images/ico_lcs.png" alt="LCS">
+            <div class="inner">
+                <ul class="game-schedule">
+                    <li class="active">
+                        <p>18:00 2022-05-20</p>
+                        <p>16 match PUBG</p>
+                    </li>
+                    <li>
+                        <p>18:00 2022-05-20</p>
+                        <p>16 match PUBG</p>
+                    </li>
+                    <li>
+                        <p>18:00 2022-05-20</p>
+                        <p>16 match PUBG</p>
+                    </li>
+                    <li>
+                        <p>18:00 2022-05-20</p>
+                        <p>16 match PUBG</p>
+                    </li>
+                    <li>
+                        <p>18:00 2022-05-20</p>
+                        <p>16 match PUBG</p>
+                    </li>
+                    <li>
+                        <p>18:00 2022-05-20</p>
+                        <p>16 match PUBG</p>
+                    </li>
+                    <li>
+                        <p>18:00 2022-05-20</p>
+                        <p>16 match PUBG</p>
+                    </li>
+                </ul>
+                <div class="cont">
+                    <div class="visual-thumb">
+                        <img src="../images/img_lcs.png" alt="LCS">
                     </div>
+                    <div class="visual-detail">
+                        <div class="contest-info tab-wrap">
+                            <ul class="tabs">
+                                <li class="tab-link on" data-tab="tab-1"><button type="button">아시아</button></li>
+                                <li class="tab-link" data-tab="tab-2"><button type="button">아시아 태평양</button></li>
+                                <li class="tab-link" data-tab="tab-3"><button type="button">유럽</button></li>
+                                <li class="tab-link" data-tab="tab-3"><button type="button">아메리카</button></li>
+                            </ul>
+                            <div id="tab-1"  class="tab-content on">
+                                <dl>
+                                    <dd class="start-date">시작 시간 : 2022-05-20 18:00:00</dd>
+                                    <dd class="timer">남은 시간 : 00:00:00</dd>
+                                </dl>
+                                <div class="parti-info">
+                                    <p class="prize-money">총 상금<b>650,000,000</b><span> FP</span></p>
+                                    <p class="participant"><img src="../images/ico_peple.svg" alt="참여자 수" class="mR13"><span>978,673 </span> / 1,000,000</p>
+                                </div>
+                            </div>
+                            <div id="tab-2"  class="tab-content">
+                                <dl>
+                                    <dd class="start-date">시작 시간 : 2022-05-20 18:00:00</dd>
+                                    <dd class="timer">남은 시간 : 00:00:00</dd>
+                                </dl>
+                                <div class="parti-info">
+                                    <p class="prize-money">총 상금<b>650,000,000</b><span> FP</span></p>
+                                    <p class="participant"><img src="../images/ico_peple.svg" alt="참여자 수" class="mR13"><span>978,673 </span> / 1,000,000</p>
+                                </div>
+                            </div>
+                            <div id="tab-3"  class="tab-content">
+                                <dl>
+                                    <dd class="start-date">시작 시간 : 2022-05-20 18:00:00</dd>
+                                    <dd class="timer">남은 시간 : 00:00:00</dd>
+                                </dl>
+                                <div class="parti-info">
+                                    <p class="prize-money">총 상금<b>650,000,000</b><span> FP</span></p>
+                                    <p class="participant"><img src="../images/ico_peple.svg" alt="참여자 수" class="mR13"><span>978,673 </span> / 1,000,000</p>
+                                </div>
+                            </div>
+                            <div id="tab-4"  class="tab-content">
+                                <dl>
+                                    <dd class="start-date">시작 시간 : 2022-05-20 18:00:00</dd>
+                                    <dd class="timer">남은 시간 : 00:00:00</dd>
+                                </dl>
+                                <div class="parti-info">
+                                    <p class="prize-money">총 상금<b>650,000,000</b><span> FP</span></p>
+                                    <p class="participant"><img src="../images/ico_peple.svg" alt="참여자 수" class="mR13"><span>978,673 </span> / 1,000,000</p>
+                                </div>
+                            </div>
+                        </div>
 
-                    <div class="parti-info">
-                        <p class="prize-money">총 상금 <b class="coin">650,000,000</b><span> point</span></p>
-                        <p class="participant"><img src="/images/ico_peple.svg" alt="참여자 수" class="mR13"><span>978,673 </span> / 1,000,000</p>
                     </div>
                 </div>
-            </a>
+            </div>
         </div>
+
         <!--//visual-->
         <!--content-->
         <div id="content">
@@ -136,7 +198,7 @@ switch ($sub_menu) {
                                 </div>
                                 <div class="status-detail">
                                     <div class="detail-box">
-                                        <p class="status">경기중</p>
+                                        <p class="status">Live</p>
                                         <small>{$db['g_date']}</small>
                                         <p class="time fc-yellow">19:15:27</p>
                                         <div class="game-logo"></div>
@@ -148,7 +210,7 @@ switch ($sub_menu) {
                             <div class="league-info">
                                 <div class="league-title">
                                     <h2>{$db['g_name']}</h2>
-                                    <div class="badge bg_free"><img src="/images/ico_free.svg" alt=""></div>
+                                    <div class="badge bg_free"></div>
                                     <button type="button"><img class="mR10" src="/images/ico_share.svg" alt="공유하기">공유하기</button>
                                 </div>
                                 <div class="league-detail">
@@ -166,20 +228,20 @@ switch ($sub_menu) {
                                                     <th>총 상금</th>
                                                     <th>참가비</th>
                                                     <th>참가자 수</th>
-                                                    <th>Max Multi</th>
-                                                    <th>My Entry</th>
+                                                    <th>중복 참여 가능</th>
+                                                    <th>나의 참여</th>
                                                 </tr>
                                                 <tr>
-                                                    <td class="coin-b">{$db['prize']}</td>
-                                                    <td class="coin-b">{$db['g_fee']}</td>
+                                                    <td>{$db['prize']} FP</td>
+                                                    <td>{$db['g_fee']} FP</td>
                                                     <td>{$db['g_entry']} <span class="total">/ {$db['g_size']}</span></td>
                                                     <td>{$db['g_multi_max']}</td>
                                                     <td>{$db['g_entry']}</td>
                                                 </tr>
                                             </table>
                                             <div class="status-detail">
-                                                <p class="status">경기중</p>
-                                                <small>2022-03-13 17:00:00:00</small>
+                                                <p class="status">Live</p>
+                                                <small>2022-03-13</small>
                                                 <p class="time fc-yellow">19:15:27</p>
                                             </div>
                                         </div>
@@ -240,7 +302,7 @@ DIV;
                             <div class="league-info">
                                 <div class="league-title">
                                     <h2>Marathon Legends - The Push</h2>
-                                    <div class="badge bg_free"><img src="/images/ico_top.svg" alt=""></div>
+                                    <div class="badge"></div>
                                     <button type="button"><img class="mR10" src="/images/ico_share.svg" alt="공유하기">공유하기</button>
                                 </div>
                                 <div class="league-detail">
@@ -279,7 +341,7 @@ DIV;
                             <div class="league-info">
                                 <div class="league-title">
                                     <h2>Marathon Legends - The Push</h2>
-                                    <div class="badge bg_50"><img src="/images/ico_50.svg" alt=""></div>
+                                    <div class="badge"></div>
                                     <button type="button"><img class="mR10" src="/images/ico_share.svg" alt="공유하기">공유하기</button>
                                 </div>
                                 <div class="league-detail">
@@ -317,50 +379,6 @@ DIV;
                 </div>
             </section>
             <!--//sec-01-->
-            <!--sec-02-->
-            <section class="sec sec-02 bg-grey">
-                <div class="inner">
-                    <ul class="event-list">
-                        <li>
-                            <h2>주력 이벤트</h2>
-                            <div class="game-thumb" style="background-image: url('../images/thumb_event.png')">
-                                <a href="javascript:void(0)" class="game-info">
-                                    <p class="game-title">
-                                        부름 |<br/>
-                                        2022 시즌 시네마틱
-                                    </p>
-                                    <p class="game-type">리그 오브 레전드</p>
-                                </a>
-                            </div>
-                        </li>
-                        <li>
-                            <h2>새로운 소식</h2>
-                            <div class="game-thumb" style="background-image: url('../images/thumb_news.png')">
-                                <a href="javascript:void(0)" class="game-info">
-                                    <p class="game-title">
-                                        리그 오브 레전드<br/>
-                                        3.0A 패치노트
-                                    </p>
-                                    <p class="game-type">리그 오브 레전드</p>
-                                </a>
-                            </div>
-                        </li>
-                        <li>
-                            <h2>게임 방법</h2>
-                            <div class="game-thumb" style="background-image: url('../images/thumb_method.png')">
-                                <a href="javascript:void(0)" class="game-info">
-                                    <p class="game-title">
-                                        리그오브 레전드를<br/>
-                                        시작하는 방법
-                                    </p>
-                                    <p class="game-type">리그 오브 레전드</p>
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </section>
-            <!--//sec-02-->
         </div>
         <!--//content-->
     </div>
