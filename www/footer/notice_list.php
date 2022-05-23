@@ -31,7 +31,7 @@ try {
         LIMIT {$from_record}, {$rows}
     ";
 
-    $result = $_mysqli->query($query);
+    $result1 = $_mysqli->query($query);
 //    if (!$result) {
 //
 //    }
@@ -74,7 +74,7 @@ try {
                     // db
                     if($total_count > 0){
                         $i = 0;
-                        while ($_db = $result->fetch_assoc()) {
+                        while ($_db = $result1->fetch_assoc()) {
                             $title = $_db['nt_subject'];
                             $regdate = $_db['regdate'];
                             $content = $_db['nt_content'];

@@ -12,7 +12,8 @@ $_liClass2  = '';
 $_liClass3  = '';
 $_liClass4  = '';
 $_liClass5  = '';
-
+$_liClass6  = '';
+$_liClass7  = '';
 
 $_url   =   $_SERVER['REQUEST_URI'];
 $_url_f     = explode('/',$_url);
@@ -34,6 +35,12 @@ switch ($_url_f3) {
     case 'privacy_policy.php':
         $_liClass5  = 'active';
         break;
+    case 'youth_protection_policy.php':
+        $_liClass6  = 'active';
+        break;
+    case 'operation_policy.php':
+        $_liClass7  = 'active';
+        break;
     default:
         break;
 }
@@ -48,8 +55,8 @@ switch ($_url_f3) {
             <li class="<?=$_liClass3;?>"><a href="/footer/contactus.php">제휴문의</a></li>
             <li class="<?=$_liClass4;?>"><a href="/footer/terms_of_service.php">이용약관</a></li>
             <li class="<?=$_liClass5;?>"><a href="/footer/privacy_policy.php">개인정보 처리방침</a></li>
-            <li><a href="javascript:void(0)">청소년 보호정책</a></li>
-            <li><a href="javascript:void(0)">운영 정책</a></li>
+            <li class="<?=$_liClass6;?>"><a href="/footer/youth_protection_policy.php">청소년 보호정책</a></li>
+            <li class="<?=$_liClass7;?>"><a href="/footer/operation_policy.php">운영 정책</a></li>
         </ul>
         <ul class="business-info">
             <li>서울시 강남구 선릉로 703 H&S타워 8F</li>
