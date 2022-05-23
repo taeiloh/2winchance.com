@@ -17,9 +17,10 @@ if($m_sns_id=="" and $resultCode==""){
 
 if($userBirthday and $userPhone) {
     $age = $year - $userBirthday;
-    $query = "SELECT COUNT(*) FROM members WHERE m_tel = $userPhone";
-    $result = $_mysqli->query($query);
-    $cnt = (int)$result;
+    $query = "SELECT COUNT(*) FROM members WHERE m_tel = '{$userPhone}'";
+    $Result = $_mysqli->query($query);
+    $usercnt = mysqli_fetch_row($Result);
+    $cnt = $usercnt[0];
 }
 
 if($m_sns_id!=""){
