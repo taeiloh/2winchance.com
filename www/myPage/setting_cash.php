@@ -17,19 +17,6 @@ if (!$idx) {
     exit;
 }
 try {
-    $sql = "select count(*) from contactus where 1=1 and cu_u_idx = '{$idx}'";
-    $tresult = mysqli_query($_mysqli, $sql);
-    $row1   = mysqli_fetch_row($tresult);
-    $total_count = $row1[0]; //전체갯수
-
-    $query = "
-        SELECT *
-        FROM contactus
-        WHERE 1 and cu_u_idx ='{$idx}'
-    ";
-
-    $result = $_mysqli->query($query);
-
     $query2 = "
     SELECT *
         FROM members
