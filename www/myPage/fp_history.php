@@ -46,15 +46,15 @@ try{
     //db
     $query ="
         SELECT
-            DATE_FORMAT(created_at,'%Y-%m-%d %h:%i:%s') AS regdate, fph_content, fph_point, fph_balance
+            fph_idx, DATE_FORMAT(created_at,'%Y-%m-%d %h:%i:%s') AS regdate, fph_content, fph_point, fph_balance
         FROM fantasy_point_history
         WHERE 1 and fph_m_idx='{$idx}'
         ORDER BY created_at DESC
         LIMIT {$from_record}, {$rows}
     ";
 
-    $result = $_mysqli->query($query);
-    print $query;
+    $resultfp = $_mysqli->query($query);
+    //print $query;
 }catch (mysqli_sql_exception $e){
     $arrRtn['code']     = $e->getCode();
     $arrRtn['msg']      = $e->getMessage();
@@ -128,7 +128,7 @@ try{
                         <?php
                         if($total_count > 0){
                             $i = 0;
-                            while ($dbfp = $result->fetch_assoc()) {
+                            while ($dbfp = $resultfp->fetch_assoc()) {
                                 $title = empty(!$dbfp['fph_content']) ? $dbfp['fph_content'] : '';
                                 $regdate = empty(!$dbfp['regdate']) ? $dbfp['regdate'] : '';
                                 $fp = empty(!$dbfp['fph_point']) ? $dbfp['fph_point'] : '';

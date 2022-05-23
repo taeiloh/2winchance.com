@@ -960,7 +960,8 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 .item-list{background-color: #090e10; padding: 3rem 5rem; width: 77.8rem; display: flex;}
 .item-list label{font-size: 2rem; font-weight: 700; margin-right: 5rem; display: flex; justify-content: center;}
 
-.buy-item-list{background-color: #1c1c1c;}
+.buy-item-list{background-color: #1c1c1c; }
+.buy-item-list label{font-size: 2rem; font-weight: 700; margin-right: 5rem; display: flex; justify-content: center;}
 .buy-item-list li.active{border: 0.6rem solid #1e8fff;}
 
 .user-item-list{background-color: #414141; height: 64rem; width: 77.8rem;}
