@@ -844,12 +844,13 @@ DIV;
                         </div>
                         <table class="contents-table">
                             <colgroup>
-                                <col style="width: 16%;">
-                                <col style="width: 16%">
+                                <col style="width: 14%">
+                                <col style="width: 14%">
                                 <col style="width: 300px">
-                                <col style="width: 16%;">
-                                <col style="width: 16%;">
-                                <col style="width: 16%;">
+                                <col style="width: 14%">
+                                <col style="width: 14%">
+                                <col style="width: 14%">
+                                <col style="width: 14%">
                             </colgroup>
                             <thead>
                             <tr class="filter">
@@ -862,23 +863,258 @@ DIV;
                                 <th><a href="javascript:void(0);">팀</a></th>
                                 <th><a href="javascript:void(0);">HP</a></th>
                                 <th><a href="javascript:void(0);">연봉</a></th>
+                                <th></th>
                             </tr>
                             </thead>
                         </table>
                         <div class="scroll-tbody">
-                            <table class="contents-table">
-                                <colgroup>
-                                    <col>
-                                    <col>
-                                    <col style="width: 282px">
-                                    <col>
-                                    <col>
-                                    <col>
-                                    <col>
-                                </colgroup>
-                                <tbody id="player_list">
-                                </tbody>
-                            </table>
+                        <table class="contents-table">
+                            <colgroup>
+                                <col style="width: 14%">
+                                <col style="width: 14%">
+                                <col style="width: 282px">
+                                <col style="width: 14%">
+                                <col style="width: 14%">
+                                <col style="width: 14%">
+                                <col style="width: 14%">
+                            </colgroup>
+                            <tbody>
+                            <tr>
+                                <td>TL</td>
+                                <td>Deft</td>
+                                <td></td>
+                                <td>DRX</td>
+                                <td>60</td>
+                                <td>$ 3,000</td>
+                                <td class="tR"><button type="button" class="btn-plus"></button></td>
+                            </tr>
+                            <tr>
+                                <td>TL</td>
+                                <td>Deft</td>
+                                <td></td>
+                                <td>DRX</td>
+                                <td>60</td>
+                                <td>$ 3,000</td>
+                                <td class="tR"><button type="button" class="btn-plus"></button></td>
+                            </tr>
+                            <tr>
+                                <td>TL</td>
+                                <td>Deft</td>
+                                <td></td>
+                                <td>DRX</td>
+                                <td>60</td>
+                                <td>$ 3,000</td>
+                                <td class="tR"><button type="button" class="btn-plus"></button></td>
+                            </tr>
+                            <tr>
+                                <td>TL</td>
+                                <td>Deft</td>
+                                <td></td>
+                                <td>DRX</td>
+                                <td>60</td>
+                                <td>$ 3,000</td>
+                                <td class="tR"><button type="button" class="btn-plus"></button></td>
+                            </tr>
+                            <tr>
+                                <td>TL</td>
+                                <td>Deft</td>
+                                <td></td>
+                                <td>DRX</td>
+                                <td>60</td>
+                                <td>$ 3,000</td>
+                                <td class="tR"><button type="button" class="btn-plus"></button></td>
+                            </tr>
+                            <tr>
+                                <td>TL</td>
+                                <td>Deft</td>
+                                <td></td>
+                                <td>DRX</td>
+                                <td>60</td>
+                                <td>$ 3,000</td>
+                                <td class="tR"><button type="button" class="btn-plus"></button></td>
+                            </tr>
+                            <tr>
+                                <td>TL</td>
+                                <td>Deft</td>
+                                <td></td>
+                                <td>DRX</td>
+                                <td>60</td>
+                                <td>$ 3,000</td>
+                                <td class="tR"><button type="button" class="btn-plus"></button></td>
+                            </tr>
+                            <tr>
+                                <td>TL</td>
+                                <td>Deft</td>
+                                <td></td>
+                                <td>DRX</td>
+                                <td>60</td>
+                                <td>$ 3,000</td>
+                                <td class="tR"><button type="button" class="btn-plus"></button></td>
+                            </tr>
+                            <tr>
+                                <td>TL</td>
+                                <td>Deft</td>
+                                <td></td>
+                                <td>DRX</td>
+                                <td>60</td>
+                                <td>$ 3,000</td>
+                                <td class="tR"><button type="button" class="btn-plus"></button></td>
+                            </tr>
+                            <tr>
+                                <td>TL</td>
+                                <td>Deft</td>
+                                <td></td>
+                                <td>DRX</td>
+                                <td>60</td>
+                                <td>$ 3,000</td>
+                                <td class="tR"><button type="button" class="btn-plus"></button></td>
+                            </tr>
+                            <tr>
+                                <td>TL</td>
+                                <td>Deft</td>
+                                <td></td>
+                                <td>DRX</td>
+                                <td>60</td>
+                                <td>$ 3,000</td>
+                                <td class="tR"><button type="button" class="btn-plus"></button></td>
+                            </tr>
+                            <tr>
+                                <td>TL</td>
+                                <td>Deft</td>
+                                <td></td>
+                                <td>DRX</td>
+                                <td>60</td>
+                                <td>$ 3,000</td>
+                                <td class="tR"><button type="button" class="btn-plus"></button></td>
+                            </tr>
+                            <tr>
+                                <td>TL</td>
+                                <td>Deft</td>
+                                <td></td>
+                                <td>DRX</td>
+                                <td>60</td>
+                                <td>$ 3,000</td>
+                                <td class="tR"><button type="button" class="btn-plus"></button></td>
+                            </tr>
+                            <tr>
+                                <td>TL</td>
+                                <td>Deft</td>
+                                <td></td>
+                                <td>DRX</td>
+                                <td>60</td>
+                                <td>$ 3,000</td>
+                                <td class="tR"><button type="button" class="btn-plus"></button></td>
+                            </tr>
+                            <tr>
+                                <td>TL</td>
+                                <td>Deft</td>
+                                <td></td>
+                                <td>DRX</td>
+                                <td>60</td>
+                                <td>$ 3,000</td>
+                                <td class="tR"><button type="button" class="btn-plus"></button></td>
+                            </tr>
+                            <tr>
+                                <td>TL</td>
+                                <td>Deft</td>
+                                <td></td>
+                                <td>DRX</td>
+                                <td>60</td>
+                                <td>$ 3,000</td>
+                                <td class="tR"><button type="button" class="btn-plus"></button></td>
+                            </tr>
+                            <tr>
+                                <td>TL</td>
+                                <td>Deft</td>
+                                <td></td>
+                                <td>DRX</td>
+                                <td>60</td>
+                                <td>$ 3,000</td>
+                                <td class="tR"><button type="button" class="btn-plus"></button></td>
+                            </tr>
+                            <tr>
+                                <td>TL</td>
+                                <td>Deft</td>
+                                <td></td>
+                                <td>DRX</td>
+                                <td>60</td>
+                                <td>$ 3,000</td>
+                                <td class="tR"><button type="button" class="btn-plus"></button></td>
+                            </tr>
+                            <tr>
+                                <td>TL</td>
+                                <td>Deft</td>
+                                <td></td>
+                                <td>DRX</td>
+                                <td>60</td>
+                                <td>$ 3,000</td>
+                                <td class="tR"><button type="button" class="btn-plus"></button></td>
+                            </tr>
+                            <tr>
+                                <td>TL</td>
+                                <td>Deft</td>
+                                <td></td>
+                                <td>DRX</td>
+                                <td>60</td>
+                                <td>$ 3,000</td>
+                                <td class="tR"><button type="button" class="btn-plus"></button></td>
+                            </tr>
+                            <tr>
+                                <td>TL</td>
+                                <td>Deft</td>
+                                <td></td>
+                                <td>DRX</td>
+                                <td>60</td>
+                                <td>$ 3,000</td>
+                                <td class="tR"><button type="button" class="btn-plus"></button></td>
+                            </tr>
+                            <tr>
+                                <td>TL</td>
+                                <td>Deft</td>
+                                <td></td>
+                                <td>DRX</td>
+                                <td>60</td>
+                                <td>$ 3,000</td>
+                                <td class="tR"><button type="button" class="btn-plus"></button></td>
+                            </tr>
+                            <tr>
+                                <td>TL</td>
+                                <td>Deft</td>
+                                <td></td>
+                                <td>DRX</td>
+                                <td>60</td>
+                                <td>$ 3,000</td>
+                                <td class="tR"><button type="button" class="btn-plus"></button></td>
+                            </tr>
+                            <tr>
+                                <td>TL</td>
+                                <td>Deft</td>
+                                <td></td>
+                                <td>DRX</td>
+                                <td>60</td>
+                                <td>$ 3,000</td>
+                                <td class="tR"><button type="button" class="btn-plus"></button></td>
+                            </tr>
+                            <tr>
+                                <td>TL</td>
+                                <td>Deft</td>
+                                <td></td>
+                                <td>DRX</td>
+                                <td>60</td>
+                                <td>$ 3,000</td>
+                                <td class="tR"><button type="button" class="btn-plus"></button></td>
+                            </tr>
+                            <tr>
+                                <td>TL</td>
+                                <td>Deft</td>
+                                <td></td>
+                                <td>DRX</td>
+                                <td>60</td>
+                                <td>$ 3,000</td>
+                                <td class="tR"><button type="button" class="btn-plus"></button></td>
+                            </tr>
+                            </tbody>
+                        </table>
                         </div>
                     </div>
                     <div class="league-right">
