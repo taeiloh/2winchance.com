@@ -28,6 +28,20 @@ try {
 
     $result = $_mysqli->query($query);
 
+    //진행 중 문의 총 갯수
+    $querycon = "
+        SELECT count(*)
+        FROM contactus 
+        WHERE 1 AND cu_u_idx = '{$idx}'
+    ";
+    //print $querycon;
+    $conresult= mysqli_query($_mysqli,$querycon);
+    $conrow = mysqli_fetch_row($conresult);
+    $my_contactus=$conrow[0];
+//    $condb = $conresult->fetch_assoc();
+//    $concount = !empty($condb['cu_u_idx']) ? $condb['cu_u_idx'] : 0;
+    //print $concount;
+
     $query2 = "
     SELECT *
         FROM members
@@ -40,12 +54,12 @@ try {
 
     $queryhp ="
         SELECT *
-        FROM history_push_gold
-        WHERE 1 and pg_g_idx ='{$idx}'
+        FROM honor_point_history
+        WHERE 1 and hph_m_idx ='{$idx}'
     ";
     $hpresult = $_mysqli->query($queryhp);
     $dbhp = $hpresult->fetch_assoc();
-    $hp = !empty($dbhp['pg_amount']) ? $dbhp['pg_amount'] : 0;
+    $hp = !empty($dbhp['hph_balance']) ? $dbhp['hph_balance'] : 0;
 
 
     $page = !empty($_GET['page']) ? $_GET['page'] : 1;
@@ -190,7 +204,7 @@ try {
                                 <li><p>파이트 포인트</p><span class="fp"><?=$m_fp?></span></li>
                                 <!--                                <li><p>명예 포인트</p><span class="hp">--><?//=$dbhp['pg_amount']?><!--</span></li>-->
                                 <li><p>명예 포인트</p><span class="hp"><?=$hp?></span></li>
-                                <li><p>진행 중 문의</p><span class="count"><?=$total_count?></span></li>
+                                <li><p>진행 중 문의</p><span class="count"><?=$my_contactus?></span></li>
                             </ul>
                         </div>
                     </div>
