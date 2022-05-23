@@ -304,7 +304,7 @@ try {
                                         <span>1,000</span>
                                     </div>
                                 </div>
-                                <span class="line-up-badge btnPush">LIVE</span>
+                                <span class="line-up-badge">LIVE</span>
                             </a>
                             <table class="entries-table">
                                 <thead>
@@ -536,7 +536,7 @@ try {
                                         <span>1,000</span>
                                     </div>
                                 </div>
-                                <span class="line-up-badge">수정</span>
+                                <span class="line-up-badge btnPush">수정</span>
                             </a>
                             <table class="entries-table">
                                 <thead>
