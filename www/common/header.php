@@ -9,7 +9,16 @@ include_once __DIR__.'/../_inc/config.php';
 $idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 시퀀스
 $id=!empty($_SESSION['_se_id']) ? $_SESSION['_se_id'] : "";        // 세션 아이디
 $name=!empty($_SESSION['_se_name']) ? $_SESSION['_se_name'] : "";    // 세션 닉네임
-$deposit=!empty($_SESSION['_se_deposit']) ? $_SESSION['_se_deposit'] : 0;    // 세션 포인트
+//$deposit=!empty($_SESSION['_se_deposit']) ? $_SESSION['_se_deposit'] : 0;    // 세션 포인트
+
+$query = "
+    SELECT *
+        FROM members
+        WHERE 1 and m_idx ='{$idx}'
+    ";
+$mresult = $_mysqli->query($query);
+$_arrMembers = $mresult->fetch_array();
+$m_deposit = !empty($_arrMembers['m_deposit']) ? $_arrMembers['m_deposit'] : 0;
 
 //변수 정리
 $_liClass1  = '';
@@ -106,7 +115,7 @@ $arraymembers = $result->fetch_array();
                 <div class="user-info">
                     <p class="nickname"><?=$name?></p>
                     <div class="charge">
-                        <p><?=number_format($deposit)?></p>
+                        <p><?=number_format($m_deposit)?></p>
                         <button type="button" class="charge-btn" onclick="location.href='../store/'">충전</button>
                     </div>
                     <div class="mypage">

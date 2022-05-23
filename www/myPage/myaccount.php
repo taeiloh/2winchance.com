@@ -4,8 +4,8 @@ require_once __DIR__ .'/../_inc/config.php';
 $idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 시퀀스
 $id=!empty($_SESSION['_se_id']) ? $_SESSION['_se_id'] : "";        // 세션 아이디
 $name=!empty($_SESSION['_se_name']) ? $_SESSION['_se_name'] : "";    // 세션 닉네임
-$deposit=!empty($_SESSION['_se_deposit']) ? $_SESSION['_se_deposit'] : 0;    // 세션 포인트
-$fp=!empty($_SESSION['_se_fp']) ? $_SESSION['_se_fp'] : 0; // fantasy-point 잔액
+//$deposit=!empty($_SESSION['_se_deposit']) ? $_SESSION['_se_deposit'] : 0;    // 세션 포인트
+//$fp=!empty($_SESSION['_se_fp']) ? $_SESSION['_se_fp'] : 0; // fantasy-point 잔액
 
 if (!$idx) {
     $url    = $_SERVER['REQUEST_URI'];
@@ -38,9 +38,7 @@ try {
     $conresult= mysqli_query($_mysqli,$querycon);
     $conrow = mysqli_fetch_row($conresult);
     $my_contactus=$conrow[0];
-//    $condb = $conresult->fetch_assoc();
-//    $concount = !empty($condb['cu_u_idx']) ? $condb['cu_u_idx'] : 0;
-    //print $concount;
+
 
     $query2 = "
     SELECT *
@@ -50,7 +48,8 @@ try {
     $mresult = $_mysqli->query($query2);
     $_arrMembers = $mresult->fetch_array();
     $m_sns_type = !empty($_arrMembers['m_sns_type']) ? $_arrMembers['m_sns_type'] : '';
-    $m_fp = !empty($_arrMembers['m_fp_balance']) ? $_arrMembers['m_fp_balance'] : '';
+    $m_fp = !empty($_arrMembers['m_fp_balance']) ? $_arrMembers['m_fp_balance'] : 0;
+    $m_deposit = !empty($_arrMembers['m_deposit']) ? $_arrMembers['m_deposit'] : 0;
 
     $queryhp ="
         SELECT *
@@ -192,17 +191,18 @@ try {
                                         <dd><a href="/remove/RemoveAccept.php">회원 탈퇴하기</dd></a>
                                         <?php
                                     }?>
+                                    <dd><a href="/myPage/setting_pw.php" class="cash-limit">한도 설정</a></dd>
                                 </dl>
-                                <button class="cash-limit" >캐시 구매 잔여 한도 내역 | FP 사용 제한 설정</button>
+
                             </div>
                         </div>
                         <div class="user-detail-info">
                             <h3>상세정보</h3>
                             <ul>
-                                <li><p>캐시</p><span class="fc-yellow coin"><?=number_format($deposit)?></span></li>
-                                <li><p>파이트 포인트</p><span class="fp"><?=$m_fp?></span></li>
+                                <li><p>캐시</p><span class="fc-yellow coin"><?=number_format($m_deposit)?></span></li>
+                                <li><p>파이트 포인트</p><span class="fp"><?=number_format($m_fp)?></span></li>
                                 <!--                                <li><p>명예 포인트</p><span class="hp">--><?//=$dbhp['pg_amount']?><!--</span></li>-->
-                                <li><p>명예 포인트</p><span class="hp"><?=$hp?></span></li>
+                                <li><p>명예 포인트</p><span class="hp"><?=number_format($hp)?></span></li>
                                 <li><p>진행 중 문의</p><span class="count"><?=$my_contactus?></span></li>
                             </ul>
                         </div>
