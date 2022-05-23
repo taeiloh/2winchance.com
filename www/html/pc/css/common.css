@@ -473,7 +473,7 @@ table.border-table th, td{padding: 1rem 0;}
 .league-right{width: 34%;}
 
 .game-detail{display: flex;}
-.game-detail .thumb-icon{width: 6.6rem; height: 6.6rem; background: #fff;}
+.game-detail .thumb-icon{width: 6.6rem; height: 6.6rem;}
 .game-detail .thumb-icon img{width: 100%; height: 100%; object-fit: contain;}
 .game-detail .parti-info{border-top: none; padding: 0; margin-left: 2rem;}
 .game-detail .parti-info p{font-size: 2.4rem; font-weight: 700;}
@@ -683,7 +683,16 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 .per-policy li > ul > li{margin-bottom: 2rem; padding:0 0 0 3rem;}
 .policy-sub-txt{margin-top: 2rem;}
 .per-policy > li{margin-top: 3rem;}
-.policy-sub-txt li{}
+
+/* 06_06 */
+.policy-table{border: 1px solid #d9d9d9; margin: 5rem 0;}
+.policy-table th, .policy-table td{border: 1px solid #d9d9d9; height: 5rem;}
+.policy-table td{text-align: left;}
+.operation-policy{border: 1px solid #d9d9d9; margin: 5rem 0;}
+.operation-policy th, .operation-policy td{border: 1px solid #d9d9d9; height: 5rem;}
+.operation-policy td{text-align: left;}
+
+
 
 /* 00_login.html, 00_join_04.html */
 .login-box{text-align: left; border-top: 1px solid #707070; border-bottom: 1px solid #707070; padding: 5rem 0;}
@@ -931,7 +940,8 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 .user-item-list li{ width: 14.3%;  background-color: #eee; margin: 1.25rem 1.5rem; margin-right: 0;}
 .user-item-list li img{object-fit: contain; width: 100%; height: 100%;}
 .user-item-list li.active{border: 0.6rem solid #1e8fff;}
-
+.user-item-list li.disabled{ position: relative;}
+.user-item-list li.disabled:after{content: ''; width: 100%; height: 100%;background-color: rgba(65,65,65,0.7);position: absolute;top: 0;left: 0; }
 .user-item-list.scroll{overflow-y: auto; max-height: 64rem;}
 .user-item-list.scroll::-webkit-scrollbar {width: 2rem; height:1.3rem;}
 /* Buttons */
@@ -959,7 +969,7 @@ input[type='radio']{width: 2.8rem; height: 2.8rem; margin-right: 1rem;}
 .store_title{display: flex; align-items: center; justify-content: center; background: url("../images/store_bg.svg") no-repeat; width: 100%; height: 8.4rem; margin-bottom: 4rem;}
 .store .contents-cont{display: flex; justify-content: space-between;}
 
-.current-coin{border-right: 0.1rem solid #fff; padding-right: 5rem;}
+.current-coin{border-right: 0.1rem solid #fff; padding-right: 5rem; width: 28rem;}
 .current-coin ul{margin-bottom: 4rem;}
 .current-coin ul > li:first-of-type{font-size: 2.6rem; font-weight: 600; margin-bottom: 1.5rem;}
 .current-coin button{width: 22.9rem; font-size: 3rem;margin-top: 5.8rem;}
