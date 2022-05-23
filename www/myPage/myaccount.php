@@ -147,7 +147,7 @@ try {
                             <div class="pf-pic">
                                 <?php
                                 if($ITEM_CNT == 0){?>
-                                    <p>대표 아이템이 없습니다</p>
+                                    <p>대표 엠블럼이 없습니다</p>
                                 <?php
                                 }else if($ITEM_CNT == 1){
                                     if($main_src){?>
@@ -261,7 +261,7 @@ try {
                                     </div>
                                     <?php
                                 }
-                                $result->free();
+                                $result3->free();
                                 ?>
                             </ul>
                         </div>

@@ -114,9 +114,7 @@ try {
                                             <a href="javascript:void(0);" data-item = "<?=$i_num?>" data-price ="<?=$i_price?>" data-fp="<?=$i_fp?>" data-src ="<?=$i_src?>">
                                                 <div class="item-pic">
                                                     <img src="<?=$i_src?>" alt="">
-
                                                         <p class="get-point fp" id="SOLD_OUT<?=$i_num?>">+<?=$i_fp?></p>
-
                                                 </div>
                                                 <div class="cash-item-desc">
                                                     <p><?=$i_name?></p>
