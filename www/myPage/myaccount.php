@@ -66,7 +66,7 @@ try {
 
     $query3  = "
         SELECT *
-        FROM m_item LEFT JOIN item ON i_num = m_num
+        FROM m_item INNER JOIN item ON i_num = m_num and m_idx = '{$idx}'
         ORDER BY m_num DESC
         LIMIT {$from_record}, {$rows}
     ";
