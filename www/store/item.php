@@ -157,7 +157,7 @@ try {
                                 </div>
                                 <?php
                             }
-                            $result->free();
+                            $result2->free();
                             ?>
                         </ul>
                     </div>
