@@ -301,8 +301,22 @@ table tr.filter a:after{content: ''; background: url("../images/icon_filter.svg"
 
 /* 04_05 */
 .howto .category{justify-content: unset; }
-.howto .category ul{width: 50%; display: flex; align-items: center; justify-content: space-evenly;}
-.howto .mypage-box{background-color: #303030; width: 100%; height: 83.4rem;}
+.howto .category ul.tabs{width: 50%; display: flex; align-items: center; justify-content: space-evenly; background: transparent;}
+.howto .tab-content{background-color: #303030; width: 100%; padding: 5rem; font-size: 1.8rem;}
+.howto .tab-content pre{line-height: 1.4;}
+.howto .tab-content pre b{font-size: 2rem;}
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+    overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+    font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-v0mg{border-color:#ffffff;text-align:center;vertical-align:middle}
+.tg .tg-k1z0{background-color:#ffcc67;border-color:#ffffff;text-align:center;vertical-align:middle; color: #131313;}
+.tg .tg-jgi0{background-color:#68cbd0;border-color:#ffffff;text-align:center;vertical-align:middle; color: #131313;}
+
+.table-box{display: flex;}
+.table-box table{width: 49%;}
+.table-box table ~ table{ margin-left: 2%}
 
 .myAcct .cash-table.fp-page td:nth-of-type(3){color: #1e8fff; font-weight: 600;}
 .myAcct .cash-table.fp-page td:nth-of-type(4){color: #ffdc50; font-weight: 600;}
@@ -945,6 +959,10 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 .user-item{width: 77.4rem;}
 .item-list{background-color: #090e10; padding: 3rem 5rem; width: 77.8rem; display: flex;}
 .item-list label{font-size: 2rem; font-weight: 700; margin-right: 5rem; display: flex; justify-content: center;}
+
+.buy-item-list{background-color: #1c1c1c;}
+.buy-item-list li.active{border: 0.6rem solid #1e8fff;}
+
 .user-item-list{background-color: #414141; height: 64rem; width: 77.8rem;}
 
 .user-item-list > ul{display: flex; flex-wrap: wrap; }
