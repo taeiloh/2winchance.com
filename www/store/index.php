@@ -77,7 +77,7 @@ try {
             <input type="hidden"  name="oid" value="INIpayTest_1652678551157" >
             <input type="hidden"  name="timestamp" value="1652678551157" >
             <input type="hidden"  name="version" value="1.0" >
-            <input type="hidden"  name="currency" value="WON" >
+            <input type="hidden"  name="currency" value="상금" >
             <input type="hidden"  name="acceptmethod" value="CARDPOINT:va_receipt:HPP(1):below1000" >
             <input type="hidden"  name="returnUrl" value="http://d-www.2winchance.com/store/INIStdPayReturn.php" >
             <input type="hidden"  name="closeUrl" value="http://d-www.2winchance.com/store/close.php" >

@@ -63,7 +63,7 @@ try {
                             <th><a href="javascript:void(0);">중복</a></th>
                             <th><a href="javascript:void(0);">내 점수</a></th>
                             <th><a href="javascript:void(0);">사용 FP</a></th>
-                            <th><a href="javascript:void(0);">Won</a></th>
+                            <th><a href="javascript:void(0);">상금</a></th>
                             <th>
                                 <input type="search" placeholder="플레이어를 검색해주세요.">
                                 <button class="search-btn"></button>
@@ -88,7 +88,7 @@ try {
                                 <div class="fold-content">
                                     <div class="fold-table-wrap">
                                         <div class="lanking-table">
-                                            <h3>PLAYER LANKING</h3>
+                                            <h3>입상 순위​</h3>
                                             <table>
                                                 <thead>
                                                 <tr>
@@ -133,7 +133,7 @@ try {
                                             </table>
                                         </div>
                                         <div class="player-table">
-                                            <h3>PLAYERS</h3>
+                                            <h3>선수 상세 결과​</h3>
                                             <table>
                                                 <thead>
                                                 <tr>
@@ -206,8 +206,8 @@ try {
                                         </div>
                                     </div>
                                     <div class="status-txt">
-                                        <p>status : normal (Depending on the number of the finalists, the prize mat differ.)</p>
-                                        <p>* If you click other players user name, you can see and check other line-ups detail.</p>
+                                        <p>최종 참여자 수에 따라 최종 상금이 변경될 수 있습니다.​​</p>
+                                        <p>* 다른 참여자 닉네임을 클릭하면 선수 상세 내역을 확인 하실 수 있습니다.​</p>
                                     </div>
                                 </div>
                             </td>
@@ -229,7 +229,7 @@ try {
                                 <div class="fold-content">
                                     <div class="fold-table-wrap">
                                         <div class="lanking-table">
-                                            <h3>PLAYER LANKING</h3>
+                                            <h3>입상 순위​</h3>
                                             <table>
                                                 <thead>
                                                 <tr>
@@ -274,7 +274,7 @@ try {
                                             </table>
                                         </div>
                                         <div class="player-table">
-                                            <h3>PLAYERS</h3>
+                                            <h3>선수 상세 결과​</h3>
                                             <table>
                                                 <thead>
                                                 <tr>
@@ -333,8 +333,8 @@ try {
                                         </div>
                                     </div>
                                     <div class="status-txt">
-                                        <p>status : normal (Depending on the number of the finalists, the prize mat differ.)</p>
-                                        <p>* If you click other players user name, you can see and check other line-ups detail.</p>
+                                        <p>최종 참여자 수에 따라 최종 상금이 변경될 수 있습니다.​​</p>
+                                        <p>* 다른 참여자 닉네임을 클릭하면 선수 상세 내역을 확인 하실 수 있습니다.​</p>
                                     </div>
                                 </div>
                             </td>
@@ -356,7 +356,7 @@ try {
                                 <div class="fold-content">
                                     <div class="fold-table-wrap">
                                         <div class="lanking-table">
-                                            <h3>PLAYER LANKING</h3>
+                                            <h3>입상 순위​</h3>
                                             <table>
                                                 <thead>
                                                 <tr>
@@ -401,7 +401,7 @@ try {
                                             </table>
                                         </div>
                                         <div class="player-table">
-                                            <h3>PLAYERS</h3>
+                                            <h3>선수 상세 결과​</h3>
                                             <table>
                                                 <thead>
                                                 <tr>
@@ -460,8 +460,8 @@ try {
                                         </div>
                                     </div>
                                     <div class="status-txt">
-                                        <p>status : normal (Depending on the number of the finalists, the prize mat differ.)</p>
-                                        <p>* If you click other players user name, you can see and check other line-ups detail.</p>
+                                        <p>최종 참여자 수에 따라 최종 상금이 변경될 수 있습니다.​​</p>
+                                        <p>* 다른 참여자 닉네임을 클릭하면 선수 상세 내역을 확인 하실 수 있습니다.​</p>
                                     </div>
                                 </div>
                             </td>
@@ -483,7 +483,7 @@ try {
                                 <div class="fold-content">
                                     <div class="fold-table-wrap">
                                         <div class="lanking-table">
-                                            <h3>PLAYER LANKING</h3>
+                                            <h3>입상 순위​</h3>
                                             <table>
                                                 <thead>
                                                 <tr>
@@ -528,7 +528,7 @@ try {
                                             </table>
                                         </div>
                                         <div class="player-table">
-                                            <h3>PLAYERS</h3>
+                                            <h3>선수 상세 결과​</h3>
                                             <table>
                                                 <thead>
                                                 <tr>
@@ -587,8 +587,8 @@ try {
                                         </div>
                                     </div>
                                     <div class="status-txt">
-                                        <p>status : normal (Depending on the number of the finalists, the prize mat differ.)</p>
-                                        <p>* If you click other players user name, you can see and check other line-ups detail.</p>
+                                        <p>최종 참여자 수에 따라 최종 상금이 변경될 수 있습니다.​​</p>
+                                        <p>* 다른 참여자 닉네임을 클릭하면 선수 상세 내역을 확인 하실 수 있습니다.​</p>
                                     </div>
                                 </div>
                             </td>
@@ -610,7 +610,7 @@ try {
                                 <div class="fold-content">
                                     <div class="fold-table-wrap">
                                         <div class="lanking-table">
-                                            <h3>PLAYER LANKING</h3>
+                                            <h3>입상 순위​</h3>
                                             <table>
                                                 <thead>
                                                 <tr>
@@ -655,7 +655,7 @@ try {
                                             </table>
                                         </div>
                                         <div class="player-table">
-                                            <h3>PLAYERS</h3>
+                                            <h3>선수 상세 결과​</h3>
                                             <table>
                                                 <thead>
                                                 <tr>
@@ -714,8 +714,8 @@ try {
                                         </div>
                                     </div>
                                     <div class="status-txt">
-                                        <p>status : normal (Depending on the number of the finalists, the prize mat differ.)</p>
-                                        <p>* If you click other players user name, you can see and check other line-ups detail.</p>
+                                        <p>최종 참여자 수에 따라 최종 상금이 변경될 수 있습니다.​​</p>
+                                        <p>* 다른 참여자 닉네임을 클릭하면 선수 상세 내역을 확인 하실 수 있습니다.​</p>
                                     </div>
                                 </div>
                             </td>
@@ -737,7 +737,7 @@ try {
                                 <div class="fold-content">
                                     <div class="fold-table-wrap">
                                         <div class="lanking-table">
-                                            <h3>PLAYER LANKING</h3>
+                                            <h3>입상 순위​</h3>
                                             <table>
                                                 <thead>
                                                 <tr>
@@ -782,7 +782,7 @@ try {
                                             </table>
                                         </div>
                                         <div class="player-table">
-                                            <h3>PLAYERS</h3>
+                                            <h3>선수 상세 결과​</h3>
                                             <table>
                                                 <thead>
                                                 <tr>
@@ -841,8 +841,8 @@ try {
                                         </div>
                                     </div>
                                     <div class="status-txt">
-                                        <p>status : normal (Depending on the number of the finalists, the prize mat differ.)</p>
-                                        <p>* If you click other players user name, you can see and check other line-ups detail.</p>
+                                        <p>최종 참여자 수에 따라 최종 상금이 변경될 수 있습니다.​​</p>
+                                        <p>* 다른 참여자 닉네임을 클릭하면 선수 상세 내역을 확인 하실 수 있습니다.​</p>
                                     </div>
                                 </div>
                             </td>
@@ -864,7 +864,7 @@ try {
                                 <div class="fold-content">
                                     <div class="fold-table-wrap">
                                         <div class="lanking-table">
-                                            <h3>PLAYER LANKING</h3>
+                                            <h3>입상 순위​</h3>
                                             <table>
                                                 <thead>
                                                 <tr>
@@ -909,7 +909,7 @@ try {
                                             </table>
                                         </div>
                                         <div class="player-table">
-                                            <h3>PLAYERS</h3>
+                                            <h3>선수 상세 결과​</h3>
                                             <table>
                                                 <thead>
                                                 <tr>
@@ -968,8 +968,8 @@ try {
                                         </div>
                                     </div>
                                     <div class="status-txt">
-                                        <p>status : normal (Depending on the number of the finalists, the prize mat differ.)</p>
-                                        <p>* If you click other players user name, you can see and check other line-ups detail.</p>
+                                        <p>최종 참여자 수에 따라 최종 상금이 변경될 수 있습니다.​​</p>
+                                        <p>* 다른 참여자 닉네임을 클릭하면 선수 상세 내역을 확인 하실 수 있습니다.​</p>
                                     </div>
                                 </div>
                             </td>
@@ -991,7 +991,7 @@ try {
                                 <div class="fold-content">
                                     <div class="fold-table-wrap">
                                         <div class="lanking-table">
-                                            <h3>PLAYER LANKING</h3>
+                                            <h3>입상 순위​</h3>
                                             <table>
                                                 <thead>
                                                 <tr>
@@ -1036,7 +1036,7 @@ try {
                                             </table>
                                         </div>
                                         <div class="player-table">
-                                            <h3>PLAYERS</h3>
+                                            <h3>선수 상세 결과​</h3>
                                             <table>
                                                 <thead>
                                                 <tr>
@@ -1095,8 +1095,8 @@ try {
                                         </div>
                                     </div>
                                     <div class="status-txt">
-                                        <p>status : normal (Depending on the number of the finalists, the prize mat differ.)</p>
-                                        <p>* If you click other players user name, you can see and check other line-ups detail.</p>
+                                        <p>최종 참여자 수에 따라 최종 상금이 변경될 수 있습니다.​​</p>
+                                        <p>* 다른 참여자 닉네임을 클릭하면 선수 상세 내역을 확인 하실 수 있습니다.​</p>
                                     </div>
                                 </div>
                             </td>
@@ -1118,7 +1118,7 @@ try {
                                 <div class="fold-content">
                                     <div class="fold-table-wrap">
                                         <div class="lanking-table">
-                                            <h3>PLAYER LANKING</h3>
+                                            <h3>입상 순위​</h3>
                                             <table>
                                                 <thead>
                                                 <tr>
@@ -1163,7 +1163,7 @@ try {
                                             </table>
                                         </div>
                                         <div class="player-table">
-                                            <h3>PLAYERS</h3>
+                                            <h3>선수 상세 결과​</h3>
                                             <table>
                                                 <thead>
                                                 <tr>
@@ -1222,8 +1222,8 @@ try {
                                         </div>
                                     </div>
                                     <div class="status-txt">
-                                        <p>status : normal (Depending on the number of the finalists, the prize mat differ.)</p>
-                                        <p>* If you click other players user name, you can see and check other line-ups detail.</p>
+                                        <p>최종 참여자 수에 따라 최종 상금이 변경될 수 있습니다.​​</p>
+                                        <p>* 다른 참여자 닉네임을 클릭하면 선수 상세 내역을 확인 하실 수 있습니다.​</p>
                                     </div>
                                 </div>
                             </td>
@@ -1245,7 +1245,7 @@ try {
                                 <div class="fold-content">
                                     <div class="fold-table-wrap">
                                         <div class="lanking-table">
-                                            <h3>PLAYER LANKING</h3>
+                                            <h3>입상 순위​</h3>
                                             <table>
                                                 <thead>
                                                 <tr>
@@ -1290,7 +1290,7 @@ try {
                                             </table>
                                         </div>
                                         <div class="player-table">
-                                            <h3>PLAYERS</h3>
+                                            <h3>선수 상세 결과​</h3>
                                             <table>
                                                 <thead>
                                                 <tr>
@@ -1349,8 +1349,8 @@ try {
                                         </div>
                                     </div>
                                     <div class="status-txt">
-                                        <p>status : normal (Depending on the number of the finalists, the prize mat differ.)</p>
-                                        <p>* If you click other players user name, you can see and check other line-ups detail.</p>
+                                        <p>최종 참여자 수에 따라 최종 상금이 변경될 수 있습니다.​​</p>
+                                        <p>* 다른 참여자 닉네임을 클릭하면 선수 상세 내역을 확인 하실 수 있습니다.​</p>
                                     </div>
                                 </div>
                             </td>
@@ -1372,7 +1372,7 @@ try {
                                 <div class="fold-content">
                                     <div class="fold-table-wrap">
                                         <div class="lanking-table">
-                                            <h3>PLAYER LANKING</h3>
+                                            <h3>입상 순위​</h3>
                                             <table>
                                                 <thead>
                                                 <tr>
@@ -1417,7 +1417,7 @@ try {
                                             </table>
                                         </div>
                                         <div class="player-table">
-                                            <h3>PLAYERS</h3>
+                                            <h3>선수 상세 결과​</h3>
                                             <table>
                                                 <thead>
                                                 <tr>
@@ -1476,8 +1476,8 @@ try {
                                         </div>
                                     </div>
                                     <div class="status-txt">
-                                        <p>status : normal (Depending on the number of the finalists, the prize mat differ.)</p>
-                                        <p>* If you click other players user name, you can see and check other line-ups detail.</p>
+                                        <p>최종 참여자 수에 따라 최종 상금이 변경될 수 있습니다.​​</p>
+                                        <p>* 다른 참여자 닉네임을 클릭하면 선수 상세 내역을 확인 하실 수 있습니다.​</p>
                                     </div>
                                 </div>
                             </td>
@@ -1499,7 +1499,7 @@ try {
                                 <div class="fold-content">
                                     <div class="fold-table-wrap">
                                         <div class="lanking-table">
-                                            <h3>PLAYER LANKING</h3>
+                                            <h3>입상 순위​</h3>
                                             <table>
                                                 <thead>
                                                 <tr>
@@ -1544,7 +1544,7 @@ try {
                                             </table>
                                         </div>
                                         <div class="player-table">
-                                            <h3>PLAYERS</h3>
+                                            <h3>선수 상세 결과​</h3>
                                             <table>
                                                 <thead>
                                                 <tr>
@@ -1603,8 +1603,8 @@ try {
                                         </div>
                                     </div>
                                     <div class="status-txt">
-                                        <p>status : normal (Depending on the number of the finalists, the prize mat differ.)</p>
-                                        <p>* If you click other players user name, you can see and check other line-ups detail.</p>
+                                        <p>최종 참여자 수에 따라 최종 상금이 변경될 수 있습니다.​​</p>
+                                        <p>* 다른 참여자 닉네임을 클릭하면 선수 상세 내역을 확인 하실 수 있습니다.​</p>
                                     </div>
                                 </div>
                             </td>
