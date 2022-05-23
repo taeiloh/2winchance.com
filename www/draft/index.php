@@ -671,55 +671,29 @@ $pos    = json_decode($db['gc_pos'], true);
     <div id="container">
         <!--visual-->
         <div id="visual">
-            <a class="inner" href="javascript:void(0)">
-                <div class="visual-thumb">
-                    <img src="../images/img_lcs.png" alt="LCS">
-                </div>
-                <div class="visual-detail">
-                    <div class="contest-info">
-                        <dl>
-                            <dt class="contest-title">LCS</dt>
-                            <dd class="contest-date">2022-03-14  IN 39 MINUTES, 12:00</dd>
-                            <dd class="contest-loca"><img src="/images/ico_pin.svg" class="mR5" alt="위치">Lobo Solitário</dd>
-                            <dd class="contest-detail">
-                                <ul>
-                                    <li>5v5</li>
-                                    <li>€150.00</li>
-                                    <li>1,254 Slots</li>
-                                </ul>
-                            </dd>
-                        </dl>
-                        <img src="../images/ico_lcs.png" alt="LCS">
+            <div class="inner enter">
+                <div class="game-detail">
+                    <div class="thumb-icon">
+
                     </div>
                     <div class="parti-info">
-                        <div class="info-box border">
-                            <table>
-                                <colgroup>
-                                    <col>
-                                    <col>
-                                    <col>
-                                    <col>
-                                    <col>
-                                </colgroup>
-                                <tr>
-                                    <th>총 상금</th>
-                                    <th>참가비</th>
-                                    <th>참가자 수</th>
-                                    <th>중복 참여 가능</th>
-                                    <th>나의 참여</th>
-                                </tr>
-                                <tr>
-                                    <td>702<img src="../images/ico_gold.svg" alt="총 상금" class="mL5"></td>
-                                    <td>5<img src="../images/ico_gold.svg" alt="총 상금" class="mL5"></td>
-                                    <td>603 <span class="total">/ 1,000</span></td>
-                                    <td>5</td>
-                                    <td>10</td>
-                                </tr>
-                            </table>
-                        </div>
+                        <p>총 상금 99kFP ROCKET JUMP [30회 중복 & 우승 10kFP]</p>
+                        <dl class="">
+                            <dd class="prize-money">총 상금<b>650,000,000</b><span> FP</span></dd>
+                            <dd class="prize-money">참가비<b>650,000,000</b><span> FP</span></dd>
+                            <dd class="participant"><img src="../images/ico_peple.svg" alt="참여자 수" class="mR13"><span>978,673 </span> / 1,000,000</dd>
+                            <dd>중복 가능 : 30</dd>
+                            <dd>나의 참가 : 12</dd>
+                        </dl>
                     </div>
                 </div>
-            </a>
+                <div class="detail-box">
+                    <p class="status">경기중</p>
+                    <small>2022-03-13 17:00:00:00</small>
+                    <p class="time fc-yellow">19:15:27</p>
+                    <div class="game-logo"></div>
+                </div>
+            </div>
         </div>
         <!--//visual-->
         <!--content-->
@@ -789,8 +763,8 @@ DIV;
                             <div class="player-skill">
                                 <div class="skill-top">
                                     <div class="name">
-                                        <h2><span class="fc-yellow">T1</span>Faker</h2>
-                                        <p>이상혁</p>
+                                        <h2>Renba</h2>
+                                        <p>JAEYEONG SEO</p>
                                     </div>
                                     <table class="border-table">
                                         <colgroup>
@@ -801,16 +775,16 @@ DIV;
                                             <col>
                                         </colgroup>
                                         <tr>
-                                            <th>M</th>
-                                            <th>W</th>
-                                            <th>L</th>
+                                            <th>평균 순위</th>
+                                            <th>평균 킬</th>
+                                            <th>평균 생존</th>
                                             <th>승률</th>
                                             <th>KDA</th>
                                         </tr>
                                         <tr>
-                                            <td>722</td>
-                                            <td>238</td>
-                                            <td>238</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>mm:ss</td>
                                             <td>67%</td>
                                             <td>66.1%</td>
                                         </tr>
@@ -820,93 +794,87 @@ DIV;
                                 <div class="skill-bottom">
                                     <div class="player-salary">
                                         <p><span class="fc-blue">연봉</span>$963,000</p>
-                                        <button type="button" class="btn-yellow player-stats open-btn" data-target="modal-1">FULL STATS</button>
+                                        <button type="button" class="btn-yellow player-stats open-btn" data-target="modal-1">전적 조회</button>
                                     </div>
                                     <table class="bg-table">
-                                        <colgroup>
-                                            <col>
-                                            <col>
-                                            <col>
-                                            <col>
-                                            <col>
-                                            <col>
-                                            <col>
-                                        </colgroup>
-                                        <thead>
+                                    <colgroup>
+                                        <col>
+                                        <col>
+                                        <col>
+                                        <col>
+                                    </colgroup>
+                                    <thead>
                                         <tr>
-                                            <th>TK</th>
-                                            <th>TD</th>
-                                            <th>TA</th>
-                                            <th>K/M</th>
-                                            <th>D/M</th>
-                                            <th>A/M</th>
-                                            <th>KDA</th>
+                                            <th>최근 경기</th>
+                                            <th>순위</th>
+                                            <th>킬 수</th>
+                                            <th>HP</th>
                                         </tr>
-                                        </thead>
-                                        <tbody>
+                                    </thead>
+                                    <tbody>
                                         <tr>
-                                            <td>2561</td>
-                                            <td>3.5</td>
-                                            <td>3790</td>
-                                            <td>3.2</td>
-                                            <td>2</td>
-                                            <td>5.2</td>
-                                            <td>4.4</td>
+                                            <td>05/13</td>
+                                            <td>1</td>
+                                            <td>1</td>
+                                            <td>000</td>
                                         </tr>
-                                        </tbody>
-                                    </table>
+                                    </tbody>
+                                </table>
                                 </div>
                             </div>
                         </div>
                         <div class="category-wrap">
                             <ul class="category dp_tab_draft">
                                 <li class="active sort" data-sort="ALL"><a href="javascript:void(0);">ALL</a></li>
-                                <li class="sort" data-sort="TL"><a href="javascript:void(0);">TL</a></li>
-                                <li class="sort" data-sort="R"><a href="javascript:void(0);">R</a></li>
-                                <li class="sort" data-sort="GR"><a href="javascript:void(0);">GR</a></li>
-                                <li class="sort" data-sort="AR"><a href="javascript:void(0);">AR</a></li>
-                                <li class="sort" data-sort="UTIL"><a href="javascript:void(0);">UTIL</a></li>
+                                <li class="sort" data-sort="TL"><a href="javascript:void(0);">오더</a></li>
+                                <li class="sort" data-sort="R"><a href="javascript:void(0);">정찰</a></li>
+                                <li class="sort" data-sort="GR"><a href="javascript:void(0);">포탑</a></li>
+                                <li class="sort" data-sort="AR"><a href="javascript:void(0);">돌격</a></li>
+                                <li class="sort" data-sort=""><a href="javascript:void(0);">백업</a></li>
+                                <li class="sort" data-sort=""><a href="javascript:void(0);">서포터</a></li>
+                                <li class="sort" data-sort="UTIL"><a href="javascript:void(0);">유틸</a></li>
                             </ul>
                             <button class="random-btn">
                                 <span></span>
                                 <span></span>
                                 <span></span>
                                 <span></span>
-                                RANDOM PICK
+                                무작위 선택
                             </button>
                         </div>
                         <table class="contents-table">
                             <colgroup>
                                 <col style="width: 16%;">
                                 <col style="width: 16%">
-                                <col style="width: 16%;">
-                                <col style="width: 16%;">
-                                <col style="width: 16%;">
                                 <col style="width: 300px">
+                                <col style="width: 16%;">
+                                <col style="width: 16%;">
+                                <col style="width: 16%;">
                             </colgroup>
                             <thead>
-                            <tr>
-                                <th>POS</th>
-                                <th>NAME</th>
-                                <th>TEAM</th>
-                                <th>FPPG</th>
-                                <th>SALARY</th>
+                            <tr class="filter">
+                                <th><a href="javascript:void(0);">POS</a></th>
+                                <th>이름</th>
                                 <th>
                                     <input type="search" placeholder="플레이어를 검색해주세요.">
                                     <button class="search-btn"></button>
                                 </th>
+                                <th><a href="javascript:void(0);">팀</a></th>
+                                <th><a href="javascript:void(0);">HP</a></th>
+                                <th><a href="javascript:void(0);">연봉</a></th>
                             </tr>
                             </thead>
                         </table>
                         <div class="scroll-tbody">
                             <table class="contents-table">
                                 <colgroup>
-                                    <col style="width: 16%;">
-                                    <col style="width: 16%;">
-                                    <col style="width: 16%;">
-                                    <col style="width: 16%;">
-                                    <col style="width: 16%;">
+                                    <col>
+                                    <col>
                                     <col style="width: 282px">
+                                    <col>
+                                    <col>
+                                    <col>
+                                    <col>
                                 </colgroup>
                                 <tbody id="player_list">
                                 </tbody>
@@ -917,19 +885,19 @@ DIV;
                         <ul class="lineup-info">
                             <li>
                                 <dl>
-                                    <dt>Salary Remaining</dt>
+                                    <dt>잔여 연봉</dt>
                                     <dd>$ <span class="total_salary">50,000</span></dd>
                                 </dl>
                             </li>
                             <li>
                                 <dl>
-                                    <dt>Total FPPG</dt>
+                                    <dt>총 HP</dt>
                                     <dd><span class="total_fppg">0</span></dd>
                                 </dl>
                             </li>
                             <li>
                                 <dl>
-                                    <dt>Avg / Player</dt>
+                                    <dt>평균 연봉</dt>
                                     <dd>$ <span class="avg_salary">0</span></dd>
                                 </dl>
                             </li>
@@ -939,13 +907,15 @@ DIV;
                                 <?php
                                 foreach ($pos['pos'] as $key=>$value) {
                                     echo <<<LI
-                                <li class="player-info lineup_{$value}">
-                                    <div class="player-img player_img"><img src="http://dev.spo-bit.com/public/images/player_images/pubg/default.png" width="80" alt=""></div>
+                                <li class="player-info">
+                                    <div class="player-img">
+                                        <img src="../images/img_player.png" width="80" alt="이상혁 프로필 사진">
+                                    </div>
                                     <div class="player-skill">
                                         <div class="skill-top">
                                             <div class="name">
-                                                <h2><span class="fc-blue team_name">Team</span><span class="player_name">Name</span></h2>
-                                                <p class="player-money salary">$ 0</p>
+                                                <h2><span class="fc-blue">AFA</span>Faker</h2>
+                                                <p class="player-money">$3,000</p>
                                             </div>
                                             <table class="border-table">
                                                 <colgroup>
@@ -953,26 +923,23 @@ DIV;
                                                     <col>
                                                     <col>
                                                     <col>
-                                                    <col>
                                                 </colgroup>
                                                 <tr>
-                                                    <th>M</th>
-                                                    <th>W</th>
-                                                    <th>L</th>
-                                                    <th>승률</th>
-                                                    <th>KDA</th>
+                                                    <th>최근 경기</th>
+                                                    <th>순위</th>
+                                                    <th>킬 수</th>
+                                                    <th>HP</th>
                                                 </tr>
                                                 <tr>
-                                                    <td>722</td>
-                                                    <td>238</td>
-                                                    <td>238</td>
-                                                    <td>67%</td>
-                                                    <td>66.1%</td>
+                                                    <td>MM-DD</td>
+                                                    <td>00</td>
+                                                    <td>00</td>
+                                                    <td>000</td>
                                                 </tr>
                                             </table>
                                         </div>
                                     </div>
-                                    <div class="del"></div>
+                                    <button type="button" class="btn-delete">삭제</button>
                                 </li>
 LI;
                                 }
@@ -1000,43 +967,54 @@ LI;
                             <img src="../images/img_player.png" alt="이상혁 프로필 사진">
                         </div>
                         <div class="player-skill">
-                            <p class="fc-yellow"><b class="fc-blue mR10">T1</b>DRX</p>
-                            <h2 class="name">Faker <span>이상혁</span></h2>
+                            <p class="fc-yellow"><b class="fc-blue mR10">오더</b>GEN G.</p>
+                            <h2 class="name">RENDA <span>JAEYEONG SEO</span></h2>
                             <p class="fc-blue">연봉 <b>$3,000</b></p>
-                            <p class="next-game">NEXT GAME A@B 2022.04.21 10:00:00 GMT</p>
                         </div>
-                        <button type="button" class="btn-blue">선수 추가하기</button>
+                        <div class="right">
+                            <button type="button" class="btn-blue">라인업 추가하기</button>
+                            <img width="40" src="../images/ico_lcs.png" alt="lcs">
+                        </div>
                     </div>
                     <div class="skill-box">
                         <dl>
-                            <dt>1</dt>
-                            <dd>DBPG</dd>
+                            <dt>5</dt>
+                            <dd>평균순위</dd>
                         </dl>
                         <dl>
                             <dt>1</dt>
-                            <dd>KPG</dd>
+                            <dd>평균 킬</dd>
                         </dl>
                         <dl>
-                            <dt>0</dt>
-                            <dd>HKPG</dd>
+                            <dt>mm:ss</dt>
+                            <dd>평균 생존</dd>
                         </dl>
                         <dl>
-                            <dt>205.37</dt>
-                            <dd>DPG</dd>
+                            <dt>0,000</dt>
+                            <dd>평균 데미지</dd>
                         </dl>
                         <dl>
-                            <dt>0</dt>
-                            <dd>RPG</dd>
+                            <dt>205</dt>
+                            <dd>평균 HP</dd>
+                        </dl>
+                        <dl>
+                            <dt>90%</dt>
+                            <dd>승률</dd>
+                        </dl>
+                        <dl>
+                            <dt>26.4%</dt>
+                            <dd>KDA</dd>
                         </dl>
                     </div>
                 </div>
                 <div class="player-news">
                     <ul class="tabs">
-                        <li class="on" data-tab="tabs-1"><a href="javascript:void(0)">SUMMARY</a></li>
-                        <li data-tab="tabs-2"><a href="javascript:void(0)">SPLIT STATS</a></li>
+                        <li class="on" data-tab="tabs-1"><a href="javascript:void(0)">최근 시즌 요약</a></li>
+                        <li data-tab="tabs-2"><a href="javascript:void(0)">최근 시즌 상세</a></li>
                     </ul>
                     <div id="tabs-1" class="tab-content on">
-                        <h3>PLAYER NEWS</h3>
+                        <h3>PUBG Continental Series 6 ASIA
+                        </h3>
                         <div class="game-date">
                             <p class="label">Date</p>
                             <p>2022-05-29 00:15:26:33</p>
@@ -1050,35 +1028,26 @@ LI;
                                 <col>
                             </colgroup>
                             <tr>
-                                <th>TSPG</th>
-                                <th>DBNO</th>
-                                <th>Kill</th>
-                                <th>RK</th>
-                                <th>DMB</th>
-                                <th>Heal</th>
-                                <th>RP</th>
-                                <th>RV</th>
-                                <th>TK</th>
+                                <th>평균 순위</th>
+                                <th>평균 킬</th>
+                                <th>평균 생존</th>
+                                <th>평균 데미지</th>
+                                <th>평균 HP</th>
+                                <th>승률</th>
+                                <th>KDA</th>
                             </tr>
                             <tr>
-                                <td>722</td>
-                                <td>238</td>
-                                <td>238</td>
-                                <td>67%</td>
-                                <td>66.1%</td>
-                                <td>66.1%</td>
-                                <td>66.1%</td>
-                                <td>66.1%</td>
-                                <td>66.1%</td>
+                                <td>5</td>
+                                <td>1</td>
+                                <td>mm:ss</td>
+                                <td>0,000</td>
+                                <td>205</td>
+                                <td>90%</td>
+                                <td>26.4%</td>
                             </tr>
                         </table>
                     </div>
                     <div id="tabs-2" class="tab-content">
-                        <h3>PLAYER NEWS</h3>
-                        <div class="game-date">
-                            <p class="label">Date</p>
-                            <p>Phase1</p>
-                        </div>
                         <table class="border-table">
                             <colgroup>
                                 <col>
@@ -1088,26 +1057,49 @@ LI;
                                 <col>
                             </colgroup>
                             <tr>
-                                <th>TSPG</th>
-                                <th>DBNO</th>
-                                <th>Kill</th>
-                                <th>RK</th>
-                                <th>DMB</th>
-                                <th>Heal</th>
-                                <th>RP</th>
-                                <th>RV</th>
-                                <th>TK</th>
+                                <th>일자</th>
+                                <th>순위</th>
+                                <th>킬</th>
+                                <th>생존</th>
+                                <th>데미지</th>
+                                <th>HP</th>
+                                <th>KDA</th>
                             </tr>
                             <tr>
-                                <td>722</td>
-                                <td>238</td>
-                                <td>238</td>
-                                <td>67%</td>
-                                <td>66.1%</td>
-                                <td>66.1%</td>
-                                <td>66.1%</td>
-                                <td>66.1%</td>
-                                <td>66.1%</td>
+                                <td>05/13</td>
+                                <td>0</td>
+                                <td>265</td>
+                                <td>mm:ss</td>
+                                <td>0,000</td>
+                                <td>000</td>
+                                <td>00.0%</td>
+                            </tr>
+                            <tr>
+                                <td>05/13</td>
+                                <td>0</td>
+                                <td>265</td>
+                                <td>mm:ss</td>
+                                <td>0,000</td>
+                                <td>000</td>
+                                <td>00.0%</td>
+                            </tr>
+                            <tr>
+                                <td>05/13</td>
+                                <td>0</td>
+                                <td>265</td>
+                                <td>mm:ss</td>
+                                <td>0,000</td>
+                                <td>000</td>
+                                <td>00.0%</td>
+                            </tr>
+                            <tr>
+                                <td>05/13</td>
+                                <td>0</td>
+                                <td>265</td>
+                                <td>mm:ss</td>
+                                <td>0,000</td>
+                                <td>000</td>
+                                <td>00.0%</td>
                             </tr>
                         </table>
                     </div>
@@ -1119,6 +1111,7 @@ LI;
         </div>
         <div class="overlay"></div>
     </div>
+
     <!--footer-->
     <footer id="footer">
         <?php
