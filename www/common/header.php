@@ -55,6 +55,9 @@ switch ($_url_f[2]){
         break;
 }
 
+$sql = "SELECT * FROM members WHERE m_idx = '{$idx}' ";
+$result = $_mysqli->query($sql);
+$arraymembers = $result->fetch_array();
 ?>
 <div class="inner">
     <h1 class="logo"><a href="/main/"><img src="/images/logo.png" alt="METAGAMES"></a></h1>
@@ -62,10 +65,10 @@ switch ($_url_f[2]){
         <ul>
             <li class="<?=$_liClass1;?>"><a href="/lobby/">로비</a>
                 <ul class="sub-menu">
-<!--                    <li class="--><?//=($cate==21)?'active':'';?><!--"><a href="/lobby/?cate=21">리그 오브 레전드</a></li>-->
+                    <!--                    <li class="--><?//=($cate==21)?'active':'';?><!--"><a href="/lobby/?cate=21">리그 오브 레전드</a></li>-->
                     <li class="<?=$_liClass1;?> <?=($cate==20)?'active':'';?>"><a href="/lobby/?cate=20">배틀그라운드</a></li>
-<!--                    <li><a href="javascript:void(0)" onclick="alert('준비중입니다.');">DOTA2</a></li>-->
-<!--                    <li><a href="javascript:void(0)" onclick="alert('준비중입니다.');">GS:GO</a></li>-->
+                    <!--                    <li><a href="javascript:void(0)" onclick="alert('준비중입니다.');">DOTA2</a></li>-->
+                    <!--                    <li><a href="javascript:void(0)" onclick="alert('준비중입니다.');">GS:GO</a></li>-->
                 </ul>
             </li>
             <li class="<?=$_liClass2;?>"><a href="/lineups/">라인업</a></li>
@@ -84,43 +87,43 @@ switch ($_url_f[2]){
         <!--로그인 전-->
         <?php
         if($idx==""){
-        ?>
-        <div class="login-before">
-            <div class="btn-group">
-                <button type="button" id="btnTopSignUp" class="join-btn" onclick="location.href='/signup/index.php'">회원가입</button>
-                <button type="button" id="btnTopLogin" class="login-btn" onclick="location.href='/login/index.php'">로그인</button>
+            ?>
+            <div class="login-before">
+                <div class="btn-group">
+                    <button type="button" id="btnTopSignUp" class="join-btn" onclick="location.href='/signup/index.php'">회원가입</button>
+                    <button type="button" id="btnTopLogin" class="login-btn" onclick="location.href='/login/index.php'">로그인</button>
+                </div>
+                <a href="/myPage/howtoplay.php">HOW TO PLAY <img src="/images/ico_triangle.svg" alt="HOW TO PLAY"></a>
             </div>
-            <a href="/myPage/howtoplay.php">게임 가이드 <img src="/images/ico_triangle.svg" alt="게임 가이드"></a>
-        </div>
-        <!--  로그인 전-->
-        <?php
+            <!--  로그인 전-->
+            <?php
         }else{
 
-        ?>
+            ?>
             <!--로그인 후    // css 처리 따로 없고 주석 처리만 되어 있습니다 -->
             <div class="login-after">
-              <div class="profile-img"><img src="/images/item1.png" alt="유저 프로필 사진"></div>
-              <div class="user-info">
-                  <p class="nickname"><?=$name?></p>
-                  <div class="charge">
-                      <p><?=number_format($deposit)?></p>
-                      <button type="button" class="charge-btn" onclick="location.href='../store/'">충전</button>
-                  </div>
-                  <div class="mypage">
-                      <button type="button" class="mypage-btn" onclick="location.href='/myPage/myaccount.php'">마이페이지 <img src="/images/ico_arrow_blue.svg" alt="마이페이지 메뉴 펼치기"></button>
-                      <ul class="mypage-menu">
-                          <li><a href="javascript:void(0)">MY ACCOUNT</a></li>
-                          <li><a href="javascript:void(0)">1 : 1 TICKET</a></li>
-                          <li><a href="javascript:void(0)">GOLD</a></li>
-                          <li><a href="javascript:void(0)">FP</a></li>
-                          <li><a href="javascript:void(0)">게임 가이드</a></li>
-                      </ul>
-                  </div>
-              </div>
-              <button type="button" class="logout-btn" onclick="location.href='/login/logout.php'">로그아웃</button>
-          </div>
-        <!--//로그인 후-->
-    <?php
+                <div class="profile-img"><img src="/images/item1.png" alt="유저 프로필 사진"></div>
+                <div class="user-info">
+                    <p class="nickname"><?=$name?></p>
+                    <div class="charge">
+                        <p><?=number_format($deposit)?></p>
+                        <button type="button" class="charge-btn" onclick="location.href='../store/'">충전</button>
+                    </div>
+                    <div class="mypage">
+                        <button type="button" class="mypage-btn" onclick="location.href='/myPage/myaccount.php'">마이페이지 <img src="/images/ico_arrow_blue.svg" alt="마이페이지 메뉴 펼치기"></button>
+                        <ul class="mypage-menu">
+                            <li><a href="javascript:void(0)">MY ACCOUNT</a></li>
+                            <li><a href="javascript:void(0)">1 : 1 TICKET</a></li>
+                            <li><a href="javascript:void(0)">GOLD</a></li>
+                            <li><a href="javascript:void(0)">FP</a></li>
+                            <li><a href="javascript:void(0)">HOW TO PLAY</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <button type="button" class="logout-btn" onclick="location.href='/login/logout.php'">로그아웃</button>
+            </div>
+            <!--//로그인 후-->
+            <?php
         }
         ?>
     </div>

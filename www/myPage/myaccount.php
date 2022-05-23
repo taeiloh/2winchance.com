@@ -70,13 +70,17 @@ try {
         ORDER BY m_num DESC
         LIMIT {$from_record}, {$rows}
     ";
-
     $result3 = $_mysqli->query($query3);
 
- /*   $query4 = "SELECT i_src FROM item WHERE main_item =1";
+    $query4 = "SELECT i_src FROM item WHERE main_item =1";
     $result4 = $_mysqli->query($query4);
     $main = $result4 ->fetch_array();
-    $main_src = $main['i_src'];*/
+    $main_src = $main['i_src'];
+
+    $query5 = "SELECT COUNT(i_src) FROM item WHERE main_item = 1";
+    $result5 = $_mysqli->query($query5);
+    $CNT= $result5->fetch_array();
+    $ITEM_CNT = $CNT[0];
 
 }catch (Exception $e) {
     p($e);
@@ -115,20 +119,28 @@ try {
                 //header
                 require_once __DIR__ . '/../common/category.php';
                 ?>
-<!--                <div class="category inner">-->
-<!--                    <ul>-->
-<!--                        <li><a href="javascript:void(0)">MY ACCOUNT</a></li>-->
-<!--                        <li class="active"><a href="javascript:void(0)">1 : 1 HISTORY</a></li>-->
-<!--                        <li><a href="javascript:void(0)">CASH HISTORY</a></li>-->
-<!--                        <li><a href="javascript:void(0)">FP HISTORY</a></li>-->
-<!--                        <li><a href="javascript:void(0)">게임 가이드</a></li>-->
-<!--                    </ul>-->
-<!--                </div>-->
+                <!--                <div class="category inner">-->
+                <!--                    <ul>-->
+                <!--                        <li><a href="javascript:void(0)">MY ACCOUNT</a></li>-->
+                <!--                        <li class="active"><a href="javascript:void(0)">1 : 1 HISTORY</a></li>-->
+                <!--                        <li><a href="javascript:void(0)">CASH HISTORY</a></li>-->
+                <!--                        <li><a href="javascript:void(0)">FP HISTORY</a></li>-->
+                <!--                        <li><a href="javascript:void(0)">HOW TO PLAY</a></li>-->
+                <!--                    </ul>-->
+                <!--                </div>-->
                 <div class="contents-cont inner item-page">
                     <div class="user-acct">
                         <div class="user-profile">
                             <div class="pf-info">
-                                        <img src="<?=$main_src?>" alt="profile">
+                                <?php
+                                if($ITEM_CNT > 0){
+                                    ?>
+                                    <img id="main_item" src="<?=$main_src?>" alt="profile">
+                                    <?php
+                                }else{?>
+                                    <p>대표 아이템이 없습니다</p>
+                                    <?php
+                                }?>
                             </div>
                             <div class="pf-info">
                                 <ul>
@@ -151,17 +163,18 @@ try {
                                 <dl>
                                     <?php
                                     if($id){
-                                    ?>
+                                        ?>
                                         <dd><a href="../signup/pwd_change.php">비밀번호 변경하기</a></dd>
                                         <dd><a href="/remove/index.php">회원 탈퇴하기</a></dd>
-                                    <?php
+                                        <?php
                                     }else{?>
                                         <dd>비밀번호 변경불가</dd>
                                         <dd><a href="/remove/RemoveAccept.php">회원 탈퇴하기</dd></a>
-                                    <?php
+                                        <?php
                                     }?>
+                                    <dd><a href="/myPage/setting_pw.php" class="cash-limit">한도 설정</a></dd>
                                 </dl>
-                                <button class="cash-limit">캐시 구매 잔여 한도 내역 | FP 사용 제한 설정</button>
+
                             </div>
                         </div>
                         <div class="user-detail-info">
@@ -169,7 +182,7 @@ try {
                             <ul>
                                 <li><p>캐시</p><span class="fc-yellow coin"><?=number_format($deposit)?></span></li>
                                 <li><p>파이트 포인트</p><span class="fp"><?=$m_fp?></span></li>
-<!--                                <li><p>명예 포인트</p><span class="hp">--><?//=$dbhp['pg_amount']?><!--</span></li>-->
+                                <!--                                <li><p>명예 포인트</p><span class="hp">--><?//=$dbhp['pg_amount']?><!--</span></li>-->
                                 <li><p>명예 포인트</p><span class="hp"><?=$hp?></span></li>
                                 <li><p>진행 중 문의</p><span class="count"><?=$total_count?></span></li>
                             </ul>
@@ -198,16 +211,16 @@ try {
                                         $no=$total_count-($i+($page-1)*$rows);
                                         if($i==1){?>
                                             <li class = "active">
-                                                <a href="javascript:void(0);" data-item = "<?=$i_num?>" >
-                                                        <img src="<?=$i_src?>" alt="">
+                                                <a href="javascript:void(0);" data-item = "<?=$i_num?>" data-src = "<?=$i_src?>" >
+                                                    <img src="<?=$i_src?>" alt="">
                                                 </a>
                                             </li>
                                             <?php
                                         }else{
                                             ?>
                                             <li>
-                                                <a href="javascript:void(0);" data-item = "<?=$i_num?>" >
-                                                        <img src="<?=$i_src?>" alt="">
+                                                <a href="javascript:void(0);" data-item = "<?=$i_num?>" data-src = "<?=$i_src?>">
+                                                    <img src="<?=$i_src?>" alt="">
                                                 </a>
                                             </li>
                                             <?php
@@ -459,15 +472,18 @@ try {
         $(document).ready(function(){
             $('ul.user-item li a').click(function(){
                 var item_id = $(this).data('item');
+                var main_item_src = $(this).data('src');
                 $('ul.user-item li').removeClass('active');
                 $(this).parent('li').addClass('active');
                 buy_item_id = item_id;
+
+                $("#main_item").attr("src",main_item_src);
 
                 var postData = {
                     "m_num": buy_item_id,
                 };
 
-                /*$.ajax({
+                $.ajax({
                     url: "selected_item.php",
                     type: "POST",
                     async: false,
@@ -489,7 +505,7 @@ try {
                     error: function (jqXHR, textStatus, errorThrown) {
                         console.log(textStatus, errorThrown);
                     }
-                });*/
+                });
             })
         })
 
