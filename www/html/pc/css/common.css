@@ -275,7 +275,7 @@ video{max-width: 140rem; width: 100%; margin: 0 auto; display: block;}
 
 
 
-    /* 04_01 */
+/* 04_01 */
 .myAcct .category{justify-content: unset; }
 .myAcct .category ul{width: 70%; display: flex; align-items: center; justify-content: space-evenly;}
 .myAcct .category li{ font-weight: 700;}
@@ -768,6 +768,16 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 .fold-table > tbody > tr.fold {display: none; background: #303030;}
 .fold-table > tbody > tr.fold td {padding: 0;}
 .fold-table > tbody > tr.fold.open {display: table-row;}
+.hover{position: relative;}
+.tooltip{display:none; min-width: 45rem; background: rgba(255,255,255,0.9); color: #131313; padding: 2rem; border-radius: 1rem; font-size: 1.8rem; position: absolute; top: 65px; left: 50%; transform: translateX(-50%); text-align: left;}
+.tooltip .title{font-size: 2rem; font-weight: 600; padding: 0 0 1rem;}
+.tooltip .score-detail{border-top: 1px dashed #1c1c1c; border-bottom: 1px dashed #1c1c1c; padding: 1rem 0;}
+.tooltip dl{display: flex; align-items: center;}
+.tooltip dl ~ dl{margin: 1rem 0 0;}
+.tooltip dl dt{width: 100px;}
+.tooltip dl dd:last-child{margin-left: auto;}
+.tooltip .score-total{padding: 1rem 0 0; font-weight: 700;}
+.hover:hover .tooltip{display: block;}
 .fold-content {margin: 0.6rem; padding: 2.4rem; background: #1c1c1c; }
 .fold-content h3 {font-size: 2rem; letter-spacing: .12rem; font-weight: 600; text-align: left; margin-bottom: 2rem;}
 .fold-content .fold-table-wrap{display: flex; justify-content: space-between;}
@@ -905,9 +915,10 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 
 .pf-info{flex-grow: 1; margin-left: 3rem; height: 22.6rem;}
 .pf-info dl{margin-top: 2.5rem; display: flex; align-items: center; color: #1e8fff; }
-.pf-info dt{ position: relative; padding-right: 1.7rem; font-weight: 500;}
-.pf-info dd{padding-left: 1.3rem; font-weight: 500; position: relative;}
-.pf-info dt:after{content: ''; width: 0.4rem; height: 2.1rem; background-color: #3a3a3a; display: block; position: absolute; right: 0; top:50%; transform: translateY(-50%); }
+.pf-info dt{ position: relative; font-weight: 500;}
+.pf-info dd{font-weight: 500; position: relative; padding-right: 1.7rem; }
+.pf-info dd ~ dd{padding-left: 1.7rem;}
+.pf-info dd ~ dd:after{content: ''; width: 0.4rem; height: 2.1rem; background-color: #3a3a3a; display: block; position: absolute; left: 0; top:50%; transform: translateY(-50%); }
 
 .cash-limit{color: #fff; text-align: center; margin-top: 2rem; margin-left: 0; background-color: #ff0000; border-radius: 0.5rem; padding: 1rem;}
 

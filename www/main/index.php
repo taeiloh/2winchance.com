@@ -76,7 +76,7 @@ try {
                 <div class="inner">
                     <ul class="event-list">
                         <li>
-                            <h2>주력 이벤트</h2>
+                            <h2>이벤트</h2>
                             <div class="game-thumb" style="background-image: url('../images/main_thumb_01.jpg')">
                                 <a href="javascript:void(0)" class="game-info">
                                     <p class="game-title"></p>
