@@ -15,11 +15,11 @@ $arrRtn     = array(
     'msg'   => ''
 );
 try{
-    $sql = "UPDATE item SET main_item=0 ";
+    $sql = "UPDATE m_item SET main_emblem=0 WHERE m_idx = '{$idx}'";
     $result = $_mysqli->query($sql);
 
     if($result) {
-        $sql2 = "UPDATE item SET main_item=1 WHERE i_num = '{$m_num}'";
+        $sql2 = "UPDATE m_item SET main_emblem=1 WHERE m_idx = '{$idx}' and m_num = '{$m_num}'";
         $result1 = $_mysqli->query($sql2);
 
         if (!$result1) {

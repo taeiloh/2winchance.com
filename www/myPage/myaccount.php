@@ -55,7 +55,7 @@ try {
         $page       =   1;
     }
 
-    $sql ="select count(*) from m_item where 1=1";
+    $sql ="select count(*) from m_item where 1=1 and m_idx = '{$idx}'";
     $tresult = mysqli_query($_mysqli, $sql);
     $row1   = mysqli_fetch_row($tresult);
     $total_count = $row1[0]; //전체갯수
@@ -72,12 +72,12 @@ try {
     ";
     $result3 = $_mysqli->query($query3);
 
-    $query4 = "SELECT i_src FROM item WHERE main_item =1";
+    $query4 = "SELECT i_src FROM m_item WHERE main_emblem =1 and m_idx = '{$idx}'";
     $result4 = $_mysqli->query($query4);
     $main = $result4 ->fetch_array();
     $main_src = $main['i_src'];
 
-    $query5 = "SELECT COUNT(i_src) FROM item WHERE main_item = 1";
+    $query5 = "SELECT COUNT(i_src) FROM m_item WHERE main_emblem = 1 and m_idx = '{$idx}'";
     $result5 = $_mysqli->query($query5);
     $CNT= $result5->fetch_array();
     $ITEM_CNT = $CNT[0];
@@ -142,6 +142,9 @@ try {
                                     <?php
                                 }else{?>
                                     <p>대표 아이템이 없습니다</p>
+                                    <button type="button" class="emblem" onclick="emblem_change()">
+                                        <p>엠블럼 저장하기</p>
+                                    </button>
                                     <?php
                                 }?>
                             </div>
@@ -175,8 +178,9 @@ try {
                                         <dd><a href="/remove/RemoveAccept.php">회원 탈퇴하기</dd></a>
                                         <?php
                                     }?>
+                                    <dd><a href="/myPage/setting_pw.php" class="cash-limit">한도 설정</a></dd>
                                 </dl>
-                                <button class="cash-limit" onclick="location.href='/myPage/setting_pw.php'">캐시 구매 잔여 한도 내역 | FP 사용 제한 설정</button>
+
                             </div>
                         </div>
                         <div class="user-detail-info">

@@ -4,6 +4,7 @@ require __DIR__ .'/../_inc/config.php';
 $m_num     = isset($_POST['m_num'])        ?     $_POST['m_num']       :0;
 $price     = isset($_POST['price'])        ?     $_POST['price']       :0;
 $fp     = isset($_POST['fp'])        ?     $_POST['fp']       :0;
+$i_src = isset($_POST['i_src']) ? $_POST['i_src'] : '';
 $idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 시퀀스
 
 
@@ -32,16 +33,16 @@ try{
             exit;
         } else {
             $query = " insert into  m_item
-                            (m_idx, m_num)
+                            (m_idx, m_num, i_src)
                         VALUES
-                            ('{$idx}','{$m_num}')";
+                            ('{$idx}','{$m_num}','{$i_src}')";
             $result = $_mysqli->query($query);
 
             $query2 = "UPDATE members SET m_deposit = m_deposit - '{$price}',m_fp_balance = m_fp_balance + '{$fp}' where m_idx = '{$idx}'";
             $result2 = $_mysqli->query($query2);
 
-            $query3 = "UPDATE item SET i_status = 1 where i_num = '{$m_num}'";
-            $result3 = $_mysqli->query($query3);
+            /*$query3 = "UPDATE item SET i_status = 1 where i_num = '{$m_num}'";
+            $result3 = $_mysqli->query($query3);*/
 
             if (!$result) {
                 $arrRtn['code'] = 502;
