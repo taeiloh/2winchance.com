@@ -124,13 +124,14 @@ $main_src = !empty($main['i_src']) ? $main['i_src']:'';
                 <div class="profile-img">
                     <?php
                     if($main_src){?>
-                    <img src="<?=$main_src?>" alt="유저 프로필 사진"></div>
+                    <img src="<?=$main_src?>" alt="유저 프로필 사진">
                     <?php
                     }else{?>
                         <p>대표엠블렘이없습니다.</p>
                     <?php
                     }
                     ?>
+                </div>
                 <div class="user-info">
                     <p class="nickname"><?=$name?></p>
                     <div class="charge">
