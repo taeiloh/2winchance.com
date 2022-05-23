@@ -71,7 +71,7 @@ try {
                                     <h3>캐시 구매 잔여 한도 내역</h3>
                                     <div class="limit-days">
                                         <p>월 현재 잔여 한도 - <span class="limit-money">500,000</span><span><img src="../images/ico_alert_small.png" alt="알림">매월 1일 초기화</span></p>
-                                        <p>월 현재 잔여 한도 - <span class="limit-money">500,000</span><span><img src="../images/ico_alert_small.png" alt="알림">매일 오전 09:00 초기화</span></p>
+                                        <p>일 현재 잔여 한도 - <span class="limit-money">300,000</span><span><img src="../images/ico_alert_small.png" alt="알림">매일 오전 09:00 초기화</span></p>
                                     </div>
                                 </div>
                                 <div class="limit-input-wrap">

@@ -85,6 +85,15 @@ try {
             return false;
         }
 
+        var text = $("#m_id").val();
+        var regEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+        if (regEmail.test(text) === false) {
+            alert('이메일 형식이 아닙니다.');
+            $("#m_id").focus();
+            return false;
+        }
+
+
         if ($.trim($("#m_pw").val()) == "") {
             alert("비밀번호를 입력해 주세요.");
             $("#m_pw").focus();
