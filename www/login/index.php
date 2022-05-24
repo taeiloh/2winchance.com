@@ -50,7 +50,7 @@ try {
                             <div class="find-wrap">
                                 <a href="javascript:void(0)" class="fc-blue" onclick="location.href='/signup/index.php'">회원가입</a>
                                 <a href="../signup/id_check.php">아이디찾기</a>
-                                <a href="javascript:void(0)">비밀번호찾기</a>
+                                <a href="../signup/pw_check.php">비밀번호찾기</a>
                             </div>
                         </div>
                         <button type="button" class="btn-blue btn-6" onclick="login()">로그인</button>
