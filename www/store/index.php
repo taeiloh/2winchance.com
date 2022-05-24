@@ -35,6 +35,26 @@ $sign = $SignatureUtil->makeSignature($params, "sha256");
 
 try {
 
+    //결제한도
+    $query = "
+        SELECT * FROM members
+        WHERE 1
+            AND m_idx = '{$idx}'
+    ";
+    $result = $_mysqli->query($query);
+    $m_deposit = $result->fetch_array();
+    $db_cash = !empty($m_deposit['m_limit_deposit']) ? $m_deposit['m_limit_deposit'] : 500000;
+
+    $query2 = "
+        SELECT sum(dh_amount) as total_amount FROM deposit_history
+        WHERE 1 AND dh_u_idx = '{$idx}'
+    ";
+    $result2 = $_mysqli->query($query2);
+    $_arrDeposit = $result2->fetch_array();
+    $total_amount = !empty($_arrDeposit['total_amount']) ? $_arrDeposit['total_amount'] : 0;
+    print $total_amount;
+
+
 } catch (Exception $e) {
     p($e);
 }
@@ -128,7 +148,7 @@ try {
                                 <li class="fc-yellow"><span id="total-coin">500 <span class="fc-yellow">ⓒ</span></span></li>
                             </ul>
                             <ul>
-                                <li>결제 알림 매일</li>
+                                <li>결제 알림 메일</li>
                                 <li id="email"><?=$id?></li>
                             </ul>
                         </div>
@@ -349,6 +369,10 @@ try {
             }else{
                 alert("로그인 이후 사용가능합니다.");
             }
+
+            //결제 한도
+
+
         }
 
 

@@ -81,7 +81,7 @@ try {
         (dh_u_idx, dh_deposit, dh_amount, dh_paymethod ,dh_pay_key, dh_content, dh_condition,dh_balance,  dh_req_date)
     VALUES
         ('{$idx}','{$dh_deposit}','{$dh_amount}',1,'{$dh_pay_key}', '{$dh_content}',1 , $m_deposit,  now())";
-    //echo $sql;
+    echo $sql;
     //exit;
     $result1 = mysqli_query($_mysqli, $sql);
     if (!$result1) {

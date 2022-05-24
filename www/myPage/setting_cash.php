@@ -27,6 +27,8 @@ try {
     $m_sns_type = !empty($_arrMembers['m_sns_type']) ? $_arrMembers['m_sns_type'] : '';
     $m_fp_limit = !empty($_arrMembers['m_fp_limit']) ? $_arrMembers['m_fp_limit'] : 0;
     $m_time_reset = !empty($_arrMembers['reset_time']) ? $_arrMembers['reset_time'] : 0;
+    $m_limit_deposit = !empty($_arrMembers['m_limit_deposit']) ? $_arrMembers['m_limit_deposit'] : 500000;
+    $m_day_deposit = !empty($_arrMembers['m_day_deposit']) ? $_arrMembers['m_day_deposit'] : 300000;
 
 }catch (Exception $e) {
     p($e);
@@ -72,8 +74,8 @@ try {
                                 <div class="money-limit">
                                     <h3>캐시 구매 잔여 한도 내역</h3>
                                     <div class="limit-days">
-                                        <p>월 현재 잔여 한도 - <span class="limit-money">500,000</span><span><img src="../images/ico_alert_small.png" alt="알림">매월 1일 초기화</span></p>
-                                        <p>일 현재 잔여 한도 - <span class="limit-money">300,000</span><span><img src="../images/ico_alert_small.png" alt="알림">매일 오전 09:00 초기화</span></p>
+                                        <p>월 현재 잔여 한도 - <span class="limit-money"><?=number_format($m_limit_deposit)?></span><span><img src="../images/ico_alert_small.png" alt="알림">매월 1일 초기화</span></p>
+                                        <p>일 현재 잔여 한도 - <span class="limit-money"><?=number_format($m_day_deposit)?></span><span><img src="../images/ico_alert_small.png" alt="알림">매일 오전 09:00 초기화</span></p>
                                     </div>
                                 </div>
                                 <div class="limit-input-wrap">
