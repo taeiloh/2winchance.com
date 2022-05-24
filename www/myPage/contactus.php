@@ -193,6 +193,12 @@ if (!$idx) {
                 return false;
             }
 
+            if ($.trim($("#cuSubject").val().length) < 10) {
+                alert("10자 이상의 내용을 작성해주세요.");
+                $("#cuSubject").focus();
+                return false;
+            }
+
             if ($("#askCont").val() == "") {
                 alert("내용을 입력해 주세요.");
                 $("#askCont").focus();
