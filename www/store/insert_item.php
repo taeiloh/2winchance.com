@@ -18,20 +18,20 @@ $arrRtn     = array(
 );
 
 try{
-    $sql = "SELECT COUNT(1) AS CNT FROM m_item WHERE m_idx = '{$idx}' and m_num = '{$m_num}'";
-    $result1 = $_mysqli->query($sql);
+    /*$sql = "SELECT COUNT(1) AS CNT FROM m_item WHERE m_idx = '{$idx}' and m_num = '{$m_num}'";
+    $result1 = $_mysqli->query($sql);*/
 
-    if($result1) {
-        $arrayitem = $result1->fetch_array();
-        $CNT = $arrayitem['CNT'];
+   /* if($result1) {*/
+        /*$arrayitem = $result1->fetch_array();
+        $CNT = $arrayitem['CNT'];*/
 
-        if ($CNT > 0) {
+        /*if ($CNT > 0) {
             $arrRtn['code'] = 501;
             $arrRtn['msg'] = "이미 구매한 아이템입니다";
             //alertBack($msg);
             echo json_encode($arrRtn);
             exit;
-        } else {
+        } else {*/
             $query = " insert into  m_item
                             (m_idx, m_num, i_src)
                         VALUES
@@ -54,8 +54,8 @@ try{
                 $arrRtn['msg'] = "해당 아이템을 구매하였습니다.";
 
             }
-        }
-    }
+       /* }*/
+   /* }*/
 }catch (mysqli_sql_exception $e) {
     $arrRtn['code'] = $e->getCode();
     $arrRtn['msg']  = $e->getMessage();

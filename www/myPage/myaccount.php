@@ -68,7 +68,7 @@ try {
         $page       =   1;
     }
 
-    $sql ="select count(*) from m_item where 1=1 and m_idx = '{$idx}'";
+    $sql ="select count(*) from item where 1=1 ";
     $tresult = mysqli_query($_mysqli, $sql);
     $row1   = mysqli_fetch_row($tresult);
     $total_count = $row1[0]; //전체갯수
@@ -79,7 +79,7 @@ try {
 
     $query3  = "
         SELECT *
-        FROM m_item INNER JOIN item ON i_num = m_num and m_idx = '{$idx}'
+        FROM m_item INNER JOIN item ON i_num = m_num and m_idx = '{$idx}' group by m_num
         ORDER BY m_num DESC
         LIMIT {$from_record}, {$rows}
     ";
@@ -94,8 +94,8 @@ try {
 
 
     $query3_1  = "
-    SELECT m_num FROM m_item INNER JOIN item ON i_num = m_num and m_idx = '{$idx}'";
-    $result3_1 = $_mysqli->query($query3);
+        SELECT m_num FROM m_item INNER JOIN item ON i_num = m_num and m_idx = '{$idx}'";
+    $result3_1 = $_mysqli->query($query3_1);
     $i_num_a="";
     for($i=0;$row=mysqli_fetch_array($result3_1);$i++){
         if($r3c<$i){
@@ -106,23 +106,32 @@ try {
 
     }
 
-
-    $query3_2  = "
+    if($r3c==0)
+    {
+        $query3_2  = "
         SELECT *
-        FROM  item where 1=1 and i_num NOT IN ({$i_num_a})
-    ";
-    $result3_2 = $_mysqli->query($query3);
+        FROM  item where 1=1";
+    }else{
+        $query3_2  = "
+            SELECT *
+            FROM  item where 1=1 and i_num NOT IN ({$i_num_a})
+        ";
+    }
+
+    $result3_2 = $_mysqli->query($query3_2);
 
 
     $query4 = "SELECT i_src FROM m_item WHERE main_emblem =1 and m_idx = '{$idx}'";
     $result4 = $_mysqli->query($query4);
     $main = $result4 ->fetch_array();
-    $main_src = $main['i_src'];
+    $main_src = !empty($main['i_src']) ? $main['i_src'] : 0;
 
     $query5 = "SELECT COUNT(i_src) FROM m_item WHERE  m_idx = '{$idx}'";
     $result5 = $_mysqli->query($query5);
     $CNT= $result5->fetch_array();
     $ITEM_CNT = $CNT[0];
+
+
 
 }catch (Exception $e) {
     p($e);
@@ -266,23 +275,19 @@ try {
                                         $m_num = $_db['m_num'];
                                         $i++;
                                         $no=$total_count-($i+($page-1)*$rows);
-                                        if($i==1){?>
+
+                                        $query6 = "SELECT count(m_num) from m_item where m_num = '{$i_num}' and m_idx='{$idx}' group by m_num";
+                                        $result6 = $_mysqli->query($query6);
+                                        $groupitemcnt = $result6->fetch_array();
+                                        $GRUOP_ITEM_CNT = $groupitemcnt[0];
+                                        ?>
                                             <li>
                                                 <a href="javascript:void(0);" data-item = "<?=$i_num?>" data-src = "<?=$i_src?>" >
                                                     <img src="<?=$i_src?>" alt="">
                                                 </a>
-                                                <span class="item-count">22</span>
+                                                <span class="item-count"><?=$GRUOP_ITEM_CNT?></span>
                                             </li>
                                             <?php
-                                        }else{
-                                            ?>
-                                            <li>
-                                                <a href="javascript:void(0);" data-item = "<?=$i_num?>" data-src = "<?=$i_src?>">
-                                                    <img src="<?=$i_src?>" alt="">
-                                                </a>
-                                            </li>
-                                            <?php
-                                        }
                                     }
                                 }
                                 else{?>
@@ -295,7 +300,7 @@ try {
                                 ?>
                                 <?php
                                 if($total_count > 0){
-                                    $i=0;
+                                $i=0;
                                     while($_db = $result3_2 -> fetch_assoc()){
                                         $i_price = $_db['i_price'];
                                         $i_type = $_db['i_type'];
@@ -303,38 +308,23 @@ try {
                                         $i_src = $_db['i_src'];
                                         $i_name = $_db['i_name'];
                                         $i_num = $_db['i_num'];
-                                        $m_num = $_db['m_num'];
-                                        $i++;
                                         $no=$total_count-($i+($page-1)*$rows);
-                                        if($i==1){?>
+                                       ?>
                                             <li>
                                                 <a href="javascript:void(0);" data-item = "<?=$i_num?>" data-src = "<?=$i_src?>" >
                                                     <img src="<?=$i_src?>" alt="">
                                                 </a>
-                                                <span class="item-count">22</span>
+                                                <span class="item-count">0</span>
                                             </li>
                                             <?php
-                                        }else{
-                                            ?>
-                                            <li>
-                                                <a href="javascript:void(0);" data-item = "<?=$i_num?>" data-src = "<?=$i_src?>">
-                                                    <img src="<?=$i_src?>" alt="">
-                                                </a>
-                                            </li>
-                                            <?php
-                                        }
                                     }
                                 }
                                 else{?>
-                                    <div class="store-item-list prepare" id="sp" style="display: none;">
-                                        <p>제품 준비중</p>
-                                    </div>
-                                    <?php
+                                    <p>제품준비중</p>
+                                <?php
                                 }
                                 $result3_2->free();
                                 ?>
-
-
                             </ul>
                         </div>
 
@@ -599,6 +589,7 @@ try {
                         if (json.code == 200) {
                             alert(json.msg);
                         } else {
+                            alert(json.msg);
                             console.log(json);
                         }
                     },
