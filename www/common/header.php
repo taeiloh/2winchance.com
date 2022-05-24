@@ -1,22 +1,22 @@
 <?php
+// 변수 정리
+require_once __DIR__.'/../_inc/config.php';
+
 // 파라미터 정리
 checkmobile();
 $cate       = !empty($_GET['cate'])     ? $_GET['cate']     : '';
-
-// 변수 정리
-include_once __DIR__.'/../_inc/config.php';
 
 $idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 시퀀스
 $id=!empty($_SESSION['_se_id']) ? $_SESSION['_se_id'] : "";        // 세션 아이디
 $name=!empty($_SESSION['_se_name']) ? $_SESSION['_se_name'] : "";    // 세션 닉네임
 //$deposit=!empty($_SESSION['_se_deposit']) ? $_SESSION['_se_deposit'] : 0;    // 세션 포인트
 
-
 $query = "
     SELECT *
         FROM members
         WHERE 1 and m_idx ='{$idx}'
     ";
+//p($query);
 $mresult = $_mysqli->query($query);
 $_arrMembers = $mresult->fetch_array();
 $m_deposit = !empty($_arrMembers['m_deposit']) ? $_arrMembers['m_deposit'] : 0;
@@ -89,7 +89,6 @@ $main_src = !empty($main['i_src']) ? $main['i_src']:'';
 }catch (Exception $e) {
     p($e);
 }
-
 ?>
 <div class="inner">
     <h1 class="logo"><a href="/main/"><img src="/images/logo.png" alt="METAGAMES"></a></h1>
