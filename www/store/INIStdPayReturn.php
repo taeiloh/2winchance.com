@@ -1,12 +1,12 @@
 <?php
 // config
+
+
+require_once __DIR__ .'/../libs/INIStdPayUtil.php';
+require_once __DIR__ .'/../libs/HttpClient.php';
+
 require_once __DIR__ .'/../_inc/config.php';
 $idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 시퀀스
-
-require_once('../libs/INIStdPayUtil.php');
-require_once('../libs/HttpClient.php');
-
-
 
 try {
 
