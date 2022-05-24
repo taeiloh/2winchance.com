@@ -2,6 +2,7 @@
 // config
 require_once __DIR__ .'/../_inc/config.php';
 $id=!empty($_SESSION['_se_id']) ? $_SESSION['_se_id'] : "";        // 세션 아이디
+$idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : 0;      // 세션 시퀀스
 
 require_once __DIR__ .'/../libs/INIStdPayUtil.php';
 $SignatureUtil = new INIStdPayUtil();
@@ -341,7 +342,13 @@ try {
                 return false;
             }
 
-            INIStdPay.pay('SendPayForm_id');
+            var idx_check = '<?=$idx?>';
+
+            if(idx_check) {
+                INIStdPay.pay('SendPayForm_id');
+            }else{
+                alert("로그인 이후 사용가능합니다.");
+            }
         }
 
 
