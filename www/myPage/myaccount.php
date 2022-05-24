@@ -238,7 +238,7 @@ try {
                                         $i++;
                                         $no=$total_count-($i+($page-1)*$rows);
                                         if($i==1){?>
-                                            <li class = "active">
+                                            <li>
                                                 <a href="javascript:void(0);" data-item = "<?=$i_num?>" data-src = "<?=$i_src?>" >
                                                     <img src="<?=$i_src?>" alt="">
                                                 </a>
