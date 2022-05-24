@@ -57,7 +57,7 @@ try {
 <form id="loginFrm" name="loginFrm" method="post" action="<?=$action?>">
     <input type="hidden" name="m_sns_type" id="m_sns_type" value="<?=$m_sns_type ?>"/>
     <input type="hidden" name="m_sns_id" id="m_sns_id" value="<?=$m_sns_id?>"/>
-
+    <input type="hidden" name="userPhone" id="userPhone" value="<?=$userPhone?>"/>
 <div id="wrap" class="member">
     <!--content-->
     <div id="content">

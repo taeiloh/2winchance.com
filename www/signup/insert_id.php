@@ -11,6 +11,7 @@ $m_id      = isset($_POST['m_id'])        ?     $_POST['m_id']       : '';
 $m_pw      = isset($_POST['m_pw'])        ?     $_POST['m_pw']       : '';
 $m_sns_type      = isset($_POST['m_sns_type'])        ?     $_POST['m_sns_type']       : '';
 $m_sns_id      = isset($_POST['m_sns_id'])        ?     $_POST['m_sns_id']       : '';
+$m_tel = isset($_POST['m_tel'])        ?     $_POST['m_tel']       : '';
 $ip=$_SERVER['REMOTE_ADDR'];
 
 
@@ -98,9 +99,9 @@ try {
         }else{
             //변수 체크
             $sql  = " insert into  members
-                (m_id, m_pw, m_sns_type, m_sns_id, m_ip, m_enter_datetime)
+                (m_id, m_pw, m_sns_type, m_sns_id, m_ip, m_tel, m_enter_datetime)
             VALUES
-                ('{$m_id}','{$pw}','{$m_sns_type}','{$m_sns_id}','{$ip}', now())";
+                ('{$m_id}','{$pw}','{$m_sns_type}','{$m_sns_id}','{$ip}','{$m_tel}', now())";
             //p($sql);
             $result = mysqli_query($_mysqli, $sql);
             if (!$result) {
