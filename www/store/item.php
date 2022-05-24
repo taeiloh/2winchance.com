@@ -80,7 +80,7 @@ try {
                 <div class="contents-cont inner">
                     <div class="current-coin">
                         <ul class="coin-list">
-                            <li>보유코인</li>
+                            <li>보유 캐시</li>
                             <li class="fc-yellow"><span></span><?=number_format($m_deposit)?><span class="fc-yellow">ⓒ</span></li>
                         </ul>
                         <ul class="coin-input">
@@ -89,6 +89,9 @@ try {
                             <li><label><input type="radio" name="type" value="type2">편의형</label></li>
                             <li><label><input type="radio" name="type" value="type3">스페셜</label></li>
                         </ul>
+                        <p>본 아이템은 마이페이지의 프로필 변경을 통해 적용 가능합니다. <br/> <br/>
+                            사용자간 거래가 불가하며 중복 보유 가능합니다.</p>
+                        <p class="fc-yellow event-list fs-28 bold mT30">사용 캐시 <span>-10 ⓒ</span></p>
                         <button class="btn-blue btn-8" onclick="buy()">구매하기</button>
                     </div>
 
