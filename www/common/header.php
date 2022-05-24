@@ -87,7 +87,7 @@ $result4 = $_mysqli->query($query4);
 $main = $result4 ->fetch_array();
 $main_src = !empty($main['i_src']) ? $main['i_src']:'';
 }catch (Exception $e) {
-    p($e);
+    //p($e);
 }
 ?>
 <div class="inner">
