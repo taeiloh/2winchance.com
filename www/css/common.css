@@ -555,7 +555,7 @@ table.border-table th, td{padding: 1rem 0;}
 .select-player table.border-table{font-size: 1.4rem;}
 .select-player table.border-table th{border-bottom: 1px solid #e6e6e6;}
 .select-player table.border-table th, td {padding: 0.5rem;}
-.select-player .player-info .player-img {margin-right: 1rem; width: 6.8rem; height: 7.6rem;}
+.select-player .player-info .player-img {margin-right: 1rem; width: 6.8rem; height: 7.6rem; flex-shrink: 0;}
 .select-player .player-info .player-img img{width: 6.8rem; height: 7.6rem; object-fit: cover;}
 .select-player .player-info .name{display: flex; align-items: center; justify-content: space-between; margin-right: 0;}
 .select-player .player-info .name h2{font-size: 2.4rem;}
