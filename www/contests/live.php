@@ -2,9 +2,18 @@
 // config
 require_once __DIR__ .'/../_inc/config.php';
 
-
-
 try {
+    // 파라미터
+
+    // 세션 정리
+    $_se_idx        = !empty($_SESSION['_se_idx'])      ? $_SESSION['_se_idx']      : 0;
+
+    // 변수 정리
+    $where      = '';
+
+    $where      .= "
+        AND g_status = 2
+    ";
 
 } catch (Exception $e) {
     p($e);
@@ -59,182 +68,81 @@ try {
                         <thead>
                         <tr>
                             <th>콘테스트</th>
+                            <th>경기시작 시간</th>
+                            <th>총 상금</th>
+                            <th>1등 상금</th>
                             <th>참여자 수</th>
-                            <th>순위</th>
-                            <th>내 점수</th>
-                            <th>탑 점수</th>
-                            <th>사용 FP</th>
+                            <th>중복</th>
                             <th>
-                                <input type="search" placeholder="플레이어를 검색해주세요.">
+                                <input type="search" placeholder="콘테스트를 검색해주세요.">
                                 <button class="search-btn"></button>
                             </th>
                         </tr>
                         </thead>
                         <tbody>
+                        <?php
+                        // 콘테스트
+                        $query  = "
+                            SELECT 
+                                join_contest.*, 
+                                game.*,  
+                                game_category.gc_name 
+                            FROM 
+                            (
+                                SELECT
+                                    jc_idx
+                                FROM join_contest
+                                WHERE 1=1
+                                    AND jc_u_idx = {$_se_idx}
+                            ) b INNER JOIN join_contest 
+                                ON join_contest.jc_idx = b.jc_idx
+                            LEFT JOIN lineups 
+                                ON lu_idx = jc_lineups 
+                            LEFT JOIN game 
+                                ON g_idx = jc_game 
+                            LEFT JOIN game_category 
+                                ON gc_idx = g_sport 
+                            LEFT JOIN members 
+                                ON m_idx = lu_u_idx 
+                            WHERE 1=1 
+                                AND lu_u_idx = {$_se_idx} 
+                                {$where} 
+                            GROUP BY jc_game 
+                            ORDER BY g_date DESC, jc_result DESC
+                        ";
+                        //p($query);
+                        $result = $_mysqli->query($query);
+                        if (!$result) {
+
+                        }
+                        while ($db = $result->fetch_assoc()) {
+                            //p($db);
+
+                            $arrGjson   = json_decode($db['g_json'], true);
+                            //p($arrGjson);
+                            echo <<<TR
                         <tr>
-                            <td>2022 LoL 챔피언스 코리아 스프링</td>
-                            <td>
-                                <div>
-                                    <p>600</p>/<span>1,000</span>
-                                </div>
-                            </td>
-                            <td>8</td>
-                            <td>50</td>
-                            <td>50</td>
-                            <td>50</td>
-                            <td><button type="button"><span class="circle"></span>Live</button></td>
+                            <td>{$db['g_name']}</td>
+                            <td>{$arrGjson[0]['timezone_scheduled']}</td>
+                            <td>{$db['g_prize']}</td>
+                            <td>{$db['jc_prize']}</td>
+                            <td></td>
+                            <td>{$db['g_multi_max']}</td>
+                            <!--<td><button type="button">수정</button></td>-->
+                            <td><button type="button"><img src="../images/ico_share_blue.svg" alt="공유하기">초대</button></td>
                         </tr>
-                        <tr>
-                            <td>2022 LoL 챔피언스 코리아 스프링</td>
-                            <td>
-                                <div>
-                                    <p>600</p>/<span>1,000</span>
-                                </div>
-                            </td>
-                            <td class="rank">1</td>
-                            <td>50</td>
-                            <td>50</td>
-                            <td>50</td>
-                            <td><button type="button"><span class="circle"></span>Live</button></td>
-                        </tr>
-                        <tr>
-                            <td>2022 LoL 챔피언스 코리아 스프링</td>
-                            <td>
-                                <div>
-                                    <p>600</p>/<span>1,000</span>
-                                </div>
-                            </td>
-                            <td>4</td>
-                            <td>50</td>
-                            <td>50</td>
-                            <td>50</td>
-                            <td><button type="button"><span class="circle"></span>Live</button></td>
-                        </tr>
-                        <tr>
-                            <td>2022 LoL 챔피언스 코리아 스프링</td>
-                            <td>
-                                <div>
-                                    <p>600</p>/<span>1,000</span>
-                                </div>
-                            </td>
-                            <td class="rank">2</td>
-                            <td>50</td>
-                            <td>50</td>
-                            <td>50</td>
-                            <td><button type="button"><span class="circle"></span>Live</button></td>
-                        </tr>
-                        <tr>
-                            <td>2022 LoL 챔피언스 코리아 스프링</td>
-                            <td>
-                                <div>
-                                    <p>600</p>/<span>1,000</span>
-                                </div>
-                            </td>
-                            <td class="rank">3</td>
-                            <td>50</td>
-                            <td>50</td>
-                            <td>50</td>
-                            <td><button type="button"><span class="circle"></span>Live</button></td>
-                        </tr>
-                        <tr>
-                            <td>2022 LoL 챔피언스 코리아 스프링</td>
-                            <td>
-                                <div>
-                                    <p>600</p>/<span>1,000</span>
-                                </div>
-                            </td>
-                            <td>8</td>
-                            <td>50</td>
-                            <td>50</td>
-                            <td>50</td>
-                            <td><button type="button"><span class="circle"></span>Live</button></td>
-                        </tr>
-                        <tr>
-                            <td>2022 LoL 챔피언스 코리아 스프링</td>
-                            <td>
-                                <div>
-                                    <p>600</p>/<span>1,000</span>
-                                </div>
-                            </td>
-                            <td class="rank">1</td>
-                            <td>50</td>
-                            <td>50</td>
-                            <td>50</td>
-                            <td><button type="button"><span class="circle"></span>Live</button></td>
-                        </tr>
-                        <tr>
-                            <td>2022 LoL 챔피언스 코리아 스프링</td>
-                            <td>
-                                <div>
-                                    <p>600</p>/<span>1,000</span>
-                                </div>
-                            </td>
-                            <td>4</td>
-                            <td>50</td>
-                            <td>50</td>
-                            <td>50</td>
-                            <td><button type="button"><span class="circle"></span>Live</button></td>
-                        </tr>
-                        <tr>
-                            <td>2022 LoL 챔피언스 코리아 스프링</td>
-                            <td>
-                                <div>
-                                    <p>600</p>/<span>1,000</span>
-                                </div>
-                            </td>
-                            <td>4</td>
-                            <td>50</td>
-                            <td>50</td>
-                            <td>50</td>
-                            <td><button type="button"><span class="circle"></span>Live</button></td>
-                        </tr>
-                        <tr>
-                            <td>2022 LoL 챔피언스 코리아 스프링</td>
-                            <td>
-                                <div>
-                                    <p>600</p>/<span>1,000</span>
-                                </div>
-                            </td>
-                            <td>6</td>
-                            <td>50</td>
-                            <td>50</td>
-                            <td>50</td>
-                            <td><button type="button"><span class="circle"></span>Live</button></td>
-                        </tr>
-                        <tr>
-                            <td>2022 LoL 챔피언스 코리아 스프링</td>
-                            <td>
-                                <div>
-                                    <p>600</p>/<span>1,000</span>
-                                </div>
-                            </td>
-                            <td>5</td>
-                            <td>50</td>
-                            <td>50</td>
-                            <td>50</td>
-                            <td><button type="button"><span class="circle"></span>Live</button></td>
-                        </tr>
-                        <tr>
-                            <td>2022 LoL 챔피언스 코리아 스프링</td>
-                            <td>
-                                <div>
-                                    <p>600</p>/<span>1,000</span>
-                                </div>
-                            </td>
-                            <td>30</td>
-                            <td>50</td>
-                            <td>50</td>
-                            <td>50</td>
-                            <td><button type="button"><span class="circle"></span>Live</button></td>
-                        </tr>
+TR;
+
+                        }
+                        ?>
                         </tbody>
                     </table>
                 </div>
             </section>
             <!--//sec-01-->
             <div class="pagination">
-                <a href="javascript:void(0)">1</a>
-                <a class="active" href="javascript:void(0)">2</a>
+                <a href="javascript:void(0)" class="active">1</a>
+                <a class="" href="javascript:void(0)">2</a>
                 <a href="javascript:void(0)">3</a>
                 <a href="javascript:void(0)">4</a>
             </div>
