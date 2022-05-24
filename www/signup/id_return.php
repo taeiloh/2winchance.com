@@ -9,7 +9,7 @@ $userBirthday = !empty($_POST['userBirthday'])           ? $_POST['userBirthday'
 
 try {
 
-    $query = "SELECT * FROM members WHERE m_tel = $userPhone";
+    $query = "SELECT * FROM members WHERE m_tel = {$userPhone}";
     $result = $_mysqli->query($query);
     $_arrMembers = $result->fetch_array();
     $u_id = !empty($_arrMembers['m_id']) ? $_arrMembers['m_id'] : '';
