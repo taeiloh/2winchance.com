@@ -46,13 +46,13 @@ try {
     $db_cash = !empty($m_deposit['m_limit_deposit']) ? $m_deposit['m_limit_deposit'] : 500000;
 
     $query2 = "
-        SELECT sum(dh_amount) as total_amount FROM deposit_history
+        SELECT sum(dh_deposit) as total_deposit FROM deposit_history
         WHERE 1 AND dh_u_idx = '{$idx}'
     ";
     $result2 = $_mysqli->query($query2);
     $_arrDeposit = $result2->fetch_array();
-    $total_amount = !empty($_arrDeposit['total_amount']) ? $_arrDeposit['total_amount'] : 0;
-    print $total_amount;
+    $total_deposit = !empty($_arrDeposit['total_deposit']) ? $_arrDeposit['total_deposit'] : 0;
+    print $total_deposit;
 
 
 } catch (Exception $e) {
@@ -326,184 +326,191 @@ try {
                             </div>
                         </div-->
                     </div>
-                </div>
-            </section>
-            <!--//sec-01-->
-            <!--div class="pagination">
-                <a href="javascript:void(0)">1</a>
-                <a class="active" href="javascript:void(0)">2</a>
-                <a href="javascript:void(0)">3</a>
-                <a href="javascript:void(0)">4</a>
-            </div-->
         </div>
-        <!--//content-->
+        </section>
+        <!--//sec-01-->
+        <!--div class="pagination">
+            <a href="javascript:void(0)">1</a>
+            <a class="active" href="javascript:void(0)">2</a>
+            <a href="javascript:void(0)">3</a>
+            <a href="javascript:void(0)">4</a>
+        </div-->
     </div>
-    <!--//container-->
+    <!--//content-->
+</div>
+<!--//container-->
 
-    <!--footer-->
-    <footer id="footer">
-        <?php
-        //footer
-        require_once __DIR__ .'/../common/footer.php';
-        ?>
-    </footer>
-    <!--//footer-->
-    <script src="https://stdpay.inicis.com/stdjs/INIStdPay.js"></script>
-    <script src="https://stdux.inicis.com/stdpay/stdjs/INIStdPay_third-party.js"></script>
+<!--footer-->
+<footer id="footer">
+    <?php
+    //footer
+    require_once __DIR__ .'/../common/footer.php';
+    ?>
+</footer>
+<!--//footer-->
+<script src="https://stdpay.inicis.com/stdjs/INIStdPay.js"></script>
+<script src="https://stdux.inicis.com/stdpay/stdjs/INIStdPay_third-party.js"></script>
 
-    <script>
+<script>
 
-        function pay(){
-            var check=$('#policy07').is(':checked');
+    function pay(){
+        var check=$('#policy07').is(':checked');
 
-            if(!check){
-                alert("가상 재화 정책 동의를 해주세요.");
-                $('#policy07').focus();
-                return false;
-            }
+        if(!check){
+            alert("가상 재화 정책 동의를 해주세요.");
+            $('#policy07').focus();
+            return false;
+        }
 
-            var idx_check = '<?=$idx?>';
+        var idx_check = '<?=$idx?>';
 
-            if(idx_check) {
-                INIStdPay.pay('SendPayForm_id');
-            }else{
-                alert("로그인 이후 사용가능합니다.");
-            }
+        //결제 한도
+        var total_deposit = '<?=$total_deposit?>';
 
-            //결제 한도
+        if(total_deposit >= 500000){
+            alert("결제가능한 월 잔여 한도를 초과하였습니다.");
+            return false;
+        }
 
-
+        if(idx_check) {
+            INIStdPay.pay('SendPayForm_id');
+        }else{
+            alert("로그인 이후 사용가능합니다.");
         }
 
 
-        $(document).ready(function(){
 
-            $('ul.tabs li').click(function(){
-                var tab_id = $(this).attr('data-tab');
-                var id = $(this).attr('data-value');
-                //alert(id);
-                $("#gopaymethod").val(id);
-
-                $('ul.tabs li').removeClass('current');
-                $('.tab-content').removeClass('current');
-
-                $(this).addClass('current');
-                $("#"+tab_id).addClass('current');
-            })
-
-            $('ul.amount-list li a').click(function(){
-                var money_id = $(this).data('money');
-
-                $('ul.amount-list li').removeClass('active');
-
-                $(this).parent('li').addClass('active');
-                //$("#"+money_id).addClass('active');
-
-                //alert(money_id);
-                switch (money_id){
-                    case 1:
-                        $("#goodname").val('100C');
-                        $("#price").val(11000);
-                        $("#total-coin").html( '100 <span class="fc-yellow">ⓒ</span>');
-                        $("#total-money").text('11,000');
-                        break;
-                    case 2:
-                        $("#goodname").val('200C');
-                        $("#price").val(22000);
-                        $("#total-coin").html( '200 <span class="fc-yellow">ⓒ</span>');
-                        $("#total-money").text('22,000');
-                        break;
-                    case 3:
-                        $("#goodname").val('500C');
-                        $("#price").val(55000);
-                        $("#total-coin").html( '500 <span class="fc-yellow">ⓒ</span>');
-                        $("#total-money").text('55,000');
-                        break;
-                    case 4:
-                        $("#goodname").val('웰컴팩');
-                        $("#price").val(4900);
-                        $("#total-coin").html( '100 <span class="fc-yellow">ⓒ</span>');
-                        $("#total-money").text('4,900');
-                        break;
-                    case 5:
-                        $("#goodname").val('아머 이건1');
-                        $("#price").val(5900);
-                        $("#total-coin").html( '210 <span class="fc-yellow">ⓒ</span>');
-                        $("#total-money").text('5,900');
-                        break;
-                    case 6:
-                        $("#goodname").val('아머 이건2');
-                        $("#price").val(6900);
-                        $("#total-coin").html( '230 <span class="fc-yellow">ⓒ</span>');
-                        $("#total-money").text('6,900');
-                        break;
-                    case 7:
-                        $("#goodname").val('아머 이건3');
-                        $("#price").val(9500);
-                        $("#total-coin").html( '3,220 <span class="fc-yellow">ⓒ</span>');
-                        $("#total-money").text('9,500');
-                        break;
-                    case 8:
-                        $("#goodname").val('아머 이건4');
-                        $("#price").val(14000);
-                        $("#total-coin").html( '8,050 <span class="fc-yellow">ⓒ</span>');
-                        $("#total-money").text('14,000');
-                        break;
-                    case 9:
-                        $("#goodname").val('보너스 팩');
-                        $("#price").val(16000);
-                        $("#total-coin").html( '8,050 <span class="fc-yellow">ⓒ</span>');
-                        $("#total-money").text('16,000');
-                        break;
-
-                    case 10:
-                        $("#goodname").val('월 구독');
-                        $("#price").val(20000);
-                        $("#total-coin").html( '10 <span class="fc-yellow">ⓒ</span>');
-                        $("#total-money").text('20,000');
-                        break;
-                }
-                var price=$("#price").val();
+    }
 
 
-                var postData = {
-                    "price": price
-                };
+    $(document).ready(function(){
 
-                $.ajax({
-                    url: "signature_proc.php",
-                    type: "POST",
-                    async: false,
-                    data: postData,
-                    success: function (data) {
-                        var json = JSON.parse(data);
-                        console.log(json);
-                        if (json.code == 200) {
-                            $("#oid").val(json.oid);
-                            $("#price").val(json.price);
-                            $("#timestamp").val(json.timestamp);
-                            $("#sign").val(json.sign);
-                            $("#mKey").val(json.mKey);
-                        }else{
-                            console.log(json);
-                        }
-                    },
-                    beforeSend:function(){
-                        $(".wrap-loading").removeClass("display-none");
-                    },
-                    complete:function(){
-                        $(".wrap-loading").addClass("display-none");
-                    },
-                    error: function (jqXHR, textStatus, errorThrown) {
-                        console.log(textStatus, errorThrown);
-                    }
-                });
+        $('ul.tabs li').click(function(){
+            var tab_id = $(this).attr('data-tab');
+            var id = $(this).attr('data-value');
+            //alert(id);
+            $("#gopaymethod").val(id);
 
+            $('ul.tabs li').removeClass('current');
+            $('.tab-content').removeClass('current');
 
-            })
+            $(this).addClass('current');
+            $("#"+tab_id).addClass('current');
         })
 
-    </script>
+        $('ul.amount-list li a').click(function(){
+            var money_id = $(this).data('money');
+
+            $('ul.amount-list li').removeClass('active');
+
+            $(this).parent('li').addClass('active');
+            //$("#"+money_id).addClass('active');
+
+            //alert(money_id);
+            switch (money_id){
+                case 1:
+                    $("#goodname").val('100C');
+                    $("#price").val(11000);
+                    $("#total-coin").html( '100 <span class="fc-yellow">ⓒ</span>');
+                    $("#total-money").text('11,000');
+                    break;
+                case 2:
+                    $("#goodname").val('200C');
+                    $("#price").val(22000);
+                    $("#total-coin").html( '200 <span class="fc-yellow">ⓒ</span>');
+                    $("#total-money").text('22,000');
+                    break;
+                case 3:
+                    $("#goodname").val('500C');
+                    $("#price").val(55000);
+                    $("#total-coin").html( '500 <span class="fc-yellow">ⓒ</span>');
+                    $("#total-money").text('55,000');
+                    break;
+                case 4:
+                    $("#goodname").val('웰컴팩');
+                    $("#price").val(4900);
+                    $("#total-coin").html( '100 <span class="fc-yellow">ⓒ</span>');
+                    $("#total-money").text('4,900');
+                    break;
+                case 5:
+                    $("#goodname").val('아머 이건1');
+                    $("#price").val(5900);
+                    $("#total-coin").html( '210 <span class="fc-yellow">ⓒ</span>');
+                    $("#total-money").text('5,900');
+                    break;
+                case 6:
+                    $("#goodname").val('아머 이건2');
+                    $("#price").val(6900);
+                    $("#total-coin").html( '230 <span class="fc-yellow">ⓒ</span>');
+                    $("#total-money").text('6,900');
+                    break;
+                case 7:
+                    $("#goodname").val('아머 이건3');
+                    $("#price").val(9500);
+                    $("#total-coin").html( '3,220 <span class="fc-yellow">ⓒ</span>');
+                    $("#total-money").text('9,500');
+                    break;
+                case 8:
+                    $("#goodname").val('아머 이건4');
+                    $("#price").val(14000);
+                    $("#total-coin").html( '8,050 <span class="fc-yellow">ⓒ</span>');
+                    $("#total-money").text('14,000');
+                    break;
+                case 9:
+                    $("#goodname").val('보너스 팩');
+                    $("#price").val(16000);
+                    $("#total-coin").html( '8,050 <span class="fc-yellow">ⓒ</span>');
+                    $("#total-money").text('16,000');
+                    break;
+
+                case 10:
+                    $("#goodname").val('월 구독');
+                    $("#price").val(20000);
+                    $("#total-coin").html( '10 <span class="fc-yellow">ⓒ</span>');
+                    $("#total-money").text('20,000');
+                    break;
+            }
+            var price=$("#price").val();
+
+
+            var postData = {
+                "price": price
+            };
+
+            $.ajax({
+                url: "signature_proc.php",
+                type: "POST",
+                async: false,
+                data: postData,
+                success: function (data) {
+                    var json = JSON.parse(data);
+                    console.log(json);
+                    if (json.code == 200) {
+                        $("#oid").val(json.oid);
+                        $("#price").val(json.price);
+                        $("#timestamp").val(json.timestamp);
+                        $("#sign").val(json.sign);
+                        $("#mKey").val(json.mKey);
+                    }else{
+                        console.log(json);
+                    }
+                },
+                beforeSend:function(){
+                    $(".wrap-loading").removeClass("display-none");
+                },
+                complete:function(){
+                    $(".wrap-loading").addClass("display-none");
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus, errorThrown);
+                }
+            });
+
+
+        })
+    })
+
+</script>
 </div>
 </body>
 </html>
