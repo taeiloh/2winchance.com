@@ -73,11 +73,16 @@ try {
                         <?php
                         }
                         ?>
-                        <!--<div class="input-box">
+                        <?php
+                        if($arrVal[0]=="m_sns_id"){
+                        ?>
+                        <div class="input-box">
                             <label for="">연락처</label>
                             <input type="text" name="m_tel" id="m_tel" placeholder="전화번호를 입력해주세요.">
-                            <textarea><?/*=$userPhone*/?></textarea>
-                        </div>-->
+                        </div>
+                        <?php
+                        }
+                        ?>
                         <div class="input-radio">
                             <span>성별</span>
                             <div class="radio-wrap">

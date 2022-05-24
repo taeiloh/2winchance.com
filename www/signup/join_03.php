@@ -9,6 +9,7 @@ $resultCode       = !empty($_POST['resultCode'])           ? $_POST['resultCode'
 $userBirthday       = !empty($_POST['userBirthday'])           ? $_POST['userBirthday']        : '';
 $userBirthday = substr($userBirthday,0,4);
 $userPhone = !empty($_POST['userPhone'])           ? $_POST['userPhone']        : '';
+
 $year = date("Y");
 
 if($m_sns_id=="" and $resultCode==""){
