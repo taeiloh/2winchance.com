@@ -2,9 +2,12 @@
 // config
 require_once __DIR__ .'/../_inc/config.php';
 
-
-
 try {
+    // 세션 정리
+    $_se_idx        = !empty($_SESSION['_se_idx'])      ? $_SESSION['_se_idx']      : 0;
+
+    // 변수 정리
+    $where      = '';
 
 } catch (Exception $e) {
     p($e);
@@ -50,18 +53,21 @@ try {
                     <ul class="contest-list lineup-list">
                         <?php
                         $query  = "
-                            SELECT a.* FROM lineups a LEFT JOIN game b
-                            ON a.lu_g_idx = b.g_idx
+                            SELECT a.* 
+                            FROM lineups a 
+                            LEFT JOIN game b
+                                ON a.lu_g_idx = b.g_idx
                             WHERE 1=1
-                              AND a.lu_u_idx = 10031
+                              AND a.lu_u_idx = {$_se_idx}
                             ORDER BY a.lu_idx DESC
                         ";
+                        //p($query);
                         $result = $_mysqli->query($query);
                         if (!$result) {
 
                         }
                         while ($db = $result->fetch_assoc()) {
-                            p($db);
+                            //p($db);
 
                             echo <<<LI
                         <li class="edit">
@@ -116,54 +122,33 @@ try {
                                 </tr>
                                 </thead>
                                 <tbody>
+LI;
+                            $sub_query  = "
+                                SELECT * FROM lineups a
+                                LEFT JOIN game b 
+                                    ON b.g_idx = a.lu_g_idx
+                                LEFT JOIN lineups_history c 
+                                    ON c.lu_idx = a.lu_idx
+                                WHERE 1=1
+                                    AND c.lu_idx = {$db['lu_idx']}
+                            ";
+                            //p($sub_query);
+                            $sub_result = $_mysqli->query($sub_query);
+                            if (!$sub_result) {
+                            }
+                            while ($sub_db = $sub_result->fetch_assoc()) {
+                                //p($sub_db);
+
+                                echo <<<TR
                                 <tr>
-                                    <td>TL</td>
-                                    <td>Deft</td>
-                                    <td>DRX</td>
-                                    <td>$ 3,000</td>
-                                </tr>
-                                <tr>
-                                    <td>TL</td>
-                                    <td>Deft</td>
-                                    <td>DRX</td>
-                                    <td>$ 3,000</td>
-                                </tr>
-                                <tr>
-                                    <td>TL</td>
-                                    <td>Deft</td>
-                                    <td>DRX</td>
-                                    <td>$ 3,000</td>
-                                </tr>
-                                <tr>
-                                    <td>TL</td>
-                                    <td>Deft</td>
-                                    <td>DRX</td>
-                                    <td>$ 3,000</td>
-                                </tr>
-                                <tr>
-                                    <td>TL</td>
-                                    <td>Deft</td>
-                                    <td>DRX</td>
-                                    <td>$ 3,000</td>
-                                </tr>
-                                <tr>
-                                    <td>TL</td>
-                                    <td>Deft</td>
-                                    <td>DRX</td>
-                                    <td>$ 3,000</td>
-                                </tr>
-                                <tr>
-                                    <td>TL</td>
-                                    <td>Deft</td>
-                                    <td>DRX</td>
-                                    <td>$ 3,000</td>
-                                </tr>
-                                <tr>
-                                    <td>TL</td>
-                                    <td>Deft</td>
-                                    <td>DRX</td>
-                                    <td>$ 3,000</td>
-                                </tr>
+                                    <td>{$sub_db['player_pos']}</td>
+                                    <td>{$sub_db['player_name']}</td>
+                                    <td></td>
+                                    <td>$ {$sub_db['player_salary']}</td>
+                                </tr>                                
+TR;
+                            }
+                        ?>
                                 <tr>
                                     <td colspan="4" class="game-total">
                                         <div>
@@ -178,7 +163,7 @@ try {
                                 </tbody>
                             </table>
                         </li>
-LI;
+                        <?php
                         }
                         ?>
                     </ul>
@@ -186,8 +171,8 @@ LI;
             </section>
             <!--//sec-01-->
             <div class="pagination">
-                <a href="javascript:void(0)">1</a>
-                <a class="active" href="javascript:void(0)">2</a>
+                <a href="javascript:void(0)" class="active" >1</a>
+                <a href="javascript:void(0)">2</a>
                 <a href="javascript:void(0)">3</a>
                 <a href="javascript:void(0)">4</a>
             </div>
