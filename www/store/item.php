@@ -91,7 +91,7 @@ try {
                         </ul>
                         <p>본 아이템은 마이페이지의 프로필 변경을 통해 적용 가능합니다. <br/> <br/>
                             사용자간 거래가 불가하며 중복 보유 가능합니다.</p>
-                        <p class="fc-yellow event-list fs-28 bold mT30">사용 캐시 <span>-10 ⓒ</span></p>
+                        <p class="fc-yellow event-list fs-28 bold mT30" id="buy_cash">사용 캐시 <span>ⓒ</span></p>
                         <button class="btn-blue btn-8" onclick="buy()">구매하기</button>
                     </div>
 
@@ -213,6 +213,8 @@ try {
                 var item_src = $(this).data('src');
                 $('ul.buy-item-list li').removeClass('active');
                 $(this).parent('li').addClass('active');
+                $("#buy_cash").html("사용 캐시 &nbsp&nbsp&nbsp&nbsp&nbsp"+item_price+" <span>ⓒ</span>");
+
 
                 buy_item_id = item_id;
                 buy_item_price = item_price;
