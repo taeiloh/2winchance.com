@@ -2,6 +2,7 @@
 // config
 require_once __DIR__ .'/../_inc/config.php';
 $id=!empty($_SESSION['_se_id']) ? $_SESSION['_se_id'] : "";        // 세션 아이디
+$idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : 0;      // 세션 시퀀스
 
 require_once __DIR__ .'/../libs/INIStdPayUtil.php';
 $SignatureUtil = new INIStdPayUtil();
@@ -33,6 +34,26 @@ $sign = $SignatureUtil->makeSignature($params, "sha256");
 
 
 try {
+
+    //결제한도
+    $query = "
+        SELECT * FROM members
+        WHERE 1
+            AND m_idx = '{$idx}'
+    ";
+    $result = $_mysqli->query($query);
+    $m_deposit = $result->fetch_array();
+    $db_cash = !empty($m_deposit['m_limit_deposit']) ? $m_deposit['m_limit_deposit'] : 500000;
+
+    $query2 = "
+        SELECT sum(dh_amount) as total_amount FROM deposit_history
+        WHERE 1 AND dh_u_idx = '{$idx}'
+    ";
+    $result2 = $_mysqli->query($query2);
+    $_arrDeposit = $result2->fetch_array();
+    $total_amount = !empty($_arrDeposit['total_amount']) ? $_arrDeposit['total_amount'] : 0;
+    print $total_amount;
+
 
 } catch (Exception $e) {
     p($e);
@@ -77,7 +98,7 @@ try {
             <input type="hidden"  name="oid" value="INIpayTest_1652678551157" >
             <input type="hidden"  name="timestamp" value="1652678551157" >
             <input type="hidden"  name="version" value="1.0" >
-            <input type="hidden"  name="currency" value="WON" >
+            <input type="hidden"  name="currency" value="상금" >
             <input type="hidden"  name="acceptmethod" value="CARDPOINT:va_receipt:HPP(1):below1000" >
             <input type="hidden"  name="returnUrl" value="http://d-www.2winchance.com/store/INIStdPayReturn.php" >
             <input type="hidden"  name="closeUrl" value="http://d-www.2winchance.com/store/close.php" >
@@ -100,8 +121,8 @@ try {
             <input type="hidden" name="timestamp" id="timestamp" value="<?=$timestamp?>">
             <input type="hidden" name="signature" id="sign" value="<?=$sign?>">
             <input type="hidden" name="mKey" id="mKey" value="<?=$mKey?>">
-            <input type="hidden" name="returnUrl" value="http://<?=$_SERVER['SERVER_NAME']?>/store/INIStdPayReturn.php">
-            <input type="hidden" name="closeUrl" value="http://<?=$_SERVER['SERVER_NAME']?>/store/close.php">
+            <input type="hidden" name="returnUrl" value="https://<?=$_SERVER['SERVER_NAME']?>/store/INIStdPayReturn.php">
+            <input type="hidden" name="closeUrl" value="https://<?=$_SERVER['SERVER_NAME']?>/store/close.php">
             <input type="hidden"  name="acceptmethod" value="CARDPOINT:va_receipt:HPP(1):below1000" >
 
             <input id="requestByJs" name="requestByJs" type="hidden" value="true">
@@ -127,14 +148,14 @@ try {
                                 <li class="fc-yellow"><span id="total-coin">500 <span class="fc-yellow">ⓒ</span></span></li>
                             </ul>
                             <ul>
-                                <li>결제 알림 매일</li>
+                                <li>결제 알림 메일</li>
                                 <li id="email"><?=$id?></li>
                             </ul>
                         </div>
                         <div class="coin-policy">
                             <p>가상 재화 정책 동의 </p>
                             <span>상품, 가격 및 유효기간을 확인하였으며,
-                                계약 관련 고지 사항과 To Win Chance
+                                계약 관련 고지 사항과 2Winchance
                                 가상 재화 정책 및 결제 진행에
                                 동의합니다.</span>
                             <p class="checkbox">
@@ -341,7 +362,17 @@ try {
                 return false;
             }
 
-            INIStdPay.pay('SendPayForm_id');
+            var idx_check = '<?=$idx?>';
+
+            if(idx_check) {
+                INIStdPay.pay('SendPayForm_id');
+            }else{
+                alert("로그인 이후 사용가능합니다.");
+            }
+
+            //결제 한도
+
+
         }
 
 

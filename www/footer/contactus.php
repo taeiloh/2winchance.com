@@ -137,9 +137,21 @@ if($idx==""){
                 $("#cuMail").focus();
                 return false;
             }
+            var text = $("#cuMail").val();
+            var regEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+            if (regEmail.test(text) === false) {
+                alert('이메일 형식이 아닙니다.');
+                $("#cuMail").focus();
+                return false;
+            }
 
             if ($.trim($("#cuSubject").val()) == "") {
                 alert("제목을 입력해 주세요.");
+                $("#cuSubject").focus();
+                return false;
+            }
+            if ($.trim($("#cuSubject").val().length) < 10) {
+                alert("10자 이상의 내용을 작성해주세요.");
                 $("#cuSubject").focus();
                 return false;
             }

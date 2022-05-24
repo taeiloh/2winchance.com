@@ -6,6 +6,7 @@ require_once __DIR__ .'/../_inc/config.php';
 
 $m_sns_type       = !empty($_POST['m_sns_type'])           ? strtoupper($_POST['m_sns_type'])         : '';
 $m_sns_id       = !empty($_POST['m_sns_id'])           ? strtoupper($_POST['m_sns_id'])         : '';
+$userPhone      = !empty($_POST['userPhone'])           ? strtoupper($_POST['userPhone'])         : '';
 
 try {
 
@@ -26,6 +27,7 @@ try {
 <form id="loginFrm" name="loginFrm" method="post" action="join_05.php">
     <input type="hidden" name="m_sns_type" id="m_sns_type" value="<?=$m_sns_type ?>"/>
     <input type="hidden" name="m_sns_id" id="m_sns_id" value="<?=$m_sns_id?>"/>
+    <input type="hidden" name="userPhone" id="userPhone" value="<?=$userPhone?>"/>
     <input type="hidden" name="m_idx" id="m_idx" />
 <div id="wrap" class="member">
     <!--content-->
@@ -85,6 +87,15 @@ try {
             return false;
         }
 
+        var text = $("#m_id").val();
+        var regEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+        if (regEmail.test(text) === false) {
+            alert('이메일 형식이 아닙니다.');
+            $("#m_id").focus();
+            return false;
+        }
+
+
         if ($.trim($("#m_pw").val()) == "") {
             alert("비밀번호를 입력해 주세요.");
             $("#m_pw").focus();
@@ -141,6 +152,10 @@ try {
                 var json = JSON.parse(data);
                 //console.log(json);return false;
                 if (json.code == 200) {
+                    $("#m_idx").val(json.id);
+                    $("#loginFrm").submit();
+                }else if (json.code == 201){
+                    alert(json.msg);
                     $("#m_idx").val(json.id);
                     $("#loginFrm").submit();
                 }else{

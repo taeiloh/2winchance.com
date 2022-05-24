@@ -11,6 +11,7 @@ $m_id      = isset($_POST['m_id'])        ?     $_POST['m_id']       : '';
 $m_pw      = isset($_POST['m_pw'])        ?     $_POST['m_pw']       : '';
 $m_sns_type      = isset($_POST['m_sns_type'])        ?     $_POST['m_sns_type']       : '';
 $m_sns_id      = isset($_POST['m_sns_id'])        ?     $_POST['m_sns_id']       : '';
+$m_tel = isset($_POST['m_tel'])        ?     $_POST['m_tel']       : '';
 $ip=$_SERVER['REMOTE_ADDR'];
 
 
@@ -31,7 +32,7 @@ try {
     $query  = "
             SELECT COUNT(1) AS CNT FROM members
             WHERE 1=1
-                AND m_id = '{$m_id}'
+                AND m_id = '{$m_id}' and m_name not null
         ";
     //p($query);
     $result = $_mysqli->query($query);
@@ -48,22 +49,76 @@ try {
         }
     }
 
+    $query  = "
+            SELECT COUNT(1) AS CNT FROM members
+            WHERE 1=1
+                AND m_id = '{$m_id}' and m_name is null
+        ";
+    //p($query);
+    $result = $_mysqli->query($query);
+    if ($result) {
+        $_arrMembers    = $result->fetch_array();
+        $cnt            = $_arrMembers['CNT'];
 
-    //변수 체크
-    $sql  = " insert into  members
-                (m_id, m_pw, m_sns_type, m_sns_id, m_ip, m_enter_datetime)
+        if ($cnt > 0) {
+            $sql2  = " update  members set
+                m_pw='{$pw}',
+                m_sns_type='{$m_sns_type}',
+                m_sns_id='{$m_sns_id}',
+                m_ip='{$ip}', 
+                m_enter_datetime=now()
+                where m_id='{$m_id}'
+                ";
+            //p($sql);
+            $result2 = mysqli_query($_mysqli, $sql2);
+            if (!$result2) {
+                $arrRtn['code'] = 503;
+                $arrRtn['msg']  = "에러 발생";
+                echo json_encode($arrRtn);
+                echo $sql2;
+                exit;
+            }
+
+
+            $query1  = "
+            SELECT m_idx FROM members
+            WHERE 1=1
+                AND m_id = '{$m_id}' and m_name is null
+        ";
+            //p($query);
+            $result1 = $_mysqli->query($query1);
+            $_arrMembers1    = $result1->fetch_array();
+            $m_idx            = $_arrMembers1['m_idx'];
+
+            $arrRtn['code'] = 201;
+            $arrRtn['id'] = $m_idx;
+            $arrRtn['msg']  = "이메일 인증이 안된 계정입니다.\n다음 페이지에서 이메일 인증버튼을 눌러주세요.";
+            //alertBack($msg);
+            echo json_encode($arrRtn);
+            exit;
+        }else{
+            //변수 체크
+            $sql  = " insert into  members
+                (m_id, m_pw, m_sns_type, m_sns_id, m_ip, m_tel, m_enter_datetime)
             VALUES
-                ('{$m_id}','{$pw}','{$m_sns_type}','{$m_sns_id}','{$ip}', now())";
-    //p($sql);
-    $result = mysqli_query($_mysqli, $sql);
-    if (!$result) {
-        $arrRtn['code'] = 502;
-        $arrRtn['msg']  = "에러 발생";
-        echo json_encode($arrRtn);
-        exit;
+                ('{$m_id}','{$pw}','{$m_sns_type}','{$m_sns_id}','{$ip}','{$m_tel}', now())";
+            //p($sql);
+            $result = mysqli_query($_mysqli, $sql);
+            if (!$result) {
+                $arrRtn['code'] = 502;
+                $arrRtn['msg']  = "에러 발생";
+                echo json_encode($arrRtn);
+                exit;
+            }
+            $m_idx   =   $_mysqli->insert_id;
+
+        }
     }
 
-    $m_idx   =   $_mysqli->insert_id;
+
+
+
+
 
 
     //회원 정보 가져오기

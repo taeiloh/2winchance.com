@@ -53,8 +53,8 @@ $flgFixedUser = 'N';           // 특정사용자 고정시 Y
     <input type="hidden" name="userHash" value="<?php echo $userHash ?>">
     <input type="hidden" name="directAgency" value="">
 
-    <input type="hidden" name="successUrl" value="http://<?=$_SERVER['SERVER_NAME']?>/signup/success.php">
-    <input type="hidden" name="failUrl" value="http://<?=$_SERVER['SERVER_NAME']?>/signup/success.php">
+    <input type="hidden" name="successUrl" value="https://<?=$_SERVER['SERVER_NAME']?>/signup/success.php">
+    <input type="hidden" name="failUrl" value="https://<?=$_SERVER['SERVER_NAME']?>/signup/success.php">
     <!-- successUrl/failUrl 은 분리하여도 됩니다. !-->
 
 </form>
@@ -100,7 +100,7 @@ $flgFixedUser = 'N';           // 특정사용자 고정시 Y
                         <div class="confirm-box mT10">
                             <div>
                                 <h4>신용/ 체크카드 인증</h4>
-                                <p>본인 명의의 핸드폰으로 인증</p>
+                                <p>본인 명의의 신용/체크카드로 인증</p>
                             </div>
                             <button type="button" class="btn-blue btn-6">인증하기</button>
                         </div>
@@ -108,9 +108,9 @@ $flgFixedUser = 'N';           // 특정사용자 고정시 Y
                     <div class="sns-login">
                         <p>간편 로그인</p>
                         <ul>
-                            <li><a href="javascript:void(0)"><img src="../images/ico_facebook.png" alt="페이스북 로그인"></a></li>
+                            <!--<li><a href="javascript:void(0)"><img src="../images/ico_facebook.png" alt="페이스북 로그인"></a></li>
                             <li><a href="javascript:void(0)"><img src="../images/ico_naver.png" alt="네이버 로그인"></a></li>
-                            <li><a href="javascript:void(0)"><img src="../images/ico_twitter.png" alt="트위터 로그인"></a></li>
+                            <li><a href="javascript:void(0)"><img src="../images/ico_twitter.png" alt="트위터 로그인"></a></li>-->
                             <li><a href="javascript:void(0)" onclick="javascript:joinKakao1();"><img src="../images/ico_kakao.png" alt="카카오 로그인"></a></li>
                         </ul>
                     </div>

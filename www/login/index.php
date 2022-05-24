@@ -50,16 +50,16 @@ try {
                             <div class="find-wrap">
                                 <a href="javascript:void(0)" class="fc-blue" onclick="location.href='/signup/index.php'">회원가입</a>
                                 <a href="../signup/id_check.php">아이디찾기</a>
-                                <a href="javascript:void(0)">비밀번호찾기</a>
+                                <a href="../signup/pw_check.php">비밀번호찾기</a>
                             </div>
                         </div>
                         <button type="button" class="btn-blue btn-6" onclick="login()">로그인</button>
                         <div class="sns-login">
                             <p>간편 로그인</p>
                             <ul>
-                                <li><a href="javascript:void(0)"><img src="/images/ico_facebook.png" alt="페이스북 로그인"></a></li>
+                                <!--<li><a href="javascript:void(0)"><img src="/images/ico_facebook.png" alt="페이스북 로그인"></a></li>
                                 <li><a href="javascript:void(0)"><img src="/images/ico_naver.png" alt="네이버 로그인"></a></li>
-                                <li><a href="javascript:void(0)"><img src="/images/ico_twitter.png" alt="트위터 로그인"></a></li>
+                                <li><a href="javascript:void(0)"><img src="/images/ico_twitter.png" alt="트위터 로그인"></a></li>-->
                                 <li><a href="javascript:void(0)" onclick="loginKakao()"><img src="/images/ico_kakao.png" alt="카카오 로그인"></a></li>
                             </ul>
                         </div>
@@ -77,6 +77,12 @@ try {
 </div>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script type="text/javascript">
+    $("#loginFrm").keypress(function (e){
+        if(e.keyCode === 13){
+            login();
+        }
+    });
+
     function login(){
         if ($.trim($("#m_id").val()) == "") {
             alert("아이디를 입력해 주세요");

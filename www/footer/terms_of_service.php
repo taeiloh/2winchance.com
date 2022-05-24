@@ -36,7 +36,7 @@ try {
     <!--content-->
     <div id="content">
         <!--sec-01-->
-        <h1 class="logo"><a href="../html/index.html"><img src="../images/logo.png" alt="METAGAMES"></a></h1>
+        <h1 class="logo"><a href="../main/"><img src="../images/logo.png" alt="METAGAMES"></a></h1>
         <section class="sec sec-01">
             <div class="inner maintenance policy-page">
                 <div class="title">
@@ -75,12 +75,9 @@ try {
                         <li>회사는 다음 각호의 사항을 서비스 초기화면(http://www.2winchance.com/)에 게시하여, 회원이 이를 쉽게 알 수 있도록 합니다.
                             다만, 개인정보취급방침과 약관은 회원이 연결화면을 통하여 볼 수 있도록 할 수 있습니다.
                             <ul class="policy-sub-txt">
-                                <li>1. 상호 및 대표자의 성명</li>
-                                <li>2. 영업소 소재지 주소(회원의 불만을 처리할 수 있는 곳의 주소를 포함한다) 및 전자우편주소</li>
-                                <li>3. 전화번호, Fax 번호</li>
-                                <li>4. 사업자등록번호, 통신판매업 신고번호</li>
-                                <li>5. 개인정보취급방침</li>
-                                <li>6. 서비스 이용약관</li>
+                                <li>1) 약관에서 구체적으로 범위를 정하여 위임한 사항을 개정하는 경우</li>
+                                <li>2) 회원의 권리•의무와 관련 없는 사항을 개정하는 경우</li>
+                                <li>3) 운영정책의 내용이 약관에서 정한 내용과 근본적으로 다르지 않고 회원이 예측 가능한 범위 내에서 운영정책을 개정하는 경우</li>
                             </ul>
                         </li>
                     </ul>

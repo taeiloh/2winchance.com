@@ -64,6 +64,7 @@ try {
     }
     $_arrMembers    = $result->fetch_array();
     $m_deposit    = !empty($_arrMembers['m_deposit']) ? $_arrMembers['m_deposit'] : 0;
+    $m_limit_deposit    = !empty($_arrMembers['m_limit_deposit']) ? $_arrMembers['m_limit_deposit'] : 0;
 
     $dh_deposit = !empty($resultMap["TotPrice"]) ? $resultMap["TotPrice"] : "";
     $dh_amount = !empty($resultMap["goodsName"]) ? $resultMap["goodsName"] : "";
@@ -72,12 +73,15 @@ try {
     $dh_content = !empty($resultMap["resultMsg"]) ? $resultMap["resultMsg"] : "";
     $dh_pay_key = !empty($resultMap["tid"]) ? $resultMap["tid"] : "";
 
+    if($m_limit_deposit != 0){
+
+    }
 
     $sql  = " insert into  deposit_history
         (dh_u_idx, dh_deposit, dh_amount, dh_paymethod ,dh_pay_key, dh_content, dh_condition,dh_balance,  dh_req_date)
     VALUES
         ('{$idx}','{$dh_deposit}','{$dh_amount}',1,'{$dh_pay_key}', '{$dh_content}',1 , $m_deposit,  now())";
-    //echo $sql;
+    echo $sql;
     //exit;
     $result1 = mysqli_query($_mysqli, $sql);
     if (!$result1) {

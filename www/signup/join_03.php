@@ -17,9 +17,10 @@ if($m_sns_id=="" and $resultCode==""){
 
 if($userBirthday and $userPhone) {
     $age = $year - $userBirthday;
-    $query = "SELECT COUNT(*) FROM members WHERE m_tel = $userPhone";
-    $result = $_mysqli->query($query);
-    $cnt = (int)$result;
+    $query = "SELECT COUNT(*) FROM members WHERE m_tel = '{$userPhone}'";
+    $Result = $_mysqli->query($query);
+    $usercnt = mysqli_fetch_row($Result);
+    $cnt = $usercnt[0];
 }
 
 if($m_sns_id!=""){
@@ -56,7 +57,7 @@ try {
 <form id="loginFrm" name="loginFrm" method="post" action="<?=$action?>">
     <input type="hidden" name="m_sns_type" id="m_sns_type" value="<?=$m_sns_type ?>"/>
     <input type="hidden" name="m_sns_id" id="m_sns_id" value="<?=$m_sns_id?>"/>
-
+    <input type="hidden" name="userPhone" id="userPhone" value="<?=$userPhone?>"/>
 <div id="wrap" class="member">
     <!--content-->
     <div id="content">
@@ -79,7 +80,7 @@ try {
                     <p class="sub-txt">
                         본인 인증이 완료 되었습니다.
                     </p>
-                    <button type="submit" class="btn-blue btn-6" >다음</button>
+                    <button type="submit" class="btn-blue btn-6" onclick="next()" >다음</button>
                 </div>
             </div>
         </section>

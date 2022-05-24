@@ -4,6 +4,7 @@ require_once __DIR__ .'/../_inc/config.php';
 
 
 $q      = isset($_GET['q'])     ? $_GET['q']    : '';
+$userPhone      = !empty($_POST['userPhone'])           ? strtoupper($_POST['userPhone'])         : '';
 
 //파라미터 체크
 if (empty($q)) {
@@ -72,10 +73,11 @@ try {
                         <?php
                         }
                         ?>
-                        <div class="input-box">
+                        <!--<div class="input-box">
                             <label for="">연락처</label>
                             <input type="text" name="m_tel" id="m_tel" placeholder="전화번호를 입력해주세요.">
-                        </div>
+                            <textarea><?/*=$userPhone*/?></textarea>
+                        </div>-->
                         <div class="input-radio">
                             <span>성별</span>
                             <div class="radio-wrap">
@@ -122,11 +124,7 @@ try {
             $("#m_b_year").focus();
             return false;
         }
-        if ($.trim($("#m_tel").val()) == "") {
-            alert("전화번호를 입력해 주세요.");
-            $("#m_tel").focus();
-            return false;
-        }
+
         var sex = $('input[name=sex]:checked').val();
 
         if (sex == "") {
@@ -136,14 +134,12 @@ try {
         var <?=$arrVal[0]?>=$("#<?=$arrVal[0]?>").val();
         var m_name=$("#m_name").val();
         var m_b_year=$("#m_b_year").val();
-        var m_tel=$("#m_tel").val();
 
 
         var postData = {
             "<?=$arrVal[0]?>": <?=$arrVal[0]?>,
             "m_name": m_name,
             "m_b_year": m_b_year,
-            "m_tel": m_tel,
             "sex": sex
         };
 

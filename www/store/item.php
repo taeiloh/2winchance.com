@@ -6,7 +6,6 @@ $idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 �
 $fp=!empty($_SESSION['_se_fp']) ? $_SESSION['_se_fp'] : 0; // fantasy-point 잔액
 
 try {
-
     $query2 = "
     SELECT *
         FROM members
@@ -16,6 +15,7 @@ try {
     $_arrMembers = $mresult->fetch_array();
 
     $m_deposit = !empty($_arrMembers['m_deposit']) ? $_arrMembers['m_deposit'] : '';
+    $m_deposit = (int)$m_deposit;
 
     $page = !empty($_GET['page']) ? $_GET['page'] : 1;
 
@@ -41,7 +41,7 @@ try {
         LIMIT {$from_record}, {$rows}
     ";
 
-    $result = $_mysqli->query($query);
+    $result2 = $_mysqli->query($query);
 } catch (Exception $e) {
     p($e);
 }
@@ -80,7 +80,7 @@ try {
                 <div class="contents-cont inner">
                     <div class="current-coin">
                         <ul class="coin-list">
-                            <li>보유코인</li>
+                            <li>보유 캐시</li>
                             <li class="fc-yellow"><span></span><?=number_format($m_deposit)?><span class="fc-yellow">ⓒ</span></li>
                         </ul>
                         <ul class="coin-input">
@@ -89,6 +89,9 @@ try {
                             <li><label><input type="radio" name="type" value="type2">편의형</label></li>
                             <li><label><input type="radio" name="type" value="type3">스페셜</label></li>
                         </ul>
+                        <p>본 아이템은 마이페이지의 프로필 변경을 통해 적용 가능합니다. <br/> <br/>
+                            사용자간 거래가 불가하며 중복 보유 가능합니다.</p>
+                        <p class="fc-yellow event-list fs-28 bold mT30" id="buy_cash">사용 캐시 <span>ⓒ</span></p>
                         <button class="btn-blue btn-8" onclick="buy()">구매하기</button>
                     </div>
 
@@ -100,29 +103,21 @@ try {
                             <?php
                             if($total_count > 0){
                                 $i=0;
-                                while($_db = $result -> fetch_assoc()){
+                                while($_db = $result2 -> fetch_assoc()){
                                     $i_price = $_db['i_price'];
                                     $i_type = $_db['i_type'];
                                     $i_fp = $_db['i_fp'];
                                     $i_src = $_db['i_src'];
                                     $i_name = $_db['i_name'];
                                     $i_num = $_db['i_num'];
-                                    $i_status = $_db['i_status'];
                                     $i++;
                                     $no=$total_count-($i+($page-1)*$rows);
                                     if($i==1){?>
-                                        <li class = "active">
-                                            <a href="javascript:void(0);" data-item = "<?=$i_num?>" data-price ="<?=$i_price?>" data-fp="<?=$i_fp?>">
+                                        <li>
+                                            <a href="javascript:void(0);" data-item = "<?=$i_num?>" data-price ="<?=$i_price?>" data-fp="<?=$i_fp?>" data-src ="<?=$i_src?>">
                                                 <div class="item-pic">
                                                     <img src="<?=$i_src?>" alt="">
-                                                    <?php
-                                                    if($i_status == 1){?>
-                                                        <p class="get-point">SOLD OUT</p>
-                                                    <?php
-                                                    } else{?>
-                                                        <p class="get-point fp">+<?=$i_fp?></p>
-                                                    <?php
-                                                    }?>
+                                                        <p class="get-point fp" id="SOLD_OUT<?=$i_num?>">+<?=$i_fp?></p>
                                                 </div>
                                                 <div class="cash-item-desc">
                                                     <p><?=$i_name?></p>
@@ -130,39 +125,40 @@ try {
                                                 </div>
                                             </a>
                                         </li>
-                                    <?php
-                                    }else{
-                                    ?>
-                                        <li>
-                                    <a href="javascript:void(0);" data-item = "<?=$i_num?>" data-price ="<?=$i_price?>" data-fp="<?=$i_fp?>">
-                                    <div class="item-pic">
-                                        <img src="<?=$i_src?>" alt="">
                                         <?php
-                                        if($i_status == 1){?>
-                                            <p class="get-point">SOLD OUT</p>
-                                            <?php
-                                        } else{?>
-                                            <p class="get-point fp">+<?=$i_fp?></p>
-                                            <?php
-                                        }?>
-                                    </div>
-                                    <div class="cash-item-desc">
-                                        <p><?=$i_name?></p>
-                                        <span><?=$i_price?><span class="fc-yellow">ⓒ</span></span>
-                                    </div>
-                                    </a>
+                                    }else{
+                                        ?>
+                                        <li>
+                                            <a href="javascript:void(0);" data-item = "<?=$i_num?>" data-price ="<?=$i_price?>" data-fp="<?=$i_fp?>" data-src ="<?=$i_src?>">
+                                                <div class="item-pic">
+                                                    <img src="<?=$i_src?>" alt="">
+                                                    <p class="get-point fp" id="SOLD_OUT<?=$i_num?>">+<?=$i_fp?></p>
+                                                   <!-- <?php
+/*                                                    if($i_status == 1){*/?>
+                                                        <p class="get-point" id="SOLD_OUT<?/*=$i_num*/?>">SOLD OUT</p>
+                                                        <?php
+/*                                                    } else{*/?>
+                                                        <p class="get-point fp" id="SOLD_OUT<?/*=$i_num*/?>">+<?/*=$i_fp*/?></p>
+                                                        --><?php
+/*                                                    }*/?>
+                                                </div>
+                                                <div class="cash-item-desc">
+                                                    <p><?=$i_name?></p>
+                                                    <span><?=$i_price?><span class="fc-yellow">ⓒ</span></span>
+                                                </div>
+                                            </a>
                                         </li>
-                            <?php
+                                        <?php
                                     }
                                 }
                             }
                             else{?>
-                            <div class="store-item-list prepare" id="sp" style="display: none;">
-                                <p>제품 준비중</p>
-                            </div>
-                            <?php
+                                <div class="store-item-list prepare" id="sp" style="display: none;">
+                                    <p>제품 준비중</p>
+                                </div>
+                                <?php
                             }
-                            $result->free();
+                            $result2->free();
                             ?>
                         </ul>
                     </div>
@@ -197,6 +193,7 @@ try {
         var buy_item_id = 0;
         var buy_item_price =0;
         var buy_item_fp=0;
+        var buy_item_src='';
         $(function(){
             $('input[type=radio][name=type]').change(function() {
                 if (this.value == 'type1') {
@@ -213,57 +210,69 @@ try {
                 var item_id = $(this).data('item');
                 var item_price = $(this).data('price');
                 var item_fp = $(this).data('fp');
+                var item_src = $(this).data('src');
                 $('ul.buy-item-list li').removeClass('active');
                 $(this).parent('li').addClass('active');
+                $("#buy_cash").html("사용 캐시 &nbsp&nbsp&nbsp&nbsp&nbsp"+item_price+" <span>ⓒ</span>");
+
+
                 buy_item_id = item_id;
                 buy_item_price = item_price;
                 buy_item_fp = item_fp;
+                buy_item_src = item_src;
             })
         })
 
         function buy(){
             if(confirm("해당아이템을 구매하시겠습니까?"))
             {
-                if(buy_item_id > 0 ){
-                    var postData = {
-                        "m_num": buy_item_id,
-                        "price": buy_item_price,
-                        "fp":buy_item_fp
-                    };
-                    $.ajax({
-                        url: "insert_item.php",
-                        type: "POST",
-                        async: false,
-                        data: postData,
-                        success: function (data) {
-                            //console.log(data);
-                            var json = JSON.parse(data);
-                            //console.log(json);
-                            if (json.code == 200) {
-                                alert(json.msg);
-                            }else{
-                                alert(json.msg);
+                if(<?=$m_deposit?> > buy_item_price) {
+                    if (buy_item_id > 0) {
+                        var postData = {
+                            "m_num": buy_item_id,
+                            "price": buy_item_price,
+                            "fp": buy_item_fp,
+                            "i_src": buy_item_src
+                        };
+                        $.ajax({
+                            url: "insert_item.php",
+                            type: "POST",
+                            async: false,
+                            data: postData,
+                            success: function (data) {
+                                //console.log(data);
+                                var json = JSON.parse(data);
                                 //console.log(json);
+                                if (json.code == 200) {
+                                    /*$("#SOLD_OUT" + buy_item_id).text('SOLD OUT');
+                                    $("#SOLD_OUT" + buy_item_id).removeClass('fp');*/
+                                    alert(json.msg);
+                                } else {
+                                    alert(json.msg);
+                                    //console.log(json);
+                                }
+                            },
+                            beforeSend: function () {
+                                $(".wrap-loading").removeClass("display-none");
+                            },
+                            complete: function () {
+                                $(".wrap-loading").addClass("display-none");
+                            },
+                            error: function (jqXHR, textStatus, errorThrown) {
+                                console.log(textStatus, errorThrown);
                             }
-                        },
-                        beforeSend:function(){
-                            $(".wrap-loading").removeClass("display-none");
-                        },
-                        complete:function(){
-                            $(".wrap-loading").addClass("display-none");
-                        },
-                        error: function (jqXHR, textStatus, errorThrown) {
-                            console.log(textStatus, errorThrown);
-                        }
-                    });
+                        });
+                    } else {
+                        alert("구매하실 아이템을 선택하여주세요");
+                    }
                 }
                 else{
-                    alert("구매하실 아이템을 선택하여주세요");
+                    alert("보유코인이 부족합니다");
                 }
             }
             else
             {
-               alert("구매가 취소되었습니다.");
+                alert("구매가 취소되었습니다.");
             }
         }
     </script>

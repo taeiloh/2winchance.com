@@ -55,7 +55,7 @@ try{
         LIMIT {$from_record}, {$rows}
     ";
 
-    $result = $_mysqli->query($query);
+    $result1 = $_mysqli->query($query);
 
 }catch (mysqli_sql_exception $e){
     $arrRtn['code']     = $e->getCode();
@@ -110,7 +110,7 @@ try{
 <!--                        <li class="active"><a href="javascript:void(0)">1 : 1 HISTORY</a></li>-->
 <!--                        <li><a href="javascript:void(0)">CASH HISTORY</a></li>-->
 <!--                        <li><a href="javascript:void(0)">FP HISTORY</a></li>-->
-<!--                        <li><a href="javascript:void(0)">HOW TO PLAY</a></li>-->
+<!--                        <li><a href="javascript:void(0)">게임 가이드</a></li>-->
 <!--                    </ul>-->
 <!--                </div>-->
                 <div class="contents-cont inner">
@@ -133,7 +133,7 @@ try{
                         <?php
                             if($total_count > 0){
                                 $i = -1;
-                                while ($dbCu = $result->fetch_assoc()) {
+                                while ($dbCu = $result1->fetch_assoc()) {
                                     $cu_seq  = empty(!$dbCu['cu_idx']) ? $dbCu['cu_idx'] : '';
                                     $cu_date = empty(!$dbCu['regdate']) ? $dbCu['regdate'] : '';
                                     $cu_title = empty(!$dbCu['cu_subject']) ? $dbCu['cu_subject'] : '';
@@ -162,72 +162,6 @@ TR;
 TR;
                             }
                         ?>
-<!--                        <tr>-->
-<!--                            <td>1</td>-->
-<!--                            <td>2022-1-03-04 13:25:49</td>-->
-<!--                            <td>플레이 버튼을 눌러도 게임에 참여가 안됩니다.</td>-->
-<!--                            <td class="done">상담완료</td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>2</td>-->
-<!--                            <td>2022-1-03-04 13:25:49</td>-->
-<!--                            <td>사이트가 자꾸 튕깁니다.</td>-->
-<!--                            <td class="wait">대기중</td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>3</td>-->
-<!--                            <td>2022-1-03-04 13:25:49</td>-->
-<!--                            <td>상점에서 엠블렘을 샀는데 메뉴에는 안떠요ㅠㅠ</td>-->
-<!--                            <td class="done">상담완료</td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>4</td>-->
-<!--                            <td>2022-1-03-04 13:25:49</td>-->
-<!--                            <td>상점에서 엠블렘을 샀는데 메뉴에는 안떠요ㅠㅠ</td>-->
-<!--                            <td class="wait">대기중</td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>5</td>-->
-<!--                            <td>2022-1-03-04 13:25:49</td>-->
-<!--                            <td></td>-->
-<!--                            <td class="wait">대기중</td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>6</td>-->
-<!--                            <td>2022-1-03-04 13:25:49</td>-->
-<!--                            <td></td>-->
-<!--                            <td class="done">상담완료</td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>7</td>-->
-<!--                            <td>2022-1-03-04 13:25:49</td>-->
-<!--                            <td></td>-->
-<!--                            <td class="wait">대기중</td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>8</td>-->
-<!--                            <td>2022-1-03-04 13:25:49</td>-->
-<!--                            <td></td>-->
-<!--                            <td></td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>9</td>-->
-<!--                            <td>2022-1-03-04 13:25:49</td>-->
-<!--                            <td></td>-->
-<!--                            <td></td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>10</td>-->
-<!--                            <td>2022-1-03-04 13:25:49</td>-->
-<!--                            <td></td>-->
-<!--                            <td></td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>11</td>-->
-<!--                            <td>2022-1-03-04 13:25:49</td>-->
-<!--                            <td></td>-->
-<!--                            <td></td>-->
-<!--                        </tr>-->
                         </tbody>
                     </table>
                 </div>

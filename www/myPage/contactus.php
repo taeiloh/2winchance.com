@@ -57,7 +57,7 @@ if (!$idx) {
 <!--                        <li class="active"><a href="javascript:void(0)">1 : 1 HISTORY</a></li>-->
 <!--                        <li><a href="javascript:void(0)">CASH HISTORY</a></li>-->
 <!--                        <li><a href="javascript:void(0)">FP HISTORY</a></li>-->
-<!--                        <li><a href="javascript:void(0)">HOW TO PLAY</a></li>-->
+<!--                        <li><a href="javascript:void(0)">게임 가이드</a></li>-->
 <!--                    </ul>-->
 <!--                </div>-->
                 <div class="contents-cont inner qna-wrap">
@@ -122,9 +122,10 @@ if (!$idx) {
                                 <!--                                    <br>-->
                                 <!--                                    <input type="submit" value="Submit">-->
                             </form>
-                            <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-                                    async defer>
-                            </script>
+
+<!--                            <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>-->
+<!---->
+<!--                            <div id="g-recaptcha"></div>-->
                         </div>
                         <div class="btn-center mT50">
                             <button type="button" class="btn-blue" onclick="saveBtn()">저장</button>
@@ -178,8 +179,22 @@ if (!$idx) {
                 return false;
             }
 
+            var text = $("#cuMail").val();
+            var regEmail = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+            if (regEmail.test(text) === false) {
+                alert('이메일 형식이 아닙니다.');
+                $("#cuMail").focus();
+                return false;
+            }
+
             if ($.trim($("#cuSubject").val()) == "") {
                 alert("제목을 입력해 주세요.");
+                $("#cuSubject").focus();
+                return false;
+            }
+
+            if ($.trim($("#cuSubject").val().length) < 10) {
+                alert("10자 이상의 내용을 작성해주세요.");
                 $("#cuSubject").focus();
                 return false;
             }
@@ -221,6 +236,7 @@ if (!$idx) {
                 }
             });
         }
+
 
     </script>
 </div>
