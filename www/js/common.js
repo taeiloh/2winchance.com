@@ -32,9 +32,9 @@ $(function(){
     })
 
     // 선택 플레이어 삭제
-    $(".btn-delete").click(function(){
-        $(this).parents('li').remove();
-    })
+    // $(".btn-delete").click(function(){
+    //     $(this).parents('li').remove();
+    // })
 
     // 콘텐츠 테이블 - 아코디언
     $(".fold-table tr.view").on("click", function(){
