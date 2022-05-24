@@ -11,6 +11,7 @@ $id=!empty($_SESSION['_se_id']) ? $_SESSION['_se_id'] : "";        // 세션 아
 $name=!empty($_SESSION['_se_name']) ? $_SESSION['_se_name'] : "";    // 세션 닉네임
 //$deposit=!empty($_SESSION['_se_deposit']) ? $_SESSION['_se_deposit'] : 0;    // 세션 포인트
 
+
 $query = "
     SELECT *
         FROM members
@@ -19,16 +20,17 @@ $query = "
 $mresult = $_mysqli->query($query);
 $_arrMembers = $mresult->fetch_array();
 $m_deposit = !empty($_arrMembers['m_deposit']) ? $_arrMembers['m_deposit'] : 0;
+$m_fpbalance =!empty($_arrMembers['m_fp_balance']) ? $_arrMembers['m_fp_balance'] : 0;
 
-$queryfp = "
-    SELECT *
-        FROM fantasy_point_history
-    WHERE 1 and fph_m_idx ='{$idx}'
-    ";
-
-$fpresult = $_mysqli->query($queryfp);
-$fpdb = $fpresult->fetch_array();
-$m_fp = !empty($fpdb['fph_balance']) ? $fpdb['fph_balance'] : 0;
+//$queryfp = "
+//    SELECT *
+//        FROM fantasy_point_history
+//    WHERE 1 and fph_m_idx ='{$idx}'
+//    ";
+//
+//$fpresult = $_mysqli->query($queryfp);
+//$fpdb = $fpresult->fetch_array();
+//$m_fp = !empty($fpdb['fph_balance']) ? $fpdb['fph_balance'] : 0;
 
 
 //변수 정리
@@ -146,7 +148,7 @@ $main_src = !empty($main['i_src']) ? $main['i_src']:'';
                 <div class="user-info">
                     <p class="nickname"><?=$name?></p>
                     <div class="charge">
-                        <p><?=number_format($m_fp)?></p>
+                        <p><?=number_format($m_fpbalance)?></p>
                         <button type="button" class="charge-btn" onclick="location.href='../store/'">충전</button>
                     </div>
                     <div class="mypage">
