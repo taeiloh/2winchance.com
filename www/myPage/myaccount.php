@@ -242,6 +242,7 @@ try {
                                                 <a href="javascript:void(0);" data-item = "<?=$i_num?>" data-src = "<?=$i_src?>" >
                                                     <img src="<?=$i_src?>" alt="">
                                                 </a>
+                                                <span class="item-count">22</span>
                                             </li>
                                             <?php
                                         }else{
