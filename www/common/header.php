@@ -140,7 +140,7 @@ $main_src = !empty($main['i_src']) ? $main['i_src']:'';
                     <img src="<?=$main_src?>" alt="유저 프로필 사진">
                     <?php
                     }else{?>
-                        <p>대표엠블렘이없습니다.</p>
+                        <img src="../images/@thumb_player_default.png" alt="유저 프로필 기본 사진">
                     <?php
                     }
                     ?>
