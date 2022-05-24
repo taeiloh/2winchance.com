@@ -152,6 +152,10 @@ try {
                 if (json.code == 200) {
                     $("#m_idx").val(json.id);
                     $("#loginFrm").submit();
+                }else if (json.code == 201){
+                    alert(json.msg);
+                    $("#m_idx").val(json.id);
+                    $("#loginFrm").submit();
                 }else{
                     alert(json.msg);
                 }
