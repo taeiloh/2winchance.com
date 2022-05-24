@@ -85,6 +85,35 @@ try {
     ";
     $result3 = $_mysqli->query($query3);
 
+    $query3c  = "
+    SELECT count(*) FROM m_item INNER JOIN item ON i_num = m_num and m_idx = '{$idx}'";
+    $result3c = mysqli_query($_mysqli, $query3c);
+    $row3c   = mysqli_fetch_row($result3c);
+    $r3c= $row3c[0]; //전체갯수
+
+
+
+    $query3_1  = "
+    SELECT m_num FROM m_item INNER JOIN item ON i_num = m_num and m_idx = '{$idx}'";
+    $result3_1 = $_mysqli->query($query3);
+    $i_num_a="";
+    for($i=0;$row=mysqli_fetch_array($result3_1);$i++){
+        if($r3c<$i){
+            $i_num_a .="'".$row['m_num']."',";
+        }else{
+            $i_num_a .="'".$row['m_num']."'";
+        }
+
+    }
+
+
+    $query3_2  = "
+        SELECT *
+        FROM  item where 1=1 and i_num NOT IN ({$i_num_a})
+    ";
+    $result3_2 = $_mysqli->query($query3);
+
+
     $query4 = "SELECT i_src FROM m_item WHERE main_emblem =1 and m_idx = '{$idx}'";
     $result4 = $_mysqli->query($query4);
     $main = $result4 ->fetch_array();
@@ -264,6 +293,48 @@ try {
                                 }
                                 $result3->free();
                                 ?>
+                                <?php
+                                if($total_count > 0){
+                                    $i=0;
+                                    while($_db = $result3_2 -> fetch_assoc()){
+                                        $i_price = $_db['i_price'];
+                                        $i_type = $_db['i_type'];
+                                        $i_fp = $_db['i_fp'];
+                                        $i_src = $_db['i_src'];
+                                        $i_name = $_db['i_name'];
+                                        $i_num = $_db['i_num'];
+                                        $m_num = $_db['m_num'];
+                                        $i++;
+                                        $no=$total_count-($i+($page-1)*$rows);
+                                        if($i==1){?>
+                                            <li>
+                                                <a href="javascript:void(0);" data-item = "<?=$i_num?>" data-src = "<?=$i_src?>" >
+                                                    <img src="<?=$i_src?>" alt="">
+                                                </a>
+                                                <span class="item-count">22</span>
+                                            </li>
+                                            <?php
+                                        }else{
+                                            ?>
+                                            <li>
+                                                <a href="javascript:void(0);" data-item = "<?=$i_num?>" data-src = "<?=$i_src?>">
+                                                    <img src="<?=$i_src?>" alt="">
+                                                </a>
+                                            </li>
+                                            <?php
+                                        }
+                                    }
+                                }
+                                else{?>
+                                    <div class="store-item-list prepare" id="sp" style="display: none;">
+                                        <p>제품 준비중</p>
+                                    </div>
+                                    <?php
+                                }
+                                $result3_2->free();
+                                ?>
+
+
                             </ul>
                         </div>
 
