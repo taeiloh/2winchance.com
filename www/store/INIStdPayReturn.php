@@ -68,7 +68,7 @@ try {
 
     $dh_deposit = !empty($resultMap["TotPrice"]) ? $resultMap["TotPrice"] : "";
     $dh_amount = !empty($resultMap["goodsName"]) ? $resultMap["goodsName"] : "";
-    $dh_amount = (int)str_replace('C','', $dh_amount);
+    //$dh_amount = (int)str_replace('C','', $dh_amount);
     $dh_pay_key = !empty($resultMap["tid"]) ? $resultMap["tid"] : "";
     $dh_content = !empty($resultMap["resultMsg"]) ? $resultMap["resultMsg"] : "";
     $dh_pay_key = !empty($resultMap["tid"]) ? $resultMap["tid"] : "";
@@ -76,11 +76,45 @@ try {
     if($m_limit_deposit != 0){
 
     }
+    $dh_amount1 = 0;
+    switch ($dh_amount){
+        case '100C' :
+            $dh_amount1 = 100;
+            break;
+        case '200C' :
+            $dh_amount1 = 200;
+            break;
+        case '500C' :
+            $dh_amount1 = 500;
+            break;
+        case '웰컴팩' :
+            $dh_amount1 = 100;
+            break;
+        case '아머 이건1' :
+            $dh_amount1 = 210;
+            break;
+        case '아머 이건2' :
+            $dh_amount1 = 230;
+            break;
+        case '아머 이건3' :
+            $dh_amount1 = 3220;
+            break;
+        case '아머 이건4' :
+            $dh_amount1 = 8050;
+            break;
+        case '보너스 팩' :
+            $dh_amount1 = 8050;
+            break;
+        case '월 구독' :
+            $dh_amount1 = 10;
+            break;
+    }
+
 
     $sql  = " insert into  deposit_history
         (dh_u_idx, dh_deposit, dh_amount, dh_paymethod ,dh_pay_key, dh_content, dh_condition,dh_balance,  dh_req_date)
     VALUES
-        ('{$idx}','{$dh_deposit}','{$dh_amount}',1,'{$dh_pay_key}', '{$dh_content}',1 , $m_deposit,  now())";
+        ('{$idx}','{$dh_deposit}','{$dh_amount1}',1,'{$dh_pay_key}', '{$dh_content}',1 , $m_deposit,  now())";
     //echo $sql;
     //exit;
     $result1 = mysqli_query($_mysqli, $sql);
@@ -91,7 +125,7 @@ try {
         exit;
     }else{
         $sql = " update members set    
-            m_deposit=m_deposit+{$dh_amount}
+            m_deposit=m_deposit+{$dh_deposit}
             where 1=1
                 and m_idx='{$idx}'
         ";

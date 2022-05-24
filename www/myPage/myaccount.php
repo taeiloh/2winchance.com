@@ -60,6 +60,16 @@ try {
     $dbhp = $hpresult->fetch_assoc();
     $hp = !empty($dbhp['hph_balance']) ? $dbhp['hph_balance'] : 0;
 
+    //dh_amount 총합
+    $querycoin = "
+        SELECT sum(dh_amount) as total_amount FROM deposit_history
+        WHERE 1 AND dh_u_idx = '{$idx}'
+   ";
+    $resultcoin = $_mysqli->query($querycoin);
+    $_arrCoin = $resultcoin->fetch_array();
+    $total_coin = !empty($_arrCoin['total_amount']) ? $_arrCoin['total_amount'] : 0;
+    print $total_coin;
+
 
     $page = !empty($_GET['page']) ? $_GET['page'] : 1;
 
@@ -246,7 +256,7 @@ try {
                         <div class="user-detail-info">
                             <h3>상세정보</h3>
                             <ul>
-                                <li><p>캐시</p><span class="fc-yellow coin"><?=number_format($m_deposit)?></span></li>
+                                <li><p>캐시</p><span class="fc-yellow coin"><?=number_format($total_coin)?></span></li>
                                 <li><p>파이트 포인트</p><span class="fp"><?=number_format($m_fp)?></span></li>
                                 <!--                                <li><p>명예 포인트</p><span class="hp">--><?//=$dbhp['pg_amount']?><!--</span></li>-->
                                 <li><p>명예 포인트</p><span class="hp"><?=number_format($hp)?></span></li>
