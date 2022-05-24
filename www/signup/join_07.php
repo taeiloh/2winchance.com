@@ -124,11 +124,7 @@ try {
             $("#m_b_year").focus();
             return false;
         }
-        if ($.trim($("#m_tel").val()) == "") {
-            alert("전화번호를 입력해 주세요.");
-            $("#m_tel").focus();
-            return false;
-        }
+
         var sex = $('input[name=sex]:checked').val();
 
         if (sex == "") {
