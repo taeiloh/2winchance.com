@@ -310,7 +310,7 @@ try {
                                         $i_num = $_db['i_num'];
                                         $no=$total_count-($i+($page-1)*$rows);
                                        ?>
-                                            <li>
+                                            <li class="disabled">
                                                 <a href="javascript:void(0);" data-item = "<?=$i_num?>" data-src = "<?=$i_src?>" >
                                                     <img src="<?=$i_src?>" alt="">
                                                 </a>
@@ -588,6 +588,7 @@ try {
                         console.log(json);
                         if (json.code == 200) {
                             alert(json.msg);
+                            location.reload();
                         } else {
                             alert(json.msg);
                             console.log(json);
