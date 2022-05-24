@@ -68,7 +68,7 @@ try {
                         </p>
                     </div>
                     <div class="confirm-wrap">
-                        <button type="button" class="btn-red btn-6">동의 및 본인인증</button>
+                        <button type="button" class="btn-red btn-6" onclick="next()">동의 및 본인인증</button>
                     </div>
                 </div>
             </div>
