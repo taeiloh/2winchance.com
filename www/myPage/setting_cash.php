@@ -126,7 +126,7 @@ try {
                                         </div>
                                     </div>
                                 </div>
-                                <button type="button" class="btn-blue btn-6 mT50">저장</button>
+                                <button type="button" class="btn-blue btn-6 mT50" onclick="save()">저장</button>
                                 <span class="save-alert save">정보 저장이 성공적으로 완료 되었습니다.</span>
                                 <!-- <span class="save-alert error">정보 저장에 실패 하였습니다. 다시 시도하여 주시기 바랍니다..</span> -->
 

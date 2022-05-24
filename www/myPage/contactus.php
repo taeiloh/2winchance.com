@@ -122,9 +122,10 @@ if (!$idx) {
                                 <!--                                    <br>-->
                                 <!--                                    <input type="submit" value="Submit">-->
                             </form>
-                            <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-                                    async defer>
-                            </script>
+
+<!--                            <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>-->
+<!---->
+<!--                            <div id="g-recaptcha"></div>-->
                         </div>
                         <div class="btn-center mT50">
                             <button type="button" class="btn-blue" onclick="saveBtn()">저장</button>
@@ -221,6 +222,7 @@ if (!$idx) {
                 }
             });
         }
+
 
     </script>
 </div>
