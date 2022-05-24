@@ -1143,7 +1143,46 @@ DIV;
                                 <?php
                                 foreach ($pos['pos'] as $key=>$value) {
                                     echo <<<LI
+
+                                <!-- TODO 20220524 syryu 아래 영역은 선택 전디폴트 화면 입니다. -->
                                 <li class="player-info">
+                                    <div class="player-img">
+                                        <p style="background-image: url("../images/icon_01.png");">오더</p>
+                                    </div>
+
+                                    <div class="player-skill">
+                                        <div class="skill-top">
+                                            <div class="name">
+                                                <h2><span class="fc-blue">Team</span>Player Name</h2>
+                                                <p class="player-money">$00,000</p>
+                                            </div>
+                                            <table class="border-table">
+                                                <colgroup>
+                                                    <col>
+                                                    <col>
+                                                    <col>
+                                                    <col>
+                                                </colgroup>
+                                                <tbody><tr>
+                                                    <th>최근 경기</th>
+                                                    <th>순위</th>
+                                                    <th>킬 수</th>
+                                                    <th>HP</th>
+                                                </tr>
+                                                <tr>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                </tr>
+                                            </tbody></table>
+                                        </div>
+                                    </div>
+
+                                    <button type="button" class="btn-delete">삭제</button>
+                                </li>
+                                <!-- TODO 20220524 syryu 아래 영역은 선수 선택 후 값이 들어오는 화면입니다. -->
+                                <!--li class="player-info">
                                     <div class="player-img">
                                         <img src="../images/img_player.png" width="80" alt="이상혁 프로필 사진">
                                     </div>
@@ -1176,7 +1215,8 @@ DIV;
                                         </div>
                                     </div>
                                     <button type="button" class="btn-delete">삭제</button>
-                                </li>
+                                </li -->
+
 LI;
                                 }
                                 ?>
