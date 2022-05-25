@@ -134,13 +134,15 @@ try {
         var m_sns_id=$("#m_sns_id").val();
         var m_id=$("#m_id").val();
         var m_pw=$("#m_pw").val();
+        var m_tel=$('#userPhone').val();
 
 
         var postData = {
             "m_sns_type": m_sns_type,
             "m_sns_id": m_sns_id,
             "m_id": m_id,
-            "m_pw": m_pw
+            "m_pw": m_pw,
+            "m_tel": m_tel
         };
 
         $.ajax({
