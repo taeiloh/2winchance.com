@@ -44,6 +44,9 @@ try{
                      ('{$idx}','0','-{$price}','0','Buy item', 'item', '1', '0',now(),now())";
             $result2 = $_mysqli->query($query2);
 
+            $query3 = "UPDATE members SET m_fp_balance = m_fp_balance + '{$fp}' WHERE m_idx = '{$idx}'";
+            $result3 = $_mysqli->query($query3);
+
             /*$query3 = "UPDATE item SET i_status = 1 where i_num = '{$m_num}'";
             $result3 = $_mysqli->query($query3);*/
 

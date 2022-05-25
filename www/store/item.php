@@ -12,10 +12,7 @@ try {
         WHERE 1 and m_idx ='{$idx}'
     ";
     $mresult = $_mysqli->query($query2);
-    /*$_arrMembers = $mresult->fetch_array();
 
-    $m_deposit = !empty($_arrMembers['m_deposit']) ? $_arrMembers['m_deposit'] : '';
-    $m_deposit = (int)$m_deposit;*/
     //dh_amount 총합
     $querycoin = "
         SELECT sum(dh_amount) as total_amount FROM deposit_history
