@@ -198,3 +198,14 @@ $filter = "18,588,18sex,18x,2wc,2winchace,3썸,갈보,갓양남,강간,강추야
 
 
 }
+
+//로그인 체크
+function check_login($idx) {
+    if (!$idx) {
+        $url    = $_SERVER['REQUEST_URI'];
+        $msg    = '로그인 페이지로 이동합니다.';
+        $url    = '/login/index.php?rtnUrl='. $url;
+        alertReplace($msg, $url);
+        exit;
+    }
+}

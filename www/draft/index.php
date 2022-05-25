@@ -4,6 +4,7 @@ require_once __DIR__ .'/../_inc/config.php';
 
 // 파라미터
 $idx        = !empty($_GET['index'])        ? $_GET['index']        : 0;
+$m_idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 시퀀스
 
 $query  = "
     SELECT * FROM game
@@ -17,7 +18,7 @@ if (!$result) {
 
 }
 $db = $result->fetch_assoc();
-p($db);
+//p($db);
 $pos    = json_decode($db['gc_pos'], true);
 ?>
 <!doctype html>

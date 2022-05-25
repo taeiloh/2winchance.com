@@ -7,7 +7,7 @@ try {
 
     // 세션 정리
     $_se_idx        = !empty($_SESSION['_se_idx'])      ? $_SESSION['_se_idx']      : 0;
-
+    check_login($_se_idx);
     // 변수 정리
     $where      = '';
 
@@ -83,6 +83,37 @@ try {
                         </thead>
                         <tbody>
                         <?php
+                        /*
+                        // 콘테스트
+                        $query  = "
+                            SELECT
+                                join_contest.*,
+                                game.*,
+                                game_category.gc_name
+                            FROM
+                            (
+                                SELECT
+                                    jc_idx
+                                FROM join_contest
+                                WHERE 1=1
+                                    AND jc_u_idx = {$_se_idx}
+                            ) b INNER JOIN join_contest
+                                ON join_contest.jc_idx = b.jc_idx
+                            LEFT JOIN lineups
+                                ON lu_idx = jc_lineups
+                            LEFT JOIN game
+                                ON g_idx = jc_game
+                            LEFT JOIN game_category
+                                ON gc_idx = g_sport
+                            LEFT JOIN members
+                                ON m_idx = lu_u_idx
+                            WHERE 1=1
+                                AND lu_u_idx = {$_se_idx}
+                                {$where}
+                            GROUP BY jc_game
+                            ORDER BY g_date DESC, jc_result DESC
+                        ";
+                        */
                         // 콘테스트
                         $query  = "
                             SELECT 
@@ -110,7 +141,7 @@ try {
                                 AND lu_u_idx = {$_se_idx} 
                                 {$where} 
                             GROUP BY jc_game 
-                            ORDER BY g_date DESC, jc_result DESC
+                            
                         ";
                         //p($query);
                         $result = $_mysqli->query($query);

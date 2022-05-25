@@ -5,7 +5,7 @@ require_once __DIR__ .'/../_inc/config.php';
 try {
     // 세션 정리
     $_se_idx        = !empty($_SESSION['_se_idx'])      ? $_SESSION['_se_idx']      : 0;
-
+    check_login($_se_idx);
     // 변수 정리
     $where      = '';
 
