@@ -27,8 +27,21 @@ try {
     $m_sns_type = !empty($_arrMembers['m_sns_type']) ? $_arrMembers['m_sns_type'] : '';
     $m_fp_limit = !empty($_arrMembers['m_fp_limit']) ? $_arrMembers['m_fp_limit'] : 0;
     $m_time_reset = !empty($_arrMembers['reset_time']) ? $_arrMembers['reset_time'] : 0;
-    $m_limit_deposit = !empty($_arrMembers['m_limit_deposit']) ? $_arrMembers['m_limit_deposit'] : 500000;
-    $m_day_deposit = !empty($_arrMembers['m_day_deposit']) ? $_arrMembers['m_day_deposit'] : 300000;
+    //$m_limit_deposit = !empty($_arrMembers['m_limit_deposit']) ? $_arrMembers['m_limit_deposit'] : 500000;
+    //$m_day_deposit = !empty($_arrMembers['m_day_deposit']) ? $_arrMembers['m_day_deposit'] : 300000;
+    $m_deposit =  !empty($_arrMembers['m_deposit']) ? $_arrMembers['m_deposit'] : 0;
+
+    $query3 = " 
+        SELECT sum(dh_deposit) as total_deposit, DATE_FORMAT(dh_req_date, '%Y%m%d') FROM deposit_history
+        WHERE 1 AND dh_u_idx='{$idx}'
+        GROUP BY DATE_FORMAT(dh_req_date, '%Y%m%d')
+    ";
+    $dayresult = $_mysqli->query($query3);
+    $_arrDeposit = $dayresult->fetch_array();
+    $day_limit = !empty($_arrDeposit['total_deposit']) ? $_arrDeposit['total_deposit'] : 0;
+    print $day_limit;
+
+
 
 }catch (Exception $e) {
     p($e);
@@ -74,8 +87,8 @@ try {
                                 <div class="money-limit">
                                     <h3>캐시 구매 잔여 한도 내역</h3>
                                     <div class="limit-days">
-                                        <p>월 현재 잔여 한도 - <span class="limit-money"><?=number_format($m_limit_deposit)?></span><span><img src="../images/ico_alert_small.png" alt="알림">매월 1일 초기화</span></p>
-                                        <p>일 현재 잔여 한도 - <span class="limit-money"><?=number_format($m_day_deposit)?></span><span><img src="../images/ico_alert_small.png" alt="알림">매일 오전 09:00 초기화</span></p>
+                                        <p>월 현재 잔여 한도 - <span class="limit-money"><?=number_format(500000-$m_deposit)?></span><span><img src="../images/ico_alert_small.png" alt="알림">매월 1일 초기화</span></p>
+                                        <p>일 현재 잔여 한도 - <span class="limit-money"><?=number_format(300000-$day_limit)?></span><span><img src="../images/ico_alert_small.png" alt="알림">매일 오전 09:00 초기화</span></p>
                                     </div>
                                 </div>
                                 <div class="limit-input-wrap">
@@ -85,7 +98,7 @@ try {
                                         <div class="limit-select">
                                             <section id="drop3" class="dropdown">
                                                 <div class="select">
-                                                    <div class="text"><?php if($m_fp_limit == ''){ echo '해당사항 없음'; } else { echo number_format($m_fp_limit); }?></div>
+                                                    <div class="text"><?php if($m_fp_limit == 0){ echo '해당사항 없음'; } else { echo number_format($m_fp_limit); }?></div>
                                                     <ul class="option-list setting">
                                                         <li class="option" value="0">해당사항 없음</li>
                                                         <li class="option" value="10000">10,000</li>
@@ -109,9 +122,9 @@ try {
                                         <div class="limit-select">
                                             <section id="drop4" class="dropdown">
                                                 <div class="select">
-                                                    <div class="text"><?php if($m_time_reset == ''){ echo '해당사항 없음'; } else { echo number_format($m_time_reset); }?></div>
+                                                    <div class="text"><?php if($m_time_reset == 0){ echo '해당사항 없음'; } else { echo number_format($m_time_reset); }?></div>
                                                     <ul class="option-list reset_time">
-                                                        <li class="option" value="9">해당사항 없음</li>
+                                                        <li class="option" value="0">해당사항 없음</li>
                                                         <li class="option" value="6">6</li>
                                                         <li class="option" value="8">8</li>
                                                         <li class="option" value="10">10</li>
@@ -131,7 +144,7 @@ try {
                                     </div>
                                 </div>
                                 <button type="button" class="btn-blue btn-6 mT50" onclick="save()">저장</button>
-                                <span class="save-alert save">정보 저장이 성공적으로 완료 되었습니다.</span>
+<!--                                <span class="save-alert save">정보 저장이 성공적으로 완료 되었습니다.</span>-->
                                 <!-- <span class="save-alert error">정보 저장에 실패 하였습니다. 다시 시도하여 주시기 바랍니다..</span> -->
 
                             </div>
@@ -187,7 +200,6 @@ try {
                     console.log(data);
                     if(data.code == 200){
                         alert("적용 되었습니다.");
-                        //location.href = "setting_cash.php";
                         location.href = "setting_cash.php";
                     }
                 },
