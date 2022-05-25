@@ -122,6 +122,7 @@ try {
             data: postData,
             dataType: "JSON",
             success: function (data){
+                alert(data.msg);
                 if(data.code == 200){
                     $("#pwFrm").submit();
                 }
