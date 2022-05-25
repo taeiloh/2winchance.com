@@ -137,6 +137,16 @@ TR;
 
                         }
                         ?>
+                        <tr>
+                            <td>{$db['g_name']}</td>
+                            <td>{$arrGjson[0]['timezone_scheduled']}</td>
+                            <td>{$db['g_prize']}</td>
+                            <td>{$db['jc_prize']}</td>
+                            <td>{$db['g_size']}</td>
+                            <td>{$db['g_multi_max']}</td>
+                            <td><button type="button">수정</button></td>
+                            <td><button type="button"><img src="../images/ico_share_blue.svg" alt="공유하기">초대</button></td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>

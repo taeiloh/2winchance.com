@@ -79,6 +79,109 @@ try {
                         </tr>
                         </thead>
                         <tbody>
+                        <tr class="view">
+                            <td>{$db['g_name']}</td>
+                            <td>{$db['jc_result_update']}</td>
+                            <td>{$db['g_multi_max']}</td>
+                            <td>{$db['jc_point']}</td>
+                            <td>{$db['g_fee']}</td>
+                            <td>{$db['g_prize']}</td>
+                            <td>
+                                <p>결과보기</p>
+                                <img src="../images/ico_arrow_blue.svg" alt="결과 보기">
+                            </td>
+                        </tr>
+                        <tr class="fold open">
+                            <td colspan="7">
+                                <div class="fold-content">
+                                    <div class="fold-table-wrap">
+                                        <div class="lanking-table">
+                                            <h3>입상 순위</h3>
+                                            <table>
+                                                <thead>
+                                                <tr>
+                                                    <th>순위</th>
+                                                    <th>ID</th>
+                                                    <th>상금</th>
+                                                    <th>점수</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                <tr>
+                                                    <td>1st</td>
+                                                    <td>{$sub_db['m_name']}</td>
+                                                    <td>{$sub_db['jc_prize']}</td>
+                                                    <td>{$sub_db['jc_point']}</td>
+                                                </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="player-table">
+                                            <h3>선수 상세 결과</h3>
+                                            <table>
+                                                <thead>
+                                                <tr>
+                                                    <th>포지션</th>
+                                                    <th>이름</th>
+                                                    <th>콘테스트</th>
+                                                    <th>상세 내용</th>
+                                                    <th>점수</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>{$sub_db['player_pos']}</td>
+                                                    <td>{$sub_db['player_name']}</td>
+                                                    <td>{$game_info}</td>
+                                                    <td class="hover">
+                                                        {$sub_db['player_result_json']}
+                                                        <p>36p 9 made 3pt 6rebounds</p>
+                                                        <div class="tooltip">
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬수</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>합계</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
+                                                    </td>
+                                                    <td>{$sub_db['game_players_points']}</td>
+                                                </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="status-txt">
+                                        <p>최종 참여자 수에 따라 최종 상금이 변경될 수 있습니다.</p>
+                                        <p>* 다른 참여자 닉네임을 클릭하면 선수 상세 내역을 확인 하실 수 있습니다.</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
                         <?php
                         // 콘테스트
                         $query  = "
