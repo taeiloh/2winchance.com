@@ -28,6 +28,7 @@ $arrRtn     = array(
     'msg'   => ''
 );
 try {
+    check_word($m_id);
     //아이디 중복 확인
     $query  = "
             SELECT COUNT(1) AS CNT FROM members
