@@ -9,7 +9,7 @@ if (!$idx) {
 
     $url    = $_SERVER['REQUEST_URI'];
 
-    $msg    = '로그인 페이지로 이동합니다.';
+    $msg    = '로그인 후 이용해주세요.';
 
     $url    = '/login/index.php?rtnUrl='. $url;
 
