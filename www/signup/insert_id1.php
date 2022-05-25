@@ -29,6 +29,9 @@ $arrRtn     = array(
     'msg'   => ''
 );
 try {
+
+    check_word($m_name);
+
     $query  = "
             SELECT COUNT(1) AS CNT FROM members
             WHERE 1=1
