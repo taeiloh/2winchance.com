@@ -59,11 +59,11 @@ $flgFixedUser = 'N';           // 특정사용자 고정시 Y
 
 </form>
 
-<form id="loginFrm" name="loginFrm" method="post" action="join_03.php">
+<!--<form id="loginFrm" name="loginFrm" method="post" action="join_03.php">
     <input type="hidden" name="m_sns_type" id="m_sns_type" />
     <input type="hidden" name="m_sns_id" id="m_sns_id"  />
     <input type="hidden" name="url" id="url" value="join_03.php"/>
-</form>
+</form>-->
 <div id="wrap" class="member">
     <!--content-->
     <div id="content">
@@ -105,15 +105,15 @@ $flgFixedUser = 'N';           // 특정사용자 고정시 Y
                             <button type="button" class="btn-blue btn-6">인증하기</button>
                         </div>
                     </div>
-                    <div class="sns-login">
+                    <!--<div class="sns-login">
                         <p>간편 로그인</p>
                         <ul>
-                            <!--<li><a href="javascript:void(0)"><img src="../images/ico_facebook.png" alt="페이스북 로그인"></a></li>
+                            <li><a href="javascript:void(0)"><img src="../images/ico_facebook.png" alt="페이스북 로그인"></a></li>
                             <li><a href="javascript:void(0)"><img src="../images/ico_naver.png" alt="네이버 로그인"></a></li>
-                            <li><a href="javascript:void(0)"><img src="../images/ico_twitter.png" alt="트위터 로그인"></a></li>-->
+                            <li><a href="javascript:void(0)"><img src="../images/ico_twitter.png" alt="트위터 로그인"></a></li>
                             <li><a href="javascript:void(0)" onclick="javascript:joinKakao1();"><img src="../images/ico_kakao.png" alt="카카오 로그인"></a></li>
                         </ul>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </section>
@@ -127,7 +127,7 @@ $flgFixedUser = 'N';           // 특정사용자 고정시 Y
 </body>
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script type="text/javascript">
-    function loginKakao1() {
+    /*function loginKakao1() {
         $("#loginFrm").submit();
 
     }
@@ -173,7 +173,7 @@ $flgFixedUser = 'N';           // 특정사용자 고정시 Y
     //애플 로그인
     function loginApple() {
         location.href = "https://appleid.apple.com/auth/authorize?response_type=code&response_mode=form_post&client_id=com.idevelapp.momschoice&client_secret=eyJhbGciOiJFUzI1NiIsImtpZCI6Ik0zSFY3M0o4RkwifQ.eyJpc3MiOiJVSDMzMlRGWFdNIiwiaWF0IjoxNjUyMTY0MDc3LCJleHAiOjE2NTIxNjc2NzcsImF1ZCI6Imh0dHBzOlwvXC9hcHBsZWlkLmFwcGxlLmNvbSIsInN1YiI6ImNvbS5pZGV2ZWxhcHAubW9tc2Nob2ljZSJ9.oz6PQ2Vi7184qOWI0AO0j7cwp82cOxbYVuZSv7vzpLhjwQptZUefKPr-K9xEhP_iLU3Nf4yUT5bSC0llMS7YSw&redirect_uri=https%3A%2F%2Fmomschoice.wtest.biz%2Fmember%2FappleAuth.php&state=3f03370810&scope=name+email";
-    }
+    }*/
 
 
     function callSa()

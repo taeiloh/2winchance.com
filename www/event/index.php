@@ -132,7 +132,7 @@ try {
                 <div class="inner mT10">
                     <h2>이벤트 리스트</h2>
                     <ul class="contest-list">
-                        <li>
+                        <!--<li>
                             <a href="javascript:void(0)">
                                 <div class="game-thumb" style="background-image: url('../images/@img_thumb01.png')">
                                     <div class="subject"></div>
@@ -163,7 +163,6 @@ try {
                                     <div class="subject"></div>
                                     <div class="event-banner"></div>
                                 </div>
-                                <!-- 진행중인 이벤트가 있을 경우 -->
                                 <div class="contest-desc">
                                     <div class="contest-ico">
                                         <img src="../images/top_icon.svg" alt="임시">
@@ -181,9 +180,8 @@ try {
                                         </dd>
                                     </dl>
                                 </div>
-                                <!-- //진행중인 이벤트가 있을 경우 -->
                             </a>
-                        </li>
+                        </li>-->
                         <li>
                             <a href="javascript:void(0)">
                                 <div class="game-thumb" style="background-image: url('../images/@img_thumb03.png')">

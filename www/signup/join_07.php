@@ -74,15 +74,15 @@ try {
                         }
                         ?>
                         <?php
-                        if($arrVal[0]=="m_sns_id"){
-                        ?>
+/*                        if($arrVal[0]=="m_sns_id"){
+                        */?><!--
                         <div class="input-box">
                             <label for="">연락처</label>
                             <input type="text" name="m_tel" id="m_tel" placeholder="전화번호를 입력해주세요.">
                         </div>
-                        <?php
-                        }
-                        ?>
+                        --><?php
+/*                        }
+                        */?>
                         <div class="input-radio">
                             <span>성별</span>
                             <div class="radio-wrap">
@@ -149,26 +149,25 @@ try {
             return false;
         }
 
-        if(type_check == "m_sns_id") {
+        /*if(type_check == "m_sns_id") {
             if ($.trim($("#m_tel").val()) == "") {
                 alert("휴대폰번호를 입력해 주세요.");
                 $("#m_tel").focus();
                 return false;
             }
-        }
+        }*/
 
         var <?=$arrVal[0]?>=$("#<?=$arrVal[0]?>").val();
         var m_name=$("#m_name").val();
         var m_b_year=$("#m_b_year").val();
-        var m_tel = $("#m_tel").val();
+        /*var m_tel = $("#m_tel").val();*/
 
 
         var postData = {
             "<?=$arrVal[0]?>": <?=$arrVal[0]?>,
             "m_name": m_name,
             "m_b_year": m_b_year,
-            "sex": sex,
-            "m_tel":m_tel
+            "sex": sex
         };
 
         $.ajax({

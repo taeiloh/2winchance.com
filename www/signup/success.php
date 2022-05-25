@@ -67,7 +67,7 @@ if ($_REQUEST["resultCode"] === "0000") {
         self.close();
     })
 </script>
-<form name="popupForm" action="join_03.php" method="post">
+<form name="popupForm" action="join_02_1.php" method="post">
     <input type="text" name="resultCode" value="<?=$_REQUEST["resultCode"]?>">
     <input type="text" name="userBirthday" value="<?=$userBirthday?>">
     <input type="text" name="userPhone" value="<?=$userPhone?>">
