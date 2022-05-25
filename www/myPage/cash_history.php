@@ -53,6 +53,18 @@ try {
 ///where dh_u_idx = $idx
     $result_cash = $_mysqli->query($query);
 
+    //캐시잔액
+    $query2 = "
+        SELECT sum(dh_amount) as total_amount FROM deposit_history
+        WHERE 1 AND dh_u_idx = '{$idx}'
+    ";
+    $result2 = $_mysqli->query($query2);
+    $_arrAmount = $result2->fetch_array();
+    $total_amount = !empty($_arrAmount['total_amount']) ? $_arrAmount['total_amount'] : 0;
+    //print $total_amount;
+
+
+
 }catch (mysqli_sql_exception $e){
     $arrRtn['code']     = $e->getCode();
     $arrRtn['msg']      = $e->getMessage();
@@ -138,8 +150,8 @@ try {
                                 $regdate = empty(!$dbgold['regdate']) ? $dbgold['regdate'] : '';
                                 $tid = empty(!$dbgold['dh_pay_key']) ? $dbgold['dh_pay_key'] : '';
                                 $amount = empty(!$dbgold['dh_amount']) ? $dbgold['dh_amount'] : '';
-                                $balance = empty(!$dbgold['dh_balance']) ? $dbgold['dh_balance'] : '';
-                                $deposit = empty(!$dbgold['dh_deposit']) ? $dbgold['dh_deposit'] : '';
+                                $balance = empty(!$dbgold['dh_balance']) ? $dbgold['dh_balance'] : 0;
+                                $deposit = empty(!$dbgold['dh_deposit']) ? $dbgold['dh_deposit'] : 0;
                                 $i++;
                                 $no=$total_count-($i+($page-1)*$rows);
                                 echo <<<TR

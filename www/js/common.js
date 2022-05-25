@@ -149,7 +149,7 @@ $(function(){
     }
 
     var optionList4 = document.querySelectorAll("#drop4 .option");
-    for (var i = 0; i < optionList3.length; i++) {
+    for (var i = 0; i < optionList4.length; i++) {
         var option4 = optionList4[i];
         option4.addEventListener("click", onClickOption4);
     }
