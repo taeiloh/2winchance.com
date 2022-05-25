@@ -52,7 +52,7 @@ switch ($_url_f3) {
         </h1>
         <ul class="footer-list">
             <li class="<?=$_liClass2;?>"><a href="/footer/notice_list.php">공지사항</a></li>
-            <li class="<?=$_liClass3;?>"><a href="/footer/contactus.php">제휴문의</a></li>
+            <li class="<?=$_liClass3;?>"><a href="/myPage/contactus.php">1:1 문의</a></li>
             <li class="<?=$_liClass4;?>"><a href="/footer/terms_of_service.php">이용약관</a></li>
             <li class="<?=$_liClass5;?>"><a href="/footer/privacy_policy.php">개인정보 처리방침</a></li>
             <li class="<?=$_liClass6;?>"><a href="/footer/youth_protection_policy.php">청소년 보호정책</a></li>
