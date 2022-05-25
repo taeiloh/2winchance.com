@@ -672,6 +672,7 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 .policy-txt.scroll{overflow-y: auto; max-height: 11rem;}
 .policy-txt{background-color: #303030; margin-top: 1rem; padding: 1rem; }
 .policy-txt p{font-size: 1.4rem; line-height: 1.5;}
+.policy-txt pre{font-size: 1.4rem; line-height: 1.5;}
 
 #wrap.e-link{width: 100rem; min-height: unset;}
 
