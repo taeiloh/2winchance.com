@@ -558,7 +558,7 @@ try {
                     <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
 
 
-                    <div id="g-recaptcha"></div>
+                    <div id="g-recaptcha" class="captcha"></div>
 
                 </div>
             </div>
@@ -567,7 +567,7 @@ try {
         <!--//content-->
     </div>
     <footer>
-        © 2022 METAGAMES, Inc. All Rights Reserved.
+        ⓒ 2021-2022, Metarock Inc., All rights Reserved.
     </footer>
 </div>
 <script type="text/javascript">

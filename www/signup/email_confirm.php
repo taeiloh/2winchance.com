@@ -110,7 +110,7 @@
                                         <tbody>
                                             <tr>
                                                 <td  style="text-align: center;">
-                                                     <a href="javascript:void(0)" target="_blank" style="display:block; font-size: 12px; text-decoration:none; color:#9f9f9f; font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;">© 2022 METAGAMES, Inc. All Rights Reserved.</a>
+                                                     <a href="javascript:void(0)" target="_blank" style="display:block; font-size: 12px; text-decoration:none; color:#9f9f9f; font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;">ⓒ 2021-2022, Metarock Inc., All rights Reserved.</a>
                                                 </td>
                                             </tr>
                                         </tbody>

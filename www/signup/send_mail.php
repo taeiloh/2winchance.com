@@ -26,7 +26,7 @@ try {
 
     //회원 정보 가져오기
     $query = "
-        SELECT 
+        SELECT
             *
         FROM members
         WHERE 1=1
@@ -159,7 +159,7 @@ try {
                                         <tbody>
                                             <tr>
                                                 <td  style="text-align: center;">
-                                                     <a href="javascript:void(0)" target="_blank" style="display:block; font-size: 12px; text-decoration:none; color:#9f9f9f; ">© 2022 METAGAMES, Inc. All Rights Reserved.</a>
+                                                     <a href="javascript:void(0)" target="_blank" style="display:block; font-size: 12px; text-decoration:none; color:#9f9f9f; ">ⓒ 2021-2022, Metarock Inc., All rights Reserved.</a>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -198,7 +198,7 @@ try {
            $arrRtn['msg']  = "이메일 전송 실패";
        }
     }
-    
+
 
 } catch (mysqli_sql_exception $e) {
     $arrRtn['code'] = $e->getCode();

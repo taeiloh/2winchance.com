@@ -121,7 +121,7 @@ $flgFixedUser = 'N';           // 특정사용자 고정시 Y
         <!--//content-->
     </div>
     <footer>
-        © 2022 METAGAMES, Inc. All Rights Reserved.
+        ⓒ 2021-2022, Metarock Inc., All rights Reserved.
     </footer>
 </div>
 </body>
