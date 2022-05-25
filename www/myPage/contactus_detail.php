@@ -32,6 +32,13 @@ try {
 
     $result = $_mysqli->query($query);
     $cu_result = $result->fetch_assoc();
+    $cu_status = !empty($cu_result['cu_status']) ? $cu_result['cu_status'] : 0;
+    if ($cu_status == 0) {
+        $cu_status = '<span style="color: gold">대기중</span>';
+    }   else if($cu_status == 1){
+        $cu_status = '<span style="color: #9f9f9f">상담완료</span>';
+    }
+
 
     switch ($cu_result['cu_topic']){
         case '1' :
@@ -151,7 +158,8 @@ try {
                                 </div>
                             </div>
                             <div class="txt-box">
-                                <p>답변 대기중</p>
+<!--                                <p>답변 대기중</p>-->
+                                <p><?=$cu_status?></p>
 <!--                                <p>안녕하세요. 정글못해먹겐네 님<br/>-->
 <!--                                    불편을 드려서 죄송합니다.<br/>-->
 <!--                                    <br/>-->

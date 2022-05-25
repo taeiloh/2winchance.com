@@ -44,14 +44,14 @@ try {
     $query  = "
         select 
               dh_idx, DATE_FORMAT(dh_req_date,'%Y-%m-%d %h:%i:%s') AS regdate, dh_content,
-               dh_condition, dh_amount, dh_balance, dh_pay_key
+               dh_condition, dh_amount, dh_balance, dh_pay_key, dh_deposit
         from deposit_history 
         WHERE dh_u_idx = '{$idx}' 
         order by dh_idx desc 
         LIMIT {$from_record}, {$rows}
     ";
 ///where dh_u_idx = $idx
-    $result = $_mysqli->query($query);
+    $result_cash = $_mysqli->query($query);
 
 }catch (mysqli_sql_exception $e){
     $arrRtn['code']     = $e->getCode();
@@ -133,21 +133,22 @@ try {
                         <?php
                         if($total_count > 0){
                             $i = 0;
-                            while ($dbgold = $result->fetch_assoc()) {
+                            while ($dbgold = $result_cash->fetch_assoc()) {
                                 $title = empty(!$dbgold['dh_content']) ? $dbgold['dh_content'] : '';
                                 $regdate = empty(!$dbgold['regdate']) ? $dbgold['regdate'] : '';
                                 $tid = empty(!$dbgold['dh_pay_key']) ? $dbgold['dh_pay_key'] : '';
                                 $amount = empty(!$dbgold['dh_amount']) ? $dbgold['dh_amount'] : '';
                                 $balance = empty(!$dbgold['dh_balance']) ? $dbgold['dh_balance'] : '';
+                                $deposit = empty(!$dbgold['dh_deposit']) ? $dbgold['dh_deposit'] : '';
                                 $i++;
                                 $no=$total_count-($i+($page-1)*$rows);
                                 echo <<<TR
                         <tr>
                             <td class="Fgray">{$regdate}</td>
                             <td>{$title}</td>
-                            <td>{$tid}</td>
+                            <td>{$id}</td> 
                             <td>2winchance</td>
-                            <td>-</td>
+                            <td>{$deposit}</td>
                             <td>{$amount}</td>
                             <td>{$balance}</td>
                         </tr>
