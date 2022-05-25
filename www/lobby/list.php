@@ -5,7 +5,7 @@ require_once __DIR__ .'/../_inc/config.php';
 // 파라미터
 $cate           = !empty($_GET['cate'])         ? $_GET['cate']         : 0;
 $sub_menu       = !empty($_GET['sub_menu'])     ? $_GET['sub_menu']     : 0;
-
+$m_idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 시퀀스
 // 변수 정리
 $where          = "";
 $limit          = "";
@@ -280,7 +280,7 @@ switch ($sub_menu) {
                                     </div>
                                     <div class="btn-group">
                                         <button type="button" class="btn-grey btn-down"><span>경기정보</span> <img src="/images/ico_arrow.svg" alt="더보기"></button>
-                                        <button type="button" onclick="go_draft({$db['g_idx']});" class="btn-blue slide-cont">게임참가</button>
+                                        <button type="button" onclick="go_draft({$db['g_idx']},'{$m_idx}' );" class="btn-blue slide-cont">게임참가</button>
                                     </div>
                                 </div>
                             </div>
