@@ -53,8 +53,8 @@ if($flgFixedUser=="Y")
     <input type="hidden" name="userHash" value="<?php echo $userHash ?>">
     <input type="hidden" name="directAgency" value="">
 
-    <input type="hidden" name="successUrl" value="http://<?=$_SERVER['SERVER_NAME']?>/signup/id_checksuccess.php">
-    <input type="hidden" name="failUrl" value="http://<?=$_SERVER['SERVER_NAME']?>/signup/id_checksuccess.php">
+    <input type="hidden" name="successUrl" value="https://<?=$_SERVER['SERVER_NAME']?>/signup/id_checksuccess.php">
+    <input type="hidden" name="failUrl" value="https://<?=$_SERVER['SERVER_NAME']?>/signup/id_checksuccess.php">
     <!-- successUrl/failUrl 은 분리하여도 됩니다. !-->
 
 </form>
