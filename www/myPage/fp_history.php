@@ -125,100 +125,100 @@ try{
                         </tr>
                         </thead>
                         <tbody>
-                        <?php
-                        if($total_count > 0){
-                            $i = 0;
-                            while ($dbfp = $resultfp->fetch_assoc()) {
-                                $title = empty(!$dbfp['fph_content']) ? $dbfp['fph_content'] : '';
-                                $regdate = empty(!$dbfp['regdate']) ? $dbfp['regdate'] : '';
-                                $fp = empty(!$dbfp['fph_point']) ? $dbfp['fph_point'] : '';
-                                $balance = empty(!$dbfp['fph_balance']) ? $dbfp['fph_balance'] : '';
-                                $i++;
-                                $no=$total_count-($i+($page-1)*$rows);
-                                echo <<<TR
-                        <tr>
-                            <td class="Fgray">{$regdate}</td>
-                            <td>{$title}</td>
-                            <td>+ {$fp}</td>
-                            <td>{$balance}</td>
-                        </tr>
-TR;
-                            }
-                        }else {
-                            echo <<<TR
-                         <tr>
-                                <td colspan="6">등록된 게시글이 없습니다.</td>
-                         </tr>
-TR;
-                        }
-                        ?>
+<!--                        --><?php
+//                        if($total_count > 0){
+//                            $i = 0;
+//                            while ($dbfp = $resultfp->fetch_assoc()) {
+//                                $title = empty(!$dbfp['fph_content']) ? $dbfp['fph_content'] : '';
+//                                $regdate = empty(!$dbfp['regdate']) ? $dbfp['regdate'] : '';
+//                                $fp = empty(!$dbfp['fph_point']) ? $dbfp['fph_point'] : '';
+//                                $balance = empty(!$dbfp['fph_balance']) ? $dbfp['fph_balance'] : '';
+//                                $i++;
+//                                $no=$total_count-($i+($page-1)*$rows);
+//                                echo <<<TR
+//                        <tr>
+//                            <td class="Fgray">{$regdate}</td>
+//                            <td>{$title}</td>
+//                            <td>+ {$fp}</td>
+//                            <td>{$balance}</td>
+//                        </tr>
+//TR;
+//                            }
+//                        }else {
+//                            echo <<<TR
+//                         <tr>
+//                                <td colspan="6">등록된 게시글이 없습니다.</td>
+//                         </tr>
+//TR;
+//                        }
+//                        ?>
 
-<!--                        <tr>-->
-<!--                            <td>2022-1-03-04 13:25:49</td>-->
-<!--                            <td>Join the contest (G55362)</td>-->
-<!--                            <td>+ 25</td>-->
-<!--                            <td>4,946</td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>2022-1-03-04 13:25:49</td>-->
-<!--                            <td>Join the contest (G55362)</td>-->
-<!--                            <td>+ 25</td>-->
-<!--                            <td>4,946</td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>2022-1-03-04 13:25:49</td>-->
-<!--                            <td>Join the contest (G55362)</td>-->
-<!--                            <td>+ 25</td>-->
-<!--                            <td>4,946</td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>2022-1-03-04 13:25:49</td>-->
-<!--                            <td>Join the contest (G55362)</td>-->
-<!--                            <td>+ 25</td>-->
-<!--                            <td>4,946</td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>2022-1-03-04 13:25:49</td>-->
-<!--                            <td>Join the contest (G55362)</td>-->
-<!--                            <td>+ 25</td>-->
-<!--                            <td>4,946</td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>2022-1-03-04 13:25:49</td>-->
-<!--                            <td>Join the contest (G55362)</td>-->
-<!--                            <td>+ 25</td>-->
-<!--                            <td>4,946</td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>2022-1-03-04 13:25:49</td>-->
-<!--                            <td>Join the contest (G55362)</td>-->
-<!--                            <td>+ 25</td>-->
-<!--                            <td>4,946</td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>2022-1-03-04 13:25:49</td>-->
-<!--                            <td>Join the contest (G55362)</td>-->
-<!--                            <td>+ 25</td>-->
-<!--                            <td>4,946</td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>2022-1-03-04 13:25:49</td>-->
-<!--                            <td>Join the contest (G55362)</td>-->
-<!--                            <td>+ 25</td>-->
-<!--                            <td>4,946</td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>2022-1-03-04 13:25:49</td>-->
-<!--                            <td>Join the contest (G55362)</td>-->
-<!--                            <td>+ 25</td>-->
-<!--                            <td>4,946</td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>2022-1-03-04 13:25:49</td>-->
-<!--                            <td>Join the contest (G55362)</td>-->
-<!--                            <td>+ 25</td>-->
-<!--                            <td>4,946</td>-->
-<!--                        </tr>-->
+                        <tr>
+                            <td>2022-1-03-04 13:25:49</td>
+                            <td>Join the contest (G55362)</td>
+                            <td>+ 25</td>
+                            <td>4,946</td>
+                        </tr>
+                        <tr>
+                            <td>2022-1-03-04 13:25:49</td>
+                            <td>Join the contest (G55362)</td>
+                            <td>+ 25</td>
+                            <td>4,946</td>
+                        </tr>
+                        <tr>
+                            <td>2022-1-03-04 13:25:49</td>
+                            <td>Join the contest (G55362)</td>
+                            <td>+ 25</td>
+                            <td>4,946</td>
+                        </tr>
+                        <tr>
+                            <td>2022-1-03-04 13:25:49</td>
+                            <td>Join the contest (G55362)</td>
+                            <td>+ 25</td>
+                            <td>4,946</td>
+                        </tr>
+                        <tr>
+                            <td>2022-1-03-04 13:25:49</td>
+                            <td>Join the contest (G55362)</td>
+                            <td>+ 25</td>
+                            <td>4,946</td>
+                        </tr>
+                        <tr>
+                            <td>2022-1-03-04 13:25:49</td>
+                            <td>Join the contest (G55362)</td>
+                            <td>+ 25</td>
+                            <td>4,946</td>
+                        </tr>
+                        <tr>
+                            <td>2022-1-03-04 13:25:49</td>
+                            <td>Join the contest (G55362)</td>
+                            <td>+ 25</td>
+                            <td>4,946</td>
+                        </tr>
+                        <tr>
+                            <td>2022-1-03-04 13:25:49</td>
+                            <td>Join the contest (G55362)</td>
+                            <td>+ 25</td>
+                            <td>4,946</td>
+                        </tr>
+                        <tr>
+                            <td>2022-1-03-04 13:25:49</td>
+                            <td>Join the contest (G55362)</td>
+                            <td>+ 25</td>
+                            <td>4,946</td>
+                        </tr>
+                        <tr>
+                            <td>2022-1-03-04 13:25:49</td>
+                            <td>Join the contest (G55362)</td>
+                            <td>+ 25</td>
+                            <td>4,946</td>
+                        </tr>
+                        <tr>
+                            <td>2022-1-03-04 13:25:49</td>
+                            <td>Join the contest (G55362)</td>
+                            <td>+ 25</td>
+                            <td>4,946</td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>
@@ -228,10 +228,10 @@ TR;
                 <?php
                 echo paging($page,$total_page,5,"{$_SERVER['SCRIPT_NAME']}?page=");
                 ?>
-<!--                <a href="javascript:void(0)">1</a>-->
-<!--                <a class="active" href="javascript:void(0)">2</a>-->
-<!--                <a href="javascript:void(0)">3</a>-->
-<!--                <a href="javascript:void(0)">4</a>-->
+                <a class="active" href="javascript:void(0)">1</a>
+                <a href="javascript:void(0)">2</a>
+                <a href="javascript:void(0)">3</a>
+                <a href="javascript:void(0)">4</a>
             </div>
         </div>
         <!--//content-->
