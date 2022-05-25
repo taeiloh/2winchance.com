@@ -124,15 +124,27 @@ try {
             $("#m_name").focus();
             return false;
         }
+        if ($("#m_name").val().length<6) {
+            alert("닉네임을 6자 이상 입력해 주세요.");
+            $("#m_name").focus();
+            return false;
+        }
+
+
         if ($.trim($("#m_b_year").val()) == "") {
             alert("생년월일 입력해 주세요.");
             $("#m_b_year").focus();
             return false;
         }
 
-        var sex = $('input[name=sex]:checked').val();
+        if ($("#m_b_year").val().length < 8) {
+            alert("생년월일을 8자 입력해 주세요.");
+            $("#m_b_year").focus();
+            return false;
+        }
 
-        if (sex == "") {
+        var sex = $('input:radio[name=sex]').is(":checked");
+        if (!sex) {
             alert("성별을 선택해 주세요.");
             return false;
         }
