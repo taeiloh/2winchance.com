@@ -38,7 +38,10 @@ try{
                             ('{$idx}','{$m_num}','{$i_src}')";
             $result = $_mysqli->query($query);
 
-            $query2 = "UPDATE members SET m_deposit = m_deposit - '{$price}',m_fp_balance = m_fp_balance + '{$fp}' where m_idx = '{$idx}'";
+            $query2 = "insert into deposit_history
+                    (dh_u_idx, dh_deposit,dh_amount,dh_paymethod,dh_pay_key,dh_content,dh_condition, dh_balance, dh_req_date, dh_res_date)
+                    VALUES
+                     ('{$idx}','0','-{$price}','0','Buy item', 'item', '1', '0',now(),now())";
             $result2 = $_mysqli->query($query2);
 
             /*$query3 = "UPDATE item SET i_status = 1 where i_num = '{$m_num}'";

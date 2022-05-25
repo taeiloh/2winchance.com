@@ -12,10 +12,18 @@ try {
         WHERE 1 and m_idx ='{$idx}'
     ";
     $mresult = $_mysqli->query($query2);
-    $_arrMembers = $mresult->fetch_array();
+    /*$_arrMembers = $mresult->fetch_array();
 
     $m_deposit = !empty($_arrMembers['m_deposit']) ? $_arrMembers['m_deposit'] : '';
-    $m_deposit = (int)$m_deposit;
+    $m_deposit = (int)$m_deposit;*/
+    //dh_amount 총합
+    $querycoin = "
+        SELECT sum(dh_amount) as total_amount FROM deposit_history
+        WHERE 1 AND dh_u_idx = '{$idx}'
+   ";
+    $resultcoin = $_mysqli->query($querycoin);
+    $_arrCoin = $resultcoin->fetch_array();
+    $total_coin = !empty($_arrCoin['total_amount']) ? $_arrCoin['total_amount'] : 0;
 
     $page = !empty($_GET['page']) ? $_GET['page'] : 1;
 
@@ -81,7 +89,7 @@ try {
                     <div class="current-coin">
                         <ul class="coin-list">
                             <li>보유 캐시</li>
-                            <li class="fc-yellow"><span></span><?=number_format($m_deposit)?><span class="fc-yellow">ⓒ</span></li>
+                            <li class="fc-yellow"><span></span><?=number_format($total_coin)?><span class="fc-yellow">ⓒ</span></li>
                         </ul>
                         <ul class="coin-input">
                             <li>아이템</li>
@@ -226,7 +234,7 @@ try {
         function buy(){
             if(confirm("해당아이템을 구매하시겠습니까?"))
             {
-                if(<?=$m_deposit?> > buy_item_price) {
+                if(<?=$total_coin?> > buy_item_price) {
                     if (buy_item_id > 0) {
                         var postData = {
                             "m_num": buy_item_id,
