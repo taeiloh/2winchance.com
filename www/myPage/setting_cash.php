@@ -6,6 +6,7 @@ $id=!empty($_SESSION['_se_id']) ? $_SESSION['_se_id'] : "";        // 세션 아
 $name=!empty($_SESSION['_se_name']) ? $_SESSION['_se_name'] : "";    // 세션 닉네임
 $deposit=!empty($_SESSION['_se_deposit']) ? $_SESSION['_se_deposit'] : 0;    // 세션 포인트
 $fp=!empty($_SESSION['_se_fp']) ? $_SESSION['_se_fp'] : 0; // fantasy-point 잔액
+$on = !empty($_GET['on']) ?$_GET['on'] : "";
 
 $m_pw      = isset($_POST['m_pw'])        ?     $_POST['m_pw']       : '';
 
@@ -39,7 +40,7 @@ try {
     $dayresult = $_mysqli->query($query3);
     $_arrDeposit = $dayresult->fetch_array();
     $day_limit = !empty($_arrDeposit['total_deposit']) ? $_arrDeposit['total_deposit'] : 0;
-    print $day_limit;
+    //print $day_limit;
 
 
 
@@ -97,8 +98,11 @@ try {
                                     <div class="input-box limit-input">
                                         <label for="">누적한도 설정</label>
                                         <div class="limit-select">
+                                            <?php
+                                            if($on == ''){
+                                            ?>
                                             <section id="drop3" class="dropdown">
-                                                <div class="select">
+                                                <div class="select" id="selectfp">
                                                     <div class="text"><?php if($m_fp_limit == 0){ echo '해당사항 없음'; } else { echo number_format($m_fp_limit); }?></div>
                                                     <ul class="option-list setting">
                                                         <li class="option" value="0">해당사항 없음</li>
@@ -114,15 +118,25 @@ try {
                                                     </ul>
                                                 </div>
                                             </section>
-                                            <!-- 한도 설정 완료 후 <p>10,000</p> -->
+                                            <?php
+                                            }else{
+                                            ?>
+                                                <p><?php  echo number_format($m_fp_limit); ?></p>
+                                            <?php
+                                            }
+                                            ?>
+                                            <!-- 한도 설정 완료 후-->
                                             <span>FP</span>
                                         </div>
                                     </div>
                                     <div class="input-box limit-input">
                                         <label for="">초기화 시간</label>
                                         <div class="limit-select">
+                                            <?php
+                                            if($on == ''){
+                                            ?>
                                             <section id="drop4" class="dropdown">
-                                                <div class="select">
+                                                <div class="select" id="selecttime">
                                                     <div class="text"><?php if($m_time_reset == 0){ echo '해당사항 없음'; } else { echo number_format($m_time_reset); }?></div>
                                                     <ul class="option-list reset_time">
                                                         <li class="option" value="0">해당사항 없음</li>
@@ -139,14 +153,36 @@ try {
                                                     </ul>
                                                 </div>
                                             </section>
+
+                                            <?php
+                                            }else{
+                                            ?>
+                                                <p><?php  echo number_format($m_time_reset); ?></p>
+                                            <?php
+                                            }
+                                            ?>
                                             <!-- 시간 설정 완료 후 <p>10,000</p> -->
                                             <span>시간</span>
                                         </div>
                                     </div>
                                 </div>
-                                <button type="button" class="btn-blue btn-6 mT50" onclick="save()">저장</button>
-<!--                                <span class="save-alert save">정보 저장이 성공적으로 완료 되었습니다.</span>-->
+<!--                                <button type="button" class="btn-blue btn-6 mT50" id="saveBtn" onclick="save()">적용하기</button>-->
+<!--                                <span class="save-alert save" id="save" style="display: none;">정보 저장이 정상적으로 완료 되었습니다.</span>-->
+
                                 <!-- <span class="save-alert error">정보 저장에 실패 하였습니다. 다시 시도하여 주시기 바랍니다..</span> -->
+                                <?php
+                                    if($on==1){
+                                   ?>
+                                        <button type="button" class="btn-blue btn-6 mT50" onclick="location.href='/lobby/'">홈으로</button>
+                                        <span class="save-alert save">정보 저장이 정상적으로 완료 되었습니다.</span>
+                                <?php
+                                    }else{
+                                ?>
+                                        <button type="button" class="btn-blue btn-6 mT50" id="saveBtn" onclick="save()">적용하기</button>
+
+                                <?php
+                                    }
+                                ?>
 
                             </div>
                         </form>
@@ -200,8 +236,10 @@ try {
                 success:function (data){
                     console.log(data);
                     if(data.code == 200){
-                        alert("적용 되었습니다.");
-                        location.href = "setting_cash.php";
+                        //alert("적용 되었습니다.");
+                        location.href="setting_cash.php?on=1";
+
+
                     }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
