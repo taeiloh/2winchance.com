@@ -64,8 +64,6 @@ try {
         if ($cnt > 0) {
             $sql2  = " update  members set
                 m_pw='{$pw}',
-                m_sns_type='{$m_sns_type}',
-                m_sns_id='{$m_sns_id}',
                 m_ip='{$ip}', 
                 m_enter_datetime=now()
                 where m_id='{$m_id}'
@@ -100,7 +98,7 @@ try {
         }else{
             //변수 체크
             $sql  = " insert into  members
-                (m_id, m_pw, ,m_ip, m_tel, m_enter_datetime)
+                (m_id, m_pw, m_ip, m_tel, m_enter_datetime)
             VALUES
                 ('{$m_id}','{$pw}','{$ip}','{$m_tel}', now())";
             //p($sql);

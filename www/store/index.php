@@ -491,7 +491,7 @@ try {
                         $("#timestamp").val(json.timestamp);
                         $("#sign").val(json.sign);
                         $("#mKey").val(json.mKey);
-                        alert("결제가 완료되었습니다.");
+                        //alert("결제가 완료되었습니다.");
                     }else{
                         console.log(json);
                         alert(json.msg);

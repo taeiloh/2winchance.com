@@ -572,6 +572,8 @@ try {
 </div>
 <script type="text/javascript">
 
+
+
     //	화면 시작 시 g-recaptcha 생성
     var onloadCallback = function() {
         grecaptcha.render('g-recaptcha', {
@@ -583,7 +585,23 @@ try {
 
     //	인증 성공 시
     var verifyCallback = function(response) {
-        location.href="join_02.php";
+        var check=$('#policy03').is(':checked');
+        var check1=$('#policy07').is(':checked');
+
+        if(!check){
+            alert("정책 동의를 해주세요.");
+            $('#policy03').focus();
+            return false;
+        }
+        if(!check1){
+            alert("정책 동의를 해주세요.");
+            $('#policy07').focus();
+            return false;
+        }
+        if(check && check1)
+        {
+            location.href="join_02.php";
+        }
     };
 
     //	인증 만료 시

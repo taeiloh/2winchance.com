@@ -62,7 +62,7 @@ try {
                                 <h4>일반 이메일 계정 회원</h4>
                                 <p>이메일로 인증 (예:네이버,구글 등)</p>
                             </div>
-                            <button type="button" class="btn-blue btn-6">인증하기</button>
+                            <button type="submit" class="btn-blue btn-6">인증하기</button>
                         </div>
                         <!--<div class="confirm-box mT10">
                             <div>
@@ -72,12 +72,13 @@ try {
                             <button type="button" class="btn-blue btn-6">인증하기</button>
                         </div>-->
                     </div>
+                </form>
                     <div class="sns-login">
                         <p>간편 인증으로 가입하기</p>
                         <ul>
-                            <li><a href="javascript:void(0)"><img src="../images/ico_facebook.png" alt="페이스북 로그인"></a></li>
+                            <!--<li><a href="javascript:void(0)"><img src="../images/ico_facebook.png" alt="페이스북 로그인"></a></li>
                             <li><a href="javascript:void(0)"><img src="../images/ico_naver.png" alt="네이버 로그인"></a></li>
-                            <li><a href="javascript:void(0)"><img src="../images/ico_twitter.png" alt="트위터 로그인"></a></li>
+                            <li><a href="javascript:void(0)"><img src="../images/ico_twitter.png" alt="트위터 로그인"></a></li>-->
                             <li><a href="javascript:void(0)" onclick="javascript:joinKakao1();"><img src="../images/ico_kakao.png" alt="카카오 로그인"></a></li>
                         </ul>
                     </div>
@@ -112,7 +113,7 @@ try {
                         var sns_id = JSON.stringify(res.id);
                         $("#m_sns_type").val("kakao");
                         $("#m_sns_id").val(sns_id);
-                        $("#loginFrm").submit();
+                        $("#snsLoginFrm").submit();
                     },
                     fail: function(error) {
                         alert("본인인증 중 오류가 발생했습니다.\r\n다시 시도해 주세요.");

@@ -157,6 +157,7 @@ try {
                                     }
                                     else{
                                         alert("가입된 계정이 없습니다.");
+                                        location.href='../signup';
                                     }
                                 },
                                 error: function (jqXHR, textStatus, errorThrown) {

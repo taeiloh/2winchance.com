@@ -231,7 +231,7 @@ try {
         function buy(){
             if(confirm("해당아이템을 구매하시겠습니까?"))
             {
-                if(<?=$total_coin?> > buy_item_price) {
+                if(<?=$total_coin?> >= buy_item_price) {
                     if (buy_item_id > 0) {
                         var postData = {
                             "m_num": buy_item_id,
@@ -252,6 +252,7 @@ try {
                                     /*$("#SOLD_OUT" + buy_item_id).text('SOLD OUT');
                                     $("#SOLD_OUT" + buy_item_id).removeClass('fp');*/
                                     alert(json.msg);
+                                    location.reload();
                                 } else {
                                     alert(json.msg);
                                     //console.log(json);
