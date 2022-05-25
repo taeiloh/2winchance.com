@@ -12,6 +12,7 @@ $m_id      = isset($_POST['m_id'])        ?     $_POST['m_id']       : '';
 $m_sns_id      = isset($_POST['m_sns_id'])        ?     $_POST['m_sns_id']       : '';
 $m_name      = isset($_POST['m_name'])        ?     $_POST['m_name']       : '';
 $m_b_year      = isset($_POST['m_b_year'])        ?     $_POST['m_b_year']       : '';
+$m_tel = isset($_POST['m_tel'])        ?     $_POST['m_tel']       : '';
 $sex      = isset($_POST['sex'])        ?     $_POST['sex']       : '';
 $ip=$_SERVER['REMOTE_ADDR'];
 
@@ -64,6 +65,7 @@ try {
                 m_name='{$m_name}',
                 m_b_year='{$m_b_year}',
                     m_b_year='{$m_b_year}',
+                    m_tel = '{$m_tel}',
                     sex='{$sex}'
             where 1=1
                 and m_sns_id='{$m_sns_id}'

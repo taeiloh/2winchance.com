@@ -118,7 +118,7 @@ try {
     };
 
     function next(){
-
+        var type_check="<?=$arrVal[0]?>";
         if ($.trim($("#m_name").val()) == "") {
             alert("닉네임을 입력해 주세요.");
             $("#m_name").focus();
@@ -136,16 +136,27 @@ try {
             alert("성별을 선택해 주세요.");
             return false;
         }
+
+        if(type_check == "m_sns_id") {
+            if ($.trim($("#m_tel").val()) == "") {
+                alert("휴대폰번호를 입력해 주세요.");
+                $("#m_tel").focus();
+                return false;
+            }
+        }
+
         var <?=$arrVal[0]?>=$("#<?=$arrVal[0]?>").val();
         var m_name=$("#m_name").val();
         var m_b_year=$("#m_b_year").val();
+        var m_tel = $("#m_tel").val();
 
 
         var postData = {
             "<?=$arrVal[0]?>": <?=$arrVal[0]?>,
             "m_name": m_name,
             "m_b_year": m_b_year,
-            "sex": sex
+            "sex": sex,
+            "m_tel":m_tel
         };
 
         $.ajax({
