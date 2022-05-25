@@ -32,7 +32,7 @@ try {
     //$m_day_deposit = !empty($_arrMembers['m_day_deposit']) ? $_arrMembers['m_day_deposit'] : 300000;
     $m_deposit =  !empty($_arrMembers['m_deposit']) ? $_arrMembers['m_deposit'] : 0;
 
-    $query3 = " 
+    $query3 = "
         SELECT sum(dh_deposit) as total_deposit, DATE_FORMAT(dh_req_date, '%Y%m%d') FROM deposit_history
         WHERE 1 AND dh_u_idx='{$idx}'
         GROUP BY DATE_FORMAT(dh_req_date, '%Y%m%d')
@@ -195,7 +195,7 @@ try {
     </div>
     <!--//container-->
     <footer>
-        © 2022 METAGAMES, Inc. All Rights Reserved.
+       ⓒ 2021-2022, Metarock Inc., All rights Reserved.
     </footer>
     <script type="text/javascript">
          var setting_limit_fp = 0;

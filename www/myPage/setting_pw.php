@@ -99,7 +99,7 @@ try {
     </div>
     <!--//container-->
     <footer>
-        © 2022 METAGAMES, Inc. All Rights Reserved.
+        ⓒ 2021-2022, Metarock Inc., All rights Reserved.
     </footer>
 </div>
 <script type="text/javascript">

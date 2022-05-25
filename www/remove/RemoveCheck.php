@@ -40,7 +40,7 @@ $idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 �
         <!--//content-->
     </div>
     <footer>
-        © 2022 METAGAMES, Inc. All Rights Reserved.
+        ⓒ 2021-2022, Metarock Inc., All rights Reserved.
     </footer>
 </div>
 </body>
