@@ -21,6 +21,7 @@ try {
     //$cu_status  = isset($_POST['cu_status'])    ?   $_POST['cu_status']     : '';
     $cu_response_id = isset($_POST['cu_response_id'])  ?   $_POST['cu_response_id'] : '';
 
+    check_word($cu_mail);
     check_word($cu_subject);
     check_word($cu_message);
     //태그제거

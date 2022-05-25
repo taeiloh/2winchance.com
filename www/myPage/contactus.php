@@ -229,6 +229,8 @@ if (!$idx) {
                     if (data.code == 200) {
                         alert("등록되었습니다.");
                         location.href = "contactus_history.php";
+                    }else{
+                        alert(data.msg);
                     }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {

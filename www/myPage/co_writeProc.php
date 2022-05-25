@@ -29,7 +29,9 @@ try {
     $cu_message = strip_tags($cu_message);
     //$cu_status = strip_tags($cu_status);
     //$cu_response_id = strip_tags($cu_response_id);
-
+    check_word($cu_mail);
+    check_word($cu_subject);
+    check_word($cu_message);
 
     //변수정리
     $ip         = $_SERVER['REMOTE_ADDR'];
