@@ -1087,7 +1087,7 @@ input[type='radio']{width: 2.8rem; height: 2.8rem; margin-right: 1rem;}
 .input-radio{display: flex; align-items: center; justify-content: space-between; margin-top: 2rem; height: 6rem;}
 .radio-wrap{display: flex; width: calc(100% - 12rem); margin-top: 6rem; height: 5.3rem;}
 .radio-wrap > p{margin-right: 5rem;}
-
+.input-radio .radio-wrap {margin-top: 0;}
 
 
 
