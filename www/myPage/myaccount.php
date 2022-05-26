@@ -193,30 +193,11 @@ try {
                     <div class="user-acct">
                         <div class="user-profile">
                             <div class="pf-pic">
-                                <?php
-                                if($ITEM_CNT == 0){?>
-                                    <p>대표 엠블럼이 없습니다</p>
-                                <?php
-                                }else if($ITEM_CNT == 1){
-                                    if($main_src){?>
-                                        <img id="main_item" src="<?=$main_src?>" alt="profile">
-                                        <button type="button" class="emblem" id="main_emblem" onclick="emblem_change()">
-                                        <p>엠블럼 저장하기</p>
-                                        </button>
-                                <?php
-                                    }else{?>
-                                        <button type="button" class="emblem" id="main_emblem" onclick="emblem_change()">
-                                            <p>엠블럼 저장하기</p>
-                                        </button>
-                                        <?php
-                                    }
-                                }else{?>
-                                    <img id="main_item" src="<?=$main_src?>" alt="profile">
-                                    <button type="button" class="emblem" id="main_emblem" onclick="emblem_change()">
-                                        <p>엠블럼 저장하기</p>
-                                    </button>
-                                <?php
-                                }?>
+                                <img id="main_item" src="<?=$main_src?>" alt="profile">
+                                <button type="button" class="emblem" id="main_emblem" onclick="emblem_change()">
+                                <p>엠블럼 저장하기</p>
+                                </button>
+
                             </div>
                             <div class="pf-info">
                                 <ul>
@@ -572,6 +553,15 @@ try {
             });
         })
         $(document).ready(function(){
+            <?php
+            if ($main_src==""){
+                ?>
+            $("#main_item").css("display", "none");
+                <?php
+            }
+
+            ?>
+
             $('ul.user-item li a').click(function(){
                 var item_id = $(this).data('item');
                 var main_item_src = $(this).data('src');
@@ -580,6 +570,7 @@ try {
                 buy_item_id = item_id;
 
                 $("#main_item").attr("src",main_item_src);
+                $("#main_item").css("display", "block");
 
 
             })
