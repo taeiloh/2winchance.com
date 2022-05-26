@@ -72,7 +72,7 @@ try {
             $result2 = mysqli_query($_mysqli, $sql2);
             if (!$result2) {
                 $arrRtn['code'] = 503;
-                $arrRtn['msg']  = "에러 발생";
+                $arrRtn['msg']  = "이미 있는 아이디입니다";
                 echo json_encode($arrRtn);
                 echo $sql2;
                 exit;

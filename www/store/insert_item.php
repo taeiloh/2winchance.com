@@ -6,7 +6,7 @@ $price     = isset($_POST['price'])        ?     $_POST['price']       :0;
 $fp     = isset($_POST['fp'])        ?     $_POST['fp']       :0;
 $i_src = isset($_POST['i_src']) ? $_POST['i_src'] : '';
 $idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 시퀀스
-
+$ip=$_SERVER['REMOTE_ADDR'];
 
 //변수 정리
 $msg    = '';
@@ -47,8 +47,19 @@ try{
             $query3 = "UPDATE members SET m_fp_balance = m_fp_balance + '{$fp}' WHERE m_idx = '{$idx}'";
             $result3 = $_mysqli->query($query3);
 
+            $quert5 = "SELECT * FROM members WHERE m_idx = '{$idx}'";
+            $result5 = $_mysqli->query($quert5);
+            $mem = $result5->fetch_array();
+            $m_fp_balance = !empty($mem['m_fp_balance']) ? $mem['m_fp_balance'] : 0;
+
+
             /*$query3 = "UPDATE item SET i_status = 1 where i_num = '{$m_num}'";
             $result3 = $_mysqli->query($query3);*/
+            $query4 = "insert into fantasy_point_history
+                            (fph_m_idx, fph_content,fph_point,fph_balance,fph_trigger_type,created_at)
+                            VALUES
+                             ('{$idx}','Buy_item','{$price}',{$m_fp_balance},'item', now())";
+            $result4 = $_mysqli->query($query4);
 
             if (!$result) {
                 $arrRtn['code'] = 502;
