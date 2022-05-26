@@ -5,6 +5,7 @@ require_once __DIR__ .'/../_inc/config.php';
 $m_sns_type       = !empty($_POST['m_sns_type'])           ? strtoupper($_POST['m_sns_type'])         : '';
 $m_sns_id       = !empty($_POST['m_sns_id'])           ? strtoupper($_POST['m_sns_id'])         : '';
 $userPhone = !empty($_POST['userPhone'])           ? $_POST['userPhone']        : '';
+$userBirthday       = !empty($_POST['userBirthday'])           ? $_POST['userBirthday']        : '';
 
 try {
 
@@ -28,9 +29,11 @@ try {
     <input type="hidden" name="m_sns_type" id="m_sns_type" value="<?=$m_sns_type ?>"/>
     <input type="hidden" name="m_sns_id" id="m_sns_id" value="<?=$m_sns_id?>"/>
     <input type="hidden" name="userPhone" id="userPhone" value="<?=$userPhone?>"/>
+    <input type="hidden" name="userBirthday" id="userBirthday" value="<?=$userBirthday?>"/>
 </form>
 <form id="loginFrm" name="loginFrm" method="post" action="join_04.php">
     <input type="hidden" name="userPhone" id="userPhone" value="<?=$userPhone?>"/>
+    <input type="hidden" name="userBirthday" id="userBirthday" value="<?=$userBirthday?>"/>
 <div id="wrap" class="member">
     <!--content-->
     <div id="content">

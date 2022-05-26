@@ -4,7 +4,7 @@ require_once __DIR__ .'/../_inc/config.php';
 
 $resultCode       = !empty($_POST['resultCode'])           ? $_POST['resultCode']        : '';
 $userBirthday       = !empty($_POST['userBirthday'])           ? $_POST['userBirthday']        : '';
-$userBirthday = substr($userBirthday,0,4);
+$userBirthday2 = substr($userBirthday,0,4);
 $userPhone = !empty($_POST['userPhone'])           ? $_POST['userPhone']        : '';
 
 $year = date("Y");
@@ -14,7 +14,7 @@ if($resultCode==""){
 }
 
 if($userBirthday and $userPhone) {
-    $age = $year - $userBirthday;
+    $age = $year - $userBirthday2;
     $query = "SELECT COUNT(*) FROM members WHERE m_tel = '{$userPhone}'";
     $Result = $_mysqli->query($query);
     $usercnt = mysqli_fetch_row($Result);
@@ -52,6 +52,7 @@ try {
 <body>
 <form id="loginFrm" name="loginFrm" method="post" action="<?=$action?>">
     <input type="hidden" name="userPhone" id="userPhone" value="<?=$userPhone?>"/>
+    <input type="hidden" name="userPhone" id="userPhone" value="<?=$userBirthday?>"/>
     <div id="wrap" class="member">
         <!--content-->
         <div id="content">

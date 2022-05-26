@@ -59,10 +59,10 @@ try {
                             <p class="invalid-feedback">6자 이상 입력해주세요.</p>
 <!--                            <p class="invalid-feedback error">사용가능한 닉네임이 아닙니다.</p>-->
                         </div>
-                        <div class="input-box">
+                        <!--<div class="input-box">
                             <label for="">생년월일</label>
-                            <input type="number" name="m_b_year" id="m_b_year" placeholder="생년월일 8자리를 입력해주세요.">
-                        </div>
+                            <input type="date" name="m_b_year" id="m_b_year" placeholder="생년월일 8자리를 입력해주세요.">
+                        </div>-->
                         <?php
                         if($arrVal[0]=="m_id"){
                         ?>
@@ -137,11 +137,11 @@ try {
             return false;
         }
 
-        if ($("#m_b_year").val().length < 8) {
+        /*if ($("#m_b_year").val().length != 8) {
             alert("생년월일을 8자 입력해 주세요.");
             $("#m_b_year").focus();
             return false;
-        }
+        }*/
 
         var sex = $('input:radio[name=sex]').is(":checked");
         if (!sex) {
@@ -159,14 +159,14 @@ try {
 
         var <?=$arrVal[0]?>=$("#<?=$arrVal[0]?>").val();
         var m_name=$("#m_name").val();
-        var m_b_year=$("#m_b_year").val();
+        /*var m_b_year=$("#m_b_year").val();*/
         /*var m_tel = $("#m_tel").val();*/
 
 
         var postData = {
             "<?=$arrVal[0]?>": <?=$arrVal[0]?>,
             "m_name": m_name,
-            "m_b_year": m_b_year,
+            /*"m_b_year": m_b_year,*/
             "sex": sex
         };
 
