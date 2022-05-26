@@ -87,8 +87,7 @@ try {
                             <td>{$db['g_fee']}</td>
                             <td>{$db['g_prize']}</td>
                             <td>
-                                <p>결과보기</p>
-                                <img src="../images/ico_arrow_blue.svg" alt="결과 보기">
+                                <p>결과보기 <img src="../images/ico_arrow_blue.svg" alt="결과 보기"></p>
                             </td>
                         </tr>
                         <tr class="fold open">

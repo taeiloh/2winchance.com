@@ -779,9 +779,9 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 .fold-table > tbody > tr.view td:nth-child(6) {color: #3bff00;}
 .fold-table > tbody > tr.view,.upcomming-table tbody tr,.live-table tbody tr {position: relative; border-bottom: 1px dashed rgba(255, 255, 255, 0.4);}
 .fold-table > tbody > tr.view.last,.upcomming-table tbody tr:last-child,.live-table tbody tr:last-child {border-bottom: none;}
-.fold-table > tbody > tr.view td:last-child {position: relative; color: #1e8fff; cursor: pointer; display: flex; justify-content: center; align-items: center;}
-.fold-table > tbody > tr.view td:last-child p {margin-right: 0.6rem;}
-.fold-table > tbody > tr.view td:last-child img {transform: rotate(0deg); transition: .3s all ease;}
+.fold-table > tbody > tr.view td:last-child {position: relative; color: #1e8fff; cursor: pointer;}
+.fold-table > tbody > tr.view td:last-child p {display: flex; align-items: center; justify-content: center;}
+.fold-table > tbody > tr.view td:last-child img {transform: rotate(0deg); transition: .3s all ease; margin-left: 0.6rem; }
 .fold-table > tbody > tr.view.open td:last-child img {transform: rotate(180deg);}
 .fold-table > tbody > tr.view:hover td {background: #262626;}
 .fold-table > tbody > tr.fold {display: none; background: #303030;}
