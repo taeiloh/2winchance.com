@@ -6,7 +6,22 @@ require_once __DIR__ .'/../libs/INIStdPayUtil.php';
 require_once __DIR__ .'/../libs/HttpClient.php';
 
 require_once __DIR__ .'/../_inc/config.php';
-$idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 시퀀스
+$idx=!empty($_GET['id']) ? $_GET['id'] : "";      // 세션 시퀀스
+$query  = "
+        SELECT * FROM members
+        WHERE 1=1
+            AND m_idx = '{$idx}'
+        LIMIT 1
+    ";
+$result = $_mysqli->query($query);
+$_dbAdmins = $result->fetch_assoc();
+//비밀번호 확인
+
+$_SESSION['_se_idx']        = $_dbAdmins['m_idx'];
+$_SESSION['_se_id']         = $_dbAdmins['m_id'];
+$_SESSION['_se_name']       = $_dbAdmins['m_name'];
+$_SESSION['_se_deposit']       = $_dbAdmins['m_deposit'];
+$_SESSION['_se_fp']         = $_dbAdmins['m_fp_balance'];
 
 try {
 
