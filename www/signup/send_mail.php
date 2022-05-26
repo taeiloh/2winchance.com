@@ -137,7 +137,7 @@ try {
                                         <tbody>
                                             <tr>
                                                 <td height="80" style="text-align: center; ">
-                                                     <a href="'.$_auth_url.'" target="_blank" style="display:block; font-size: 35px; text-decoration:none; color:#ffffff; font-weight:bold; margin: 0 20px;">투윈챈스 회원가입 인증(링크)</a>
+                                                     <a href="'.$_auth_url.'" target="_blank" style="display:block; font-size: 35px; text-decoration:none; color:#ffffff; font-weight:bold; margin: 0 20px;">투윈챈스 회원가입 인증</a>
                                                 </td>
                                             </tr>
                                         </tbody>
