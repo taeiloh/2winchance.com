@@ -64,7 +64,7 @@ require_once __DIR__ .'/../_inc/config.php';
                             WHERE 1=1
                               AND game_status = 'scheduled'
                               AND standard_scheduled > NOW()
-                             
+
                             GROUP BY date(standard_scheduled)
                             ORDER BY standard_scheduled ASC
                             LIMIT 5
@@ -80,7 +80,9 @@ require_once __DIR__ .'/../_inc/config.php';
                         <li>
                             <a href="/lobby/list.php?cate=20">
                                 <div class="game-thumb" style="background-image: url('/images/@img_thumb01.png')">
-                                    <div class="subject"></div>
+                                    <div class="subject">
+                                        <img src="../images/pubg_logo.png" alt="pubg_logo">
+                                    </div>
                                 </div>
                                 <div class="contest-desc">
                                     <dl>
