@@ -81,7 +81,7 @@ try {
                                     <tbody>
                                         <tr>
                                             <td style="margin:0; padding: 0; valign= top;" align="center" >
-                                               <a href="tml" target="_blank" style="text-decoration: none;  font-size: 36px; font-weight:bold; color:#fff; ">2WinChance(2WC)</a>
+                                               <a href="https://2winchance.com/" target="_blank" style="text-decoration: none;  font-size: 36px; font-weight:bold; color:#fff; ">2WinChance(2WC)</a>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -179,9 +179,11 @@ try {
 </html>
 ';
 
+        $headers ="From: hello@2winchance.com\r\n";
 
         //echo $html;
         $log    = sendEmail($db_id, $title, $html);
+        //$log    = mail("ahn2700@naver.com", "테스트", "테스트", $headers);
 
        if($log){
            //성공

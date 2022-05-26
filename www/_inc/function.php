@@ -80,12 +80,14 @@ function sendEmail($email, $title, $html) {
         $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
         //Recipients
-        $mail->setFrom('hello@2winchance.com', '2winchance');
-        //$mail->addAddress('joe@example.net', 'Joe User');     //Add a recipient
+        $mail->SetFrom('hello@2winchance.com', '2winchance');
+        //$mail->addAddress('hello@2winchance.com', '2winchance');     //Add a recipient
         $mail->addAddress($email);               //Name is optional
-        //$mail->addReplyTo('info@example.com', 'Information');
+        $mail->addReplyTo('hello@2winchance.com', '2winchance');
         //$mail->addCC('cc@example.com');
         //$mail->addBCC('bcc@example.com');
+        //$mail->Sender='dev@idevel.co.kr';
+        //$mail->SetFrom('hello@2winchance.com', '2winchance', FALSE);
 
         //Attachments
         //$mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
