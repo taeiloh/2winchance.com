@@ -44,7 +44,7 @@ try {
         $pw         = password_hash($m_pw, PASSWORD_DEFAULT);
 
 
-        $title          = '메타게임 회원가입 인증';
+        $title          = '투윈챈스 메일 인증 안내입니다.';
         $_querystring   = base64_encode("m_id={$db_id}&key={$pw}");;
         $_auth_url  = "https://2winchance.com//signup/join_07.php?q=". $_querystring;
 
