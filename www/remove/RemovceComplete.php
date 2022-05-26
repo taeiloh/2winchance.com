@@ -26,7 +26,7 @@ try {
     <!--content-->
     <div id="content">
         <!--sec-01-->
-        <h1 class="logo"><a href="../main/index.php"><img src="../images/logo.png" alt="METAGAMES"></a></h1>
+        <h1 class="logo"><a href="../login/logout.php"><img src="../images/logo.png" alt="METAGAMES"></a></h1>
         <section class="sec sec-01">
             <div class="inner">
                 <div class="title">
