@@ -737,7 +737,6 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 .recent-point .user-detail-info li:last-of-type span{font-size: 3.2rem; color: #3bff00;}
 .recent-point .user-detail-info li:last-of-type > p{font-size: 3rem;}
 
-.remove-policy .removeid.sub-content{margin: unset;}
 
 .input-box{display: flex; align-items: center; flex-wrap: wrap; justify-content: space-between}
 .input-box span{display: block; width: 40rem; text-align: left; height: 6rem; line-height: 3;}
