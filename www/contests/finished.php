@@ -4,7 +4,7 @@ require_once __DIR__ .'/../_inc/config.php';
 
 try {
     // 파라미터
-
+    $page = !empty($_GET['page']) ? $_GET['page'] : 1;
     // 세션 정리
     $_se_idx        = !empty($_SESSION['_se_idx'])      ? $_SESSION['_se_idx']      : 0;
 
@@ -15,9 +15,55 @@ try {
         AND g_status IN (3, 4)
     ";
 
+    /*
+    $where      .= "
+        AND join_contest.result_report='finished'
+    ";
+*/
+
 } catch (Exception $e) {
     p($e);
 }
+$query  = "
+                            SELECT 
+                                count(*)
+                            FROM 
+                            (
+                                SELECT
+                                    jc_idx
+                                FROM join_contest
+                                WHERE 1=1
+                                    AND jc_u_idx = {$_se_idx}
+                            ) b INNER JOIN join_contest 
+                                ON join_contest.jc_idx = b.jc_idx
+                            LEFT JOIN lineups 
+                                ON lu_idx = jc_lineups 
+                            LEFT JOIN game 
+                                ON g_idx = jc_game 
+                            LEFT JOIN game_category 
+                                ON gc_idx = g_sport 
+                            LEFT JOIN members 
+                                ON m_idx = lu_u_idx 
+                            WHERE 1=1 
+                                AND lu_u_idx = {$_se_idx} 
+                                {$where} 
+                            GROUP BY jc_game 
+                            
+                            
+                        ";
+//echo $query;
+$result = $_mysqli->query($query);
+if (!$result) {
+
+}
+$row1 = mysqli_fetch_row($result);
+$total_count = $row1[0]; //전체갯수
+
+$rows = 10;
+$total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
+if ($page < 1) { $page = 1; } // 페이지가 없으면 첫 페이지 (1 페이지)
+$from_record = ($page - 1) * $rows; // 시작 열을 구함
+
 ?>
 <!doctype html>
 <html lang="ko">
@@ -79,7 +125,7 @@ try {
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="view">
+                        <!--tr class="view">
                             <td>{$db['g_name']}</td>
                             <td>{$db['jc_result_update']}</td>
                             <td>{$db['g_multi_max']}</td>
@@ -180,7 +226,7 @@ try {
                                     </div>
                                 </div>
                             </td>
-                        </tr>
+                        </tr-->
                         <?php
                         // 콘테스트
                         $query  = "
@@ -208,10 +254,12 @@ try {
                             WHERE 1=1 
                                 AND lu_u_idx = {$_se_idx} 
                                 {$where} 
-                            ORDER BY g_date DESC,  jc_result_update DESC
                             GROUP BY jc_game 
+                            ORDER BY g_date DESC,  jc_result_update DESC
+                            LIMIT {$from_record}, {$rows}
+                            
                         ";
-                        //p($query);
+                        //echo $query;
                         $result = $_mysqli->query($query);
                         if (!$result) {
 
@@ -220,7 +268,7 @@ try {
                             //p($db);
 
                             echo <<<TR
-                        <tr class="view">
+                        <tr class="view open">
                             <td>{$db['g_name']}</td>
                             <td>{$db['jc_result_update']}</td>
                             <td>{$db['g_multi_max']}</td>
@@ -232,7 +280,7 @@ try {
                                 <img src="../images/ico_arrow_blue.svg" alt="결과 보기">
                             </td>
                         </tr>
-                        <tr class="fold open">
+                        <tr class="fold">
 	                        <td colspan="7">
                                 <div class="fold-content">
                                     <div class="fold-table-wrap">
@@ -293,7 +341,7 @@ TR;
                                                 </thead>
                                                 <tbody>
 TR;
-                            $sub_query  = "
+                            $sub_query1  = "
                                 SELECT * 
                                 FROM lineups a
                                 LEFT JOIN game b 
@@ -303,10 +351,10 @@ TR;
                                 WHERE 1=1
                                     AND c.lu_idx = 17489
                             ";
-                            $sub_result = $_mysqli->query($sub_query);
-                            if (!$result) {
+                            $sub_result1 = $_mysqli->query($sub_query1);
+                            if (!$sub_result1) {
                             }
-                            while ($sub_db = $sub_result->fetch_assoc()) {
+                            while ($sub_db1 = $sub_result1->fetch_assoc()) {
                                 //p($sub_db);
 
                                 // 경기 정보
@@ -317,9 +365,9 @@ TR;
                                         ON b.game_id = a.game_id
                                     WHERE 1=1
                                         AND a.m_idx = {$_se_idx}
-                                        AND a.g_idx = {$sub_db['g_idx']}
-                                        AND a.game_id = '{$sub_db['game_id']}'
-                                        AND a.player_id = '{$sub_db['player_id']}'
+                                        AND a.g_idx = {$sub_db1['g_idx']}
+                                        AND a.game_id = '{$sub_db1['game_id']}'
+                                        AND a.player_id = '{$sub_db1['player_id']}'
                                 ";
                                 $_result    = $_mysqli->query($_query);
                                 if (!$_result) {
@@ -329,14 +377,14 @@ TR;
                                 //p($_db);
                                 $game_info  = "{$_db['home_name']} {$_db['home_score']}:{$_db['away_score']} {$_db['away_name']}";
 
-                                $player_result_json = json_decode($sub_db['player_result_json'], true);
+                                $player_result_json = json_decode($sub_db1['player_result_json'], true);
                                 echo <<<TR
                                                 <tr>
-                                                    <td>{$sub_db['player_pos']}</td>
-                                                    <td>{$sub_db['player_name']}</td>
+                                                    <td>{$sub_db1['player_pos']}</td>
+                                                    <td>{$sub_db1['player_name']}</td>
                                                     <td>{$game_info}</td>
                                                     <td class="hover">
-                                                        {$sub_db['player_result_json']}
+                                                        {$sub_db1['player_result_json']}
                                                         <p>36p 9 made 3pt 6rebounds</p>
                                                         <div class="tooltip">
                                                             <p class="title">상세 점수</p>
@@ -368,7 +416,7 @@ TR;
                                                             </dl>
                                                         </div>
                                                     </td>
-                                                    <td>{$sub_db['game_players_points']}</td>
+                                                    <td>{$sub_db1['game_players_points']}</td>
                                                 </tr>
 TR;
                             }
@@ -396,10 +444,13 @@ TR;
             </section>
             <!--//sec-01-->
             <div class="pagination">
-                <a href="javascript:void(0)" class="active" >1</a>
+                <?php
+                echo paging($page,$total_page,5,"{$_SERVER['SCRIPT_NAME']}?page=");
+                ?>
+                <!--a href="javascript:void(0)" class="active" >1</a>
                 <a href="javascript:void(0)">2</a>
                 <a href="javascript:void(0)">3</a>
-                <a href="javascript:void(0)">4</a>
+                <a href="javascript:void(0)">4</a-->
             </div>
         </div>
         <!--//content-->
