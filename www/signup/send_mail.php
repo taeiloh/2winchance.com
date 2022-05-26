@@ -80,8 +80,8 @@ try {
                                 <table cellpadding="0" cellspacing="0" style="width:100%; margin:0; padding:0;">
                                     <tbody>
                                         <tr>
-                                            <td style="margin:0; padding: 0; valign= top;" >
-                                               <a href="tml" target="_blank" style="text-align=center; text-decoration= none;  font-size= 28px; ">2WinChance(2WC)</a>
+                                            <td style="margin:0; padding: 0; valign= top;" align="center" >
+                                               <a href="tml" target="_blank" style="text-decoration: none;  font-size: 36px; font-weight:bold; color:#fff; ">2WinChance(2WC)</a>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -93,7 +93,7 @@ try {
                         </tr>
                         <tr>
                             <td width="20"></td>
-                            <td style=" background-image: url("../images/img_title_bg.svg"); background-repeat:no-repeat; background-position: center; background-size: contain; height: 123px; line-height: 123px; text-align: center; font-size: 30px; font-weight: 600;  color: #fff;">
+                            <td align="center" style=" background-image: url("../images/img_title_bg.svg"); background-repeat:no-repeat; background-position: center; background-size: contain; height: 123px; line-height: 123px; font-size: 30px; font-weight: bold;  color: #fff;">
            <span style="color:"#1e8fff;">메일인증</span> 안내입니다.
         </td>
                             <td width="20"></td>
@@ -136,8 +136,8 @@ try {
                                      <table cellpadding="0" cellspacing="0" style="table-layout: fixed; width: 100%; background:#1e8fff; ">
                                         <tbody>
                                             <tr>
-                                                <td height="80" style="text-align: center; padding: 0 20px;">
-                                                     <a href="'.$_auth_url.'" target="_blank" style="display:block; font-size: 35px; text-decoration:none; color:#ffffff; font-weight:bold;">투윈챈스 회원가입 인증(링크)</a>
+                                                <td height="80" style="text-align: center; ">
+                                                     <a href="'.$_auth_url.'" target="_blank" style="display:block; font-size: 35px; text-decoration:none; color:#ffffff; font-weight:bold; margin: 0 20px;">투윈챈스 회원가입 인증(링크)</a>
                                                 </td>
                                             </tr>
                                         </tbody>
