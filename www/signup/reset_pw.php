@@ -3,6 +3,7 @@
 require __DIR__ .'/../_inc/config.php';
 $idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 시퀀스
 $id=!empty($_SESSION['_se_id']) ? $_SESSION['_se_id'] : "";        // 세션 아이디
+$user_phone = !empty($_POST['userPhone']) ? $_POST['userPhone'] : "";
 
 //리퍼러 체크
 
@@ -22,18 +23,30 @@ $arrRtn     = array(
     'msg'   => ''
 );
 try {
-    $sql = "update members SET m_pw = '{$pw}' where m_idx = '{$idx}'";
-    $result2 = mysqli_query($_mysqli, $sql);
+    //비밀번호 일치여부 확인
+    $query  = "
+            SELECT * FROM members
+            WHERE 1=1
+                AND m_tel  = '{$user_phone}'";
+    //p($query);
+    $result = $_mysqli->query($query);
+    $_arrMembers    = $result->fetch_array();
+    $db_pw = $_arrMembers['m_pw'];
 
-    if($result2){
-    $arrRtn['code'] = 200;
-        $arrRtn['msg']  = "비밀번호가 변경되었습니다.";
-    }
-    else{
+
+    if(password_verify($m_pw,$db_pw))
+    {
         $arrRtn['code'] = 501;
-        $arrRtn['msg']  = "비밀번호 변경에 실패하였습니다.";
+        $arrRtn['msg']  = "현재 비밀번호와 신규 비밀번호가 동일합니다.";
         echo json_encode($arrRtn);
         exit;
+    }
+    else{
+
+        $sql = "update members SET m_pw = '{$pw}' where m_tel = '{$user_phone}'";
+        $result2 = mysqli_query($_mysqli, $sql);
+        $arrRtn['code'] = 200;
+        $arrRtn['msg']  = "비밀번호가 변경되었습니다.";
     }
 
 } catch (mysqli_sql_exception $e) {

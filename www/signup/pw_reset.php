@@ -35,6 +35,7 @@ try {
 <body>
 <form id="loginFrm" name="loginFrm" method="post" action="../myPage/myaccount.php">
     <input type="hidden" name="m_idx" id="m_idx" />
+    <input type="hidden" name="userPhone" id="userPhone" value="<?=$user_phone?>">
     <div id="wrap" class="member">
         <!--content-->
         <div id="content">
@@ -126,18 +127,12 @@ try {
         });
     };
     function next(){
-
         if ($.trim($("#m_pw").val()) == "") {
             alert("신규 비밀번호를 입력해 주세요.");
             $("#m_pw").focus();
             return false;
         }
 
-        if($.trim($("#now_pw").val()) == $.trim($("#m_pw").val())){
-            alert("현재 비밀번호가 신규비밀번호가 동일합니다.");
-            $("#m_pw").focus();
-            return false;
-        }
         var pw = $("#m_pw").val();
         var checkNumber = pw.search(/[0-9]/g);
         var checkEnglish = pw.search(/[a-z]/ig);
@@ -167,12 +162,12 @@ try {
             $("#m_pw_re").focus();
             return false;
         }
-        var now_pw = $("#now_pw").val();
         var m_pw = $("#m_pw").val();
+        var userPhone = $("#userPhone").val();
 
         var postData = {
-            "now_pw" : now_pw,
-            "m_pw" : m_pw
+            "m_pw" : m_pw,
+            "userPhone" : userPhone
         };
 
         $.ajax({
@@ -182,14 +177,14 @@ try {
             data: postData,
             success: function (data) {
                 var json = JSON.parse(data);
-                //console.log(json);return false;
+                /*console.log(json);return false;*/
                 if (json.code == 200) {
-                    alert("비밀변호가 변경되었습니다.");
+                    alert(json.msg);
                     $("#m_idx").val(json.id);
                     $("#loginFrm").submit();
                 }
                 else{
-                    alert("현재 비밀번호가 일치하지 않습니다");
+                   alert(json.msg);
                 }
             },
             beforeSend:function(){
