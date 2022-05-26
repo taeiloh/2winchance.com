@@ -184,7 +184,7 @@ try {
                             LIMIT {$from_record}, {$rows}
                             
                         ";
-                        //p($query);
+                        //echo $query;
                         $result = $_mysqli->query($query);
                         if (!$result) {
 
