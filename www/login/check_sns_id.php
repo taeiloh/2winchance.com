@@ -27,6 +27,7 @@ try {
         WHERE 1 
             AND m_sns_type = '{$m_sns_type}'
             AND m_sns_id  = '{$m_sns_id}'
+            AND m_name is NOT NULL
     ";
     //echo $query;
     //exit;
@@ -42,21 +43,23 @@ try {
     //아이디가 1개인 경우 로그인 처리
     if ($cnt == 1) {
         //회원 정보 확인
-        $query  = "
+        $query =  "
             SELECT
                 *
             FROM members
             WHERE 1 
                 AND m_sns_type = '{$m_sns_type}'
                 AND m_sns_id = '{$m_sns_id}'
+                AND m_name is not null 
         ";
-        //echo $query;
-        //exit;
         $result = $_mysqli->query($query);
+
         if (!$result) {
             $arrRtn['code'] = 502;
             $arrRtn['msg']  = "조회 오류가 발생했습니다.\n관리자에게 문의해 주세요.";
             p($query);
+            echo json_encode($arrRtn);
+            exit;
         }
         $db      = $result->fetch_assoc();
         $db_seq  = !empty($db['m_idx'])       ? $db['m_idx']          : 0;
@@ -70,6 +73,30 @@ try {
         $_SESSION['_se_deposit']       = $db_deposit;
 
         $arrRtn['code'] = 200;
+    }
+    else{
+        $query2  = "
+            SELECT
+                count(*)
+            FROM members
+            WHERE 1 
+                AND m_sns_type = '{$m_sns_type}'
+                AND m_sns_id = '{$m_sns_id}'
+                AND m_name is null 
+        ";
+       /* echo $query2;
+        exit;*/
+        $result2 = $_mysqli->query($query2);
+        $row1 = mysqli_fetch_row($result2);
+        $total_count = $row1[0];
+
+        if($total_count > 0)
+        {
+            $arrRtn['code'] = 201;
+            $arrRtn['msg'] = "가입 진행중인 계정이 있습니다. 가입을 마저 진행해주세요.";
+            echo json_encode($arrRtn);
+            exit;
+        }
     }
 
     //성공

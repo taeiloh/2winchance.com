@@ -155,6 +155,10 @@ try {
                                         ?>
 
                                     }
+                                    else if(json.code == 201){
+                                        alert("가입진행중인 계정이 있습니다");
+                                        location.href='../signup/join_02.php';
+                                    }
                                     else{
                                         alert("가입된 계정이 없습니다.");
                                         location.href='../signup';

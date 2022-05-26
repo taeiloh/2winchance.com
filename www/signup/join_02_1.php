@@ -15,16 +15,34 @@ if($resultCode==""){
 
 if($userBirthday and $userPhone) {
     $age = $year - $userBirthday2;
-    $query = "SELECT COUNT(*) FROM members WHERE m_tel = '{$userPhone}'";
+    $query = "SELECT COUNT(*) FROM members WHERE m_tel = '{$userPhone}' and m_name is NOT NULL";
     $Result = $_mysqli->query($query);
     $usercnt = mysqli_fetch_row($Result);
     $cnt = $usercnt[0];
+
+    $query2 = "SELECT COUNT(*) FROM members WHERE m_tel = '{$userPhone}' and m_name is NULL and m_sns_id is NULL";
+    $Result2 = $_mysqli->query($query2);
+    $usercnt2 = mysqli_fetch_row($Result2);
+    $cnt2 = $usercnt2[0];
+
+    $query3 = "SELECT COUNT(*) FROM members WHERE m_tel = '{$userPhone}' and m_name is NULL and m_sns_id is NOT NULL";
+    $Result3 = $_mysqli->query($query3);
+    $usercnt3 = mysqli_fetch_row($Result3);
+    $cnt3 = $usercnt3[0];
 }
 
 if($age < 18)
 {
     $action="../main/";
-}else if($cnt > 0)
+}else if($cnt2 > 0)
+{
+    $action="join_04.php";
+}
+else if($cnt3 > 0)
+{
+    $action="join_02_2.php";
+}
+else if($cnt > 0)
 {
     $action="../signup/id_check.php";
 }else{

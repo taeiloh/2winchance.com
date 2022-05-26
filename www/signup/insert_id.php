@@ -37,7 +37,7 @@ try {
     $query  = "
             SELECT COUNT(1) AS CNT FROM members
             WHERE 1=1
-                AND m_id = '{$m_id}'
+                AND m_id = '{$m_id}' and m_name is NOT NULL
         ";
     //p($query);
     $result = $_mysqli->query($query);
@@ -54,7 +54,7 @@ try {
         }
     }
 
-    $query  = "
+    /*$query  = "
             SELECT COUNT(1) AS CNT FROM members
             WHERE 1=1
                 AND m_id = '{$m_id}' and m_name is null
@@ -80,16 +80,17 @@ try {
                 echo json_encode($arrRtn);
                 echo $sql2;
                 exit;
-            }
+            }*/
 
 
             $query1  = "
             SELECT m_idx FROM members
             WHERE 1=1
-                AND m_id = '{$m_id}' and m_name is null
+                AND m_id = '{$m_id}' and m_name is null and m_sns_id is null
         ";
             //p($query);
             $result1 = $_mysqli->query($query1);
+            if(reslut1){
             $_arrMembers1    = $result1->fetch_array();
             $m_idx            = $_arrMembers1['m_idx'];
 
@@ -115,7 +116,7 @@ try {
             }
             $m_idx   =   $_mysqli->insert_id;
 
-        }
+        /*}*/
     }
 
 
