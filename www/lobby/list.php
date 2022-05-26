@@ -167,7 +167,7 @@ LI;
                             <div id="tab-2"  class="tab-content">
                                 <dl>
                                     <dd class="start-date">시작 시간 : <?=$g_date?> 18:00:00</dd>
-                                    <dd class="timer">남은 시간 : <p class="hour">00</p>:<p class="minutes">00</p>:<p class="seconds">00</p></dd>
+                                    <dd class="timer">남은 시간 : <span class="hours">00</span>:<span class="minutes">00</span>:<span class="seconds">00</span></dd>
                                 </dl>
                                 <div class="parti-info">
                                     <p class="prize-money">총 상금<b>650,000,000</b><span> FP</span></p>
@@ -176,8 +176,8 @@ LI;
                             </div>
                             <div id="tab-3"  class="tab-content">
                                 <dl>
-                                    <dd class="start-date">시작 시간 : 2022-05-20 18:00:00</dd>
-                                    <dd class="timer">남은 시간 : 00:00:00</dd>
+                                    <dd class="start-date">시작 시간 : <?=$g_date?> 18:00:00</dd>
+                                    <dd class="timer">남은 시간 : <span class="hours">00</span>:<span class="minutes">00</span>:<span class="seconds">00</span></dd>
                                 </dl>
                                 <div class="parti-info">
                                     <p class="prize-money">총 상금<b>650,000,000</b><span> FP</span></p>
@@ -186,8 +186,8 @@ LI;
                             </div>
                             <div id="tab-4"  class="tab-content">
                                 <dl>
-                                    <dd class="start-date">시작 시간 : 2022-05-20 18:00:00</dd>
-                                    <dd class="timer">남은 시간 : 00:00:00</dd>
+                                    <dd class="start-date">시작 시간 : <?=$g_date?> 18:00:00</dd>
+                                    <dd class="timer">남은 시간 : <span class="hours">00</span>:<span class="minutes">00</span>:<span class="seconds">00</span></dd>
                                 </dl>
                                 <div class="parti-info">
                                     <p class="prize-money">총 상금<b>650,000,000</b><span> FP</span></p>
@@ -258,7 +258,7 @@ LI;
                                 <div class="league-title">
                                     <h2>{$db['g_name']}</h2>
                                     <div class="badge">
-                                        <img src="../images/Contest_Mod_2X" alt="더블">
+                                        <img src="../images/Contest_Mod_2X.png" alt="더블">
                                     </div>
                                     <button type="button"><img class="mR10" src="/images/ico_share.svg" alt="공유하기">공유하기</button>
                                 </div>
