@@ -80,11 +80,8 @@ try {
                                 <table cellpadding="0" cellspacing="0" style="width:100%; margin:0; padding:0;">
                                     <tbody>
                                         <tr>
-                                            <td style="margin:0; padding: 0;" valign="top" align="center">
-                                               <a href="tml" target="_blank"><img
-                                                       src="https://syryu.wtest.biz/metagames/html/pc/images/logo_white.svg"
-                                                       alt="METAGAMES" width="224" height="43"
-                                                       style="border:0; margin-right:5px;"></a>
+                                            <td style="margin:0; padding: 0;" valign="top" align="center font-size="28px">
+                                               <a href="tml" target="_blank">2WinChance(2WC)</a>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -97,7 +94,7 @@ try {
                         <tr>
                             <td width="20"></td>
                             <td style=" background-image: url("https://syryu.wtest.biz/metagames/html/images/img_title_bg.svg"); background-repeat:no-repeat; background-position: center; background-size: contain; height: 123px; line-height: 123px; text-align: center; font-size: 30px; font-weight: 600;  color: #fff;">
-            이메일 인증 완료
+           <span style="color:"#1e8fff;">메일인증</span> 안내입니다.
         </td>
                             <td width="20"></td>
                         </tr>
@@ -112,7 +109,7 @@ try {
                                         <tr>
 
                                             <td style="vertical-align: top; font-size: 24px;  color: #fff;">
-            안녕하세요! <b
+            안녕하세요. <b
                                                     style="font-size: 30px; color:#1e8fff; padding: 0 10px; font-weight: bold;">'.$db_id.'</b>님
                                             </td>
                                         </tr>
@@ -121,9 +118,9 @@ try {
                                         </tr>
                                          <tr>
                                             <td style=" color: #ffffff; font-size: 20px; line-height: 30px;">
-            이메일 인증이 완료되었습니다.
+            투윈챈스를 이용해 주셔서 감사합니다.
                                                 <br>
-        이제 메타게임 계정을 이용하실 수 있습니다.
+        아래 &#39; 메일인증 &#39; 링크를 클릭하여 회원가입을 완료해 주세요.
                                             </td>
                                         </tr>
                                         <tr>
@@ -141,7 +138,7 @@ try {
                                         <tbody>
                                             <tr>
                                                 <td height="80" style="text-align: center;">
-                                                     <a href="'.$_auth_url.'" target="_blank" style="display:block; font-size: 35px; text-decoration:none; color:#ffffff; ">닉네임 설정하기</a>
+                                                     <a href="'.$_auth_url.'" target="_blank" style="display:block; font-size: 35px; text-decoration:none; color:#ffffff; ">투읜챈스 회원가입 인증(링크)</a>
                                                 </td>
                                             </tr>
                                         </tbody>
