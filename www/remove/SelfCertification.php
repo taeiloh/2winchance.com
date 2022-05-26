@@ -93,13 +93,13 @@ if($flgFixedUser=="Y")
                             </div>
                             <button type="button" class="btn-blue btn-6" onclick="callSa()">인증하기</button>
                         </div>
-                        <div class="confirm-box mT10">
+                       <!-- <div class="confirm-box mT10">
                             <div>
                                 <h4>신용/ 체크카드 인증</h4>
                                 <p>본인 명의의 핸드폰으로 인증</p>
                             </div>
                             <button type="button" class="btn-blue btn-6">인증하기</button>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </div>
