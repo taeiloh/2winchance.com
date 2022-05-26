@@ -5,6 +5,7 @@ require_once __DIR__ .'/../_inc/config.php';
 try {
     // 파라미터
 
+
     // 세션 정리
     $_se_idx        = !empty($_SESSION['_se_idx'])      ? $_SESSION['_se_idx']      : 0;
     check_login($_se_idx);
@@ -12,8 +13,24 @@ try {
     $where      = '';
 
     $where      .= "
-        AND (g_status = 0 OR g_status = 1)
+        AND (g_status = 0 OR jc_status = 1)
     ";
+
+    $page = !empty($_GET['page']) ? $_GET['page'] : 1;
+    //파라미터 체크
+    if(!is_numeric($page)){
+        $page       =   1;
+    }
+    //페이징
+    $sql = "select count(*) from join_contest where 1=1 and jc_u_idx = '{$_se_idx}'";
+    $tresult = mysqli_query($_mysqli, $sql);
+    $row1   = mysqli_fetch_row($tresult);
+    $total_count = $row1[0]; //전체갯수
+    $rows = 10;
+    $total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
+    if ($page < 1) { $page = 1; } // 페이지가 없으면 첫 페이지 (1 페이지)
+    $from_record = ($page - 1) * $rows; // 시작 열을 구함
+
 
 } catch (Exception $e) {
     p($e);
@@ -140,7 +157,8 @@ try {
                             WHERE 1=1 
                                 AND lu_u_idx = {$_se_idx} 
                                 {$where} 
-                            GROUP BY jc_game 
+                            GROUP BY jc_game
+                            LIMIT {$from_record}, {$rows}
                             
                         ";
                         //p($query);
@@ -148,11 +166,16 @@ try {
                         if (!$result) {
 
                         }
+                        if($total_count > 0){
+
+
                         while ($db = $result->fetch_assoc()) {
                             //p($db);
-
+                            $i = 0;
                             $arrGjson   = json_decode($db['g_json'], true);
                             //p($arrGjson);
+                            $i++;
+                            $no=$total_count-($i+($page-1)*$rows);
                             echo <<<TR
                         <tr>
                             <td>{$db['g_name']}</td>
@@ -164,6 +187,13 @@ try {
                             <td><button type="button">수정</button></td>
                             <td><button type="button"><img src="../images/ico_share_blue.svg" alt="공유하기">초대</button></td>
                         </tr>
+TR;
+                                   }
+                        }else {
+                            echo <<<TR
+                         <tr>
+                                <td colspan="7">등록된 게시글이 없습니다.</td>
+                         </tr>
 TR;
 
                         }
@@ -184,10 +214,13 @@ TR;
             </section>
             <!--//sec-01-->
             <div class="pagination">
-                <a href="javascript:void(0)" class="active" >1</a>
-                <a href="javascript:void(0)">2</a>
-                <a href="javascript:void(0)">3</a>
-                <a href="javascript:void(0)">4</a>
+                <?php
+                echo paging($page,$total_page,5,"{$_SERVER['SCRIPT_NAME']}?page=");
+                ?>
+<!--                <a href="javascript:void(0)" class="active" >1</a>-->
+<!--                <a href="javascript:void(0)">2</a>-->
+<!--                <a href="javascript:void(0)">3</a>-->
+<!--                <a href="javascript:void(0)">4</a>-->
             </div>
         </div>
         <!--//content-->
