@@ -28,7 +28,15 @@ if (!$idx) {
     ?>
 </head>
 <!--//head-->
+<style>
+    #counter {
+        background:rgba(255,0,0,0.5);
+        border-radius: 0.5em;
+        padding: 0 .5em 0 .5em;
+        font-size: 0.75em;
+    }
 
+</style>
 <body>
 
 <div id="wrap" class="sub">
@@ -112,8 +120,10 @@ if (!$idx) {
                             </div>
                             <div>
                                 <h4>문의 내용</h4>
-                                <textarea name="askCont" id="askCont" placeholder="문의하실 내용을 입력해주세요."></textarea>
+                                <textarea name="askCont" id="askCont" placeholder="문의하실 내용을 입력해주세요." maxlength="2000"></textarea>
                                 <span class="alert"><img src="../images/ico_alert_blue.svg" alt="입력조건">2000자 이내로 내용을 작성해주세요.</span>
+                                <span id="counter"></span>
+
                             </div>
                         </div>
                         <div class="captcha">
@@ -160,6 +170,16 @@ if (!$idx) {
     </footer>
     <!--//footer-->
     <script type="text/javascript">
+        $(function (){
+            $("#askCont").keyup(function (e){
+                var content = $(this).val();
+                $(this).height(((content.split('\n').length+1)*1.5)+'em');
+                $("#counter").html(content.length + '/2000');
+            });
+            $('#askCont').keyup();
+        });
+
+
         var onloadCallback = function() {
             grecaptcha.render('html_element', {
                 'sitekey' : 'your_site_key'
@@ -204,6 +224,11 @@ if (!$idx) {
                 $("#askCont").focus();
                 return false;
             }
+
+
+
+
+
 
             var cu_topic = $("#cuTopic").val();
             var cu_mail = $("#cuMail").val();

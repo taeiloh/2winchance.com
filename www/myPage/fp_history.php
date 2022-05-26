@@ -38,7 +38,7 @@ try{
     $tresult = mysqli_query($_mysqli, $sql);
     $row1   = mysqli_fetch_row($tresult);
     $total_count = $row1[0]; //전체갯수
-    $rows = 5;
+    $rows = 10;
     $total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
     if ($page < 1) { $page = 1; } // 페이지가 없으면 첫 페이지 (1 페이지)
     $from_record = ($page - 1) * $rows; // 시작 열을 구함

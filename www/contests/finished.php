@@ -208,8 +208,8 @@ try {
                             WHERE 1=1 
                                 AND lu_u_idx = {$_se_idx} 
                                 {$where} 
+                            ORDER BY g_date DESC,  jc_result_update DESC
                             GROUP BY jc_game 
-                            ORDER BY g_date DESC, jc_result DESC
                         ";
                         //p($query);
                         $result = $_mysqli->query($query);

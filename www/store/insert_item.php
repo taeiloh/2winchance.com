@@ -58,7 +58,7 @@ try{
             $query4 = "insert into fantasy_point_history
                             (fph_m_idx, fph_content,fph_point,fph_balance,fph_trigger_type,created_at)
                             VALUES
-                             ('{$idx}','Buy_item','{$price}',{$m_fp_balance},'item', now())";
+                             ('{$idx}','Buy_item','{$fp}',{$m_fp_balance},'item', now())";
             $result4 = $_mysqli->query($query4);
 
             if (!$result) {
