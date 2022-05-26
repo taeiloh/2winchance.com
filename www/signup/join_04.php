@@ -51,6 +51,7 @@ try {
                             <label for="">아이디</label>
                             <input type="email" name="m_id" id="m_id" placeholder="아이디를 입력해주세요.">
                             <p class="invalid-feedback">영문으로 시작하는 e-mail 주소를 입력해 주세요.</p>
+                            <p class="invalid-feedback error">이미 있는 아이디입니다.</p>
                         </div>
                         <div class="input-box">
                             <label for="">비밀번호</label>

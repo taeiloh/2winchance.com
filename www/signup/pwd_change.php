@@ -57,6 +57,7 @@ try {
                                 <label for="">비밀번호 확인</label>
                                 <input type="password" name="m_pw_re" id="m_pw_re" placeholder="비밀번호를 확인해주세요.">
                                 <p class="invalid-feedback">8자리 이상의 영문,숫자,특수문자 조합의 숫자를 입력하세요.</p>
+                                  <!--<p class="invalid-feedback error">기존 비밀번호는 재사용 불가합니다.</p>-->
                             </div>
                         </div>
                         <button type="button" class="btn-blue btn-6" onclick="next()">다음</button>
