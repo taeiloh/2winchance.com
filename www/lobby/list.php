@@ -235,12 +235,12 @@ LI;
                         }
                         while ($db = $result->fetch_assoc()) {
                             // 변수 정리
-
+                            $img_n=str_replace("/", "", $db['g_name']);
                             echo <<<DIV
                         <div class="league-box">
                             <div class="league-thumb-box">
                                 <div class="league-thumb" style="overflow: hidden;">
-                                    <img src="/images/PUBG/output/{$db['g_name']}.jpg" alt="Marathon Legends - The Push" width="400px">
+                                    <img src="/images/PUBG/output/{$img_n}.jpg" alt="Marathon Legends - The Push" width="400px">
                                     <div class="game-logo"><img src="/images/pubg.png"></div>
                                 </div>
                                 <div class="status-detail">
