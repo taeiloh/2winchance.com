@@ -209,7 +209,9 @@ switch ($sub_menu) {
                             <div class="league-info">
                                 <div class="league-title">
                                     <h2>{$db['g_name']}</h2>
-                                    <div class="badge bg_free"></div>
+                                    <div class="badge">
+                                        <img src="" alt="">
+                                    </div>
                                     <button type="button"><img class="mR10" src="/images/ico_share.svg" alt="공유하기">공유하기</button>
                                 </div>
                                 <div class="league-detail">
