@@ -69,7 +69,7 @@ try {
         <td align="center">
             <div style="max-width: 520px; margin:0 auto">
                 <table cellpadding="0" cellspacing="0"
-                       style="width:100%; margin:0 auto; background-color:#000000;  -webkit-text-size-adjust: 100%; text-align: left;">
+                       style="width:100%; margin:0 auto; background-color:#000000;  -webkit-text-size-adjust: 100%; text-align: left; padding= 0 20px;"">
                     <tbody>
                         <tr>
                             <td colspan="3" height="50"></td>
@@ -80,7 +80,7 @@ try {
                                 <table cellpadding="0" cellspacing="0" style="width:100%; margin:0; padding:0;">
                                     <tbody>
                                         <tr>
-                                            <td style="margin:0; padding: 0;" valign="top" align="center font-size="28px">
+                                            <td style="margin:0; padding: 0; valign= top; text-align=center; font-size= 28px; text-decoration= none;" >
                                                <a href="tml" target="_blank">2WinChance(2WC)</a>
                                             </td>
                                         </tr>
@@ -109,8 +109,7 @@ try {
                                         <tr>
 
                                             <td style="vertical-align: top; font-size: 24px;  color: #fff;">
-            안녕하세요. <b
-                                                    style="font-size: 30px; color:#1e8fff; padding: 0 10px; font-weight: bold;">'.$db_id.'</b>님
+            안녕하세요.
                                             </td>
                                         </tr>
                                         <tr>
@@ -138,7 +137,7 @@ try {
                                         <tbody>
                                             <tr>
                                                 <td height="80" style="text-align: center;">
-                                                     <a href="'.$_auth_url.'" target="_blank" style="display:block; font-size: 35px; text-decoration:none; color:#ffffff; ">투읜챈스 회원가입 인증(링크)</a>
+                                                     <a href="'.$_auth_url.'" target="_blank" style="display:block; font-size: 35px; text-decoration:none; color:#ffffff; ">투윈챈스 회원가입 인증(링크)</a>
                                                 </td>
                                             </tr>
                                         </tbody>
