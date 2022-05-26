@@ -13,6 +13,9 @@ $m_pw      = isset($_POST['m_pw'])        ?     $_POST['m_pw']       : '';
 $m_sns_id      = isset($_POST['m_sns_id'])        ?     $_POST['m_sns_id']       : '';*/
 $m_tel = isset($_POST['m_tel'])        ?     $_POST['m_tel']       : '';
 $m_birthday = isset($_POST['m_birthday'])        ?     $_POST['m_birthday']       : '';
+
+$m_birthday2 = intval($m_birthday);
+
 $ip=$_SERVER['REMOTE_ADDR'];
 
 
@@ -101,7 +104,7 @@ try {
             $sql  = " insert into  members
                 (m_id, m_pw, m_ip, m_tel, m_b_year, m_enter_datetime)
             VALUES
-                ('{$m_id}','{$pw}','{$ip}','{$m_tel}','{$m_birthday}', now())";
+                ('{$m_id}','{$pw}','{$ip}','{$m_tel}','{$m_birthday2}', now())";
             //p($sql);
             $result = mysqli_query($_mysqli, $sql);
             if (!$result) {

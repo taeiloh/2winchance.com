@@ -6,7 +6,7 @@ require_once __DIR__ .'/../_inc/config.php';
 /*$m_sns_type       = !empty($_POST['m_sns_type'])           ? strtoupper($_POST['m_sns_type'])         : '';
 $m_sns_id       = !empty($_POST['m_sns_id'])           ? strtoupper($_POST['m_sns_id'])         : '';*/
 $userPhone      = !empty($_POST['userPhone'])           ? strtoupper($_POST['userPhone'])         : '';
-$userBirthday       = !empty($_POST['userBirthday'])           ? $_POST['userBirthday']        : '';
+$userBirthday      = !empty($_POST['userBirthday'])           ? strtoupper($_POST['userBirthday'])         : '';
 
 try {
 
@@ -129,12 +129,12 @@ try {
             $("#m_pw_re").focus();
             return false;
         }
-        var m_sns_type=$("#m_sns_type").val();
-        var m_sns_id=$("#m_sns_id").val();
+        /*var m_sns_type=$("#m_sns_type").val();
+        var m_sns_id=$("#m_sns_id").val();*/
         var m_id=$("#m_id").val();
         var m_pw=$("#m_pw").val();
         var m_tel=$('#userPhone').val();
-        var m_birthday = $('#userBirthday').val();
+        var m_birthday=$('#userBirthday').val();
 
 
         var postData = {

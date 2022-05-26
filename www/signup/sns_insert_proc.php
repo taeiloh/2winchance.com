@@ -11,11 +11,10 @@ require __DIR__ .'/../_inc/config.php';
 $m_sns_type      = isset($_POST['m_sns_type'])        ?     $_POST['m_sns_type']       : '';
 $m_sns_id      = isset($_POST['m_sns_id'])        ?     $_POST['m_sns_id']       : '';
 $userPhone = isset($_POST['userPhone'])        ?     $_POST['userPhone']       : '';
-$userBirthday = isset($_POST['$userBirthday'])        ?     $_POST['$userBirthday']       : '';
+$m_birthday = isset($_POST['userBirthday'])        ?     $_POST['userBirthday']       : '';
+$m_birthday2 = (int)$m_birthday;
 
 $ip=$_SERVER['REMOTE_ADDR'];
-
-
 
 //변수 정리
 $msg    = '';
@@ -52,7 +51,7 @@ try {
     $sql = " insert into  members
             (m_sns_type, m_sns_id,m_tel, m_ip,m_b_year, m_enter_datetime)
         VALUES
-            ('{$m_sns_type}','{$m_sns_id}','{$userPhone}','{$ip}','{$userBirthday}', now())";
+            ('{$m_sns_type}','{$m_sns_id}','{$userPhone}','{$ip}','{$m_birthday2}', now())";
     //p($sql);
     $result = mysqli_query($_mysqli, $sql);
     if (!$result) {

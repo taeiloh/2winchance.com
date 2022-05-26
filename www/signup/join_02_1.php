@@ -52,7 +52,7 @@ try {
 <body>
 <form id="loginFrm" name="loginFrm" method="post" action="<?=$action?>">
     <input type="hidden" name="userPhone" id="userPhone" value="<?=$userPhone?>"/>
-    <input type="hidden" name="userPhone" id="userPhone" value="<?=$userBirthday?>"/>
+    <input type="hidden" name="userBirthday" id="userBirthday" value="<?=$userBirthday?>"/>
     <div id="wrap" class="member">
         <!--content-->
         <div id="content">

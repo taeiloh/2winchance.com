@@ -131,11 +131,11 @@ try {
         }
 
 
-        if ($.trim($("#m_b_year").val()) == "") {
+        /*if ($.trim($("#m_b_year").val()) == "") {
             alert("생년월일 입력해 주세요.");
             $("#m_b_year").focus();
             return false;
-        }
+        }*/
 
         /*if ($("#m_b_year").val().length != 8) {
             alert("생년월일을 8자 입력해 주세요.");
