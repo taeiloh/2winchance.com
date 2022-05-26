@@ -93,7 +93,7 @@ require_once __DIR__ .'/../_inc/config.php';
                                         <dd class="contest-detail">
                                             <ul>
                                                 <li class="coin-b">2,056</li>
-                                                <li>0.00</li>
+                                                <li>1,000</li>
                                                 <li>1,658 / 1.5K</li>
                                             </ul>
                                         </dd>
