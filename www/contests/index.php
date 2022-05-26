@@ -22,7 +22,7 @@ try {
         $page       =   1;
     }
     //페이징
-    $query  = "
+    $sql  = "
                             SELECT 
                                 count(*)
                             FROM 
@@ -45,7 +45,8 @@ try {
                             WHERE 1=1 
                                 AND lu_u_idx = {$_se_idx} 
                                 {$where} ";
-    $tresult = mysqli_query($_mysqli, $sql);
+
+    $tresult = $_mysqli->query($sql);
     $row1   = mysqli_fetch_row($tresult);
     $total_count = $row1[0]; //전체갯수
     $rows = 10;
