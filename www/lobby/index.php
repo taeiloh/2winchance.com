@@ -95,7 +95,7 @@ $total_count=!empty($db['count']) ? $db['count'] : 0;
                                         <!--dt class="contest-schedule">2022-05-20 | 02:56:12</dt-->
                                         <dt class="contest-schedule">{$db['games_timezone_scheduled']}</dt>
                                         <dt class="contest-title">30회 중복 & 상위 50% WIN</dt>
-                                        <dt class="contest-title">{$db['count']} GAMES</dt >
+                                        <!--dt class="contest-title">{$db['count']} GAMES</dt-->
                                         <dd class="contest-detail">
                                             <ul>
                                                 <li class="">30,024 FP</li>
