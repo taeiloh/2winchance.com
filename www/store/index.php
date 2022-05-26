@@ -337,17 +337,18 @@ try {
         </div-->
     </div>
     <!--//content-->
+    <!--footer-->
+    <footer id="footer">
+        <?php
+        //footer
+        require_once __DIR__ .'/../common/footer.php';
+        ?>
+    </footer>
+    <!--//footer-->
 </div>
 <!--//container-->
 
-<!--footer-->
-<footer id="footer">
-    <?php
-    //footer
-    require_once __DIR__ .'/../common/footer.php';
-    ?>
-</footer>
-<!--//footer-->
+
 <script src="https://stdpay.inicis.com/stdjs/INIStdPay.js"></script>
 <script src="https://stdux.inicis.com/stdpay/stdjs/INIStdPay_third-party.js"></script>
 
