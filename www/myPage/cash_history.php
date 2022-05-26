@@ -45,12 +45,13 @@ try {
         select 
               dh_idx, DATE_FORMAT(dh_req_date,'%Y-%m-%d %h:%i:%s') AS regdate, dh_content,
                dh_condition, dh_amount, dh_balance, dh_pay_key, dh_deposit
-        from deposit_history 
-        WHERE dh_u_idx = '{$idx}' 
-        order by dh_idx desc 
+        from deposit_history
+        WHERE dh_u_idx = '{$idx}'
+        order by dh_idx desc
         LIMIT {$from_record}, {$rows}
     ";
-///where dh_u_idx = $idx
+
+
     $result_cash = $_mysqli->query($query);
 
     //캐시잔액
@@ -60,7 +61,7 @@ try {
     ";
     $result2 = $_mysqli->query($query2);
     $_arrAmount = $result2->fetch_array();
-    $total_amount = !empty($_arrAmount['total_amount']) ? $_arrAmount['total_amount'] : 0;
+
     //print $total_amount;
 
 
@@ -142,152 +143,153 @@ try {
                         </tr>
                         </thead>
                         <tbody>
-<!--                        --><?php
-//                        if($total_count > 0){
-//                            $i = 0;
-//                            while ($dbgold = $result_cash->fetch_assoc()) {
-//                                $title = empty(!$dbgold['dh_content']) ? $dbgold['dh_content'] : '';
-//                                $regdate = empty(!$dbgold['regdate']) ? $dbgold['regdate'] : '';
-//                                $tid = empty(!$dbgold['dh_pay_key']) ? $dbgold['dh_pay_key'] : '';
-//                                $amount = empty(!$dbgold['dh_amount']) ? $dbgold['dh_amount'] : '';
-//                                $balance = empty(!$dbgold['dh_balance']) ? $dbgold['dh_balance'] : 0;
-//                                $deposit = empty(!$dbgold['dh_deposit']) ? $dbgold['dh_deposit'] : 0;
-//                                $i++;
-//                                $no=$total_count-($i+($page-1)*$rows);
-//                                echo <<<TR
-//                        <tr>
-//                            <td class="Fgray">{$regdate}</td>
-//                            <td>{$title}</td>
-//                            <td>{$id}</td>
-//                            <td>2winchance</td>
-//                            <td>{$deposit}</td>
-//                            <td>{$amount}</td>
-//                            <td>{$balance}</td>
-//                        </tr>
-//TR;
-//                            }
-//                        }else {
-//                            echo <<<TR
-//                         <tr>
-//                                <td colspan="7">등록된 게시글이 없습니다.</td>
-//                         </tr>
-//TR;
-//                        }
-//
-//                        ?>
+                        <?php
+                        if($total_count > 0){
+                            $i = 0;
+                            while ($dbgold = $result_cash->fetch_assoc()) {
+                                $title = empty(!$dbgold['dh_content']) ? $dbgold['dh_content'] : '';
+                                $regdate = empty(!$dbgold['regdate']) ? $dbgold['regdate'] : '';
+                                $tid = empty(!$dbgold['dh_pay_key']) ? $dbgold['dh_pay_key'] : '';
+                                $amount = empty(!$dbgold['dh_amount']) ? $dbgold['dh_amount'] : '';
+                                $balance = empty(!$dbgold['dh_balance']) ? $dbgold['dh_balance'] : 0;
+                                $deposit = empty(!$dbgold['dh_deposit']) ? $dbgold['dh_deposit'] : 0;
+                                $total_amount = !empty($_arrAmount['total_amount']) ? $_arrAmount['total_amount'] : 0;
+                                $i++;
+                                $no=$total_count-($i+($page-1)*$rows);
+                                echo <<<TR
+                        <tr>
+                            <td class="Fgray">{$regdate}</td>
+                            <td>{$title}</td>
+                            <td>{$tid}</td>
+                            <td>2winchance</td>
+                            <td>{$deposit}</td>
+                            <td>{$amount}</td>
+                            <td>{$total_amount}</td>
+                        </tr>
+TR;
+                            }
+                        }else {
+                            echo <<<TR
+                         <tr>
+                                <td colspan="7">등록된 게시글이 없습니다.</td>
+                         </tr>
+TR;
+                        }
 
-                        <tr>
-                            <td>2022-1-03-04 13:25:49</td>
-                            <td>Join the contest (G55362)</td>
-                            <td>Join</td>
-                            <td>spo - bit</td>
-                            <td>-</td>
-                            <td class="">- 60</td>
-                            <td>4,946</td>
-                        </tr>
-                        <tr>
-                            <td>2022-1-03-04 13:25:49</td>
-                            <td>Join the contest (G55362)</td>
-                            <td>Join</td>
-                            <td>spo - bit</td>
-                            <td>-</td>
-                            <td class="">- 60</td>
-                            <td>4,946</td>
-                        </tr>
-                        <tr>
-                            <td>2022-1-03-04 13:25:49</td>
-                            <td>Join the contest (G55362)</td>
-                            <td>Join</td>
-                            <td>spo - bit</td>
-                            <td>-</td>
-                            <td class="">- 60</td>
-                            <td>4,946</td>
-                        </tr>
-                        <tr>
-                            <td>2022-1-03-04 13:25:49</td>
-                            <td>Join the contest (G55362)</td>
-                            <td>Join</td>
-                            <td>spo - bit</td>
-                            <td>-</td>
-                            <td class="">- 60</td>
-                            <td>4,946</td>
-                        </tr>
-                        <tr>
-                            <td>2022-1-03-04 13:25:49</td>
-                            <td>Join the contest (G55362)</td>
-                            <td>Join</td>
-                            <td>spo - bit</td>
-                            <td>-</td>
-                            <td class="">- 60</td>
-                            <td>4,946</td>
-                        </tr>
-                        <tr>
-                            <td>2022-1-03-04 13:25:49</td>
-                            <td>Join the contest (G55362)</td>
-                            <td>Join</td>
-                            <td>spo - bit</td>
-                            <td>-</td>
-                            <td class="">- 60</td>
-                            <td>4,946</td>
-                        </tr>
-                        <tr>
-                            <td>2022-1-03-04 13:25:49</td>
-                            <td>Join the contest (G55362)</td>
-                            <td>Join</td>
-                            <td>spo - bit</td>
-                            <td>-</td>
-                            <td class="">- 60</td>
-                            <td>4,946</td>
-                        </tr>
-                        <tr>
-                            <td>2022-1-03-04 13:25:49</td>
-                            <td>Join the contest (G55362)</td>
-                            <td>Join</td>
-                            <td>spo - bit</td>
-                            <td>-</td>
-                            <td class="">- 60</td>
-                            <td>4,946</td>
-                        </tr>
-                        <tr>
-                            <td>2022-1-03-04 13:25:49</td>
-                            <td>Join the contest (G55362)</td>
-                            <td>Join</td>
-                            <td>spo - bit</td>
-                            <td>-</td>
-                            <td class="">- 60</td>
-                            <td>4,946</td>
-                        </tr>
-                        <tr>
-                            <td>2022-1-03-04 13:25:49</td>
-                            <td>Join the contest (G55362)</td>
-                            <td>Join</td>
-                            <td>spo - bit</td>
-                            <td>-</td>
-                            <td class="">- 60</td>
-                            <td>4,946</td>
-                        </tr>
-                        <tr>
-                            <td>2022-1-03-04 13:25:49</td>
-                            <td>Join the contest (G55362)</td>
-                            <td>Join</td>
-                            <td>spo - bit</td>
-                            <td>-</td>
-                            <td class="">- 60</td>
-                            <td>4,946</td>
-                        </tr>
+                        ?>
+
+<!--                        <tr>-->
+<!--                            <td>2022-1-03-04 13:25:49</td>-->
+<!--                            <td>Join the contest (G55362)</td>-->
+<!--                            <td>Join</td>-->
+<!--                            <td>spo - bit</td>-->
+<!--                            <td>-</td>-->
+<!--                            <td class="">- 60</td>-->
+<!--                            <td>4,946</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>2022-1-03-04 13:25:49</td>-->
+<!--                            <td>Join the contest (G55362)</td>-->
+<!--                            <td>Join</td>-->
+<!--                            <td>spo - bit</td>-->
+<!--                            <td>-</td>-->
+<!--                            <td class="">- 60</td>-->
+<!--                            <td>4,946</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>2022-1-03-04 13:25:49</td>-->
+<!--                            <td>Join the contest (G55362)</td>-->
+<!--                            <td>Join</td>-->
+<!--                            <td>spo - bit</td>-->
+<!--                            <td>-</td>-->
+<!--                            <td class="">- 60</td>-->
+<!--                            <td>4,946</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>2022-1-03-04 13:25:49</td>-->
+<!--                            <td>Join the contest (G55362)</td>-->
+<!--                            <td>Join</td>-->
+<!--                            <td>spo - bit</td>-->
+<!--                            <td>-</td>-->
+<!--                            <td class="">- 60</td>-->
+<!--                            <td>4,946</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>2022-1-03-04 13:25:49</td>-->
+<!--                            <td>Join the contest (G55362)</td>-->
+<!--                            <td>Join</td>-->
+<!--                            <td>spo - bit</td>-->
+<!--                            <td>-</td>-->
+<!--                            <td class="">- 60</td>-->
+<!--                            <td>4,946</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>2022-1-03-04 13:25:49</td>-->
+<!--                            <td>Join the contest (G55362)</td>-->
+<!--                            <td>Join</td>-->
+<!--                            <td>spo - bit</td>-->
+<!--                            <td>-</td>-->
+<!--                            <td class="">- 60</td>-->
+<!--                            <td>4,946</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>2022-1-03-04 13:25:49</td>-->
+<!--                            <td>Join the contest (G55362)</td>-->
+<!--                            <td>Join</td>-->
+<!--                            <td>spo - bit</td>-->
+<!--                            <td>-</td>-->
+<!--                            <td class="">- 60</td>-->
+<!--                            <td>4,946</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>2022-1-03-04 13:25:49</td>-->
+<!--                            <td>Join the contest (G55362)</td>-->
+<!--                            <td>Join</td>-->
+<!--                            <td>spo - bit</td>-->
+<!--                            <td>-</td>-->
+<!--                            <td class="">- 60</td>-->
+<!--                            <td>4,946</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>2022-1-03-04 13:25:49</td>-->
+<!--                            <td>Join the contest (G55362)</td>-->
+<!--                            <td>Join</td>-->
+<!--                            <td>spo - bit</td>-->
+<!--                            <td>-</td>-->
+<!--                            <td class="">- 60</td>-->
+<!--                            <td>4,946</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>2022-1-03-04 13:25:49</td>-->
+<!--                            <td>Join the contest (G55362)</td>-->
+<!--                            <td>Join</td>-->
+<!--                            <td>spo - bit</td>-->
+<!--                            <td>-</td>-->
+<!--                            <td class="">- 60</td>-->
+<!--                            <td>4,946</td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>2022-1-03-04 13:25:49</td>-->
+<!--                            <td>Join the contest (G55362)</td>-->
+<!--                            <td>Join</td>-->
+<!--                            <td>spo - bit</td>-->
+<!--                            <td>-</td>-->
+<!--                            <td class="">- 60</td>-->
+<!--                            <td>4,946</td>-->
+<!--                        </tr>-->
                         </tbody>
                     </table>
                 </div>
             </section>
             <!--//sec-01-->
             <div class="pagination">
-<!--                --><?php
-//                echo paging($page,$total_page,5,"{$_SERVER['SCRIPT_NAME']}?page=");
-//                ?>
-                <a class="active" href="javascript:void(0)">1</a>
-                <a href="javascript:void(0)">2</a>
-                <a href="javascript:void(0)">3</a>
-                <a href="javascript:void(0)">4</a>
+                <?php
+                echo paging($page,$total_page,5,"{$_SERVER['SCRIPT_NAME']}?page=");
+                ?>
+<!--                <a class="active" href="javascript:void(0)">1</a>-->
+<!--                <a href="javascript:void(0)">2</a>-->
+<!--                <a href="javascript:void(0)">3</a>-->
+<!--                <a href="javascript:void(0)">4</a>-->
             </div>
         </div>
         <!--//content-->
