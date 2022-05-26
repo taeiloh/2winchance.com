@@ -146,6 +146,7 @@ try {
                         <?php
                         if($total_count > 0){
                             $i = 0;
+                            $total_amount1=0;
                             while ($dbgold = $result_cash->fetch_assoc()) {
                                 $title = empty(!$dbgold['dh_content']) ? $dbgold['dh_content'] : '';
                                 $regdate = empty(!$dbgold['regdate']) ? $dbgold['regdate'] : '';
@@ -156,6 +157,7 @@ try {
                                 $total_amount = !empty($_arrAmount['total_amount']) ? $_arrAmount['total_amount'] : 0;
                                 $i++;
                                 $no=$total_count-($i+($page-1)*$rows);
+                                $total_amount=$total_amount-$total_amount1;
                                 echo <<<TR
                         <tr>
                             <td class="Fgray">{$regdate}</td>
@@ -167,6 +169,7 @@ try {
                             <td>{$total_amount}</td>
                         </tr>
 TR;
+                                $total_amount1 +=$amount;
                             }
                         }else {
                             echo <<<TR
