@@ -79,7 +79,7 @@ require_once __DIR__ .'/../_inc/config.php';
                             echo <<<LI
                         <li>
                             <a href="/lobby/list.php?cate=20">
-                                <div class="game-thumb" style="background-image: url('/images/img_30multi_50%.png')">
+                                <div class="game-thumb" style="background-image: url('../images/img_30multi_50.png')">
                                     <div class="subject">
                                         <img src="../images/pubg_logo.png" alt="pubg_logo">
                                     </div>
