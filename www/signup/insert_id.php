@@ -37,7 +37,7 @@ try {
     $query  = "
             SELECT COUNT(1) AS CNT FROM members
             WHERE 1=1
-                AND m_id = '{$m_id}' and m_name not null
+                AND m_id = '{$m_id}'
         ";
     //p($query);
     $result = $_mysqli->query($query);
