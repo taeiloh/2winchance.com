@@ -4,7 +4,11 @@ require_once __DIR__ .'/../_inc/config.php';
 
 // 파라미터
 $cate           = !empty($_GET['cate'])         ? $_GET['cate']         : 0;
+$g_date    = !empty($_GET['g_date'])         ? $_GET['g_date']         :"";
+$g_date1=substr($g_date, 0, 10);
+
 $sub_menu       = !empty($_GET['sub_menu'])     ? $_GET['sub_menu']     : 0;
+
 $m_idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 시퀀스
 // 변수 정리
 $where          = "";
@@ -65,7 +69,51 @@ switch ($sub_menu) {
         <div id="visual">
             <div class="inner">
                 <ul class="game-schedule">
+                    <?php
+                    $query  = "
+                            SELECT
+                                count(1) as count, timezone_type AS games_timezone_type, MIN(standard_scheduled) AS games_timezone_scheduled
+                            FROM pubg_game_daily_schedule
+                            WHERE 1=1
+                              AND game_status = 'scheduled'
+                              AND standard_scheduled > NOW()
+                              AND standard_scheduled >= '{$g_date} 10:00:00'
+                              AND standard_scheduled <= '{$g_date1} 23:59:59' +INTERVAL 10 DAY
+                            GROUP BY date(standard_scheduled)
+                            ORDER BY standard_scheduled ASC
+                            LIMIT 7
+                        ";
+                    //echo $query;
+                    $result = $_mysqli_game->query($query);
+                    if (!$result) {
+
+                    }
+                    while ($db = $result->fetch_assoc()) {
+                        //p($db);
+                        $games_timezone_scheduled1 = substr($db['games_timezone_scheduled'], 0, 10);
+                        $games_timezone_scheduled2 = substr($db['games_timezone_scheduled'], 11, 5);
+                        if ($g_date == $games_timezone_scheduled1) {
+                            echo <<<LI
                     <li class="active">
+                        <a href="/lobby/list.php?cate=20&g_date={$games_timezone_scheduled1}">
+                            <p>{$games_timezone_scheduled2} {$games_timezone_scheduled1}</p>
+                            <p>{$db['count']} match PUBG</p>
+                        </a>
+                    </li>
+LI;
+                        }else{
+                            echo <<<LI
+                    <li>
+                       <a href="/lobby/list.php?cate=20&g_date={$games_timezone_scheduled1}">
+                            <p>{$games_timezone_scheduled2} {$games_timezone_scheduled1}</p>
+                            <p>{$db['count']} match PUBG</p>
+                        </a>
+                    </li>
+LI;
+                        }
+                    }
+                    ?>
+                    <!--li class="active">
                         <p>18:00 2022-05-20</p>
                         <p>16 match PUBG</p>
                     </li>
@@ -92,7 +140,7 @@ switch ($sub_menu) {
                     <li>
                         <p>18:00 2022-05-20</p>
                         <p>16 match PUBG</p>
-                    </li>
+                    </li-->
                 </ul>
                 <div class="cont">
                     <div class="visual-thumb">
@@ -173,14 +221,14 @@ switch ($sub_menu) {
                             FROM game
                             WHERE 1=1
                                 AND g_status != 3 
-                                AND DATE_SUB(g_date, INTERVAL 5 HOUR) >= '2022-05-10 00:00:00' 
-                                AND DATE_SUB(g_date, INTERVAL 5 HOUR) <= '2022-05-10 23:59:59' 
+                                AND DATE_SUB(g_date, INTERVAL 5 HOUR) >= '{$g_date}' 
+                                AND DATE_SUB(g_date, INTERVAL 5 HOUR) <= '{$g_date1} 23:59:59'
                                 AND g_name like '%%'
                                 {$where}
                             ORDER BY g_date ASC, prize DESC , g_name ASC
                             {$limit}
                         ";
-                        //p($query);
+                        //echo $query;
                         $result = $_mysqli->query($query);
                         if (!$result) {
 
@@ -192,8 +240,8 @@ switch ($sub_menu) {
                         <div class="league-box">
                             <div class="league-thumb-box">
                                 <div class="league-thumb">
-                                    <img src="/images/img_lol.png" alt="Marathon Legends - The Push">
-                                    <div class="game-logo"></div>
+                                    <img src="/images/img_30multi_50.png" alt="Marathon Legends - The Push">
+                                    <div class="game-logo"><img src="/images/pubg.png"></div>
                                 </div>
                                 <div class="status-detail">
                                     <div class="detail-box">
