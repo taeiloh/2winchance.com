@@ -124,11 +124,11 @@ function paging($page,$total_page,$move_page,$url) {
     if($end_page >= $total_page) {
         $end_page = $total_page;
     }
-//    if($start_page > 1) {
-//        echo  " <li class='prev'><a href=".$url.($start_page-1)."></a> </li>";//이전
-//    } else {
-//        echo "";
-//    }
+    if($start_page > 1) {
+        echo  " <a href=".$url.($start_page-1)."><</a>";//이전
+    } else {
+        echo "";
+    }
     if($total_page >= 1)
         for($now_page=$start_page;$now_page<=$end_page;$now_page++)
             if($page != $now_page) {
@@ -136,18 +136,18 @@ function paging($page,$total_page,$move_page,$url) {
             } else {
                 echo "<a class='active' href='javascript:void(0)'>".$now_page."</a>";
             }
-//    if($total_page > $end_page) {
-//        echo  "<li class='next'><a href=".$url.($end_page+1)." ></a></li>";//다음
-//    } else {
-//        echo "";
-//    }
-    /*
-    if($page < $total_page) {
-        echo  "<a href=".$url.$total_page." ><li class='next'></li></a>";//맨끝
+    if($total_page > $end_page) {
+        echo  "<a href=".$url.($end_page+1)." >></a>";//다음
     } else {
         echo "";
     }
-    */
+
+    if($page < $total_page) {
+        echo  "<a href=".$url.$total_page." >>></a>";//맨끝
+    } else {
+        echo "";
+    }
+
 }
 
 function checkmobile(){
