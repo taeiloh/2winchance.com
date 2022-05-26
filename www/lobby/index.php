@@ -1,6 +1,7 @@
 <?php
 // config
 require_once __DIR__ .'/../_inc/config.php';
+$more = !empty($_GET['more']) ? $_GET['more'] : "";
 
 ?>
 <!doctype html>
@@ -57,6 +58,8 @@ require_once __DIR__ .'/../_inc/config.php';
                             ORDER BY standard_scheduled ASC
                             LIMIT 5
                         ";*/
+                        $more1 = 5;
+                        $more1 += $more;
                         $query  = "
                             SELECT
                                 count(1) as count, timezone_type AS games_timezone_type, MIN(standard_scheduled) AS games_timezone_scheduled
@@ -67,7 +70,7 @@ require_once __DIR__ .'/../_inc/config.php';
 
                             GROUP BY date(standard_scheduled)
                             ORDER BY standard_scheduled ASC
-                            LIMIT 5
+                            LIMIT $more1
                         ";
                         $result = $_mysqli_game->query($query);
                         if (!$result) {
@@ -105,8 +108,8 @@ LI;
                         }
                         ?>
                     </ul>
-                    <p class="more-line">
-                        <button type="button">더보기 <img src="/images/btn-more.svg" alt="더보기" class="mL8"></button>
+                    <p class="more-line" id="moreID">
+                        <button type="button" onclick="more1();">더보기 <img src="/images/btn-more.svg" alt="더보기" class="mL8"></button>
                     </p>
                 </div>
             </section>
@@ -125,5 +128,10 @@ LI;
     </footer>
     <!--//footer-->
 </div>
+<script>
+    function more1(){
+        location.href="/lobby/?cate=20&more=<?=$more1?>#moreID";
+    }
+</script>
 </body>
 </html>
