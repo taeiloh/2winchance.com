@@ -155,15 +155,16 @@ try {
     $_SESSION['_se_deposit']       = $m_deposit;
 
     $sql  = " insert into  deposit_history
-        (dh_u_idx, dh_deposit, dh_amount, dh_balance,  dh_paymethod ,dh_pay_key, dh_content, dh_condition,dh_balance,  dh_req_date)
+        (dh_u_idx, dh_deposit, dh_amount, dh_paymethod ,dh_pay_key, dh_content, dh_condition,dh_balance,  dh_req_date)
     VALUES
-        ('{$idx}','{$dh_deposit}','{$dh_amount1}',{$m_deposit}, 1,'{$dh_pay_key}', '{$dh_content}',1 , $m_deposit,  now())";
+        ('{$idx}','{$dh_deposit}','{$dh_amount1}', 1,'{$dh_pay_key}', '{$dh_content}',1 , {$m_deposit},  now())";
     //echo $sql;
     //exit;
     $result1 = mysqli_query($_mysqli, $sql);
     if (!$result1) {
         $arrRtn['code'] = 502;
         $arrRtn['msg']  = "에러 발생";
+        echo $sql;
         echo json_encode($arrRtn);
         exit;
     }
