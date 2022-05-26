@@ -145,7 +145,7 @@ LI;
 
     function remaindTime() {
         var now = new Date(); //현재시간을 구한다.
-        var end = new Date(now.getFullYear(),now.getMonth(),now.getDate(),21,00,00);
+        var end = new Date(now.getFullYear(),now.getMonth(),now.getDate(),18,00,00);
 
 //오늘날짜의 저녁 9시 - 종료시간기준
         var open = new Date(now.getFullYear(),now.getMonth(),now.getDate(),09,00,00);
@@ -156,6 +156,7 @@ LI;
         var ot = open.getTime(); // 오픈시간만 가져온다
         var et = end.getTime(); // 종료시간만 가져온다.
 
+        /*
         if(nt<ot){ //현재시간이 오픈시간보다 이르면 오픈시간까지의 남은 시간을 구한다.
             $(".time").fadeIn();
             $("p.time-title").html("금일 오픈까지 남은 시간");
@@ -173,7 +174,9 @@ LI;
             $(".hours").html(hour);
             $(".minutes").html(min);
             $(".seconds").html(sec);
-        } else if(nt>et){ //현재시간이 종료시간보다 크면
+        } else
+            */
+        if(nt>et){ //현재시간이 종료시간보다 크면
             $("p.time-title").html("금일 마감");
             $(".time").fadeOut();
         }else { //현재시간이 오픈시간보다 늦고 마감시간보다 이르면 마감시간까지 남은 시간을 구한다.
