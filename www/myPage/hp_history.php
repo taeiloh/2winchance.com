@@ -117,112 +117,112 @@ try{
                         </tr>
                         </thead>
                         <tbody>
-                        <?php
-                        if($total_count > 0){
-                            $i = 0;
-                            while ($dbhp = $resulthp->fetch_assoc()) {
-                                $title = empty(!$dbhp['hph_content']) ? $dbhp['hph_content'] : '';
-                                $regdate = empty(!$dbhp['regdate']) ? $dbhp['regdate'] : '';
-                                $hp = empty(!$dbhp['hph_point']) ? $dbhp['hph_point'] : '';
-                                $balance = empty(!$dbhp['hph_balance']) ? $dbhp['hph_balance'] : '';
-                                $i++;
-                                $no=$total_count-($i+($page-1)*$rows);
-                                echo <<<TR
-                        <tr>
-                            <td class="Fgray">{$regdate}</td>
-                            <td>{$title}</td>
-                            <td>+ {$hp}</td>
-                            <td>{$balance}</td>
-                        </tr>
-TR;
-                            }
-                        }else {
-                            echo <<<TR
-                         <tr>
-                                <td colspan="6">HP 내역이 없습니다.</td>
-                         </tr>
-TR;
-                        }
-                        ?>
-<!--<tr>-->
-<!--    <td>2022-1-03-04 13:25:49</td>-->
-<!--    <td>Join the contest (G55362)</td>-->
-<!--    <td>+ 25</td>-->
-<!--    <td>4,946</td>-->
-<!--</tr>-->
-<!--<tr>-->
-<!--    <td>2022-1-03-04 13:25:49</td>-->
-<!--    <td>Join the contest (G55362)</td>-->
-<!--    <td>+ 25</td>-->
-<!--    <td>4,946</td>-->
-<!--</tr>-->
-<!--<tr>-->
-<!--    <td>2022-1-03-04 13:25:49</td>-->
-<!--    <td>Join the contest (G55362)</td>-->
-<!--    <td>+ 25</td>-->
-<!--    <td>4,946</td>-->
-<!--</tr>-->
-<!--<tr>-->
-<!--    <td>2022-1-03-04 13:25:49</td>-->
-<!--    <td>Join the contest (G55362)</td>-->
-<!--    <td>+ 25</td>-->
-<!--    <td>4,946</td>-->
-<!--</tr>-->
-<!--<tr>-->
-<!--    <td>2022-1-03-04 13:25:49</td>-->
-<!--    <td>Join the contest (G55362)</td>-->
-<!--    <td>+ 25</td>-->
-<!--    <td>4,946</td>-->
-<!--</tr>-->
-<!--<tr>-->
-<!--    <td>2022-1-03-04 13:25:49</td>-->
-<!--    <td>Join the contest (G55362)</td>-->
-<!--    <td>+ 25</td>-->
-<!--    <td>4,946</td>-->
-<!--</tr>-->
-<!--<tr>-->
-<!--    <td>2022-1-03-04 13:25:49</td>-->
-<!--    <td>Join the contest (G55362)</td>-->
-<!--    <td>+ 25</td>-->
-<!--    <td>4,946</td>-->
-<!--</tr>-->
-<!--<tr>-->
-<!--    <td>2022-1-03-04 13:25:49</td>-->
-<!--    <td>Join the contest (G55362)</td>-->
-<!--    <td>+ 25</td>-->
-<!--    <td>4,946</td>-->
-<!--</tr>-->
-<!--<tr>-->
-<!--    <td>2022-1-03-04 13:25:49</td>-->
-<!--    <td>Join the contest (G55362)</td>-->
-<!--    <td>+ 25</td>-->
-<!--    <td>4,946</td>-->
-<!--</tr>-->
-<!--<tr>-->
-<!--    <td>2022-1-03-04 13:25:49</td>-->
-<!--    <td>Join the contest (G55362)</td>-->
-<!--    <td>+ 25</td>-->
-<!--    <td>4,946</td>-->
-<!--</tr>-->
-<!--<tr>-->
-<!--    <td>2022-1-03-04 13:25:49</td>-->
-<!--    <td>Join the contest (G55362)</td>-->
-<!--    <td>+ 25</td>-->
-<!--    <td>4,946</td>-->
-<!--</tr>-->
+<!--                        --><?php
+//                        if($total_count > 0){
+//                            $i = 0;
+//                            while ($dbhp = $resulthp->fetch_assoc()) {
+//                                $title = empty(!$dbhp['hph_content']) ? $dbhp['hph_content'] : '';
+//                                $regdate = empty(!$dbhp['regdate']) ? $dbhp['regdate'] : '';
+//                                $hp = empty(!$dbhp['hph_point']) ? $dbhp['hph_point'] : '';
+//                                $balance = empty(!$dbhp['hph_balance']) ? $dbhp['hph_balance'] : '';
+//                                $i++;
+//                                $no=$total_count-($i+($page-1)*$rows);
+//                                echo <<<TR
+//                        <tr>
+//                            <td class="Fgray">{$regdate}</td>
+//                            <td>{$title}</td>
+//                            <td>+ {$hp}</td>
+//                            <td>{$balance}</td>
+//                        </tr>
+//TR;
+//                            }
+//                        }else {
+//                            echo <<<TR
+//                         <tr>
+//                                <td colspan="6">HP 내역이 없습니다.</td>
+//                         </tr>
+//TR;
+//                        }
+//                        ?>
+<tr>
+    <td>2022-1-03-04 13:25:49</td>
+    <td>Join the contest (G55362)</td>
+    <td>+ 25</td>
+    <td>4,946</td>
+</tr>
+<tr>
+    <td>2022-1-03-04 13:25:49</td>
+    <td>Join the contest (G55362)</td>
+    <td>+ 25</td>
+    <td>4,946</td>
+</tr>
+<tr>
+    <td>2022-1-03-04 13:25:49</td>
+    <td>Join the contest (G55362)</td>
+    <td>+ 25</td>
+    <td>4,946</td>
+</tr>
+<tr>
+    <td>2022-1-03-04 13:25:49</td>
+    <td>Join the contest (G55362)</td>
+    <td>+ 25</td>
+    <td>4,946</td>
+</tr>
+<tr>
+    <td>2022-1-03-04 13:25:49</td>
+    <td>Join the contest (G55362)</td>
+    <td>+ 25</td>
+    <td>4,946</td>
+</tr>
+<tr>
+    <td>2022-1-03-04 13:25:49</td>
+    <td>Join the contest (G55362)</td>
+    <td>+ 25</td>
+    <td>4,946</td>
+</tr>
+<tr>
+    <td>2022-1-03-04 13:25:49</td>
+    <td>Join the contest (G55362)</td>
+    <td>+ 25</td>
+    <td>4,946</td>
+</tr>
+<tr>
+    <td>2022-1-03-04 13:25:49</td>
+    <td>Join the contest (G55362)</td>
+    <td>+ 25</td>
+    <td>4,946</td>
+</tr>
+<tr>
+    <td>2022-1-03-04 13:25:49</td>
+    <td>Join the contest (G55362)</td>
+    <td>+ 25</td>
+    <td>4,946</td>
+</tr>
+<tr>
+    <td>2022-1-03-04 13:25:49</td>
+    <td>Join the contest (G55362)</td>
+    <td>+ 25</td>
+    <td>4,946</td>
+</tr>
+<tr>
+    <td>2022-1-03-04 13:25:49</td>
+    <td>Join the contest (G55362)</td>
+    <td>+ 25</td>
+    <td>4,946</td>
+</tr>
                         </tbody>
                     </table>
                 </div>
             </section>
             <!--//sec-01-->
             <div class="pagination">
-                <?php
-                echo paging($page,$total_page,5,"{$_SERVER['SCRIPT_NAME']}?page=");
-                ?>
-<!--                <a class="active" href="javascript:void(0)">1</a>-->
-<!--                <a href="javascript:void(0)">2</a>-->
-<!--                <a href="javascript:void(0)">3</a>-->
-<!--                <a href="javascript:void(0)">4</a>-->
+<!--                --><?php
+//                echo paging($page,$total_page,5,"{$_SERVER['SCRIPT_NAME']}?page=");
+//                ?>
+                <a class="active" href="javascript:void(0)">1</a>
+                <a href="javascript:void(0)">2</a>
+                <a href="javascript:void(0)">3</a>
+                <a href="javascript:void(0)">4</a>
             </div>
         </div>
         <!--//content-->
