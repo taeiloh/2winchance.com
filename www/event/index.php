@@ -44,7 +44,7 @@ try {
                     <ul class="contest-list">
                         <li>
                             <a href="javascript:void(0)">
-                                <div class="game-thumb" style="background-image: url('../images/@img_thumb01.png')">
+                                <div class="game-thumb" style="background-image: url('../images/pubg_logo.png')">
                                     <div class="subject"></div>
                                     <div class="rank_label">
                                         <span>1</span>
@@ -69,7 +69,7 @@ try {
                         </li>
                         <li>
                             <a href="javascript:void(0)">
-                                <div class="game-thumb" style="background-image: url('../images/@img_thumb02.png')">
+                                <div class="game-thumb" style="background-image: url('../images/images/pubg_logo.png')">
                                     <div class="subject"></div>
                                     <div class="rank_label">
                                         <span>2</span>
@@ -94,7 +94,7 @@ try {
                         </li>
                         <li>
                             <a href="javascript:void(0)">
-                                <div class="game-thumb" style="background-image: url('../images/@img_thumb03.png')">
+                                <div class="game-thumb" style="background-image: url('../images/images/pubg_logo.png')">
                                     <div class="subject"></div>
                                     <div class="rank_label">
                                         <span>3</span>
