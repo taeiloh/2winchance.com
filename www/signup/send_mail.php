@@ -93,7 +93,7 @@ try {
                         </tr>
                         <tr>
                             <td width="20"></td>
-                            <td style=" background-image: url("https://syryu.wtest.biz/metagames/html/images/img_title_bg.svg"); background-repeat:no-repeat; background-position: center; background-size: contain; height: 123px; line-height: 123px; text-align: center; font-size: 30px; font-weight: 600;  color: #fff;">
+                            <td style=" background-image: url("http://syryu.wtest.biz/metagames/html/images/img_title_bg.svg"); background-repeat:no-repeat; background-position: center; background-size: contain; height: 123px; line-height: 123px; text-align: center; font-size: 30px; font-weight: 600;  color: #fff;">
            <span style="color:"#1e8fff;">메일인증</span> 안내입니다.
         </td>
                             <td width="20"></td>
@@ -137,7 +137,7 @@ try {
                                         <tbody>
                                             <tr>
                                                 <td height="80" style="text-align: center;">
-                                                     <a href="'.$_auth_url.'" target="_blank" style="display:block; font-size: 35px; text-decoration:none; color:#ffffff; ">투윈챈스 회원가입 인증(링크)</a>
+                                                     <a href="'.$_auth_url.'" target="_blank" style="display:block; font-size: 35px; text-decoration:none; color:#ffffff; font-weight:bold;">투윈챈스 회원가입 인증(링크)</a>
                                                 </td>
                                             </tr>
                                         </tbody>
