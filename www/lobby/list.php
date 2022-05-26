@@ -240,7 +240,7 @@ LI;
                         <div class="league-box">
                             <div class="league-thumb-box">
                                 <div class="league-thumb">
-                                    <img src="/images/img_30multi_50.png" alt="Marathon Legends - The Push">
+                                    <img src="/images/pubg_list.jpeg" alt="Marathon Legends - The Push">
                                     <div class="game-logo"><img src="/images/pubg.png"></div>
                                 </div>
                                 <div class="status-detail">
