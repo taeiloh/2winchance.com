@@ -349,7 +349,7 @@ TR;
                                 LEFT JOIN lineups_history c 
                                     ON c.lu_idx = a.lu_idx
                                 WHERE 1=1
-                                    AND c.lu_idx = 17489
+                                    AND c.lu_idx = '{$db['jc_lineups']}'
                             ";
                             $sub_result1 = $_mysqli->query($sub_query1);
                             if (!$sub_result1) {
