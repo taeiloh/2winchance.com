@@ -126,19 +126,7 @@ try {
     }
 
 
-    $sql  = " insert into  deposit_history
-        (dh_u_idx, dh_deposit, dh_amount, dh_paymethod ,dh_pay_key, dh_content, dh_condition,dh_balance,  dh_req_date)
-    VALUES
-        ('{$idx}','{$dh_deposit}','{$dh_amount1}',1,'{$dh_pay_key}', '{$dh_content}',1 , $m_deposit,  now())";
-    //echo $sql;
-    //exit;
-    $result1 = mysqli_query($_mysqli, $sql);
-    if (!$result1) {
-        $arrRtn['code'] = 502;
-        $arrRtn['msg']  = "에러 발생";
-        echo json_encode($arrRtn);
-        exit;
-    }else{
+
         $sql = " update members set    
             m_deposit=m_deposit+{$dh_deposit}
             where 1=1
@@ -150,7 +138,6 @@ try {
             echo $sql;
             exit;
         }
-    }
     //echo $sql;
 //exit;
     $query  = "
@@ -164,7 +151,24 @@ try {
     if ($result) {
         $_dbAdmins = $result->fetch_assoc();
     }
-    $_SESSION['_se_deposit']       = $_dbAdmins['m_deposit'];
+    $m_deposit= !empty($_dbAdmins['m_deposit']) ? $_dbAdmins['m_deposit'] : 0;
+    $_SESSION['_se_deposit']       = $m_deposit;
+
+    $sql  = " insert into  deposit_history
+        (dh_u_idx, dh_deposit, dh_amount, dh_balance,  dh_paymethod ,dh_pay_key, dh_content, dh_condition,dh_balance,  dh_req_date)
+    VALUES
+        ('{$idx}','{$dh_deposit}','{$dh_amount1}',{$m_deposit}, 1,'{$dh_pay_key}', '{$dh_content}',1 , $m_deposit,  now())";
+    //echo $sql;
+    //exit;
+    $result1 = mysqli_query($_mysqli, $sql);
+    if (!$result1) {
+        $arrRtn['code'] = 502;
+        $arrRtn['msg']  = "에러 발생";
+        echo json_encode($arrRtn);
+        exit;
+    }
+
+
 } catch (Exception $e) {
     $s = $e->getMessage() . ' (오류코드:' . $e->getCode() . ')';
     echo $s;
