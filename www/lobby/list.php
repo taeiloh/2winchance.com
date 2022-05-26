@@ -157,7 +157,7 @@ LI;
                             <div id="tab-1"  class="tab-content on">
                                 <dl>
                                     <dd class="start-date">시작 시간 : <?=$g_date?> 18:00:00</dd>
-                                    <dd class="timer">남은 시간 : <span class="hour">00</span>:<span class="minutes">00</span>:<span class="seconds">00</span></dd>
+                                    <dd class="timer">남은 시간 : <span class="hours">00</span>:<span class="minutes">00</span>:<span class="seconds">00</span></dd>
                                 </dl>
                                 <div class="parti-info">
                                     <p class="prize-money">총 상금<b>650,000,000</b><span> FP</span></p>
@@ -240,7 +240,7 @@ LI;
                         <div class="league-box">
                             <div class="league-thumb-box">
                                 <div class="league-thumb" style="overflow: hidden;">
-                                    <img src="/images/pubg/{$db['g_name']}.jpeg" alt="Marathon Legends - The Push" width="400px">
+                                    <img src="/images/PUBG/{$db['g_name']}.jpg" alt="Marathon Legends - The Push" width="400px">
                                     <div class="game-logo"><img src="/images/pubg.png"></div>
                                 </div>
                                 <div class="status-detail">
