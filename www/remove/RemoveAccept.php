@@ -28,7 +28,7 @@ $idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 �
                         <h3>아래 약관에 동의해주세요.</h3>
                         <div class="policy">
                             <p class="checkbox">
-                                <input type="checkbox" class="" id="policy03" checked="checked">
+                                <input type="checkbox" class="" id="policy03">
                                 <label for="policy03" class="">약관을 확인하였습니다.</label>
                             </p>
                             <div class="policy-txt scroll">

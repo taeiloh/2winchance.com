@@ -159,7 +159,7 @@ try {
                                 가상 재화 정책 및 결제 진행에
                                 동의합니다.</span>
                             <p class="checkbox">
-                                <input type="checkbox" class="" id="policy07" checked="checked">
+                                <input type="checkbox" class="" id="policy07">
                                 <label for="policy07" class="">동의합니다.</label>
                             </p>
                             <button type="button" class="btn-blue btn-8" onclick="pay()">결제하기</button>
@@ -294,15 +294,15 @@ try {
                                     <h4>간편결제는 결제하기 버튼을 눌러 선택하신 서비스의 결제 창에서 진행하세요</h4>
                                     <div class="payment-list">
                                         <p class="checkbox">
-                                            <input type="checkbox" class="" id="kakaoPay" checked="checked">
+                                            <input type="checkbox" class="" id="kakaoPay">
                                             <label for="kakaoPay" class=""><img src="/images/kakaopay.png" alt="카카오페이"></label>
                                         </p>
                                         <p class="checkbox">
-                                            <input type="checkbox" class="" id="toss" checked="checked">
+                                            <input type="checkbox" class="" id="toss">
                                             <label for="toss" class=""><img src="/images/toss.png" alt="토스"></label>
                                         </p>
                                         <p class="checkbox">
-                                            <input type="checkbox" class="" id="payco" checked="checked">
+                                            <input type="checkbox" class="" id="payco">
                                             <label for="payco" class=""><img src="/images/payco.png" alt="페이코"></label>
                                         </p>
                                     </div>

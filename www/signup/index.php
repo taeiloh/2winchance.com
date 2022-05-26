@@ -369,7 +369,7 @@ try {
                     </div>
                     <!-- div class="policy">
                         <p class="checkbox">
-                            <input type="checkbox" class="" id="policy02" checked="checked">
+                            <input type="checkbox" class="" id="policy02"">
                             <label for="policy02" class="">개인정보 국외 이전에 동의 (필수)</label>
                         </p>
                         <div class="policy-txt scroll">

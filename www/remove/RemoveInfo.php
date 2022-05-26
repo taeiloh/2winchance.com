@@ -71,7 +71,7 @@ try {
                             <label for="policy08" class="">회원탈퇴 완료 후 환불이 불가한 것에 대해 인지하였으며 동의합니다.</label>
                         </p>
                         <p class="checkbox">
-                            <input type="checkbox" class="" id="policy09" name="policy09" checked="checked">
+                            <input type="checkbox" class="" id="policy09" name="policy09">
                             <label for="policy09" class="">회원탈퇴 시 주의사항에 대해 확인하였으며 회원탈퇴에 동의합니다.</label>
                         </p>
                     </div>
