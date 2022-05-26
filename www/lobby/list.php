@@ -210,7 +210,7 @@ switch ($sub_menu) {
                                 <div class="league-title">
                                     <h2>{$db['g_name']}</h2>
                                     <div class="badge">
-                                        <img src="" alt="">
+                                        <img src="../images/Contest_Mod_2X" alt="더블">
                                     </div>
                                     <button type="button"><img class="mR10" src="/images/ico_share.svg" alt="공유하기">공유하기</button>
                                 </div>
