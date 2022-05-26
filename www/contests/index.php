@@ -22,7 +22,29 @@ try {
         $page       =   1;
     }
     //페이징
-    $sql = "select count(*) from join_contest where 1=1 and jc_u_idx = '{$_se_idx}'";
+    $query  = "
+                            SELECT 
+                                count(*)
+                            FROM 
+                            (
+                                SELECT
+                                    jc_idx
+                                FROM join_contest
+                                WHERE 1=1
+                                    AND jc_u_idx = {$_se_idx}
+                            ) b INNER JOIN join_contest 
+                                ON join_contest.jc_idx = b.jc_idx
+                            LEFT JOIN lineups 
+                                ON lu_idx = jc_lineups 
+                            LEFT JOIN game 
+                                ON g_idx = jc_game 
+                            LEFT JOIN game_category 
+                                ON gc_idx = g_sport 
+                            LEFT JOIN members 
+                                ON m_idx = lu_u_idx 
+                            WHERE 1=1 
+                                AND lu_u_idx = {$_se_idx} 
+                                {$where} ";
     $tresult = mysqli_query($_mysqli, $sql);
     $row1   = mysqli_fetch_row($tresult);
     $total_count = $row1[0]; //전체갯수
