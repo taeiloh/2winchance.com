@@ -82,7 +82,7 @@ try {
     $tresult = mysqli_query($_mysqli, $sql);
     $row1   = mysqli_fetch_row($tresult);
     $total_count = $row1[0]; //전체갯수
-    $rows = 8;
+    $rows = 30;
     $total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
     if ($page < 1) { $page = 1; } // 페이지가 없으면 첫 페이지 (1 페이지)
     $from_record = ($page - 1) * $rows; // 시작 열을 구함
@@ -100,18 +100,18 @@ try {
     $result3c = mysqli_query($_mysqli, $query3c);
     $row3c   = mysqli_fetch_row($result3c);
     $r3c= $row3c[0]; //전체갯수
-
-
+    //echo $r3c."<br>";
 
     $query3_1  = "
         SELECT m_num FROM m_item INNER JOIN item ON i_num = m_num and m_idx = '{$idx}'";
     $result3_1 = $_mysqli->query($query3_1);
     $i_num_a="";
     for($i=0;$row=mysqli_fetch_array($result3_1);$i++){
-        if($r3c<$i){
-            $i_num_a .="'".$row['m_num']."',";
-        }else{
+        $z=$i+1;
+        if($r3c==$z){
             $i_num_a .="'".$row['m_num']."'";
+        }else{
+            $i_num_a .="'".$row['m_num']."',";
         }
 
     }
@@ -127,7 +127,7 @@ try {
             FROM  item where 1=1 and i_num NOT IN ({$i_num_a})
         ";
     }
-
+    //echo $query3_2;
     $result3_2 = $_mysqli->query($query3_2);
 
 
