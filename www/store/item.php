@@ -90,12 +90,16 @@ try {
                         </ul>
                         <ul class="coin-input">
                             <li>아이템</li>
-                            <li><label><input type="radio" name="type" value="type1" checked>치장형</label></li>
-                            <li><label><input type="radio" name="type" value="type2">편의형</label></li>
-                            <li><label><input type="radio" name="type" value="type3">스페셜</label></li>
+                            <li><label><input type="radio" name="type" value="type1" checked>치장형 (환불불가)</label></li>
+                            <li><label><input type="radio" name="type" value="type2">편의형 (환불불가)</label></li>
+                            <li><label><input type="radio" name="type" value="type3">스페셜 (환불불가)</label></li>
                         </ul>
-                        <p>본 아이템은 마이페이지의 프로필 변경을 통해 적용 가능합니다. <br/> <br/>
-                            사용자간 거래가 불가하며 중복 보유 가능합니다.</p>
+                        <p> ---주의 사항----<br>
+                            치장형(앰블럼 스킨) 아이템 입니다.<br>
+                            본 아이템은 마이페이지의 프로필 변경을 통해 적용 및 교체가 가능합니다.<br>
+                            사용자간 거래가 불가하며 중복 보유가 가능합니다.<br>
+                        <p class="fc-red">스토어에서 구매한 모든 아이템은 환불 및 교환이 불가능합니다.<br>
+                            구매 시 주의를 부탁드립니다.<br></p>
                         <p class="fc-yellow event-list fs-28 bold mT30" id="buy_cash">사용 캐시 <span>ⓒ</span></p>
                         <button class="btn-blue btn-8" onclick="buy()">구매하기</button>
                     </div>
@@ -229,7 +233,7 @@ try {
         })
 
         function buy(){
-            if(confirm("해당아이템을 구매하시겠습니까?"))
+            if(confirm("해당아이템을 구매하시겠습니까?\n아이템을 구매하시면 환불 및 교환이 불가능합니다."))
             {
                 if(<?=$total_coin?> >= buy_item_price) {
                     if (buy_item_id > 0) {
