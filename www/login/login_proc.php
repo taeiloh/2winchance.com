@@ -72,7 +72,7 @@ try{
         }
     } else {
         $code    = 503;
-        $msg     = "가입된 계정이 없습니다. (code {$code})\n";
+        $msg     = "가입된 계정이 없습니다.\n";
         throw new mysqli_sql_exception($msg, $code);
     }
 

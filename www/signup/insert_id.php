@@ -86,14 +86,13 @@ try {
             $query1  = "
             SELECT m_idx FROM members
             WHERE 1=1
-                AND m_id = '{$m_id}' and m_name is null and m_sns_id is null
-        ";
+                AND m_id = '{$m_id}' and m_name is null and m_sns_id is null";
+
             //p($query);
             $result1 = $_mysqli->query($query1);
-            if(reslut1){
             $_arrMembers1    = $result1->fetch_array();
             $m_idx            = $_arrMembers1['m_idx'];
-
+            if($m_idx){
             $arrRtn['code'] = 201;
             $arrRtn['id'] = $m_idx;
             $arrRtn['msg']  = "이메일 인증이 안된 계정입니다.\n다음 페이지에서 이메일 인증버튼을 눌러주세요.";
@@ -118,13 +117,6 @@ try {
 
         /*}*/
     }
-
-
-
-
-
-
-
     //회원 정보 가져오기
     $query = "
         SELECT 

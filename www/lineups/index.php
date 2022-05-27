@@ -153,12 +153,12 @@ try {
 
                                         </div>
                                         <dl>
-                                            <dt class="contest-schedule">내일 경기 예정</dt>
-                                            <dt class="contest-title">COD:M 커뮤니티</dt>
+                                            <dt class="contest-schedule">{$sub_db2['g_date']}</dt>
+                                            <dt class="contest-title">{$sub_db2['g_name']}</dt>
                                             <dd class="contest-detail">
                                                 <ul>
                                                     <li><img src="../images/ico_pin.svg" class="mR5" alt="위치">LAS</li>
-                                                    <li>5v5</li>
+                                                    <li>{$sub_db2['g_size']}</li>
                                                     <li>1,254 Slots</li>
                                                 </ul>
                                             </dd>
@@ -166,7 +166,7 @@ try {
                                     </div>
                                     <div class="current-price">
                                         <p>PRIZE</p>
-                                        <span>1,000</span>
+                                        <span>{$sub_db2['g_fee']}</span>
                                     </div>
                                 </div>
                             </a>
