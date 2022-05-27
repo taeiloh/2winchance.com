@@ -215,7 +215,7 @@ TR;
                         }else {
                             echo <<<TR
                          <tr>
-                                <td colspan="8">등록된 게시글이 없습니다.</td>
+                                <td colspan="8">등록된 정보가 없습니다.</td>
                          </tr>
 TR;
 

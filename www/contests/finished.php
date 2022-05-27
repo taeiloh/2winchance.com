@@ -47,7 +47,7 @@ $query  = "
                             WHERE 1=1 
                                 AND lu_u_idx = {$_se_idx} 
                                 {$where} 
-                            GROUP BY jc_game 
+                            
                             
                             
                         ";
@@ -264,8 +264,10 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                         if (!$result) {
 
                         }
+                        if($total_count>0){
                         while ($db = $result->fetch_assoc()) {
                             //p($db);
+
 
                             echo <<<TR
                         <tr class="view open">
@@ -309,12 +311,13 @@ TR;
                             $sub_result = $_mysqli->query($sub_query);
                             if (!$sub_result) {
                             }
+                            $c=0;
                             while ($sub_db = $sub_result->fetch_assoc()) {
                                 //p($sub_db);
-
+                                $c++;
                                 echo <<<TR
                                                 <tr>
-                                                    <td>1st</td>
+                                                    <td>{$c}</td>
                                                     <td>{$sub_db['m_name']}</td>
                                                     <td>{$sub_db['jc_prize']}</td>
                                                     <td>{$sub_db['jc_point']}</td>
@@ -435,6 +438,13 @@ TR;
                                 </div>
                             </td>
                         </tr>
+TR;
+                        }
+                        }else{
+                            echo <<<TR
+                         <tr>
+                                <td colspan="7">등록된 정보가 없습니다.</td>
+                         </tr>
 TR;
                         }
                         ?>
