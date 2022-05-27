@@ -40,10 +40,10 @@ try {
     $cnt            = $_arrMembers['CNT'];
 
     if ($cnt > 0) {
-            $arrRtn['code'] = 501;
-            $arrRtn['msg']  = "이미 가입된 계정입니다.\n해당 계정으로 로그인 혹은 다른 이메일로 회원 가입을 진행해 주세요.";
-            alertReplace("이미 가입된 계정입니다.", '/signup/index.php');
-            exit;
+        $arrRtn['code'] = 501;
+        $arrRtn['msg']  = "이미 가입된 계정입니다.\n해당 계정으로 로그인 혹은 다른 이메일로 회원 가입을 진행해 주세요.";
+        alertReplace("이미 가입된 계정입니다.", '/signup/index.php');
+        exit;
     }
     else{
         $query2 = "SELECT COUNT(1) AS CNT FROM members

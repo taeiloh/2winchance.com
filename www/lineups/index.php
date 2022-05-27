@@ -84,7 +84,7 @@ try {
 
                         if($total_count > 0){
                             $i=0;
-                        $query  = "
+                            $query  = "
                             SELECT a.* 
                             FROM lineups a 
                             LEFT JOIN game b
@@ -94,15 +94,15 @@ try {
                             ORDER BY a.lu_idx DESC
                             LIMIT {$from_record}, {$rows}
                         ";
-                        //p($query);
-                        $result = $_mysqli->query($query);
-                        if (!$result) {
+                            //p($query);
+                            $result = $_mysqli->query($query);
+                            if (!$result) {
 
-                        }
-                        while ($db = $result->fetch_assoc()) {
-                            $i++;
-                            //p($db);
-                            $sub_query  = "
+                            }
+                            while ($db = $result->fetch_assoc()) {
+                                $i++;
+                                //p($db);
+                                $sub_query  = "
                                 SELECT * FROM lineups a
                                 LEFT JOIN game b 
                                     ON b.g_idx = a.lu_g_idx
@@ -111,12 +111,12 @@ try {
                                 WHERE 1=1
                                     AND c.lu_idx = {$db['lu_idx']}
                             ";
-                            //p($sub_query);
-                            $sub_result = $_mysqli->query($sub_query);
+                                //p($sub_query);
+                                $sub_result = $_mysqli->query($sub_query);
 
-                            $sub_db2 = $sub_result->fetch_assoc();
+                                $sub_db2 = $sub_result->fetch_assoc();
 
-                            $sub_query2 = "
+                                $sub_query2 = "
                                 SELECT 50000-sum(player_salary) as left_salary, b.g_date FROM lineups a
                                 LEFT JOIN game b 
                                     ON b.g_idx = a.lu_g_idx
@@ -125,20 +125,20 @@ try {
                                 WHERE 1=1
                                     AND c.lu_idx = {$db['lu_idx']}
                             ";
-                            $sub_result2 = $_mysqli->query($sub_query2);
+                                $sub_result2 = $_mysqli->query($sub_query2);
 
-                            $sub_db3 = $sub_result2->fetch_assoc();
+                                $sub_db3 = $sub_result2->fetch_assoc();
 
-                            switch($sub_db2['g_league_alias']){
-                                CASE 'PUBG':
-                                    $img_src = "../images/pubg_logo.png";
-                                    $game_img_src = '../images/img_30multi_50.png';
-                                CASE 'NBA':
-                                    $img_src = "../images/pubg_logo.png";
-                                    $game_img_src = '../images/img_30multi_50.png';
-                            }
+                                switch($sub_db2['g_league_alias']){
+                                    CASE 'PUBG':
+                                        $img_src = "../images/pubg_logo.png";
+                                        $game_img_src = '../images/img_30multi_50.png';
+                                    CASE 'NBA':
+                                        $img_src = "../images/pubg_logo.png";
+                                        $game_img_src = '../images/img_30multi_50.png';
+                                }
 
-                            echo <<<LI
+                                echo <<<LI
                         <li class="edit">
                             <a href="javascript:void(0)" class="active">
                                 <div class="game-thumb" style="background-image: url('$game_img_src')">
@@ -197,12 +197,12 @@ try {
 LI;
 
 
-                            if (!$sub_result) {
-                            }
-                            while ($sub_db = $sub_result->fetch_assoc()) {
-                                //p($sub_db);
+                                if (!$sub_result) {
+                                }
+                                while ($sub_db = $sub_result->fetch_assoc()) {
+                                    //p($sub_db);
 
-                                echo <<<TR
+                                    echo <<<TR
                                 <tr>
                                     <td>{$sub_db['player_pos']}</td>
                                     <td>{$sub_db['player_name']}</td>
@@ -210,8 +210,8 @@ LI;
                                     <td>$ {$sub_db['player_salary']}</td>
                                 </tr>                                
 TR;
-                            }
-                        ?>
+                                }
+                                ?>
                                 <tr>
                                     <td colspan="4" class="game-total">
                                         <div>
@@ -224,10 +224,10 @@ TR;
                                     </td>
                                 </tr>
                                 </tbody>
-                            </table>
-                        </li>
-                        <?php
-                        }
+                                </table>
+                                </li>
+                                <?php
+                            }
                         }
                         $result->free();
                         $sub_result->free();

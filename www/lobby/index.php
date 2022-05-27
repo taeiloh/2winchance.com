@@ -8,9 +8,9 @@ $more1 += $more;
 $query  = "SELECT count(*) as count FROM pubg_game_daily_schedule WHERE 1=1 
                               AND game_status = 'scheduled'
                               AND standard_scheduled > NOW()
-                              AND standard_scheduled >= '2022-05-26 09:16:20'
+                              AND standard_scheduled >= '2022-05-27 09:16:20'
                               AND standard_scheduled <= '2022-05-26 23:59:59' +INTERVAL 10 DAY 
-GROUP BY date(standard_scheduled)";
+";
 $tresult = $_mysqli_game->query($query);
 if (!$tresult) {
 

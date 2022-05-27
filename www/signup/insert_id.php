@@ -83,37 +83,37 @@ try {
             }*/
 
 
-            $query1  = "
+    $query1  = "
             SELECT m_idx FROM members
             WHERE 1=1
                 AND m_id = '{$m_id}' and m_name is null and m_sns_id is null";
 
-            //p($query);
-            $result1 = $_mysqli->query($query1);
-            $_arrMembers1    = $result1->fetch_array();
-            $m_idx            = $_arrMembers1['m_idx'];
-            if($m_idx){
-            $arrRtn['code'] = 201;
-            $arrRtn['id'] = $m_idx;
-            $arrRtn['msg']  = "이메일 인증이 안된 계정입니다.\n다음 페이지에서 이메일 인증버튼을 눌러주세요.";
-            //alertBack($msg);
-            echo json_encode($arrRtn);
-            exit;
-        }else{
-            //변수 체크
-            $sql  = " insert into  members
+    //p($query);
+    $result1 = $_mysqli->query($query1);
+    $_arrMembers1    = $result1->fetch_array();
+    $m_idx            = $_arrMembers1['m_idx'];
+    if($m_idx){
+        $arrRtn['code'] = 201;
+        $arrRtn['id'] = $m_idx;
+        $arrRtn['msg']  = "이메일 인증이 안된 계정입니다.\n다음 페이지에서 이메일 인증버튼을 눌러주세요.";
+        //alertBack($msg);
+        echo json_encode($arrRtn);
+        exit;
+    }else{
+        //변수 체크
+        $sql  = " insert into  members
                 (m_id, m_pw, m_ip, m_tel, m_b_year, m_enter_datetime)
             VALUES
                 ('{$m_id}','{$pw}','{$ip}','{$m_tel}','{$m_birthday2}', now())";
-            //p($sql);
-            $result = mysqli_query($_mysqli, $sql);
-            if (!$result) {
-                $arrRtn['code'] = 502;
-                $arrRtn['msg']  = "에러 발생";
-                echo json_encode($arrRtn);
-                exit;
-            }
-            $m_idx   =   $_mysqli->insert_id;
+        //p($sql);
+        $result = mysqli_query($_mysqli, $sql);
+        if (!$result) {
+            $arrRtn['code'] = 502;
+            $arrRtn['msg']  = "에러 발생";
+            echo json_encode($arrRtn);
+            exit;
+        }
+        $m_idx   =   $_mysqli->insert_id;
 
         /*}*/
     }
@@ -133,7 +133,7 @@ try {
         $arrRtn['id'] = $m_idx;
         $arrRtn['msg']  = "이메일 전송 성공";
     }
-    
+
 
 } catch (mysqli_sql_exception $e) {
     $arrRtn['code'] = $e->getCode();

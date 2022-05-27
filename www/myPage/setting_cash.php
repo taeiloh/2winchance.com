@@ -100,35 +100,35 @@ try {
                                         <div class="limit-select">
                                             <?php
                                             if($on == ''){
-                                            ?>
-                                            <section id="drop3" class="dropdown">
-                                                <div class="select" id="selectfp">
-                                                    <div class="text"><?php if($m_fp_limit == 0){ echo '해당사항 없음'; } else { echo number_format($m_fp_limit); }?></div>
-                                                    <ul class="option-list setting">
-                                                        <li class="option" value="0">해당사항 없음</li>
-                                                        <li class="option" value="10000">10,000</li>
-                                                        <li class="option" value="15000">15,000</li>
-                                                        <li class="option" value="20000">20,000</li>
-                                                        <li class="option" value="25000">25,000</li>
-                                                        <li class="option" value="30000">30,000</li>
-                                                        <li class="option" value="35000">35,000</li>
-                                                        <li class="option" value="40000">40,000</li>
-                                                        <li class="option" value="45000">45,000</li>
-                                                        <li class="option" value="50000">50,000</li>
-                                                    </ul>
-                                                </div>
-                                            </section>
-                                            <?php
+                                                ?>
+                                                <section id="drop3" class="dropdown">
+                                                    <div class="select" id="selectfp">
+                                                        <div class="text"><?php if($m_fp_limit == 0){ echo '해당사항 없음'; } else { echo number_format($m_fp_limit); }?></div>
+                                                        <ul class="option-list setting">
+                                                            <li class="option" value="0">해당사항 없음</li>
+                                                            <li class="option" value="10000">10,000</li>
+                                                            <li class="option" value="15000">15,000</li>
+                                                            <li class="option" value="20000">20,000</li>
+                                                            <li class="option" value="25000">25,000</li>
+                                                            <li class="option" value="30000">30,000</li>
+                                                            <li class="option" value="35000">35,000</li>
+                                                            <li class="option" value="40000">40,000</li>
+                                                            <li class="option" value="45000">45,000</li>
+                                                            <li class="option" value="50000">50,000</li>
+                                                        </ul>
+                                                    </div>
+                                                </section>
+                                                <?php
                                             }else{
                                                 if($m_fp_limit == 0){
-                                            ?>
-                                                <p>해당 사항 없음</p>
+                                                    ?>
+                                                    <p>해당 사항 없음</p>
                                                     <?php
                                                 }else{?>
-                                                <p><?php  echo number_format($m_fp_limit); ?></p>
+                                                    <p><?php  echo number_format($m_fp_limit); ?></p>
                                                     <span>FP</span>
-                                            <?php
-                                            }
+                                                    <?php
+                                                }
                                             }
                                             ?>
                                             <!-- 한도 설정 완료 후-->
@@ -140,37 +140,37 @@ try {
                                         <div class="limit-select">
                                             <?php
                                             if($on == ''){
-                                            ?>
-                                            <section id="drop4" class="dropdown">
-                                                <div class="select" id="selecttime">
-                                                    <div class="text"><?php if($m_time_reset == 0){ echo '해당사항 없음'; } else { echo number_format($m_time_reset); }?></div>
-                                                    <ul class="option-list reset_time">
-                                                        <li class="option" value="0">해당사항 없음</li>
-                                                        <li class="option" value="6">6</li>
-                                                        <li class="option" value="8">8</li>
-                                                        <li class="option" value="10">10</li>
-                                                        <li class="option" value="12">12</li>
-                                                        <li class="option" value="14">14</li>
-                                                        <li class="option" value="16">16</li>
-                                                        <li class="option" value="18">18</li>
-                                                        <li class="option" value="20">20</li>
-                                                        <li class="option" value="22">22</li>
-                                                        <li class="option" value="24">24</li>
-                                                    </ul>
-                                                </div>
-                                            </section>
+                                                ?>
+                                                <section id="drop4" class="dropdown">
+                                                    <div class="select" id="selecttime">
+                                                        <div class="text"><?php if($m_time_reset == 0){ echo '해당사항 없음'; } else { echo number_format($m_time_reset); }?></div>
+                                                        <ul class="option-list reset_time">
+                                                            <li class="option" value="0">해당사항 없음</li>
+                                                            <li class="option" value="6">6</li>
+                                                            <li class="option" value="8">8</li>
+                                                            <li class="option" value="10">10</li>
+                                                            <li class="option" value="12">12</li>
+                                                            <li class="option" value="14">14</li>
+                                                            <li class="option" value="16">16</li>
+                                                            <li class="option" value="18">18</li>
+                                                            <li class="option" value="20">20</li>
+                                                            <li class="option" value="22">22</li>
+                                                            <li class="option" value="24">24</li>
+                                                        </ul>
+                                                    </div>
+                                                </section>
 
-                                            <?php
+                                                <?php
                                             }else{
                                                 if($m_time_reset == 0){
-                                            ?><p>해당 사항 없음</p>
+                                                    ?><p>해당 사항 없음</p>
                                                     <?php
                                                 }else{
                                                     ?>
-                                                <p><?php  echo number_format($m_time_reset); ?></p>
+                                                    <p><?php  echo number_format($m_time_reset); ?></p>
                                                     <span>시간</span>
-                                            <?php
-                                            }
+                                                    <?php
+                                                }
                                             }
                                             ?>
                                             <!-- 시간 설정 완료 후 <p>10,000</p> -->
@@ -178,22 +178,22 @@ try {
                                         </div>
                                     </div>
                                 </div>
-<!--                                <button type="button" class="btn-blue btn-6 mT50" id="saveBtn" onclick="save()">적용하기</button>-->
-<!--                                <span class="save-alert save" id="save" style="display: none;">정보 저장이 정상적으로 완료 되었습니다.</span>-->
+                                <!--                                <button type="button" class="btn-blue btn-6 mT50" id="saveBtn" onclick="save()">적용하기</button>-->
+                                <!--                                <span class="save-alert save" id="save" style="display: none;">정보 저장이 정상적으로 완료 되었습니다.</span>-->
 
                                 <!-- <span class="save-alert error">정보 저장에 실패 하였습니다. 다시 시도하여 주시기 바랍니다..</span> -->
                                 <?php
-                                    if($on==1){
-                                   ?>
-                                        <button type="button" class="btn-blue btn-6 mT50" onclick="location.href='/lobby/'">홈으로</button>
-                                        <span class="save-alert save">정보 저장이 정상적으로 완료 되었습니다.</span>
-                                <?php
-                                    }else{
-                                ?>
-                                        <button type="button" class="btn-blue btn-6 mT50" id="saveBtn" onclick="save()">적용하기</button>
+                                if($on==1){
+                                    ?>
+                                    <button type="button" class="btn-blue btn-6 mT50" onclick="location.href='/lobby/'">홈으로</button>
+                                    <span class="save-alert save">정보 저장이 정상적으로 완료 되었습니다.</span>
+                                    <?php
+                                }else{
+                                    ?>
+                                    <button type="button" class="btn-blue btn-6 mT50" id="saveBtn" onclick="save()">적용하기</button>
 
-                                <?php
-                                    }
+                                    <?php
+                                }
                                 ?>
 
                             </div>
@@ -207,11 +207,11 @@ try {
     </div>
     <!--//container-->
     <footer>
-       ⓒ 2021-2022, Metarock Inc., All rights Reserved.
+        ⓒ 2021-2022, Metarock Inc., All rights Reserved.
     </footer>
     <script type="text/javascript">
-         var setting_limit_fp = 0;
-         var time_reset = 0;
+        var setting_limit_fp = 0;
+        var time_reset = 0;
 
         $(document).ready(function (){
             $('ul.setting li').click(function (){
