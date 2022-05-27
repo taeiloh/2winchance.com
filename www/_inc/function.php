@@ -76,6 +76,8 @@ function sendEmail($email, $title, $html) {
         $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
         $mail->Username   = 'dev@idevel.co.kr';                     //SMTP username
         $mail->Password   = 'dkdlelqpf!210@';                               //SMTP password
+        //$mail->Username   = 'hello@2winchance.com';                     //SMTP username
+        //$mail->Password   = 'y*Z8UUH56';                               //SMTP password
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;            //Enable implicit TLS encryption
         $mail->Port       = 587;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
@@ -83,7 +85,7 @@ function sendEmail($email, $title, $html) {
         $mail->SetFrom('hello@2winchance.com', '2winchance');
         //$mail->addAddress('hello@2winchance.com', '2winchance');     //Add a recipient
         $mail->addAddress($email);               //Name is optional
-        $mail->addReplyTo('hello@2winchance.com', '2winchance');
+        //$mail->addReplyTo('hello@2winchance.com', '2winchance');
         //$mail->addCC('cc@example.com');
         //$mail->addBCC('bcc@example.com');
         //$mail->Sender='dev@idevel.co.kr';
