@@ -229,6 +229,7 @@ TR;
                                 <?php
                             }
                         }
+
                         $result->free();
                         $sub_result->free();
                         ?>
