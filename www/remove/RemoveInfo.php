@@ -12,6 +12,12 @@ try {
     $m_id = !empty($_arrMembers['m_id']) ? $_arrMembers['m_id'] : '';
     $m_name = !empty($_arrMembers['m_name']) ? $_arrMembers['m_name'] : '';
     $m_sns_type = !empty($_arrMembers['m_sns_type']) ? $_arrMembers['m_sns_type'] : '';
+    $m_fp_balance = !empty($_arrMembers['m_fp_balance']) ? $_arrMembers['m_fp_balance'] : 0;
+
+    $query2 = "SELECT * FROM honor_point_history WHERE hph_m_idx = '{$idx}'";
+    $result2 = $_mysqli->query($query2);
+    $honormem = $result2->fetch_array();
+    $hph_balance = !empty($honormem['hph_balance']) ?$honormem['hph_balance'] : 0;
 
 } catch (Exception $e) {
     p($e);
@@ -58,8 +64,8 @@ try {
                         <div class="user-detail-info">
                             <ul>
                                 <li><p>COIN</p><span class="fc-yellow coin"><?=$deposit?></span></li>
-                                <li><p>Fight Point</p><span class="fp"><?=$fp?></span></li>
-                                <li><p>Honor Point</p><span class="fp">16</span></li>
+                                <li><p>Fight Point</p><span class="fp"><?=$m_fp_balance?></span></li>
+                                <li><p>Honor Point</p><span class="fp"><?=$hph_balance?></span></li>
                             </ul>
                         </div>
                     </div>

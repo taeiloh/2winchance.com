@@ -76,7 +76,7 @@ try {
             //성공
             $arrRtn['code'] = 200;
             $arrRtn['id'] = $m_sns_id;
-            $arrRtn['msg'] = "이메일 전송 성공";
+            $arrRtn['msg'] = "가입완료";
 
             locationReplace($_auth_url);
         }

@@ -120,13 +120,19 @@ try {
                                             </section>
                                             <?php
                                             }else{
+                                                if($m_fp_limit == 0){
                                             ?>
+                                                <p>해당 사항 없음</p>
+                                                    <?php
+                                                }else{?>
                                                 <p><?php  echo number_format($m_fp_limit); ?></p>
+                                                    <span>FP</span>
                                             <?php
+                                            }
                                             }
                                             ?>
                                             <!-- 한도 설정 완료 후-->
-                                            <span>FP</span>
+
                                         </div>
                                     </div>
                                     <div class="input-box limit-input">
@@ -156,13 +162,19 @@ try {
 
                                             <?php
                                             }else{
-                                            ?>
+                                                if($m_time_reset == 0){
+                                            ?><p>해당 사항 없음</p>
+                                                    <?php
+                                                }else{
+                                                    ?>
                                                 <p><?php  echo number_format($m_time_reset); ?></p>
+                                                    <span>시간</span>
                                             <?php
+                                            }
                                             }
                                             ?>
                                             <!-- 시간 설정 완료 후 <p>10,000</p> -->
-                                            <span>시간</span>
+
                                         </div>
                                     </div>
                                 </div>
