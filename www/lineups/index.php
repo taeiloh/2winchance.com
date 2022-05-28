@@ -7,14 +7,33 @@ try {
     //p($_SESSION);
     $_se_idx    = !empty($_SESSION['_se_idx'])  ? $_SESSION['_se_idx']  : 0;
 
-    // 변수 정리
-    $where      = '';
-
+    // 파라미터 정리
     $page = !empty($_GET['page']) ? $_GET['page'] : 1;
+    $sub        = !empty($_GET['sub'])      ? $_GET['sub']      : '';
 
     //파라미터 체크
     if(!is_numeric($page)){
         $page       =   1;
+    }
+
+    // 변수 정리
+    $where      = '';
+
+    if($sub=='upcoming') {
+        $where  .= "
+            AND b.g_status IN (0, 1)
+        ";
+
+    } else if($sub=='live') {
+        $where  .= "
+            AND b.g_status = 2
+        ";
+
+    } else if($sub=='finish') {
+        $where  .= "
+            AND b.g_status = 3
+        ";
+
     }
 
     // 로그인 체크
@@ -79,12 +98,9 @@ try {
             <!--sec-01-->
             <section class="sec sec-01 T0 B0">
                 <div class="line-up-nav inner">
-                    <ul>
-                        <li class="active"><a href="javascript:void(0)">ALL</a></li>
-                        <li class="active"><a href="javascript:void(0)">대기</a></li>
-                        <li class="active"><a href="javascript:void(0)">LIVE</a></li>
-                        <li class="active"><a href="javascript:void(0)">결과</a></li>
-                    </ul>
+                    <?php
+                    include_once __DIR__ .'/../common/lineups_sub_menu.php';
+                    ?>
                 </div>
                 <div class="inner">
                     <ul class="contest-list lineup-list">
@@ -99,6 +115,7 @@ try {
                                     ON a.lu_g_idx = b.g_idx
                                 WHERE 1=1
                                   AND a.lu_u_idx = {$_se_idx}
+                                    {$where}
                                 ORDER BY a.lu_idx DESC
                             ";
                             //p($query);
@@ -118,7 +135,7 @@ try {
                                     WHERE 1=1
                                         AND c.lu_idx = {$db['lu_idx']}
                                 ";
-                                p($sub_query);
+                                //p($sub_query);
                                 $sub_result = $_mysqli->query($sub_query);
 
                                 $sub_db2 = $sub_result->fetch_assoc();
@@ -147,16 +164,16 @@ try {
 
                                 echo <<<LI
                         <li class="edit">
-                            <a href="javascript:void(0)" class="active">
+                            <a href="/draft/?index={$sub_db2['g_idx']}" class="active">
                                 <div class="game-thumb" style="background-image: url('$game_img_src')">
                                     <div class="subject">
-                                    <img src="$img_src" alt="pubg_logo">
+                                    <img src="{$img_src}" alt="pubg_logo"/>
                                     </div>
                                 </div>
                                 <div class="contest-desc lineUP">
                                     <div class="conts-desc-l">
                                         <div class="contest-ico">
-                                             <img src="../images/item2.png" alt="임시">
+                                             <img src="/images/item2.png" alt="임시">
 
                                         </div>
                                         <dl>
@@ -164,7 +181,7 @@ try {
                                             <dt class="contest-title">{$sub_db2['g_name']}</dt>
                                             <dd class="contest-detail">
                                                 <ul>
-                                                    <li><img src="../images/ico_pin.svg" class="mR5" alt="위치">LAS</li>
+                                                    <li><img src="/images/ico_pin.svg" class="mR5" alt="위치">LAS</li>
                                                     <li>{$sub_db2['g_size']}</li>
                                                     <li>1,254 Slots</li>
                                                 </ul>
@@ -246,7 +263,7 @@ TR;
             <!--//sec-01-->
             <div class="pagination">
                 <?php
-                echo paging($page,$total_page,5,"{$_SERVER['SCRIPT_NAME']}?page=");
+                //echo paging($page,$total_page,5,"{$_SERVER['SCRIPT_NAME']}?page=");
                 ?>
                 <!--<a href="javascript:void(0)" class="active" >1</a>
                 <a href="javascript:void(0)">2</a>

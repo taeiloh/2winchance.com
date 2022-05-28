@@ -27,6 +27,13 @@ class RankReward {
         return $this->total_reward;
     }
 
+    // 1등 상금
+    function getFirst_place() {
+        $reward_info = $this->getReward_info($this->prize);
+
+        return $this->first_place;
+    }
+
     // 요약
     function getSummary($g_prize) {
         switch($g_prize) {
@@ -169,6 +176,8 @@ class RankReward {
                 } else {
                     $reward     = 0;
                 }
+                $this->first_place  = $reward;
+
                 $rtn    = "
                     <ul>
                         <li class=\"first\">
@@ -194,6 +203,7 @@ class RankReward {
         if($max > 1) {
             $rank   = '1~'. $max;
             $reward = $this->fee * $x;
+            $this->first_place  = $reward;
             $rtn    = "
                     <ul>
                         <li class=\"first\">

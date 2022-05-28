@@ -5,6 +5,7 @@ require_once __DIR__ .'/../_inc/config.php';
 // 파라미터
 //p($_REQUEST);
 $idx        = !empty($_GET['index'])        ? $_GET['index']        : 0;
+$lu_idx     = !empty($_GET['lu_idx'])        ? $_GET['lu_idx']        : 0;
 
 // 세션
 $m_idx      = !empty($_SESSION['_se_idx'])  ? $_SESSION['_se_idx']  : 0;

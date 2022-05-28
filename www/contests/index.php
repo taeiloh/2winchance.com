@@ -2,6 +2,9 @@
 // config
 require_once __DIR__ .'/../_inc/config.php';
 
+// 클래스
+require_once __DIR__ .'/../class/RankReward.php';
+
 try {
     // 파라미터
 
@@ -13,7 +16,7 @@ try {
     $where      = '';
 
     $where      .= "
-        AND (g_status = 0 OR jc_status = 1)
+        AND g_status IN (0, 1)
     ";
 
     $page = !empty($_GET['page']) ? $_GET['page'] : 1;
@@ -22,7 +25,7 @@ try {
         $page       =   1;
     }
     //페이징
-    $sql  = "
+    /*$sql  = "
                             SELECT 
                                 count(*)
                             FROM 
@@ -52,7 +55,7 @@ try {
     $rows = 10;
     $total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
     if ($page < 1) { $page = 1; } // 페이지가 없으면 첫 페이지 (1 페이지)
-    $from_record = ($page - 1) * $rows; // 시작 열을 구함
+    $from_record = ($page - 1) * $rows; // 시작 열을 구함*/
 
 
 } catch (Exception $e) {
@@ -95,16 +98,19 @@ try {
                 </div>
 
                 <div class="contents-cont inner">
+                    <!--<div>
+                        <input type="search" placeholder="콘테스트를 검색해주세요.">
+                    </div>-->
                     <table class="contents-table upcomming-table">
                         <colgroup>
-                            <col style="width:25.142%">
-                            <col style="width:16.572%">
-                            <col style="width:8.286%">
-                            <col style="width:8.286%">
-                            <col style="width:5.524%">
-                            <col style="width:5.524%">
-                            <col style="width:5.524%">
-                            <col style="width:25.142%">
+                            <col/>
+                            <col style="width: 200px;"/>
+                            <col style="width:8%"/>
+                            <col style="width:8%"/>
+                            <col style="width:8%"/>
+                            <col style="width:8%"/>
+                            <col style="width:8%"/>
+                            <col style="width:8%"/>
                         </colgroup>
                         <thead>
                         <tr>
@@ -116,7 +122,6 @@ try {
                             <th>중복</th>
                             <th>상태</th>
                             <th>
-                                <input type="search" placeholder="콘테스트를 검색해주세요.">
                                 <button class="search-btn"></button>
                             </th>
                         </tr>
@@ -157,68 +162,38 @@ try {
                         // 콘테스트
                         $query  = "
                             SELECT 
-                                join_contest.*, 
-                                game.*,  
-                                game_category.gc_name 
-                            FROM 
-                            (
-                                SELECT
-                                    jc_idx
-                                FROM join_contest
-                                WHERE 1=1
-                                    AND jc_u_idx = {$_se_idx}
-                            ) b INNER JOIN join_contest 
-                                ON join_contest.jc_idx = b.jc_idx
-                            LEFT JOIN lineups 
-                                ON lu_idx = jc_lineups 
-                            LEFT JOIN game 
-                                ON g_idx = jc_game 
-                            LEFT JOIN game_category 
-                                ON gc_idx = g_sport 
-                            LEFT JOIN members 
-                                ON m_idx = lu_u_idx 
+                                jc.*, 
+                                g.* 
+                            FROM join_contest jc
+                            LEFT JOIN game g
+                                ON jc.jc_game = g.g_idx 
                             WHERE 1=1 
-                                AND lu_u_idx = {$_se_idx} 
-                                {$where} 
-                            GROUP BY jc_game
-                            LIMIT {$from_record}, {$rows}
-                            
+                                AND jc_u_idx = {$_se_idx} 
+                                {$where}
+                            ORDER BY jc_date DESC
                         ";
-                        //echo $query;
+                        //p($query);
                         $result = $_mysqli->query($query);
                         if (!$result) {
 
                         }
-                        if($total_count > 0){
-
-
                         while ($db = $result->fetch_assoc()) {
-                            //p($db);
-                            $i = 0;
-                            $arrGjson   = json_decode($db['g_json'], true);
-                            //p($arrGjson);
-                            $i++;
-                            $no=$total_count-($i+($page-1)*$rows);
+                            $rankReward     = new RankReward($db['g_size'], $db['g_fee'], $db['g_prize'], $db['g_entry']);
+                            $total_reward   = number_format($rankReward->getTotal_reward());
+                            $getFirst_place = number_format($rankReward->getFirst_place());
+
                             echo <<<TR
                         <tr>
                             <td>{$db['g_name']}</td>
-                            <td>{$arrGjson[0]['timezone_scheduled']}</td>
-                            <td>{$db['g_prize']}</td>
-                            <td>{$db['jc_prize']}</td>
-                            <td>{$db['g_size']}</td>
+                            <td>{$db['g_date']}</td>
+                            <td>{$total_reward}</td>
+                            <td>{$getFirst_place}</td>
+                            <td>{$db['g_entry']}/{$db['g_size']}</td>
                             <td>{$db['g_multi_max']}</td>
                             <td><button type="button">수정</button></td>
                             <td><button type="button"><img src="../images/ico_share_blue.svg" alt="공유하기">초대</button></td>
                         </tr>
 TR;
-                                   }
-                        }else {
-                            echo <<<TR
-                         <tr>
-                                <td colspan="8">등록된 정보가 없습니다.</td>
-                         </tr>
-TR;
-
                         }
                         ?>
                         <!--tr>
@@ -238,7 +213,7 @@ TR;
             <!--//sec-01-->
             <div class="pagination">
                 <?php
-                echo paging($page,$total_page,5,"{$_SERVER['SCRIPT_NAME']}?page=");
+                //echo paging($page,$total_page,5,"{$_SERVER['SCRIPT_NAME']}?page=");
                 ?>
 <!--                <a href="javascript:void(0)" class="active" >1</a>-->
 <!--                <a href="javascript:void(0)">2</a>-->
