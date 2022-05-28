@@ -17,6 +17,7 @@ $days=substr($g_date, 8,2);
 
 
 $sub_menu       = !empty($_GET['sub_menu'])     ? $_GET['sub_menu']     : 0;
+$gidx           = !empty($_GET['gidx'])         ? $_GET['gidx']         : 0;
 
 $m_idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 시퀀스
 
@@ -32,7 +33,7 @@ if (!empty($cate)) {
 // sub_menu
 switch ($sub_menu) {
     case 1:
-        $where  .= "AND g_prize = 0 ";
+        $where  .= "AND g_fee = 0 ";
         break;
     case 2:
         $where  .= "AND g_prize IN (4, 5) ";
@@ -279,6 +280,7 @@ LI;
                             $summary        = $rankReward->getSummary($db['g_prize']); // reward_info 보다 뒤에 호출 주의
 
                             echo <<<DIV
+                        <a id="gidx_{$db['g_idx']}"></a>
                         <div class="league-box">
                             <div class="league-thumb-box">
                                 <div class="league-thumb" style="overflow: hidden;">
@@ -295,7 +297,6 @@ LI;
                                     <button type="button" class="active" onclick="go_url('/myPage/howtoplay.php');">게임 가이드 <img class="mL10" src="/images/ico_triangle.svg" alt="화살표 이미지"/></button>
                                 </div>
                             </div>
-
                             <div class="league-info">
                                 <div class="league-title">
                                     <h2>{$db['g_name']}</h2>
@@ -355,13 +356,25 @@ LI;
                                         </div>
                                     </div>
                                     <div class="btn-group">
-                                        <button type="button" class="btn-grey btn-down"><span>경기정보</span> <img src="/images/ico_arrow.svg" alt="더보기"></button>
+                                        <button type="button" id="btnDown{$db['g_idx']}" class="btn-grey btn-down"><span>경기정보</span> <img src="/images/ico_arrow.svg" alt="더보기"></button>
                                         <button type="button" onclick="go_draft({$db['g_idx']},'{$m_idx}' );" class="btn-blue slide-cont">게임참가</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
 DIV;
+                            if($gidx == $db['g_idx']) {
+                                echo <<<SCRIPT
+                        <script>
+                            $(function () {
+                                var offset = $("#gidx_{$gidx}").offset();
+                                $("html,body").animate({scrollTop:offset.top - 200}, 400);
+                                
+                                $("#btnDown{$gidx}").trigger("click");
+                            });
+                        </script>
+SCRIPT;
+                            }
 
                         }
                         ?>
@@ -390,10 +403,6 @@ DIV;
     <!--//footer-->
 </div>
 <script>
-    function more1(){
-        location.href="/lobby/?cate=20&more=<?=$more1?>#moreID";
-    }
-
     function remaindTime() {
         var now = new Date(); //현재시간을 구한다.
         var end = new Date(<?=$year?>,<?=$month?>,<?=$days?>,18,00,00);

@@ -69,11 +69,12 @@ $today      = date('Y-m-d');
                             $g_size     = number_format($value['g_size']);
                             $reward     = number_format(($value['g_size'] * $value['g_fee']) * (100 - COMMISSION) / 100);
 
-                            $title      = utf8_substr($value['g_name'], 0, 26);
+                            $title      = utf8_substr($value['g_name'], 0, 24);
+                            $sub_menu   = $gameInfo->getSub_menu($value['g_prize']);
 
                             echo <<<LI
                         <li>
-                            <a href="/lobby/list.php?cate={$cate}&g_date={$today}">
+                            <a href="/lobby/list.php?cate={$cate}&sub_menu={$sub_menu}&g_date={$today}&gidx={$value['g_idx']}" title="{$title}">
                                 <div class="game-thumb" style="background-image: url('/images/PUBG/output/{$img_n}.jpg')">
                                     <div class="subject">
                                         <img src="/images/pubg_logo.png" alt="pubg_logo"/>
@@ -83,7 +84,7 @@ $today      = date('Y-m-d');
                                     <dl>
                                         <!--dt class="contest-schedule">2022-05-20 | 02:56:12</dt-->
                                         <dt class="contest-schedule">{$value['g_date']}</dt>
-                                        <dt class="contest-title" title="{$value['g_name']}">{$title}</dt>
+                                        <dt class="contest-title">{$title}</dt>
                                         <dd class="contest-detail">
                                             <ul>
                                                 <li class="">{$reward} FP</li>

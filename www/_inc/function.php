@@ -222,7 +222,7 @@ function get_badge_img($g_prize) {
             $img    .= '<img src="/images/Contest_Mod_Free.png" alt="FREE ZONE"/>';
             break;
         case 1:
-            $img    .= '<img src="/images/Contest_Mod_TOP.png" alt="TOP 랭킹"/>';
+            $img    .= '<img src="/images/Contest_Mod_50.png" alt="50/50"/>';
             break;
         case 2:
             $img    .= '<img src="/images/Contest_Mod_TOP.png" alt="TOP 랭킹"/>';

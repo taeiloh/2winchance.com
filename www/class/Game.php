@@ -9,6 +9,7 @@ class Game {
         $this->mysqli   = $_mysqli;
     }
 
+    // 게임 리스트
     function getListGame($sdate='', $edate='') {
         // 변수 정리
         $rtnArr     = array();
@@ -40,5 +41,35 @@ class Game {
         }
 
         return $rtnArr;
+    }
+
+    // 콘테스트 화면 서브 메뉴 구하기
+    function getSub_menu($g_prize) {
+        $sub_menu   = 0;
+
+        switch ($g_prize) {
+            case 0:
+            case 2:
+            case 3:
+            case 4:
+            case 5:
+            case 6:
+                $sub_menu   = 2;
+                break;
+            case 1:
+                $sub_menu   = 6;
+                break;
+            case 7:
+                $sub_menu   = 3;
+                break;
+            case 8:
+                $sub_menu   = 4;
+                break;
+            case 9:
+                $sub_menu   = 5;
+                break;
+        }
+
+        return $sub_menu;
     }
 }
