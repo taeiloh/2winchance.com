@@ -30,6 +30,11 @@ $gsize      = $db['g_size'];
 $gmulti     = $db['g_multi_max'];
 $greward    = floor($gsize * $gfee * (100 - COMMISSION) / 100);
 $pos        = json_decode($db['gc_pos'], true);
+$gc_pos     = implode('","', $pos['pos']);
+//p($gc_pos);
+
+//$draftGame  = new DraftGame($idx, $_mysqli);
+
 ?>
 <!doctype html>
 <html lang="ko">
@@ -455,15 +460,15 @@ $pos        = json_decode($db['gc_pos'], true);
                 //선수 이미지를 위해서 name 파싱
                 if (category == "nba" || category == "nba_allstar") {
                     name = name.replace(" ", "+");
-                    input_node(pos, 'player_img', '<img src="http://dev.spo-bit.com/public/images/player_images/nba/'+ name +'.png" width="50" alt="" onerror=\'this.src="/public/images/player_images/nba/default.png"\' />');
+                    input_node(pos, 'player_img', '<img src="/images/player_images/nba/'+ name +'.png" width="50" alt="" onerror=\'this.src="/images/player_images/nba/default.png"\' />');
 
                 } else if (category == "wc" || category == "epl" || category == "tsl") {
                     name = name.replace(" ", "+");
-                    input_node(pos, 'player_img', '<img src="http://dev.spo-bit.com/public/images/player_images/soc/'+ category + img_s +'" width="50" alt="" onerror=\'this.src="/public/images/player_images/soc/'+ category +'/img_s/home_s.png"\' />');
+                    input_node(pos, 'player_img', '<img src="/images/player_images/soc/'+ category + img_s +'" width="50" alt="" onerror=\'this.src="/images/player_images/soc/'+ category +'/img_s/home_s.png"\' />');
 
                 } else if (category == "pubg") {
                     name = name.split(" ");
-                    input_node(pos, 'player_img', '<img src="/images/player_images/pubg/'+ name[1] +'.jpg" alt="" onerror=\'this.src="http://dev.spo-bit.com//public/images/player_images/pubg/default.png"\' style="width: 80px;" />');
+                    input_node(pos, 'player_img', '<img src="/images/player_images/pubg/'+ name[1] +'.jpg" alt="" onerror=\'this.src="/images/player_images/pubg/default.png"\' style="width: 68px;" />');
 
                 }
 
@@ -554,7 +559,6 @@ $pos        = json_decode($db['gc_pos'], true);
 
         function draft_proccess(data, url) {
             console.log("=== draft_proccess ===");
-            console.log(data);
 
             var data = data;
             var go_url = '';
@@ -564,18 +568,20 @@ $pos        = json_decode($db['gc_pos'], true);
 
             data['player'] = {};
             var error = true;
-            var del = $('.del').each(function (i) {
-                if ($(this).html() === '') {
+            var del = $(".del").each(function (i) {
+                if ($(this).html() == "") {
                     alert('You must select all positions.');
                     error = true;
                     return false;
+
                 } else {
                     data['player'][i] = {};
-                    data['player'][i]['game_id'] = $(this).find('img').attr('data-game');
-                    data['player'][i]['player_id'] = $(this).find('img').attr('data-del-index');
+                    data['player'][i]['game_id'] = $(this).find("button").attr('data-game');
+                    data['player'][i]['player_id'] = $(this).find("button").attr('data-del-index');
                     error = false;
                 }
             });
+            console.log(data);
             $.when(del).then(function () {
                 if (error === false) {
                     $.ajax({
@@ -583,7 +589,7 @@ $pos        = json_decode($db['gc_pos'], true);
                         type: 'post',
                         data: data,
                         beforeSend: function () {
-                            $('.btn-confrim-draft').attr('disabled', '');
+                            $(".btn-confirm-draft").attr("disabled", "");
                         },
                         success: function (data) {
                             console.log(data);
@@ -601,7 +607,7 @@ $pos        = json_decode($db['gc_pos'], true);
                                 //location.replace('/index.php?menu=lobby');
 
                             } else {
-                                $('.btn-confrim-draft').removeAttr('disabled', '');
+                                $('.btn-confirm-draft').removeAttr('disabled', '');
                                 alert('Error occurred');
 
                             }
@@ -637,8 +643,241 @@ $pos        = json_decode($db['gc_pos'], true);
         $(function () {
             get_player_list();
 
-            $('.btn-confrim-draft').on("click", function () {
-                console.log("=== btn-confrim-draft ===");
+            $("#btnRandom").on("click", function() {
+                console.log("=== btnRandom ===");
+
+                //전체 제거
+                $("#btnClear").trigger("click");
+
+                var arrCate = ["<?=$gc_pos;?>"];
+                var arrPos  = [];
+                var rows    = $("#player_list").find("tr").toArray();
+                console.log(rows);
+
+                for (var i=0; i<arrCate.length; i++) {
+                    while (1) {
+                        search_value    = "pos_"+ arrCate[i]; //포지션
+                        console.log(search_value);
+                        rand            = Math.floor((Math.random() * (rows.length - 1 - 0 + 1)) + 0); //랜덤 수
+                        console.log(rand);
+
+                        if (arrCate[i] != "UTIL") {
+                            console.log("pos: "+ arrCate[i] + ", rand: "+ rand);
+                            if (rows[rand].className.replace("pos_FLEX ", "").indexOf(search_value) != -1) {
+                                //console.log(rows[rand].lastChild.lastElementChild);
+                                arrPos.push(rand);
+                                break;
+                            }
+
+                        } else {
+                            console.log("pos: "+ arrCate[i] + ", rand: "+ rand);
+                            if ($.inArray(rand, arrPos) == -1) {
+                                //console.log(rows[rand].lastChild.lastElementChild);
+                                arrPos.push(rand);
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                arrPos.forEach(function (value, index, array) {
+                    var obj             = rows[value].lastChild.lastElementChild;
+                    //var data_pos        = arrCate[index];
+                    var data_category   = $(obj).attr('data-category');
+                    var data_flex       = $(obj).attr('data-flex');
+                    var data_fppg       = $(obj).attr('data-fppg');
+                    var data_game       = $(obj).attr('data-game');
+                    var data_img_s      = $(obj).attr('data-img_s');
+                    var data_img_l      = $(obj).attr('data-img_l');
+                    var data_index      = $(obj).attr('data-index');
+                    var data_name       = $(obj).attr('data-name');
+                    var data_pos        = $(obj).attr('data-pos');
+                    var data_pos2       = $(obj).attr('data-pos2');
+                    var data_salary     = $(obj).attr('data-salary');
+                    var data_team       = $(obj).attr('data-team');
+
+                    if (data_category == "nba" || data_category == "nba_allstar") {
+                        var data_mpg        = $(obj).attr('data-mpg');
+                        var data_ppg        = $(obj).attr('data-ppg');
+                        var data_rpg        = $(obj).attr('data-rpg');
+                        var data_apg        = $(obj).attr('data-apg');
+                        var data_bpg        = $(obj).attr('data-bpg');
+                        var data_gg         = "";
+                        var data_ag         = "";
+                        var data_sg         = "";
+                        var data_crsa       = "";
+                        var data_inta       = "";
+                        var data_dbpg       = "";
+                        var data_kpg        = "";
+                        var data_hkpg       = "";
+                        var data_dpg        = "";
+                        //var data_rpg        = "";
+
+                    } else if (data_category == "wc" || data_category == "epl" || data_category == "tsl") {
+                        var data_mpg        = "";
+                        var data_ppg        = "";
+                        var data_rpg        = "";
+                        var data_apg        = "";
+                        var data_bpg        = "";
+                        var data_gg         = $(obj).attr('data-gg');
+                        var data_ag         = $(obj).attr('data-ag');
+                        var data_sg         = $(obj).attr('data-sg');
+                        var data_crsa       = $(obj).attr('data-crsa');
+                        var data_inta       = $(obj).attr('data-inta');
+                        var data_dbpg       = "";
+                        var data_kpg        = "";
+                        var data_hkpg       = "";
+                        var data_dpg        = "";
+                        //var data_rpg        = "";
+
+                    } else if (data_category == "pubg") {
+                        var data_mpg        = "";
+                        var data_ppg        = "";
+                        //var data_rpg        = "";
+                        var data_apg        = "";
+                        var data_bpg        = "";
+                        var data_gg         = "";
+                        var data_ag         = "";
+                        var data_sg         = "";
+                        var data_crsa       = "";
+                        var data_inta       = "";
+                        var data_dbpg       = $(obj).attr('data-dbpg');
+                        var data_kpg        = $(obj).attr('data-kpg');
+                        var data_hkpg       = $(obj).attr('data-hkpg');
+                        var data_dpg        = $(obj).attr('data-dpg');
+                        var data_rpg        = $(obj).attr('data-rpg');
+                        console.log(data_dpg);
+
+                    }
+
+                    //농구 G, F 포지션 예외 처리
+                    if (data_category == "nba" || data_category == "nba_allstar") {
+                        if (arrCate[index] == "G" || arrCate[index] == "F" || arrCate[index] == "UTIL") {
+                            //data_pos    = data_pos2;
+                            data_pos    = arrCate[index];
+                        }
+
+                    } else if (data_category == "wc" || data_category == "epl" || data_category == "tsl") {
+                        if (value == "UTIL") {
+                            data_pos    = "UTIL";
+                        }
+
+                    } else if (data_category == "pubg") {
+                        if (arrCate[index] == "G" || arrCate[index] == "F" || arrCate[index] == "UTIL") {
+                            //data_pos    = data_pos2;
+                            data_pos    = arrCate[index];
+                        }
+
+                    }
+
+                    //추가
+                    addPlayer(data_pos, data_game, data_index, data_salary, data_name, data_team, data_flex, data_category, data_img_s, data_img_l, data_fppg, data_mpg, data_rpg, data_ppg, data_apg, data_bpg, data_gg, data_ag, data_sg, data_crsa, data_inta, data_dbpg, data_kpg, data_hkpg, data_dpg);
+                });
+            });
+
+            $("#btnClear").on("click", function () {
+                console.log("=== btnClear ===");
+
+                $(".player_img").each(function () {
+                    if (what_category == "nba" || what_category == "nba_allstar") {
+                        $(this).html('<img src="/public/images/player_images/nba/default.png" width="50">');
+
+                    } else if (what_category == "wc" || what_category == "epl" || what_category == "tsl") {
+                        $(this).html('<img src="/public/images/player_images/soc/'+ what_category +'/img_s/home_s.png" width="50">');
+
+                    } else if (what_category == "pubg") {
+                        $(this).html("<p style=\"background-image: url('/images/icon_01.png');\"></p>");
+                    }
+                });
+                $(".team_name").each(function () {
+                    $(this).html("Team");
+                });
+                $(".player_name").each(function () {
+                    $(this).html("Player Name");
+                });
+                $('.point').each(function () {
+                    $(this).html('');
+                });
+                $('.salary').each(function () {
+                    $(this).html('$ 0');
+                });
+                //상세 스텟 지우기
+                $('.p_fppg').each(function () {
+                    $(this).html("");
+                });
+
+                if (what_category == "nba" || what_category == "nba_allstar") {
+                    $('.p_mpg').each(function () {
+                        $(this).html("");
+                    });
+                    $('.p_ppg').each(function () {
+                        $(this).html("");
+                    });
+                    $('.p_rpg').each(function () {
+                        $(this).html("");
+                    });
+                    $('.p_apg').each(function () {
+                        $(this).html("");
+                    });
+                    $('.p_bpg').each(function () {
+                        $(this).html("");
+                    });
+
+                } else if (what_category == "wc" || what_category == "epl" || what_category == "tsl") {
+                    $('.p_gg').each(function () {
+                        $(this).html("");
+                    });
+                    $('.p_ag').each(function () {
+                        $(this).html("");
+                    });
+                    $('.p_sg').each(function () {
+                        $(this).html("");
+                    });
+                    $('.p_crsa').each(function () {
+                        $(this).html("");
+                    });
+                    $('.p_inta').each(function () {
+                        $(this).html("");
+                    });
+
+                } else if (what_category == "pubg") {
+                    $('.p_dbpg').each(function () {
+                        $(this).html("");
+                    });
+                    $('.p_kpg').each(function () {
+                        $(this).html("");
+                    });
+                    $('.p_hkpg').each(function () {
+                        $(this).html("");
+                    });
+                    $('.p_dpg').each(function () {
+                        $(this).html("");
+                    });
+                    $('.p_rpg').each(function () {
+                        $(this).html("");
+                    });
+
+                }
+
+                $(".del").each(function () {
+                    $(this).html("");
+                });
+
+                //남은 salary
+                total_salary    = total_salary - total_salary + 50000;
+                $('.total_salary').html($.number(total_salary));
+
+                total_fppg      = 0;
+                $('.total_fppg').html(total_fppg);
+
+                //평균 salary
+                avg_salary      = 0;
+                $('.avg_salary').html($.number(avg_salary));
+            });
+
+            // 라인업 저장하기
+            $(".btn-confirm-draft").on("click", function () {
+                console.log("=== btn-confirm-draft ===");
 
                 var coin = $(this).attr('data-coin');
                 var category = $(this).attr('data-category');
@@ -650,7 +889,6 @@ $pos        = json_decode($db['gc_pos'], true);
                     'game': game
                 };
                 draft_proccess(data);
-                event.stopPropagation();
             });
 
             $(".sort").on("click", function () {
@@ -850,7 +1088,7 @@ DIV;
                                 <li class="sort" data-sort=""><a href="javascript:void(0);">서포터</a></li>
                                 <li class="sort" data-sort="UTIL"><a href="javascript:void(0);">유틸</a></li>
                             </ul>
-                            <button class="random-btn">
+                            <button type="button" id="btnRandom" class="random-btn">
                                 <span></span>
                                 <span></span>
                                 <span></span>
@@ -920,7 +1158,7 @@ DIV;
                                 </dl>
                             </li>
                         </ul>
-                        <div class="select-player">
+                        <div class="select-player pick_player">
                             <ul>
                                 <?php
                                 foreach ($pos['pos'] as $key=>$value) {
@@ -1004,8 +1242,8 @@ LI;
                                 ?>
                             </ul>
                             <div class="btn-group">
-                                <button type="button" class="btn-8 btn-grey">전부 삭제하기</button>
-                                <button type="button" class="btn-8 btn-blue btn-confrim-draft" data-coin="<?=$gfee;?>" data-category="20" data-game="<?=$idx;?>">라인업 저장하기</button>
+                                <button type="button" id="btnClear" class="btn-8 btn-grey">전부 삭제하기</button>
+                                <button type="button" id="btnConfirmDraft" class="btn-8 btn-blue btn-confirm-draft" data-coin="<?=$gfee;?>" data-category="20" data-game="<?=$idx;?>">라인업 저장하기</button>
                             </div>
                         </div>
                     </div>

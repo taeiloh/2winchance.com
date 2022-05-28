@@ -2,138 +2,19 @@
 // config
 require_once __DIR__ . '/../_inc/config.php';
 
-// 세션
-$u_idx      = $_SESSION['_se_idx'];
-
-// 변수
-$today = date('Y-m-d H:i:s');
-
-//function
-function get_player_info($_mysqli, $player_id, $cate)
-{
-    /*$db_conn    = new DB_conn;
-    $conn       = $db_conn->dbconnect_game();*/
-    //
-    $cate_name  = cage_name($cate);
-    $cate_name  = "pubg";
-    //p($cate_name);
-    //
-    $query = "
-      SELECT * FROM {$cate_name}_team_profile_player 
-      WHERE 1=1
-        AND idx = {$player_id}
-    ";
-    //p($query);
-    $result = $_mysqli->query($query);
-    if ($result) {
-        return $result->fetch_assoc();
-    } else {
-        return false;
-    }
-}
-
-// FP 지급
-function give_fp($_mysqli, $m_idx, $fp_content, $fp, $trigger_type='', $trigger_idx=0) {
-    //현재 FP
-    $query  = "
-        SELECT
-          m_fp_balance 
-        FROM members
-        WHERE 1=1
-          AND m_idx = {$m_idx}
-    ";
-    //p($query);
-    $result = $_mysqli->query($query);
-    if (!$result) {
-        throw new Exception('db error');
-    }
-    $_data      = $result->fetch_assoc();
-    $fp_balance = $_data['m_fp_balance'] + $fp;
-
-    //지급 (members)
-    $query  = "
-        UPDATE members
-        SET
-          m_fp_balance = m_fp_balance + {$fp}
-        WHERE 1=1
-          AND m_idx = {$m_idx}
-    ";
-    //p($query);
-    $result = $_mysqli->query($query);
-    if (!$result) {
-        throw new Exception('db error');
-    }
-
-    //지급 (history)
-    $query  = "
-        INSERT INTO fantasy_point_history
-          (fph_m_idx, fph_content, fph_point, fph_balance,
-          fph_trigger_type, fph_trigger_idx,
-          created_at, created_by, created_ip)
-        VALUES 
-          ({$m_idx}, '{$fp_content}', {$fp}, {$fp_balance},
-          '{$trigger_type}', {$trigger_idx},
-          NOW(), '', '{$_SERVER['REMOTE_ADDR']}')
-    ";
-    //p($query);
-    $result = $_mysqli->query($query);
-    if (!$result) {
-        throw new Exception('db error');
-    }
-}
-
-// 만능 4칙연산
-function digitMath($value1, $value2, $type = 'plus') {
-    if (is_numeric($value1) && is_numeric($value2)) {
-        $num1 = $value1 * 100000000;
-        $num2 = $value2 * 100000000;
-
-        $digits = 8;
-
-        $base = pow(10, $digits);
-
-        $num1 = round($num1 * $base) / $base;
-        $num2 = round($num2 * $base) / $base;
-
-        $result1 = floor($num1);
-        $result2 = floor($num2);
-
-        switch ($type) {
-            case 'plus' :
-                $result = $result1 + $result2;
-                break;
-
-            case 'minus' :
-                $result = $result1 - $result2;
-                break;
-
-            case 'multiply' :
-                $result = $result1 * $result2;
-                break;
-
-            case 'divide' :
-                $result = $result1 / $result2;
-                break;
-
-            default :
-                $result = $result1 + $result2;
-                $str = ' + ';
-        }
-
-        $result = $result / 100000000;
-    } else {
-        $result = null;
-    }
-
-    return $result;
-}
-
-//파라미터 정리
+// 파라미터 정리
+//p($_REQUEST);
 $idx        = filter_input(INPUT_POST, 'id');
 $coin       = filter_input(INPUT_POST, 'coin');
 $category   = filter_input(INPUT_POST, 'category');
 $game       = filter_input(INPUT_POST, 'game');
 $player     = filter_input(INPUT_POST, 'player', FILTER_DEFAULT, FILTER_REQUIRE_ARRAY);
+
+// 세션
+$u_idx      = $_SESSION['_se_idx'];
+
+// 변수
+$today      = date('Y-m-d H:i:s');
 $count      = count($player);
 
 // 현재 엔트리에 이상 없는지 체크할 것
@@ -209,7 +90,7 @@ try {
       VALUES
         ({$u_idx}, {$category}, {$game})
     ";
-//p($qry_line);
+    //p($qry_line);
     $result_line = $_mysqli->query($qry_line);
     if (!$result_line) {
         $_mysqli->rollback();
@@ -221,8 +102,8 @@ try {
 
 // 라인업 히스토리에 선수 데이터 넣기
     for ($i = 0; $i < $count; $i++) {
-        $arr = get_player_info($_mysqli, $player[$i]['player_id'], $category);
-        //p($arr);
+        $arr = get_player_info($_mysqli_game, $player[$i]['player_id'], $category);
+        //p($arr);exit;
         //
         switch ($category) {
             case 1:
@@ -281,6 +162,7 @@ try {
     $qry_join .= "(jc_u_idx, jc_gc_idx, jc_game, jc_lineups, jc_date) ";
     $qry_join .= "values ";
     $qry_join .= "($u_idx, $category, $game, $saveIdx, '$today') ";
+    //p($qry_join);
     $result_join = $_mysqli->query($qry_join);
 
     if (!$result_join) {
@@ -292,6 +174,7 @@ try {
 
 //회원 머니 차감
     $qry_get_gold = "select m_deposit from members where m_idx = {$u_idx}";
+    //p($qry_get_gold);
     $result_get_gold = $_mysqli->query($qry_get_gold);
 
     if (!$result_get_gold) {
@@ -308,6 +191,7 @@ try {
     $qry = "update members set ";
     $qry .= "m_deposit = $now_gold ";
     $qry .= "where m_idx= $u_idx ";
+    //p($qry);
     $result = $_mysqli->query($qry);
 
     if (!$result) {
@@ -329,6 +213,7 @@ try {
     $qry_log .= "dh_res_date = '$today', ";
     $qry_log .= "game_idx = '$game', ";
     $qry_log .= "game_g_sport = '$category' ";
+    //p($qry_log);
 
     $result_log = $_mysqli->query($qry_log);
     if (!$result_log) {
@@ -341,6 +226,7 @@ try {
     $qry_game = "update game set ";
     $qry_game .= "g_entry = g_entry + 1 ";
     $qry_game .= "where g_idx= $game ";
+    //p($qry_game);
     $result_game = $_mysqli->query($qry_game);
 
     if ($result_game) {
@@ -361,5 +247,5 @@ try {
 
 } catch (Exception $e) {
     $_mysqli->rollback();
-    echo 500;
+    p($e);
 }

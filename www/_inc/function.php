@@ -256,3 +256,154 @@ function get_badge_img($g_prize) {
 
     return $img;
 }
+
+function get_player_info($_mysqli, $player_id, $cate)
+{
+    /*$db_conn    = new DB_conn;
+    $conn       = $db_conn->dbconnect_game();*/
+    //
+    //$cate_name  = cage_name($cate);
+    $cate_name  = "pubg";
+    //p($cate_name);
+    //
+    $query = "
+      SELECT * FROM {$cate_name}_team_profile_player 
+      WHERE 1=1
+        AND idx = {$player_id}
+    ";
+    //p($query);
+    $result = $_mysqli->query($query);
+    if ($result) {
+        return $result->fetch_assoc();
+    } else {
+        return false;
+    }
+}
+
+// FP 지급
+function give_fp($_mysqli, $m_idx, $fp_content, $fp, $trigger_type='', $trigger_idx=0) {
+    //현재 FP
+    $query  = "
+        SELECT
+          m_fp_balance 
+        FROM members
+        WHERE 1=1
+          AND m_idx = {$m_idx}
+    ";
+    //p($query);
+    $result = $_mysqli->query($query);
+    if (!$result) {
+        throw new Exception('db error');
+    }
+    $_data      = $result->fetch_assoc();
+    $fp_balance = $_data['m_fp_balance'] + $fp;
+
+    //지급 (members)
+    $query  = "
+        UPDATE members
+        SET
+          m_fp_balance = m_fp_balance + {$fp}
+        WHERE 1=1
+          AND m_idx = {$m_idx}
+    ";
+    //p($query);
+    $result = $_mysqli->query($query);
+    if (!$result) {
+        throw new Exception('db error');
+    }
+
+    //지급 (history)
+    $query  = "
+        INSERT INTO fantasy_point_history
+          (fph_m_idx, fph_content, fph_point, fph_balance,
+          fph_trigger_type, fph_trigger_idx,
+          created_at, created_by, created_ip)
+        VALUES 
+          ({$m_idx}, '{$fp_content}', {$fp}, {$fp_balance},
+          '{$trigger_type}', {$trigger_idx},
+          NOW(), '', '{$_SERVER['REMOTE_ADDR']}')
+    ";
+    //p($query);
+    $result = $_mysqli->query($query);
+    if (!$result) {
+        throw new Exception('db error');
+    }
+}
+
+// 만능 4칙연산
+function digitMath($value1, $value2, $type = 'plus') {
+    if (is_numeric($value1) && is_numeric($value2)) {
+        $num1 = $value1 * 100000000;
+        $num2 = $value2 * 100000000;
+
+        $digits = 8;
+
+        $base = pow(10, $digits);
+
+        $num1 = round($num1 * $base) / $base;
+        $num2 = round($num2 * $base) / $base;
+
+        $result1 = floor($num1);
+        $result2 = floor($num2);
+
+        switch ($type) {
+            case 'plus' :
+                $result = $result1 + $result2;
+                break;
+
+            case 'minus' :
+                $result = $result1 - $result2;
+                break;
+
+            case 'multiply' :
+                $result = $result1 * $result2;
+                break;
+
+            case 'divide' :
+                $result = $result1 / $result2;
+                break;
+
+            default :
+                $result = $result1 + $result2;
+                $str = ' + ';
+        }
+
+        $result = $result / 100000000;
+    } else {
+        $result = null;
+    }
+
+    return $result;
+}
+
+function chg_pos($cate, $pos) {
+    switch ($cate) {
+        case 1:
+        case 8:
+            return $pos;
+            break;
+
+        case 2:
+            if ($pos == 'RP' || $pos == 'SP') {
+                return 'P';
+            } else if ($pos == 'CF' || $pos == 'RF' || $pos == 'LF') {
+                return 'OF';
+            } else {
+                return $pos;
+            }
+            break;
+        //
+        case 3:
+            return $pos;
+            break;
+
+        case 4:
+        case 5:
+        case 7:
+            return $pos;
+            break;
+        case 20:
+            return $pos;
+            break;
+    }
+}

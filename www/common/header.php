@@ -6,15 +6,15 @@ require_once __DIR__.'/../_inc/config.php';
 checkmobile();
 $cate       = !empty($_GET['cate'])     ? $_GET['cate']     : '';
 
-$idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 시퀀스
-$id=!empty($_SESSION['_se_id']) ? $_SESSION['_se_id'] : "";        // 세션 아이디
-$name=!empty($_SESSION['_se_name']) ? $_SESSION['_se_name'] : "";    // 세션 닉네임
+$_se_idx    =!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 시퀀스
+$_se_id     =!empty($_SESSION['_se_id']) ? $_SESSION['_se_id'] : "";        // 세션 아이디
+$_se_name   =!empty($_SESSION['_se_name']) ? $_SESSION['_se_name'] : "";    // 세션 닉네임
 //$deposit=!empty($_SESSION['_se_deposit']) ? $_SESSION['_se_deposit'] : 0;    // 세션 포인트
 
 $query = "
     SELECT *
         FROM members
-        WHERE 1 and m_idx ='{$idx}'
+        WHERE 1 and m_idx ='{$_se_idx}'
     ";
 //p($query);
 $mresult = $_mysqli->query($query);
@@ -78,11 +78,11 @@ switch ($_url_f[2]){
 }
 
 try{
-$sql = "SELECT * FROM members WHERE m_idx = '{$idx}' ";
+$sql = "SELECT * FROM members WHERE m_idx = '{$_se_idx}' ";
 $result = $_mysqli->query($sql);
 $arraymembers = $result->fetch_array();
 
-$query4 = "SELECT i_src FROM m_item WHERE main_emblem =1 and m_idx = '{$idx}'";
+$query4 = "SELECT i_src FROM m_item WHERE main_emblem =1 and m_idx = '{$_se_idx}'";
 $result4 = $_mysqli->query($query4);
 $main = $result4 ->fetch_array();
 $main_src = !empty($main['i_src']) ? $main['i_src']:'';
@@ -117,7 +117,7 @@ $main_src = !empty($main['i_src']) ? $main['i_src']:'';
     <div class="login-wrap">
         <!--로그인 전-->
         <?php
-        if($idx==""){
+        if($_se_idx==""){
             ?>
             <div class="login-before">
                 <div class="btn-group">

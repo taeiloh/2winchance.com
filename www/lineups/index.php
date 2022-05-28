@@ -4,8 +4,9 @@ require_once __DIR__ .'/../_inc/config.php';
 
 try {
     // 세션 정리
-    $_se_idx        = !empty($_SESSION['_se_idx'])      ? $_SESSION['_se_idx']      : 0;
-    check_login($_se_idx);
+    //p($_SESSION);
+    $_se_idx    = !empty($_SESSION['_se_idx'])  ? $_SESSION['_se_idx']  : 0;
+
     // 변수 정리
     $where      = '';
 
@@ -16,12 +17,20 @@ try {
         $page       =   1;
     }
 
-    $sql ="select count(*) FROM lineups a 
-                            LEFT JOIN game b
-                                ON a.lu_g_idx = b.g_idx
-                            WHERE 1=1
-                              AND a.lu_u_idx = {$_se_idx}
-                            ORDER BY a.lu_idx DESC";
+    // 로그인 체크
+    check_login($_se_idx);
+
+    $sql ="
+        SELECT
+            count(*) 
+        FROM lineups a 
+        LEFT JOIN game b
+            ON a.lu_g_idx = b.g_idx
+        WHERE 1=1
+            AND a.lu_u_idx = {$_se_idx}
+        ORDER BY a.lu_idx DESC
+    ";
+    //p($sql);
     $result11 = mysqli_query($_mysqli, $sql);
     $row1   = mysqli_fetch_row($result11);
     $total_count = $row1[0]; //전체갯수
@@ -37,7 +46,6 @@ try {
            ON c.lu_idx = a.lu_idx WHERE 1=1 AND c.lu_idx = {$dbb['lu_idx']}";
 
     $result12 = $_mysqli->query($sql2);
-
 } catch (Exception $e) {
     p($e);
 }
@@ -85,15 +93,14 @@ try {
                         if($total_count > 0){
                             $i=0;
                             $query  = "
-                            SELECT a.* 
-                            FROM lineups a 
-                            LEFT JOIN game b
-                                ON a.lu_g_idx = b.g_idx
-                            WHERE 1=1
-                              AND a.lu_u_idx = {$_se_idx}
-                            ORDER BY a.lu_idx DESC
-                            LIMIT {$from_record}, {$rows}
-                        ";
+                                SELECT a.* 
+                                FROM lineups a 
+                                LEFT JOIN game b
+                                    ON a.lu_g_idx = b.g_idx
+                                WHERE 1=1
+                                  AND a.lu_u_idx = {$_se_idx}
+                                ORDER BY a.lu_idx DESC
+                            ";
                             //p($query);
                             $result = $_mysqli->query($query);
                             if (!$result) {
@@ -103,15 +110,15 @@ try {
                                 $i++;
                                 //p($db);
                                 $sub_query  = "
-                                SELECT * FROM lineups a
-                                LEFT JOIN game b 
-                                    ON b.g_idx = a.lu_g_idx
-                                LEFT JOIN lineups_history c 
-                                    ON c.lu_idx = a.lu_idx
-                                WHERE 1=1
-                                    AND c.lu_idx = {$db['lu_idx']}
-                            ";
-                                //p($sub_query);
+                                    SELECT * FROM lineups a
+                                    LEFT JOIN game b 
+                                        ON b.g_idx = a.lu_g_idx
+                                    LEFT JOIN lineups_history c 
+                                        ON c.lu_idx = a.lu_idx
+                                    WHERE 1=1
+                                        AND c.lu_idx = {$db['lu_idx']}
+                                ";
+                                p($sub_query);
                                 $sub_result = $_mysqli->query($sub_query);
 
                                 $sub_db2 = $sub_result->fetch_assoc();
