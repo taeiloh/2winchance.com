@@ -35,7 +35,8 @@ if ( $config['isDev'] ) {
     define('DBUSERNAME',    '2winchance');
     define('DBPASSWD',      '2winchance!2022@');
     define('DBNAME',        'db2winchance_web');
-    define('WWW',           '//d-www.2winchance.com');
+    define('WWW',           'http://d-www.2winchance.com');
+    define('SSLWWW',        'http://d-www.2winchance.com');
     define('UPLOAD',        '/uploads');
 };
 /*
@@ -56,7 +57,8 @@ if ( $config['isTest'] ) {
     // define('DBUSERNAME',    'web_db');
     // define('DBPASSWD',      'Wdfig^df75!&^!Q3e36W');
     // define('DBNAME',        'spobit_web');
-    define('WWW',           '//www.2winchance.com');
+    define('WWW',           'http://www.2winchance.com');
+    define('SSLWWW',        'https://www.2winchance.com');
     define('UPLOAD',        '/uploads');
 }
 if ( $config['isReal'] ) {
@@ -64,7 +66,8 @@ if ( $config['isReal'] ) {
     define('DBUSERNAME',    '2winchance');
     define('DBPASSWD',      '2winchance!2022@');
     define('DBNAME',        'db2winchance_web');
-    define('WWW',           '//www.2winchance.com');
+    define('WWW',           'http://www.2winchance.com');
+    define('SSLWWW',        'https://www.2winchance.com');
     define('UPLOAD',        '/uploads');
 }
 

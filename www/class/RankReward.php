@@ -490,6 +490,7 @@ class RankReward {
 
     function cal_define_var($standard) {
         $rtn                = '';
+        $liClass            = '';
         $Tpz                = $this->fee * $this->size;
         $TpzU               = floor($Tpz * (100 - COMMISSION) / 100);
 

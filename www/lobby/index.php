@@ -1,15 +1,20 @@
 <?php
 // config
 require_once __DIR__ .'/../_inc/config.php';
-$more = !empty($_GET['more']) ? $_GET['more'] : "";
-$more1 = 6;
-$more1 += $more;
 
-$query  = "SELECT count(*) as count FROM pubg_game_daily_schedule WHERE 1=1 
-                              AND game_status = 'scheduled'
-                              AND standard_scheduled > NOW()
-                              AND standard_scheduled >= '2022-05-27 09:16:20'
-                              AND standard_scheduled <= '2022-05-26 23:59:59' +INTERVAL 10 DAY 
+// 파라미터 정리
+$more       = !empty($_GET['more'])     ? $_GET['more']     : 0;
+$more1      = 6;
+$more1      += $more;
+
+$query      = "
+    SELECT count(*) as count 
+    FROM pubg_game_daily_schedule 
+    WHERE 1=1 
+        AND game_status = 'scheduled'
+        AND standard_scheduled > NOW()
+        AND standard_scheduled >= '2022-05-27 09:16:20'
+        AND standard_scheduled <= '2022-05-26 23:59:59' +INTERVAL 10 DAY 
 ";
 $tresult = $_mysqli_game->query($query);
 if (!$tresult) {

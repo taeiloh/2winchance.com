@@ -121,8 +121,8 @@ try {
             <input type="hidden" name="timestamp" id="timestamp" value="<?=$timestamp?>">
             <input type="hidden" name="signature" id="sign" value="<?=$sign?>">
             <input type="hidden" name="mKey" id="mKey" value="<?=$mKey?>">
-            <input type="hidden" name="returnUrl" value="https://<?=$_SERVER['SERVER_NAME']?>/store/INIStdPayReturn.php?id=<?=$idx?>">
-            <input type="hidden" name="closeUrl" value="https://<?=$_SERVER['SERVER_NAME']?>/store/close.php">
+            <input type="hidden" name="returnUrl" value="<?=SSLWWW;?>/store/INIStdPayReturn.php?id=<?=$idx?>">
+            <input type="hidden" name="closeUrl" value="<?=SSLWWW;?>/store/close.php">
             <input type="hidden"  name="acceptmethod" value="CARDPOINT:va_receipt:HPP(1):below1000" >
 
             <input id="requestByJs" name="requestByJs" type="hidden" value="true">
