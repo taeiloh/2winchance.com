@@ -10,7 +10,7 @@ class Game {
     }
 
     // 게임 리스트
-    function getListGame($sdate='', $edate='') {
+    function getListGame($sdate='', $edate='', $limit=0) {
         // 변수 정리
         $rtnArr     = array();
         if(empty($sdate)) {
@@ -18,6 +18,10 @@ class Game {
         }
         if(empty($edate)) {
             $edate  = date('Y-m-d');
+        }
+
+        if ($limit) {
+            $queryLimit  = "LIMIT {$limit}";
         }
 
         $query  = "
@@ -30,6 +34,7 @@ class Game {
                 AND DATE_SUB(g_date, INTERVAL 5 HOUR) >= '{$sdate} 00:00:00' 
                 AND DATE_SUB(g_date, INTERVAL 5 HOUR) <= '{$edate} 23:59:59'
             ORDER BY g_sort DESC, RAND()
+            {$queryLimit}
         ";
         //p($query);
         $result = $this->mysqli->query($query);
