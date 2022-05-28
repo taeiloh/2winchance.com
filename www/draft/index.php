@@ -3,15 +3,19 @@
 require_once __DIR__ .'/../_inc/config.php';
 
 // 파라미터
+//p($_REQUEST);
 $idx        = !empty($_GET['index'])        ? $_GET['index']        : 0;
-$m_idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 시퀀스
+
+// 세션
+$m_idx      = !empty($_SESSION['_se_idx'])  ? $_SESSION['_se_idx']  : 0;
 
 $query  = "
-    SELECT * FROM game
-          LEFT JOIN game_category
-          ON gc_idx = g_sport
-          WHERE 1=1
-            AND g_idx = {$idx}
+    SELECT * 
+    FROM game
+    LEFT JOIN game_category
+        ON gc_idx = g_sport
+    WHERE 1=1
+        AND g_idx = {$idx}
 ";
 $result = $_mysqli->query($query);
 if (!$result) {
@@ -19,7 +23,13 @@ if (!$result) {
 }
 $db = $result->fetch_assoc();
 //p($db);
-$pos    = json_decode($db['gc_pos'], true);
+$gname      = $db['g_name'];
+$gfee       = $db['g_fee'];
+$gentry     = $db['g_entry'];
+$gsize      = $db['g_size'];
+$gmulti     = $db['g_multi_max'];
+$greward    = floor($gsize * $gfee * (100 - COMMISSION) / 100);
+$pos        = json_decode($db['gc_pos'], true);
 ?>
 <!doctype html>
 <html lang="ko">
@@ -503,7 +513,7 @@ $pos    = json_decode($db['gc_pos'], true);
             var table = $(".lineup_" + pos).find('.' + node);
             var count = table.length;
             //
-            for (var i = 0; i < count; i++) {
+            for (var i=0; i<count; i++) {
                 //
                 var innet_eq = table.eq(i);
                 console.log(innet_eq.html());
@@ -544,6 +554,7 @@ $pos    = json_decode($db['gc_pos'], true);
 
         function draft_proccess(data, url) {
             console.log("=== draft_proccess ===");
+            console.log(data);
 
             var data = data;
             var go_url = '';
@@ -575,23 +586,24 @@ $pos    = json_decode($db['gc_pos'], true);
                             $('.btn-confrim-draft').attr('disabled', '');
                         },
                         success: function (data) {
-                            //console.log(data);
+                            console.log(data);
+
                             if (data === '100') {
                                 alert('Completed');
-                                location.replace('index.php?menu=contests');
-                                return false;
+                                //location.replace('index.php?menu=contests');
+
                             } else if (data === '411') {
                                 alert('Not enough Gold.');
-                                location.replace('/index.php?menu=store');
-                                return false;
+                                //location.replace('/index.php?menu=store');
+
                             } else if (data === '412') {
                                 alert('You have already reached Max entry limit.');
-                                location.replace('/index.php?menu=lobby');
-                                return false;
+                                //location.replace('/index.php?menu=lobby');
+
                             } else {
                                 $('.btn-confrim-draft').removeAttr('disabled', '');
                                 alert('Error occurred');
-                                return false;
+
                             }
                         }
                     });
@@ -632,7 +644,7 @@ $pos    = json_decode($db['gc_pos'], true);
                 var category = $(this).attr('data-category');
                 var game = $(this).attr('data-game');
                 var data = {
-                    'id': '10031',
+                    'id': '<?=$m_idx;?>',
                     'coin': coin,
                     'category': category,
                     'game': game
@@ -678,24 +690,24 @@ $pos    = json_decode($db['gc_pos'], true);
             <div class="inner enter">
                 <div class="game-detail">
                     <div class="thumb-icon">
-                        <img src="../images/pubg.png" alt="pubg">
+                        <img src="/images/pubg.png" alt="pubg">
                     </div>
                     <div class="parti-info">
-                        <p>총 상금 99kFP ROCKET JUMP [30회 중복 & 우승 10kFP]</p>
+                        <p><?=$gname;?></p>
                         <dl class="">
-                            <dd class="prize-money">총 상금<b>650,000,000</b><span> FP</span></dd>
-                            <dd class="prize-money">참가비<b>650,000,000</b><span> FP</span></dd>
-                            <dd class="participant"><img src="../images/ico_peple.svg" alt="참여자 수" class="mR13"><span>978,673 </span> / 1,000,000</dd>
-                            <dd>중복 가능 : 30</dd>
+                            <dd class="prize-money">총 상금<b><?=number_format($greward);?></b><span>FP</span></dd>
+                            <dd class="prize-money">참가비<b><?=number_format($gfee);?></b><span>FP</span></dd>
+                            <dd class="participant"><img src="/images/ico_peple.svg" alt="참여자 수" class="mR13"><span><?=number_format($gentry);?> </span> / <?=number_format($gsize);?></dd>
+                            <dd>중복 가능 : <?=number_format($gmulti);?></dd>
                             <dd>나의 참가 : 12</dd>
                         </dl>
                     </div>
                 </div>
                 <div class="detail-box">
-                    <p class="status">경기중</p>
+                    <!--<p class="status">경기중</p>
                     <small>2022-03-13 17:00:00:00</small>
                     <p class="time fc-yellow">19:15:27</p>
-                    <div class="game-logo"></div>
+                    <div class="game-logo"></div>-->
                 </div>
             </div>
         </div>
@@ -762,7 +774,7 @@ DIV;
                         </div>
                         <div class="player-info">
                             <div class="player-img">
-                                <img src="../images/img_player.png" alt="이상혁 프로필 사진">
+                                <img src="/images/img_player.png" alt="이상혁 프로필 사진">
                             </div>
                             <div class="player-skill">
                                 <div class="skill-top">
@@ -949,13 +961,12 @@ DIV;
                                             </tbody></table>
                                         </div>
                                     </div>
-
-                                    <button type="button" class="btn-delete">삭제</button>
+                                    <div class="del"></div>
                                 </li>
                                 <!-- TODO 20220524 syryu 아래 영역은 선수 선택 후 값이 들어오는 화면입니다. -->
                                 <!--li class="player-info">
                                     <div class="player-img">
-                                        <img src="../images/img_player.png" width="80" alt="이상혁 프로필 사진">
+                                        <img src="/images/img_player.png" width="80" alt="이상혁 프로필 사진">
                                     </div>
                                     <div class="player-skill">
                                         <div class="skill-top">
@@ -994,7 +1005,7 @@ LI;
                             </ul>
                             <div class="btn-group">
                                 <button type="button" class="btn-8 btn-grey">전부 삭제하기</button>
-                                <button type="button" class="btn-8 btn-blue btn-confrim-draft" data-coin="5" data-category="20" data-game="24884">라인업 저장하기</button>
+                                <button type="button" class="btn-8 btn-blue btn-confrim-draft" data-coin="<?=$gfee;?>" data-category="20" data-game="<?=$idx;?>">라인업 저장하기</button>
                             </div>
                         </div>
                     </div>
@@ -1011,7 +1022,7 @@ LI;
                 <div class="player-detail">
                     <div class="player-info">
                         <div class="player-img">
-                            <img src="../images/img_player.png" alt="이상혁 프로필 사진">
+                            <img src="/images/img_player.png" alt="이상혁 프로필 사진">
                         </div>
                         <div class="player-skill">
                             <p class="fc-yellow"><b class="fc-blue mR10">오더</b>GEN G.</p>
@@ -1020,7 +1031,7 @@ LI;
                         </div>
                         <div class="right">
                             <button type="button" class="btn-blue">라인업 추가하기</button>
-                            <img width="40" src="../images/ico_lcs.png" alt="lcs">
+                            <img width="40" src="/images/ico_lcs.png" alt="lcs">
                         </div>
                     </div>
                     <div class="skill-box">
