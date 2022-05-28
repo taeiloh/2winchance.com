@@ -28,9 +28,9 @@ $pos    = json_decode($db['gc_pos'], true);
     //head
     require_once __DIR__ .'/../common/head.php';
     ?>
-    <script src="http://dev.spo-bit.com/public_new/js/moment.js"></script>
-    <script src="http://dev.spo-bit.com/public_new/js/moment-timezone-with-data.js"></script>
-    <script type="text/javascript" src="http://dev.spo-bit.com/public/js/jquery.number.min.js"></script>
+    <script type="text/javascript" src="/js/moment.js"></script>
+    <script type="text/javascript" src="/js/moment-timezone-with-data.js"></script>
+    <script type="text/javascript" src="/js/jquery.number.min.js"></script>
     <style>
         .wrap-loading{
             position: fixed;
@@ -66,9 +66,11 @@ $pos    = json_decode($db['gc_pos'], true);
         var tab_draft       = $(".dp_tab_draft");
 
         function get_player_list() {
+            console.log("=== get_player_list ===");
+
             // ajax
             var postData = {
-                "index": 24824
+                "index": 24965
             };
 
             $.ajax({
@@ -394,7 +396,7 @@ $pos    = json_decode($db['gc_pos'], true);
         }
 
         function addPlayer(pos, game_id, id, salary, name, team, data_flex, category, img_s, img_l, fppg, data_mpg, data_rpg, data_ppg, data_apg, data_bpg, data_gg, data_ag, data_sg, data_crsa, data_inta, data_dbpg, data_kpg, data_hkpg, data_dpg) {
-            console.log("addPlayer");
+            console.log("=== addPlayer ===");
 
             var cnt = 0;
 
@@ -451,7 +453,7 @@ $pos    = json_decode($db['gc_pos'], true);
 
                 } else if (category == "pubg") {
                     name = name.split(" ");
-                    input_node(pos, 'player_img', '<img src="http://dev.spo-bit.com/public/images/player_images/pubg/'+ name[1] +'.jpg" alt="" onerror=\'this.src="http://dev.spo-bit.com//public/images/player_images/pubg/default.png"\' style="width: 80px;" />');
+                    input_node(pos, 'player_img', '<img src="/images/player_images/pubg/'+ name[1] +'.jpg" alt="" onerror=\'this.src="http://dev.spo-bit.com//public/images/player_images/pubg/default.png"\' style="width: 80px;" />');
 
                 }
 
@@ -495,6 +497,7 @@ $pos    = json_decode($db['gc_pos'], true);
         }
 
         function input_node(pos, node, text) {
+            console.log("=== input_node ===");
             console.log(pos, node, text);
 
             var table = $(".lineup_" + pos).find('.' + node);
@@ -506,14 +509,14 @@ $pos    = json_decode($db['gc_pos'], true);
                 console.log(innet_eq.html());
 
                 //2018-01-18 진경수 (디자인 수정)
-                if (innet_eq.html() == "Name" ||
+                if (innet_eq.html() == "Player Name" ||
                     innet_eq.html() == "Team" ||
-                    innet_eq.html() == "$ 0" ||
-                    innet_eq.html() == '<img src="http://dev.spo-bit.com/public/images/player_images/nba/default.png" width="50">' ||
-                    innet_eq.html() == '<img src="http://dev.spo-bit.com/public/images/player_images/soc/wc/img_s/home_s.png" width="50">' ||
-                    innet_eq.html() == '<img src="http://dev.spo-bit.com/public/images/player_images/soc/epl/img_s/home_s.png" width="50">' ||
-                    innet_eq.html() == '<img src="http://dev.spo-bit.com/public/images/player_images/soc/tsl/img_s/home_s.png" width="50">' ||
-                    innet_eq.html() == '<img src="http://dev.spo-bit.com/public/images/player_images/pubg/default.png" width="80" alt="">' ||
+                    innet_eq.html() == "$00,000" ||
+                    innet_eq.html() == '<img src="/images/player_images/nba/default.png" width="50">' ||
+                    innet_eq.html() == '<img src="/images/player_images/soc/wc/img_s/home_s.png" width="50">' ||
+                    innet_eq.html() == '<img src="/images/player_images/soc/epl/img_s/home_s.png" width="50">' ||
+                    innet_eq.html() == '<img src="/images/player_images/soc/tsl/img_s/home_s.png" width="50">' ||
+                    innet_eq.html() == "<p style=\"background-image: url('/images/icon_01.png');\"></p>" ||
                     innet_eq.html() == "") {
                     innet_eq.html(text);
                     return true;
@@ -540,7 +543,7 @@ $pos    = json_decode($db['gc_pos'], true);
         }
 
         function draft_proccess(data, url) {
-            console.log("draft_proccess");
+            console.log("=== draft_proccess ===");
 
             var data = data;
             var go_url = '';
@@ -623,7 +626,7 @@ $pos    = json_decode($db['gc_pos'], true);
             get_player_list();
 
             $('.btn-confrim-draft').on("click", function () {
-                console.log("btn-confrim-draft click");
+                console.log("=== btn-confrim-draft ===");
 
                 var coin = $(this).attr('data-coin');
                 var category = $(this).attr('data-category');
@@ -879,241 +882,7 @@ DIV;
                                 <col style="width: 14%">
                                 <col style="width: 14%">
                             </colgroup>
-                            <tbody>
-                            <tr>
-                                <td>TL</td>
-                                <td>Deft</td>
-                                <td></td>
-                                <td>DRX</td>
-                                <td>60</td>
-                                <td>$ 3,000</td>
-                                <td class="tR"><button type="button" class="btn-plus"></button></td>
-                            </tr>
-                            <tr>
-                                <td>TL</td>
-                                <td>Deft</td>
-                                <td></td>
-                                <td>DRX</td>
-                                <td>60</td>
-                                <td>$ 3,000</td>
-                                <td class="tR"><button type="button" class="btn-plus"></button></td>
-                            </tr>
-                            <tr>
-                                <td>TL</td>
-                                <td>Deft</td>
-                                <td></td>
-                                <td>DRX</td>
-                                <td>60</td>
-                                <td>$ 3,000</td>
-                                <td class="tR"><button type="button" class="btn-plus"></button></td>
-                            </tr>
-                            <tr>
-                                <td>TL</td>
-                                <td>Deft</td>
-                                <td></td>
-                                <td>DRX</td>
-                                <td>60</td>
-                                <td>$ 3,000</td>
-                                <td class="tR"><button type="button" class="btn-plus"></button></td>
-                            </tr>
-                            <tr>
-                                <td>TL</td>
-                                <td>Deft</td>
-                                <td></td>
-                                <td>DRX</td>
-                                <td>60</td>
-                                <td>$ 3,000</td>
-                                <td class="tR"><button type="button" class="btn-plus"></button></td>
-                            </tr>
-                            <tr>
-                                <td>TL</td>
-                                <td>Deft</td>
-                                <td></td>
-                                <td>DRX</td>
-                                <td>60</td>
-                                <td>$ 3,000</td>
-                                <td class="tR"><button type="button" class="btn-plus"></button></td>
-                            </tr>
-                            <tr>
-                                <td>TL</td>
-                                <td>Deft</td>
-                                <td></td>
-                                <td>DRX</td>
-                                <td>60</td>
-                                <td>$ 3,000</td>
-                                <td class="tR"><button type="button" class="btn-plus"></button></td>
-                            </tr>
-                            <tr>
-                                <td>TL</td>
-                                <td>Deft</td>
-                                <td></td>
-                                <td>DRX</td>
-                                <td>60</td>
-                                <td>$ 3,000</td>
-                                <td class="tR"><button type="button" class="btn-plus"></button></td>
-                            </tr>
-                            <tr>
-                                <td>TL</td>
-                                <td>Deft</td>
-                                <td></td>
-                                <td>DRX</td>
-                                <td>60</td>
-                                <td>$ 3,000</td>
-                                <td class="tR"><button type="button" class="btn-plus"></button></td>
-                            </tr>
-                            <tr>
-                                <td>TL</td>
-                                <td>Deft</td>
-                                <td></td>
-                                <td>DRX</td>
-                                <td>60</td>
-                                <td>$ 3,000</td>
-                                <td class="tR"><button type="button" class="btn-plus"></button></td>
-                            </tr>
-                            <tr>
-                                <td>TL</td>
-                                <td>Deft</td>
-                                <td></td>
-                                <td>DRX</td>
-                                <td>60</td>
-                                <td>$ 3,000</td>
-                                <td class="tR"><button type="button" class="btn-plus"></button></td>
-                            </tr>
-                            <tr>
-                                <td>TL</td>
-                                <td>Deft</td>
-                                <td></td>
-                                <td>DRX</td>
-                                <td>60</td>
-                                <td>$ 3,000</td>
-                                <td class="tR"><button type="button" class="btn-plus"></button></td>
-                            </tr>
-                            <tr>
-                                <td>TL</td>
-                                <td>Deft</td>
-                                <td></td>
-                                <td>DRX</td>
-                                <td>60</td>
-                                <td>$ 3,000</td>
-                                <td class="tR"><button type="button" class="btn-plus"></button></td>
-                            </tr>
-                            <tr>
-                                <td>TL</td>
-                                <td>Deft</td>
-                                <td></td>
-                                <td>DRX</td>
-                                <td>60</td>
-                                <td>$ 3,000</td>
-                                <td class="tR"><button type="button" class="btn-plus"></button></td>
-                            </tr>
-                            <tr>
-                                <td>TL</td>
-                                <td>Deft</td>
-                                <td></td>
-                                <td>DRX</td>
-                                <td>60</td>
-                                <td>$ 3,000</td>
-                                <td class="tR"><button type="button" class="btn-plus"></button></td>
-                            </tr>
-                            <tr>
-                                <td>TL</td>
-                                <td>Deft</td>
-                                <td></td>
-                                <td>DRX</td>
-                                <td>60</td>
-                                <td>$ 3,000</td>
-                                <td class="tR"><button type="button" class="btn-plus"></button></td>
-                            </tr>
-                            <tr>
-                                <td>TL</td>
-                                <td>Deft</td>
-                                <td></td>
-                                <td>DRX</td>
-                                <td>60</td>
-                                <td>$ 3,000</td>
-                                <td class="tR"><button type="button" class="btn-plus"></button></td>
-                            </tr>
-                            <tr>
-                                <td>TL</td>
-                                <td>Deft</td>
-                                <td></td>
-                                <td>DRX</td>
-                                <td>60</td>
-                                <td>$ 3,000</td>
-                                <td class="tR"><button type="button" class="btn-plus"></button></td>
-                            </tr>
-                            <tr>
-                                <td>TL</td>
-                                <td>Deft</td>
-                                <td></td>
-                                <td>DRX</td>
-                                <td>60</td>
-                                <td>$ 3,000</td>
-                                <td class="tR"><button type="button" class="btn-plus"></button></td>
-                            </tr>
-                            <tr>
-                                <td>TL</td>
-                                <td>Deft</td>
-                                <td></td>
-                                <td>DRX</td>
-                                <td>60</td>
-                                <td>$ 3,000</td>
-                                <td class="tR"><button type="button" class="btn-plus"></button></td>
-                            </tr>
-                            <tr>
-                                <td>TL</td>
-                                <td>Deft</td>
-                                <td></td>
-                                <td>DRX</td>
-                                <td>60</td>
-                                <td>$ 3,000</td>
-                                <td class="tR"><button type="button" class="btn-plus"></button></td>
-                            </tr>
-                            <tr>
-                                <td>TL</td>
-                                <td>Deft</td>
-                                <td></td>
-                                <td>DRX</td>
-                                <td>60</td>
-                                <td>$ 3,000</td>
-                                <td class="tR"><button type="button" class="btn-plus"></button></td>
-                            </tr>
-                            <tr>
-                                <td>TL</td>
-                                <td>Deft</td>
-                                <td></td>
-                                <td>DRX</td>
-                                <td>60</td>
-                                <td>$ 3,000</td>
-                                <td class="tR"><button type="button" class="btn-plus"></button></td>
-                            </tr>
-                            <tr>
-                                <td>TL</td>
-                                <td>Deft</td>
-                                <td></td>
-                                <td>DRX</td>
-                                <td>60</td>
-                                <td>$ 3,000</td>
-                                <td class="tR"><button type="button" class="btn-plus"></button></td>
-                            </tr>
-                            <tr>
-                                <td>TL</td>
-                                <td>Deft</td>
-                                <td></td>
-                                <td>DRX</td>
-                                <td>60</td>
-                                <td>$ 3,000</td>
-                                <td class="tR"><button type="button" class="btn-plus"></button></td>
-                            </tr>
-                            <tr>
-                                <td>TL</td>
-                                <td>Deft</td>
-                                <td></td>
-                                <td>DRX</td>
-                                <td>60</td>
-                                <td>$ 3,000</td>
-                                <td class="tR"><button type="button" class="btn-plus"></button></td>
-                            </tr>
+                            <tbody id="player_list">
                             </tbody>
                         </table>
                         </div>
@@ -1146,16 +915,17 @@ DIV;
                                     echo <<<LI
 
                                 <!-- TODO 20220524 syryu 아래 영역은 선택 전디폴트 화면 입니다. -->
-                                <li class="player-info">
-                                    <div class="player-img">
-                                        <p style="background-image: url("../images/icon_01.png");">오더</p>
-                                    </div>
+                                <li class="player-info lineup_{$value}">
+                                    <div class="player-img player_img"><p style="background-image: url('/images/icon_01.png');"></p></div>
 
                                     <div class="player-skill">
                                         <div class="skill-top">
                                             <div class="name">
-                                                <h2><span class="fc-blue">Team</span>Player Name</h2>
-                                                <p class="player-money">$00,000</p>
+                                                <h2>
+                                                    <span class="fc-blue team_name">Team</span>
+                                                    <span class="player_name">Player Name</span>
+                                                </h2>
+                                                <p class="player-money salary">$00,000</p>
                                             </div>
                                             <table class="border-table">
                                                 <colgroup>

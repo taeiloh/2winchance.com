@@ -101,5 +101,8 @@ if ($_se_seq) {
     define('ISLOGIN',       FALSE);
 }
 
+// 수수료
+const COMMISSION    = 10;
+
 //DB include
 require_once __DIR__ .'/../_inc/dbconnect.php';

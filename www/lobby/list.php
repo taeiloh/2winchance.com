@@ -2,6 +2,9 @@
 // config
 require_once __DIR__ .'/../_inc/config.php';
 
+// 클래스
+require_once __DIR__ .'/../class/RankReward.php';
+
 // 파라미터
 $cate           = !empty($_GET['cate'])         ? $_GET['cate']         : 0;
 $g_date    = !empty($_GET['g_date'])         ? $_GET['g_date']         :"";
@@ -16,6 +19,7 @@ $days=substr($g_date, 8,2);
 $sub_menu       = !empty($_GET['sub_menu'])     ? $_GET['sub_menu']     : 0;
 
 $m_idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 시퀀스
+
 // 변수 정리
 $where          = "";
 $limit          = "";
@@ -31,8 +35,8 @@ switch ($sub_menu) {
         $where  .= "AND g_prize = 0 ";
         break;
     case 2:
-        //$where  .= "";
-        $limit  = "LIMIT 5 ";
+        $where  .= "AND g_prize IN (4, 5) ";
+        //$limit  = "LIMIT 5 ";
         break;
     case 3:
         $where  .= "AND g_prize = 7 ";
@@ -49,6 +53,29 @@ switch ($sub_menu) {
     default:
         break;
 }
+
+// 총 상금
+$query    = "
+    SELECT
+        sum(g_fee * g_size) AS total_prize,
+        sum(g_entry) AS total_entry,
+        sum(g_size) AS total_size
+    FROM game
+    WHERE 1=1
+        AND g_status != 3
+        AND DATE_SUB(g_date, INTERVAL 5 HOUR) >= '{$g_date}' 
+        AND DATE_SUB(g_date, INTERVAL 5 HOUR) <= '{$g_date1} 23:59:59'
+        /*AND g_name like '%%'*/
+";
+//p($query);
+$result = $_mysqli->query($query);
+if (!$result) {
+
+}
+$db = $result->fetch_assoc();
+$total_prize    = $db['total_prize'] - ($db['total_prize'] * COMMISSION / 100);
+$total_entry    = $db['total_entry'];
+$total_size     = $db['total_size'];
 ?>
 <!doctype html>
 <html lang="ko">
@@ -87,7 +114,7 @@ switch ($sub_menu) {
                               AND standard_scheduled <= '{$g_date1} 23:59:59' +INTERVAL 10 DAY
                             GROUP BY date(standard_scheduled)
                             ORDER BY standard_scheduled ASC
-                            LIMIT 7
+                            LIMIT 5
                         ";
                     //echo $query;
                     $result = $_mysqli_game->query($query);
@@ -101,7 +128,7 @@ switch ($sub_menu) {
                         if ($g_date == $games_timezone_scheduled1) {
                             echo <<<LI
                     <li class="active">
-                        <a href="/lobby/list.php?cate=20&g_date={$games_timezone_scheduled1}">
+                        <a href="/lobby/list.php?cate={$cate}&g_date={$games_timezone_scheduled1}">
                             <p>{$games_timezone_scheduled2} {$games_timezone_scheduled1}</p>
                             <p>{$db['count']} match PUBG</p>
                         </a>
@@ -150,15 +177,15 @@ LI;
                 </ul>
                 <div class="cont">
                     <div class="visual-thumb">
-                        <img src="../images/pubg_list.jpeg" alt="LCS">
+                        <img src="/images/pubg_list.jpeg" alt="LCS">
                     </div>
                     <div class="visual-detail">
                         <div class="contest-info tab-wrap">
                             <ul class="tabs">
                                 <li class="tab-link on" data-tab="tab-1"><button type="button">아시아</button></li>
-                                <li class="tab-link" data-tab="tab-2"><button type="button">아시아 태평양</button></li>
+                                <!--<li class="tab-link" data-tab="tab-2"><button type="button">아시아 태평양</button></li>
                                 <li class="tab-link" data-tab="tab-3"><button type="button">유럽</button></li>
-                                <li class="tab-link" data-tab="tab-3"><button type="button">아메리카</button></li>
+                                <li class="tab-link" data-tab="tab-3"><button type="button">아메리카</button></li>-->
                             </ul>
                             <div id="tab-1"  class="tab-content on">
                                 <dl>
@@ -166,40 +193,40 @@ LI;
                                     <dd class="timer">남은 시간 : <span class="day">00</span>일  <span class="hours">00</span>:<span class="minutes">00</span>:<span class="seconds">00</span></dd>
                                 </dl>
                                 <div class="parti-info">
-                                    <p class="prize-money">총 상금<b>650,000,000</b><span> FP</span></p>
-                                    <p class="participant"><img src="../images/ico_peple.svg" alt="참여자 수" class="mR13"><span>978,673 </span> / 1,000,000</p>
+                                    <p class="prize-money">총 상금<b><?=number_format($total_prize);?></b><span> FP</span></p>
+                                    <p class="participant"><img src="/images/ico_peple.svg" alt="참여자 수" class="mR13"><span><?=number_format($total_entry);?></span> / <?=number_format($total_size);?></p>
                                 </div>
                             </div>
-                            <div id="tab-2"  class="tab-content">
+                            <!--<div id="tab-2"  class="tab-content">
                                 <dl>
-                                    <dd class="start-date">시작 시간 : <?=$g_date?> 18:00:00</dd>
+                                    <dd class="start-date">시작 시간 : <?/*=$g_date*/?> 18:00:00</dd>
                                     <dd class="timer">남은 시간 : <span class="day">00</span>일  <span class="hours">00</span>:<span class="minutes">00</span>:<span class="seconds">00</span></dd>
                                 </dl>
                                 <div class="parti-info">
                                     <p class="prize-money">총 상금<b>650,000,000</b><span> FP</span></p>
-                                    <p class="participant"><img src="../images/ico_peple.svg" alt="참여자 수" class="mR13"><span>978,673 </span> / 1,000,000</p>
+                                    <p class="participant"><img src="/images/ico_peple.svg" alt="참여자 수" class="mR13"><span>978,673 </span> / 1,000,000</p>
                                 </div>
                             </div>
                             <div id="tab-3"  class="tab-content">
                                 <dl>
-                                    <dd class="start-date">시작 시간 : <?=$g_date?> 18:00:00</dd>
+                                    <dd class="start-date">시작 시간 : <?/*=$g_date*/?> 18:00:00</dd>
                                     <dd class="timer">남은 시간 : <span class="day">00</span>일  <span class="hours">00</span>:<span class="minutes">00</span>:<span class="seconds">00</span></dd>
                                 </dl>
                                 <div class="parti-info">
                                     <p class="prize-money">총 상금<b>650,000,000</b><span> FP</span></p>
-                                    <p class="participant"><img src="../images/ico_peple.svg" alt="참여자 수" class="mR13"><span>978,673 </span> / 1,000,000</p>
+                                    <p class="participant"><img src="/images/ico_peple.svg" alt="참여자 수" class="mR13"><span>978,673 </span> / 1,000,000</p>
                                 </div>
                             </div>
                             <div id="tab-4"  class="tab-content">
                                 <dl>
-                                    <dd class="start-date">시작 시간 : <?=$g_date?> 18:00:00</dd>
+                                    <dd class="start-date">시작 시간 : <?/*=$g_date*/?> 18:00:00</dd>
                                     <dd class="timer">남은 시간 : <span class="day">00</span>일  <span class="hours">00</span>:<span class="minutes">00</span>:<span class="seconds">00</span></dd>
                                 </dl>
                                 <div class="parti-info">
                                     <p class="prize-money">총 상금<b>650,000,000</b><span> FP</span></p>
-                                    <p class="participant"><img src="../images/ico_peple.svg" alt="참여자 수" class="mR13"><span>978,673 </span> / 1,000,000</p>
+                                    <p class="participant"><img src="/images/ico_peple.svg" alt="참여자 수" class="mR13"><span>978,673 </span> / 1,000,000</p>
                                 </div>
-                            </div>
+                            </div>-->
                         </div>
 
                     </div>
@@ -229,24 +256,33 @@ LI;
                                 AND g_status != 3 
                                 AND DATE_SUB(g_date, INTERVAL 5 HOUR) >= '{$g_date}' 
                                 AND DATE_SUB(g_date, INTERVAL 5 HOUR) <= '{$g_date1} 23:59:59'
-                                AND g_name like '%%'
+                                /*AND g_name like '%%'*/
                                 {$where}
                             ORDER BY g_date ASC, prize DESC , g_name ASC
                             {$limit}
                         ";
-                        //echo $query;
+                        //p($query);
                         $result = $_mysqli->query($query);
                         if (!$result) {
 
                         }
                         while ($db = $result->fetch_assoc()) {
                             // 변수 정리
-                            $img_n=str_replace("/", ",", $db['g_name']);
+                            $img_n  = str_replace('/', '', $db['g_name']);
+                            $img_n  = str_replace('%', '', $img_n);
+                            $badge  = get_badge_img($db['g_prize']);
+
+                            // 클래스 호출
+                            $rankReward     = new RankReward($db['g_size'], $db['g_fee'], $db['g_prize'], 4);
+                            $total_reward   = number_format($rankReward->getTotal_reward());
+                            $reward_info    = $rankReward->getReward_info($db['g_prize']);
+                            $summary        = $rankReward->getSummary($db['g_prize']); // reward_info 보다 뒤에 호출 주의
+
                             echo <<<DIV
                         <div class="league-box">
                             <div class="league-thumb-box">
                                 <div class="league-thumb" style="overflow: hidden;">
-                                    <img src="/images/PUBG/output/{$img_n}.jpg"  width="400px">
+                                    <img src="/images/PUBG/output/{$img_n}.jpg" alt="게임 이미지 {$db['g_idx']}" title="{$db['g_idx']}"/>
                                     <div class="game-logo"><img src="/images/pubg.png"></div>
                                 </div>
                                 <div class="status-detail">
@@ -256,17 +292,15 @@ LI;
                                         <p class="time fc-yellow">19:15:27</p>
                                         <div class="game-logo"></div>
                                     </div>
-                                    <button type="button" class="active">게임 가이드 <img class="mL10" src="/images/ico_triangle.svg" alt="게임참가"></button>
+                                    <button type="button" class="active" onclick="go_url('/myPage/howtoplay.php');">게임 가이드 <img class="mL10" src="/images/ico_triangle.svg" alt="화살표 이미지"/></button>
                                 </div>
                             </div>
 
                             <div class="league-info">
                                 <div class="league-title">
                                     <h2>{$db['g_name']}</h2>
-                                    <div class="badge">
-                                        <img src="../images/Contest_Mod_2X.png" alt="더블">
-                                    </div>
-                                    <button type="button"><img class="mR10" src="/images/ico_share.svg" alt="공유하기">공유하기</button>
+                                    {$badge}
+                                    <button type="button" onclick="copy_url();"><img class="mR10" src="/images/ico_share.svg" alt="공유하기"/>공유하기</button>
                                 </div>
                                 <div class="league-detail">
                                     <div class="info-box">
@@ -287,7 +321,7 @@ LI;
                                                     <th>나의 참여</th>
                                                 </tr>
                                                 <tr>
-                                                    <td>{$db['prize']} FP</td>
+                                                    <td>{$total_reward} FP</td>
                                                     <td>{$db['g_fee']} FP</td>
                                                     <td>{$db['g_entry']} <span class="total">/ {$db['g_size']}</span></td>
                                                     <td>{$db['g_multi_max']}</td>
@@ -304,8 +338,7 @@ LI;
                                             <div class="league-desc">
                                                 <div>
                                                     <h3>요약</h3>
-                                                    <p>매치 게임을 플레이 하여 티어를 획득하고 챌린지 모드 공식 랭킹을
-                                                        획득 해 보세요!</p>
+                                                    <p>{$summary}</p>
                                                 </div>
                                                 <div>
                                                     <h3>참가자</h3>
@@ -315,20 +348,7 @@ LI;
                                             <div class="ranking">
                                                 <div class="ranking-box">
                                                     <h4>상금</h4>
-                                                    <ul>
-                                                        <li class="first">
-                                                            <label>1위</label>
-                                                            <p>702</p>
-                                                        </li>
-                                                        <li>
-                                                            <label>2위</label>
-                                                            <p>200</p>
-                                                        </li>
-                                                        <li>
-                                                            <label>3위</label>
-                                                            <p>100</p>
-                                                        </li>
-                                                    </ul>
+                                                    {$reward_info}
                                                 </div>
 
                                             </div>
@@ -345,91 +365,12 @@ DIV;
 
                         }
                         ?>
-
-                        <div class="league-box ready">
-                            <div class="league-thumb-box">
-                                <div class="league-thumb">
-                                    <img src="/images/img_lol.png" alt="Marathon Legends - The Push">
-                                    <p class="count">23:30:05 초 남음</p>
-                                    <div class="game-logo"></div>
-                                </div>
-                            </div>
-                            <div class="league-info">
-                                <div class="league-title">
-                                    <h2>Marathon Legends - The Push</h2>
-                                    <div class="badge"></div>
-                                    <button type="button"><img class="mR10" src="/images/ico_share.svg" alt="공유하기">공유하기</button>
-                                </div>
-                                <div class="league-detail">
-                                    <div class="info-box">
-                                        <div class="show">
-                                            <dl>
-                                                <dt>
-                                                    경기예정일<span class="line"></span>2022년 4월 24일
-                                                </dt>
-                                                <dd><img src="/images/ico_pin.svg" class="mR5" alt="위치">Lobo Solitário</dd>
-                                                <dd class="contest-detail">
-                                                    <ul>
-                                                        <li>5v5</li>
-                                                        <li>€150.00</li>
-                                                        <li>1,254 Slots</li>
-                                                    </ul>
-                                                </dd>
-                                                <dd><img src="/images/ico-people-w.svg" class="mR5" alt="예정 호스팅">Masmorra 님 호스팅 예정</dd>
-                                            </dl>
-                                        </div>
-                                    </div>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn-grey btn-down" disabled><span>경기정보</span> <img src="/images/ico_arrow.svg" alt="더보기"></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="league-box ready">
-                            <div class="league-thumb-box">
-                                <div class="league-thumb">
-                                    <img src="/images/img_lol.png" alt="Marathon Legends - The Push">
-                                    <p class="count">23:30:05 초 남음</p>
-                                    <div class="game-logo"></div>
-                                </div>
-                            </div>
-                            <div class="league-info">
-                                <div class="league-title">
-                                    <h2>Marathon Legends - The Push</h2>
-                                    <div class="badge"></div>
-                                    <button type="button"><img class="mR10" src="/images/ico_share.svg" alt="공유하기">공유하기</button>
-                                </div>
-                                <div class="league-detail">
-                                    <div class="info-box">
-                                        <div class="show">
-                                            <dl>
-                                                <dt>
-                                                    경기예정일<span class="line"></span>2022년 4월 24일
-                                                </dt>
-                                                <dd><img src="/images/ico_pin.svg" class="mR5" alt="위치">Lobo Solitário</dd>
-                                                <dd class="contest-detail">
-                                                    <ul>
-                                                        <li>5v5</li>
-                                                        <li>€150.00</li>
-                                                        <li>1,254 Slots</li>
-                                                    </ul>
-                                                </dd>
-                                                <dd><img src="/images/ico-people-w.svg" class="mR5" alt="예정 호스팅">Masmorra 님 호스팅 예정</dd>
-                                            </dl>
-                                        </div>
-                                    </div>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn-grey btn-down" disabled><span>경기정보</span> <img src="/images/ico_arrow.svg" alt="더보기"></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pagination">
+                        <!--<div class="pagination">
                             <a class="active" href="javascript:void(0)">1</a>
                             <a class="" href="javascript:void(0)">2</a>
                             <a href="javascript:void(0)">3</a>
                             <a href="javascript:void(0)">4</a>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </section>
@@ -514,5 +455,6 @@ DIV;
     }
     setInterval(remaindTime,1000); //1초마다 검사를 해주면 실시간으로 시간을 알 수 있다.
 </script>
+<input type="text" id="share_url" value="<?=$_SERVER['SERVER_NAME'].$_SERVER['REQUEST_URI'];?>" style="display: none;"/>
 </body>
 </html>

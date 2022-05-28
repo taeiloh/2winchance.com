@@ -213,3 +213,46 @@ function check_login($idx) {
         exit;
     }
 }
+
+// 20220528 진경수 (배지 이미지)
+function get_badge_img($g_prize) {
+    $img    = '<div class="badge">';
+    switch ($g_prize) {
+        case 0:
+            $img    .= '<img src="/images/Contest_Mod_Free.png" alt="FREE ZONE"/>';
+            break;
+        case 1:
+            $img    .= '<img src="/images/Contest_Mod_TOP.png" alt="TOP 랭킹"/>';
+            break;
+        case 2:
+            $img    .= '<img src="/images/Contest_Mod_TOP.png" alt="TOP 랭킹"/>';
+            break;
+        case 3:
+            $img    .= '<img src="/images/Contest_Mod_TOP.png" alt="TOP 랭킹"/>';
+            break;
+        case 4:
+            $img    .= '<img src="/images/Contest_Mod_TOP.png" alt="TOP 랭킹"/>';
+            break;
+        case 5:
+            $img    .= '<img src="/images/Contest_Mod_TOP.png" alt="TOP 랭킹"/>';
+            break;
+        case 6:
+            $img    .= '<img src="/images/Contest_Mod_TOP.png" alt="TOP 랭킹"/>';
+            break;
+        case 7:
+            $img    .= '<img src="/images/Contest_Mod_2X.png" alt="더블 랭킹"/>';
+            break;
+        case 8:
+            $img    .= '<img src="/images/Contest_Mod_3X.png" alt="트리플 랭킹"/>';
+            break;
+        case 9:
+            $img    .= '<img src="/images/Contest_Mod_10X.png" alt="데카 랭킹"/>';
+            break;
+
+        default:
+            break;
+    }
+    $img    .= '</div>';
+
+    return $img;
+}
