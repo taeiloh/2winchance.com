@@ -29,7 +29,7 @@ try {
     <div class="skill-top">
         <div class="name">
             <h2><?=$info['abbr_name'];?></h2>
-            <p><?=$info['full_name'];?></p>
+            <p><?=$info['team_alias'];?></p>
         </div>
         <table class="border-table">
             <colgroup>
@@ -47,19 +47,26 @@ try {
                 <th>KDA</th>
             </tr>
             <tr>
-                <td>1</td>
-                <td>1</td>
-                <td>mm:ss</td>
-                <td>67%</td>
-                <td>66.1%</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
             </tr>
         </table>
-        <button type="button" class="btn-plus"></button>
+        <button type="button" class="btn-plus add_player"
+                data-category="pubg" data-fppg="0"
+                data-game="<?=$g_id;?>" data-img_l=""
+                data-img_s="" data-index="<?=$info['idx'];?>"
+                data-name=" <?=$info['abbr_name'];?>" data-pos="<?=$info['primary_position'];?>"
+                data-pos2="<?=$info['position'];?>" data-salary="<?=$info['player_salary'];?>"
+                data-team="<?=$info['team_alias'];?>" data-dbpg="0"
+                data-ppg="0" data-rpg="0" data-apg="0" data-bpg="0"></button>
     </div>
     <div class="skill-bottom">
         <div class="player-salary">
-            <p><span class="fc-blue">연봉</span>$963,000</p>
-            <button type="button" class="btn-yellow player-stats open-btn" data-target="modal-1">전적 조회</button>
+            <p><span class="fc-blue">연봉</span>$&nbsp;<span><?=number_format($info['player_salary']);?></span></p>
+            <button type="button" class="btn-yellow player-stats open-btn" data-target="modal-1" onclick="alert('조회 데이터가 없습니다.');">전적 조회</button>
         </div>
         <table class="bg-table">
             <colgroup>
@@ -78,10 +85,10 @@ try {
             </thead>
             <tbody>
             <tr>
-                <td>05/13</td>
-                <td>1</td>
-                <td>1</td>
-                <td>000</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
             </tr>
             </tbody>
         </table>

@@ -5,23 +5,24 @@ require_once __DIR__ .'/../_inc/config.php';
 // 클래스
 require_once __DIR__ .'/../class/RankReward.php';
 
+// 세션 정리
+$m_idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 시퀀스
+
 // 파라미터
 $cate           = !empty($_GET['cate'])         ? $_GET['cate']         : 0;
-$g_date    = !empty($_GET['g_date'])         ? $_GET['g_date']         :"";
-$g_date1=substr($g_date, 0, 10);
-
-$year=substr($g_date, 0, 4);
-$month=substr($g_date, 5,2);
-$days=substr($g_date, 8,2);
-
 $sub_menu       = !empty($_GET['sub_menu'])     ? $_GET['sub_menu']     : 0;
+$g_date         = !empty($_GET['g_date'])         ? $_GET['g_date']         :"";
 $gidx           = !empty($_GET['gidx'])         ? $_GET['gidx']         : 0;
 
-$m_idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 시퀀스
+$g_date1        =substr($g_date, 0, 10);
+$year           =substr($g_date, 0, 4);
+$month          =substr($g_date, 5,2);
+$days           =substr($g_date, 8,2);
 
 // 변수 정리
 $where          = "";
 $limit          = "";
+$today          = date('Y-m-d');
 $time           = date('Y-m-d H:i:s');
 
 // cate
@@ -105,18 +106,18 @@ $total_size     = $db['total_size'];
                     <?php
                     $query  = "
                             SELECT
-                                count(1) as count, timezone_type AS games_timezone_type, MIN(standard_scheduled) AS games_timezone_scheduled
+                                count(1) as count, timezone_type AS games_timezone_type, MIN(timezone_scheduled) AS games_timezone_scheduled
                             FROM pubg_game_daily_schedule
                             WHERE 1=1
                               AND game_status = 'scheduled'
-                              AND standard_scheduled > NOW()
-                              AND standard_scheduled >= '{$g_date} 10:00:00'
-                              AND standard_scheduled <= '{$g_date1} 23:59:59' +INTERVAL 10 DAY
-                            GROUP BY date(standard_scheduled)
-                            ORDER BY standard_scheduled ASC
+                              AND timezone_scheduled > NOW()
+                              AND timezone_scheduled >= '{$today} 00:00:00'
+                              AND timezone_scheduled <= '{$today} 23:59:59'+ INTERVAL 10 DAY
+                            GROUP BY date(timezone_scheduled)
+                            ORDER BY timezone_scheduled ASC
                             LIMIT 5
                         ";
-                    //echo $query;
+                    //p($query);
                     $result = $_mysqli_game->query($query);
                     if (!$result) {
 
@@ -126,9 +127,10 @@ $total_size     = $db['total_size'];
                         $games_timezone_scheduled1 = substr($db['games_timezone_scheduled'], 0, 10);
                         $games_timezone_scheduled2 = substr($db['games_timezone_scheduled'], 11, 5);
                         if ($g_date == $games_timezone_scheduled1) {
+
                             echo <<<LI
                     <li class="active">
-                        <a href="/lobby/list.php?cate={$cate}&g_date={$games_timezone_scheduled1}">
+                        <a href="/lobby/list.php?sub_menu={$sub_menu}&cate={$cate}&g_date={$games_timezone_scheduled1}">
                             <p>{$games_timezone_scheduled2} {$games_timezone_scheduled1}</p>
                             <p>{$db['count']} match PUBG</p>
                         </a>
@@ -137,7 +139,7 @@ LI;
                         }else{
                             echo <<<LI
                     <li>
-                       <a href="/lobby/list.php?cate=20&g_date={$games_timezone_scheduled1}">
+                       <a href="/lobby/list.php?sub_menu={$sub_menu}&cate={$cate}&g_date={$games_timezone_scheduled1}">
                             <p>{$games_timezone_scheduled2} {$games_timezone_scheduled1}</p>
                             <p>{$db['count']} match PUBG</p>
                         </a>

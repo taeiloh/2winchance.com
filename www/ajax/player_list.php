@@ -66,11 +66,21 @@ try {
         $player_img_l   = '';
         $position       = $teamPlayers[$i]['player_id']['primary_position'];
         $position2      = $teamPlayers[$i]['player_id']['position'];
+        if($position=='TL') {
+            $position_kr    = '오더';
+        } else if($position=='R') {
+            $position_kr    = '정찰';
+        } else if($position=='GR') {
+            $position_kr    = '포탑';
+        } else if($position=='AR') {
+            $position_kr    = '돌격';
+        }
 
         // 작은 따옴표 처리할것
         $t_name         = $teamPlayers[$i]['player_id']['team_name'];
         $p_f_name       = "";
         $p_l_name       = $teamPlayers[$i]['player_id']['abbr_name'];
+        $t_alias        = $teamPlayers[$i]['player_id']['team_alias'];
 
         //선수 통계
         $player_statistics_season   = $teamPlayers[$i]['player_id']['player_statistics_season'];
@@ -91,14 +101,15 @@ try {
             $teamPlayers[$i]['player_id']['player_salary'],
             $p_f_name,
             $p_l_name,
-            $t_name,
+            $t_alias,
             $teamPlayers[$i]['player_id']['player_id'],
             'pubg',
             $position2,
             $player_statistics_season,
             $player_img_s,
             $player_img_l,
-            $fppg
+            $fppg,
+            $position_kr
         );
     }
 
