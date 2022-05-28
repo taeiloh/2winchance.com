@@ -5,8 +5,8 @@ require_once __DIR__ . '/../_inc/config.php';
 try {
     // 파라미터 정리
     $cate       = 20;
-    $g_idx      = !empty($_POST['g_idx'])       ? $_POST['g_idx']       : 0;
-    $g_idx      = 24824;
+    $g_idx      = !empty($_POST['index'])       ? $_POST['index']       : 0;
+    //$g_idx      = 24824;
 
     // 쿼리
     $query  = "
@@ -14,8 +14,9 @@ try {
         LEFT JOIN game_category
         ON gc_idx = g_sport 
         WHERE 1=1
-            AND g_idx = {$cate}
+            AND g_idx = {$g_idx}
     ";
+    //p($query);
     $result = $_mysqli->query($query);
     if (!$result) {
 
@@ -37,12 +38,9 @@ try {
                 ,0 AS fppg
             FROM pubg_team_profile_player a
             WHERE 1=1
-                AND (
-                    team_id = 'A'
-                    OR team_id = 'B'
-                )
           ORDER BY team_name ASC, full_name ASC
         ";
+        //p($query);
         $result = $_mysqli_game->query($query);
         if (!$result) {
 

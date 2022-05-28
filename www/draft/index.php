@@ -137,7 +137,7 @@ $gc_pos     = implode('","', $pos['pos']);
             //
             var tr = '<tr class="pos_' + json[0] + ' ' + class_flex + ' pos_' + json[16] + '">';
             tr += '<td>' + json[1] + '</td>';
-            tr += '<td style="cursor:pointer" data-category="' + json[15] + '" data-index="' + json[14] + '">';
+            tr += '<td class="player_info" style="cursor:pointer" data-category="' + json[15] + '" data-index="' + json[14] + '">';
             if (json[15] === 'mlb') {
                 tr += json[2] + ' ' + json[3];
                 name = json[11] + ' ' + json[12];
@@ -905,6 +905,42 @@ $gc_pos     = implode('","', $pos['pos']);
                 }
                 sort(pos);
             });
+
+            // 선수 정보 페이어
+            $(document).on("click", ".player_info", function () {
+                console.log("=== player_info click ===");
+
+                var game_id     = $(this).parent().find(".add_player").data('game');
+                var index       = $(this).data('index');
+                var category    = $(this).data('category');
+                //
+                var postData = {
+                    'cate': category,
+                    'g_id': game_id,
+                    'p_id': index
+                };
+                console.log(postData);
+
+                $.ajax({
+                    url: "/ajax/player_detail.php",
+                    type: "POST",
+                    data: postData,
+                    success: function (data) {
+                        console.log(data);
+
+                        $("#player-info").html(data);
+                    },
+                    beforeSend:function(){
+                        $(".wrap-loading").removeClass("display-none");
+                    },
+                    complete:function(){
+                        $(".wrap-loading").addClass("display-none");
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log(textStatus, errorThrown);
+                    }
+                });
+            });
         });
     </script>
 </head>
@@ -938,7 +974,7 @@ $gc_pos     = implode('","', $pos['pos']);
                             <dd class="prize-money">참가비<b><?=number_format($gfee);?></b><span>FP</span></dd>
                             <dd class="participant"><img src="/images/ico_peple.svg" alt="참여자 수" class="mR13"><span><?=number_format($gentry);?> </span> / <?=number_format($gsize);?></dd>
                             <dd>중복 가능 : <?=number_format($gmulti);?></dd>
-                            <dd>나의 참가 : 12</dd>
+                            <dd>나의 참가 : <?=number_format($my_entry);?></dd>
                         </dl>
                     </div>
                 </div>
@@ -1011,7 +1047,7 @@ DIV;
                                 });
                             </script>
                         </div>
-                        <div class="player-info">
+                        <div id="player-info" class="player-info">
                             <div class="player-img">
                                 <img src="/images/img_player.png" alt="이상혁 프로필 사진">
                             </div>

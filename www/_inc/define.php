@@ -20,6 +20,7 @@ $config['ip']['real']   = array(
 
 //사무실 IP
 $config['ip']['office'] = array(
+    '127.0.0.1',
     '218.49.254.228'
 );
 

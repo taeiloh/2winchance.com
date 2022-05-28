@@ -3,9 +3,13 @@
 require_once __DIR__ .'/../_inc/config.php';
 
 // 파라미터 정리
+$cate       = !empty($_GET['cate'])     ? $_GET['cate']     : 20;
 $more       = !empty($_GET['more'])     ? $_GET['more']     : 0;
 $more1      = 6;
 $more1      += $more;
+
+// 변수 정리
+$today      = date('Y-m-d');
 
 $query      = "
     SELECT count(*) as count 
@@ -54,7 +58,7 @@ $total_count=!empty($db['count']) ? $db['count'] : 0;
             <div id="visual">
                 <!-- Swiper -->
                 <video autoplay="autoplay" muted="muted" loop>
-                    <source src="../images/banner_video.mp4" type="video/mp4">
+                    <source src="/images/banner_video.mp4" type="video/mp4">
                     <strong>Your browser does not support the video tag.</strong>
                 </video>
             </div>
@@ -68,18 +72,17 @@ $total_count=!empty($db['count']) ? $db['count'] : 0;
                         <?php
                         $query  = "
                             SELECT
-                                count(1) as count, timezone_type AS games_timezone_type, MIN(standard_scheduled) AS games_timezone_scheduled
+                                count(1) as count, timezone_type AS games_timezone_type, MIN(timezone_scheduled) AS games_timezone_scheduled
                             FROM pubg_game_daily_schedule
                             WHERE 1=1
                               AND game_status = 'scheduled'
                               AND standard_scheduled > NOW()
-                              AND standard_scheduled >= '2022-05-26 09:16:20'
-                              AND standard_scheduled <= '2022-05-26 23:59:59' +INTERVAL 10 DAY
+                              AND standard_scheduled <= NOW() + INTERVAL 10 DAY
                             GROUP BY date(standard_scheduled)
                             ORDER BY standard_scheduled ASC
                             LIMIT {$more1}
                         ";
-
+                        //p($query);
                         $result = $_mysqli_game->query($query);
                         if (!$result) {
 
@@ -87,25 +90,49 @@ $total_count=!empty($db['count']) ? $db['count'] : 0;
                         while ($db = $result->fetch_assoc()) {
                             //p($db);
                             $games_timezone_scheduled1 = substr($db['games_timezone_scheduled'], 0, 10);
+
+                            // 콘테스트 정보 가져오기
+                            $sub_query  = "
+                                SELECT 
+                                    g_name, g_size, g_entry, g_fee  
+                                FROM game
+                                WHERE 1=1
+                                    AND g_date >= '{$today}'
+                                    AND g_date <= '{$db['games_timezone_scheduled']}'
+                                    AND g_sport = {$cate}
+                                ORDER BY RAND()
+                                LIMIT 1
+                            ";
+                            //p($sub_query);
+                            $sub_result = $_mysqli->query($sub_query);
+                            if (!$sub_result) {
+
+                            }
+                            $sub_db     = $sub_result->fetch_assoc();
+                            $g_fee      = number_format($sub_db['g_fee']);
+                            $g_entry    = number_format($sub_db['g_entry']);
+                            $g_size     = number_format($sub_db['g_size']);
+                            $reward     = number_format(($sub_db['g_size'] * $sub_db['g_fee']) * (100 - COMMISSION) / 100);
+
                             echo <<<LI
                         <li>
-                            <a href="/lobby/list.php?cate=20&g_date={$games_timezone_scheduled1}">
-                                <div class="game-thumb" style="background-image: url('../images/img_30multi_50.png')">
+                            <a href="/lobby/list.php?cate={$cate}&g_date={$games_timezone_scheduled1}">
+                                <div class="game-thumb" style="background-image: url('/images/img_30multi_50.png')">
                                     <div class="subject">
-                                        <img src="../images/pubg_logo.png" alt="pubg_logo">
+                                        <img src="/images/pubg_logo.png" alt="pubg_logo"/>
                                     </div>
                                 </div>
                                 <div class="contest-desc">
                                     <dl>
                                         <!--dt class="contest-schedule">2022-05-20 | 02:56:12</dt-->
                                         <dt class="contest-schedule">{$db['games_timezone_scheduled']}</dt>
-                                        <dt class="contest-title">30회 중복 & 상위 50% WIN</dt>
+                                        <dt class="contest-title">{$sub_db['g_name']}</dt>
                                         <!--dt class="contest-title">{$db['count']} GAMES</dt-->
                                         <dd class="contest-detail">
                                             <ul>
-                                                <li class="">30,024 FP</li>
-                                                <li>30 FP</li>
-                                                <li>0 /1,112</li>
+                                                <li class="">{$reward} FP</li>
+                                                <li>{$g_fee} FP</li>
+                                                <li>{$g_entry} /{$g_size}</li>
                                             </ul>
                                         </dd>
                                     </dl>

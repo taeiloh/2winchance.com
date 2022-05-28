@@ -4,7 +4,7 @@ require_once __DIR__.'/../_inc/config.php';
 
 // 파라미터 정리
 checkmobile();
-$cate       = !empty($_GET['cate'])     ? $_GET['cate']     : '';
+$cate       = !empty($_GET['cate'])     ? $_GET['cate']     : 20;
 
 $_se_idx    =!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 시퀀스
 $_se_id     =!empty($_SESSION['_se_id']) ? $_SESSION['_se_id'] : "";        // 세션 아이디
