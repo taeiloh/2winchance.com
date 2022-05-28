@@ -31,11 +31,11 @@ $config['isOffice']     = in_array( $_SERVER['REMOTE_ADDR'], $config['ip']['offi
 
 //database
 if ( $config['isDev'] ) {
-    define('DBHOST',        'localhost');
-    define('DBUSERNAME',    'root');
-    define('DBPASSWD',      '');
+    define('DBHOST',        'www.2winchance.com');
+    define('DBUSERNAME',    '2winchance');
+    define('DBPASSWD',      '2winchance!2022@');
     define('DBNAME',        'db2winchance_web');
-    define('WWW',           '//www.2winchance.com');
+    define('WWW',           '//d-www.2winchance.com');
     define('UPLOAD',        '/uploads');
 };
 /*
