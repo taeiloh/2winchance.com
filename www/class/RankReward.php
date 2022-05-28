@@ -61,7 +61,7 @@ class RankReward {
                 $one_reward     = $this->total_reward / $this->size * 2;
                 $total_reward   = number_format($this->total_reward);
                 $this->summary  = "
-                    * {$this->size}명으로 구성된 본 콘테스트는 총 {$total_reward} FP의 상금을 상위 $,$$$위의 입상자에게 지급됩니다.<br/>
+                    * {$this->size}명으로 구성된 본 콘테스트는 총 {$total_reward} FP의 상금을 상위 3위의 입상자에게 지급됩니다.<br/>
                     * 1등은 $,$$$FP를 획득합니다.<br/>
                     * 최종 참가자 수에 따라 상금이 다를 수 있습니다.
                 ";
@@ -69,7 +69,7 @@ class RankReward {
             case 4:
                 $total_reward   = number_format($this->total_reward);
                 $this->summary  = "
-                    * {$this->size}명으로 구성된 본 콘테스트는 총 {$total_reward} FP의 상금을 상위 5위의 입상자에게 지급됩니다.<br/>
+                    * {$this->size}명으로 구성된 본 콘테스트는 총 {$total_reward} FP의 상금을 상위 4위의 입상자에게 지급됩니다.<br/>
                     * 1등은 {$this->first_place} FP를 획득합니다.<br/>
                     * 최종 참가자 수에 따라 상금이 다를 수 있습니다.
                 ";

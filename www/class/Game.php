@@ -13,6 +13,7 @@ class Game {
     function getListGame($sdate='', $edate='', $limit=0) {
         // 변수 정리
         $rtnArr     = array();
+        $queryLimit = '';
         if(empty($sdate)) {
             $sdate  = date('Y-m-d');
         }
