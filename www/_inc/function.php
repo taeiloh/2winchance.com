@@ -407,3 +407,20 @@ function chg_pos($cate, $pos) {
             break;
     }
 }
+
+//한글 substr
+function utf8_substr($str, $start, $len=NULL) {
+    $str_len    = mb_strlen($str, 'UTF-8');
+
+    if ($len == NULL) {
+        $len    = mb_strlen($str, 'UTF-8') - $start;
+    }
+
+    if ($str_len <= $len) {
+        $rtn    = mb_substr($str, $start, $len, 'UTF-8');
+    } else {
+        $rtn    = mb_substr($str, $start, $len, 'UTF-8') .'...';
+    }
+
+    return $rtn;
+}

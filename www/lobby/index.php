@@ -2,6 +2,9 @@
 // config
 require_once __DIR__ .'/../_inc/config.php';
 
+// 클래스
+require_once __DIR__ .'/../class/Game.php';
+
 // 파라미터 정리
 $cate       = !empty($_GET['cate'])     ? $_GET['cate']     : 20;
 $more       = !empty($_GET['more'])     ? $_GET['more']     : 0;
@@ -11,23 +14,6 @@ $more1      += $more;
 // 변수 정리
 $today      = date('Y-m-d');
 
-$query      = "
-    SELECT count(*) as count 
-    FROM pubg_game_daily_schedule 
-    WHERE 1=1 
-        AND game_status = 'scheduled'
-        AND standard_scheduled > NOW()
-        AND standard_scheduled >= '2022-05-27 09:16:20'
-        AND standard_scheduled <= '2022-05-26 23:59:59' +INTERVAL 10 DAY 
-";
-$tresult = $_mysqli_game->query($query);
-if (!$tresult) {
-
-}
-$db = $tresult->fetch_assoc();
-
-$total_count=!empty($db['count']) ? $db['count'] : 0;
-//p($db);
 ?>
 <!doctype html>
 <html lang="ko">
@@ -70,54 +56,25 @@ $total_count=!empty($db['count']) ? $db['count'] : 0;
                     <h2>진행 경기 정보</h2>
                     <ul class="contest-list">
                         <?php
-                        $query  = "
-                            SELECT
-                                count(1) as count, timezone_type AS games_timezone_type, MIN(timezone_scheduled) AS games_timezone_scheduled
-                            FROM pubg_game_daily_schedule
-                            WHERE 1=1
-                              AND game_status = 'scheduled'
-                              AND standard_scheduled > NOW()
-                              AND standard_scheduled <= NOW() + INTERVAL 10 DAY
-                            GROUP BY date(standard_scheduled)
-                            ORDER BY standard_scheduled ASC
-                            LIMIT {$more1}
-                        ";
-                        //p($query);
-                        $result = $_mysqli_game->query($query);
-                        if (!$result) {
+                        $gameInfo   = new Game($cate, $_mysqli);
+                        $arrData    = $gameInfo->getListGame($today, $today);
+                        //p($arrData);
+                        foreach ($arrData as $key=>$value) {
+                            // 변수 정리
+                            $img_n  = str_replace('/', '', $value['g_name']);
+                            $img_n  = str_replace('%', '', $img_n);
 
-                        }
-                        while ($db = $result->fetch_assoc()) {
-                            //p($db);
-                            $games_timezone_scheduled1 = substr($db['games_timezone_scheduled'], 0, 10);
+                            $g_fee      = number_format($value['g_fee']);
+                            $g_entry    = number_format($value['g_entry']);
+                            $g_size     = number_format($value['g_size']);
+                            $reward     = number_format(($value['g_size'] * $value['g_fee']) * (100 - COMMISSION) / 100);
 
-                            // 콘테스트 정보 가져오기
-                            $sub_query  = "
-                                SELECT 
-                                    g_name, g_size, g_entry, g_fee  
-                                FROM game
-                                WHERE 1=1
-                                    AND g_date >= '{$today}'
-                                    AND g_date <= '{$db['games_timezone_scheduled']}'
-                                    AND g_sport = {$cate}
-                                ORDER BY RAND()
-                                LIMIT 1
-                            ";
-                            //p($sub_query);
-                            $sub_result = $_mysqli->query($sub_query);
-                            if (!$sub_result) {
-
-                            }
-                            $sub_db     = $sub_result->fetch_assoc();
-                            $g_fee      = number_format($sub_db['g_fee']);
-                            $g_entry    = number_format($sub_db['g_entry']);
-                            $g_size     = number_format($sub_db['g_size']);
-                            $reward     = number_format(($sub_db['g_size'] * $sub_db['g_fee']) * (100 - COMMISSION) / 100);
+                            $title      = utf8_substr($value['g_name'], 0, 26);
 
                             echo <<<LI
                         <li>
-                            <a href="/lobby/list.php?cate={$cate}&g_date={$games_timezone_scheduled1}">
-                                <div class="game-thumb" style="background-image: url('/images/img_30multi_50.png')">
+                            <a href="/lobby/list.php?cate={$cate}&g_date={$today}">
+                                <div class="game-thumb" style="background-image: url('/images/PUBG/output/{$img_n}.jpg')">
                                     <div class="subject">
                                         <img src="/images/pubg_logo.png" alt="pubg_logo"/>
                                     </div>
@@ -125,9 +82,8 @@ $total_count=!empty($db['count']) ? $db['count'] : 0;
                                 <div class="contest-desc">
                                     <dl>
                                         <!--dt class="contest-schedule">2022-05-20 | 02:56:12</dt-->
-                                        <dt class="contest-schedule">{$db['games_timezone_scheduled']}</dt>
-                                        <dt class="contest-title">{$sub_db['g_name']}</dt>
-                                        <!--dt class="contest-title">{$db['count']} GAMES</dt-->
+                                        <dt class="contest-schedule">{$value['g_date']}</dt>
+                                        <dt class="contest-title" title="{$value['g_name']}">{$title}</dt>
                                         <dd class="contest-detail">
                                             <ul>
                                                 <li class="">{$reward} FP</li>
@@ -143,16 +99,9 @@ LI;
                         }
                         ?>
                     </ul>
-
-                    <?php
-                    if($more1 <=$total_count){
-                    ?>
-                    <p class="more-line" id="moreID">
+                    <!--<p class="more-line" id="moreID">
                         <button type="button" onclick="more1();">더보기 <img src="/images/btn-more.svg" alt="더보기" class="mL8"></button>
-                    </p>
-                    <?php
-                    }
-                    ?>
+                    </p>-->
                 </div>
             </section>
             <!--//sec-02-->
