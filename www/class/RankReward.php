@@ -500,7 +500,7 @@ class RankReward {
         $count              = $standard['count'];
 
         $rtn    .= "
-            <ul>
+            <ul style=\"overflow-y: auto; height: 250px;\">
         ";
         for ($i=0; $i<$count; $i++) {
             $rank           = $i + 1;
@@ -525,7 +525,7 @@ class RankReward {
 
                 $rtn .= "
                     <li class=\"{$liClass}\" style=\"height: 4rem\">
-                        <label>{$rank}위</label>
+                        <label style=\"padding-right: 6rem;\">{$rank}위</label>
                         <p>{$reward} FP</p>
                     </li>
                 ";

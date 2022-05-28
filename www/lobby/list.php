@@ -301,7 +301,7 @@ LI;
                                     <div class="detail-box">
                                         <p class="status">{$gstatus}</p>
                                         <small>{$db['g_date']}</small>
-                                        <p class="time fc-yellow">19:15:27</p>
+                                        <p class="time fc-yellow"><span class="hours">00</span>:<span class="minutes">00</span>:<span class="seconds">00</span></p>
                                         <div class="game-logo"></div>
                                     </div>
                                     <button type="button" class="active" onclick="go_url('/myPage/howtoplay.php');">게임 가이드 <img class="mL10" src="/images/ico_triangle.svg" alt="화살표 이미지"/></button>
