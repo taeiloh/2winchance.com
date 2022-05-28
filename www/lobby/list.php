@@ -14,8 +14,6 @@ $year=substr($g_date, 0, 4);
 $month=substr($g_date, 5,2);
 $days=substr($g_date, 8,2);
 
-
-
 $sub_menu       = !empty($_GET['sub_menu'])     ? $_GET['sub_menu']     : 0;
 $gidx           = !empty($_GET['gidx'])         ? $_GET['gidx']         : 0;
 
@@ -24,6 +22,7 @@ $m_idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 
 // 변수 정리
 $where          = "";
 $limit          = "";
+$time           = date('Y-m-d H:i:s');
 
 // cate
 if (!empty($cate)) {
@@ -279,6 +278,17 @@ LI;
                             $reward_info    = $rankReward->getReward_info($db['g_prize']);
                             $summary        = $rankReward->getSummary($db['g_prize']); // reward_info 보다 뒤에 호출 주의
 
+                            // 게임 상태
+                            $ago30min       = date('Y-m-d H:i:s', strtotime('-30 minutes', strtotime($db['g_date'])));
+                            //p($ago30min);
+                            if ($time > $ago30min) {
+                                $gstatus        = 'Live';
+                            } else if ($db['g_size'] > $db['g_entry']) {
+                                $gstatus        = '대기';
+                            } else {
+                                $gstatus        = 'FULL';
+                            }
+
                             echo <<<DIV
                         <a id="gidx_{$db['g_idx']}"></a>
                         <div class="league-box">
@@ -289,7 +299,7 @@ LI;
                                 </div>
                                 <div class="status-detail">
                                     <div class="detail-box">
-                                        <p class="status">Live</p>
+                                        <p class="status">{$gstatus}</p>
                                         <small>{$db['g_date']}</small>
                                         <p class="time fc-yellow">19:15:27</p>
                                         <div class="game-logo"></div>
@@ -341,10 +351,10 @@ LI;
                                                     <h3>요약</h3>
                                                     <p>{$summary}</p>
                                                 </div>
-                                                <div>
+                                                <!--<div>
                                                     <h3>참가자</h3>
                                                     <a href="javascript:void(0);">참가자 리스트 자세히 보기</a>
-                                                </div>
+                                                </div>-->
                                             </div>
                                             <div class="ranking">
                                                 <div class="ranking-box">
