@@ -17,10 +17,10 @@ $query = "
         WHERE 1 and m_idx ='{$_se_idx}'
     ";
 //p($query);
-$mresult = $_mysqli->query($query);
-$_arrMembers = $mresult->fetch_array();
-$m_deposit = !empty($_arrMembers['m_deposit']) ? $_arrMembers['m_deposit'] : 0;
-$m_fpbalance =!empty($_arrMembers['m_fp_balance']) ? $_arrMembers['m_fp_balance'] : 0;
+$mresult        = $_mysqli->query($query);
+$_arrMembers    = $mresult->fetch_array();
+$m_deposit      = !empty($_arrMembers['m_deposit'])     ? $_arrMembers['m_deposit']     : 0;
+$m_fpbalance    = !empty($_arrMembers['m_fp_balance'])  ? $_arrMembers['m_fp_balance']  : 0;
 
 //$queryfp = "
 //    SELECT *
@@ -39,9 +39,8 @@ $_liClass2  = '';
 $_liClass3  = '';
 $_liClass4  = '';
 $_liClass5  = '';
-
-$_menu1 = '';
-
+$_menu1     = '';
+$_menu2     = '';
 
 $_url   =   $_SERVER['REQUEST_URI'];
 $_url_f     = explode('/',$_url);
@@ -145,7 +144,7 @@ $main_src = !empty($main['i_src']) ? $main['i_src']:'';
                     ?>
                 </div>
                 <div class="user-info">
-                    <p class="nickname"><?=$name?></p>
+                    <p class="nickname"><?=$_se_name?></p>
                     <div class="charge">
                         <p><?=number_format($m_fpbalance)?></p>
                         <button type="button" class="charge-btn" onclick="location.href='../store/'">충전</button>
