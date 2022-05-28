@@ -257,19 +257,19 @@ $50,000의 샐러리 캡을 가지고 효율적으로 운용하여 라인업의 
     <td class="tg-v0mg">1</td>
   </tr>
   <tr>
-    <td class="tg-v0mg">백업</td>
-    <td class="tg-v0mg">1</td>
-  </tr>
-  <tr>
-    <td class="tg-v0mg">서포터</td>
-    <td class="tg-v0mg">1</td>
-  </tr>
-  <tr>
     <td class="tg-v0mg">유틸 1st</td>
     <td class="tg-v0mg">1</td>
   </tr>
   <tr>
     <td class="tg-v0mg">유틸 2nd</td>
+    <td class="tg-v0mg">1</td>
+  </tr>
+  <tr>
+    <td class="tg-v0mg">유틸 3rd</td>
+    <td class="tg-v0mg">1</td>
+  </tr>
+  <tr>
+    <td class="tg-v0mg">유틸 4th</td>
     <td class="tg-v0mg">1</td>
   </tr>
 </tbody>
