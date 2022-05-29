@@ -4,6 +4,7 @@ require_once __DIR__ .'/../_inc/config.php';
 
 // 클래스
 require_once __DIR__ .'/../class/RankReward.php';
+require_once __DIR__ .'/../class/Contest.php';
 
 // 세션 정리
 $m_idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 시퀀스
@@ -291,6 +292,20 @@ LI;
                                 $gstatus        = 'FULL';
                             }
 
+                            $query_l    = "
+                            SELECT count(*) as m_g_entry FROM lineups
+                            WHERE 1=1 and lu_u_idx={$db['g_idx']}
+                        ";
+                            $result_l = $_mysqli->query($query_l);
+                            $db_l = $result_l->fetch_assoc();
+                            $m_entry=!empty($db_l['m_entry']) ? $db_l['m_entry'] : 0;
+
+                            if($m_idx!="") {
+                                $contestInfo = new Contest($m_idx, $db['g_idx'], $_mysqli);
+                                $my_entry_cnt = $contestInfo->getCntJoinContest();
+                            }else{
+                                $my_entry_cnt=0;
+                            }
                             echo <<<DIV
                         <a id="gidx_{$db['g_idx']}"></a>
                         <div class="league-box">
@@ -338,7 +353,7 @@ LI;
                                                     <td>{$db['g_fee']} FP</td>
                                                     <td>{$db['g_entry']} <span class="total">/ {$db['g_size']}</span></td>
                                                     <td>{$db['g_multi_max']}</td>
-                                                    <td>{$db['g_entry']}</td>
+                                                    <td>{$my_entry_cnt}</td>
                                                 </tr>
                                             </table>
                                             <div class="status-detail">
