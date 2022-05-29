@@ -147,7 +147,7 @@ $main_src = !empty($main['i_src']) ? $main['i_src']:'';
                     <p class="nickname"><?=$_se_name?></p>
                     <div class="charge">
                         <p><?=number_format($m_fpbalance)?></p>
-                        <button type="button" class="charge-btn" onclick="location.href='../store/'">충전</button>
+                        <button type="button" class="charge-btn" onclick="location.href='/store/'">충전</button>
                     </div>
                     <div class="mypage">
                         <button type="button" class="mypage-btn" onclick="location.href='/myPage/myaccount.php'">마이페이지 <img src="/images/ico_arrow_blue.svg" alt="마이페이지 메뉴 펼치기"></button>
