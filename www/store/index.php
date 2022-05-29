@@ -162,7 +162,7 @@ try {
                                 <input type="checkbox" class="" id="policy07">
                                 <label for="policy07" class="">동의합니다.</label>
                             </p>
-                            <button type="button" class="btn-blue btn-8" onclick="pay()">결제하기</button>
+                            <button type="button" class="btn-blue btn-8" onclick="pay();">결제하기</button>
                         </div>
                     </div>
                     <div class="pay-method">
@@ -353,9 +353,11 @@ try {
 <script src="https://stdux.inicis.com/stdpay/stdjs/INIStdPay_third-party.js"></script>
 
 <script>
-
     function pay(){
+        console.log("=== pay ===");
+
         var check=$('#policy07').is(':checked');
+        console.log("=== check ===> ", check);
 
         if(!check){
             alert("가상 재화 정책 동의를 해주세요.");
@@ -364,9 +366,11 @@ try {
         }
 
         var idx_check = '<?=$idx?>';
+        console.log("=== idx_check ===> ", idx_check);
 
         //결제 한도
         var total_deposit = '<?=$total_deposit?>';
+        console.log("=== total_deposit ===> ", total_deposit);
 
         if(total_deposit >= 500000){
             alert("결제가능한 월 잔여 한도를 초과하였습니다.");
@@ -374,13 +378,11 @@ try {
         }
 
         if(idx_check) {
+            console.log("=== idx_check ===> ", idx_check);
             INIStdPay.pay('SendPayForm_id');
         }else{
             alert("로그인 이후 사용가능합니다.");
         }
-
-
-
     }
 
 

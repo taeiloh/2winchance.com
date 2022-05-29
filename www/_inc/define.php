@@ -37,7 +37,7 @@ if ( $config['isDev'] ) {
     define('DBPASSWD',      '2winchance!2022@');
     define('DBNAME',        'db2winchance_web');
     define('WWW',           'http://'. $_SERVER['SERVER_NAME']);
-    define('SSLWWW',        'https://'. $_SERVER['SERVER_NAME']);
+    define('SSLWWW',        'http://'. $_SERVER['SERVER_NAME']);
     define('UPLOAD',        '/uploads');
 };
 /*
