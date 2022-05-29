@@ -23,16 +23,19 @@ try {
         $where  .= "
             AND b.g_status IN (0, 1)
         ";
+        $liClass    = 'edit';
 
     } else if($sub=='live') {
         $where  .= "
             AND b.g_status = 2
         ";
+        $liClass    = 'live';
 
     } else if($sub=='finish') {
         $where  .= "
             AND b.g_status = 3
         ";
+        $liClass    = 'finish';
 
     }
 
@@ -124,8 +127,8 @@ try {
 
                             }
                             while ($db = $result->fetch_assoc()) {
-                                $i++;
                                 //p($db);
+                                $i++;
                                 $sub_query  = "
                                     SELECT * FROM lineups a
                                     LEFT JOIN game b 
@@ -139,60 +142,81 @@ try {
                                 $sub_result = $_mysqli->query($sub_query);
 
                                 $sub_db2 = $sub_result->fetch_assoc();
+                                //p($sub_db2);
 
                                 $sub_query2 = "
-                                SELECT 50000-sum(player_salary) as left_salary, b.g_date FROM lineups a
-                                LEFT JOIN game b 
-                                    ON b.g_idx = a.lu_g_idx
-                                LEFT JOIN lineups_history c 
-                                    ON c.lu_idx = a.lu_idx
-                                WHERE 1=1
-                                    AND c.lu_idx = {$db['lu_idx']}
-                            ";
+                                    SELECT 50000-sum(player_salary) as left_salary, b.g_date FROM lineups a
+                                    LEFT JOIN game b 
+                                        ON b.g_idx = a.lu_g_idx
+                                    LEFT JOIN lineups_history c 
+                                        ON c.lu_idx = a.lu_idx
+                                    WHERE 1=1
+                                        AND c.lu_idx = {$db['lu_idx']}
+                                ";
+                                //p($sub_query2);
                                 $sub_result2 = $_mysqli->query($sub_query2);
 
                                 $sub_db3 = $sub_result2->fetch_assoc();
 
+                                //p($sub_db2);
+                                $img_n  = str_replace('/', '', $sub_db2['g_name']);
+                                $img_n  = str_replace('%', '', $img_n);
                                 switch($sub_db2['g_league_alias']){
                                     CASE 'PUBG':
-                                        $img_src = "../images/pubg_logo.png";
-                                        $game_img_src = '../images/img_30multi_50.png';
+                                        $img_src = "/images/pubg_logo.png";
+                                        $game_img_src = '/images/PUBG/output/'. $img_n .'.jpg';
+                                        break;
                                     CASE 'NBA':
-                                        $img_src = "../images/pubg_logo.png";
-                                        $game_img_src = '../images/img_30multi_50.png';
+                                        $img_src = "/images/pubg_logo.png";
+                                        $game_img_src = '/images/img_30multi_50.png';
+                                        break;
+                                }
+
+                                $left_salary    = number_format($sub_db3['left_salary']);
+
+                                $title      = utf8_substr($sub_db2['g_name'], 0, 24);
+                                $reward     = $sub_db2['g_size'] * $sub_db2['g_fee'] * (100 - COMMISSION) / 100;
+                                $reward     = number_format($reward);
+
+                                // 상태
+                                if ($sub_db2['g_status']==0 || $sub_db2['g_status']==1) {
+                                    $link       = "/draft/?edit=1&index={$sub_db2['g_idx']}&lu_idx={$sub_db2['lu_idx']}";
+                                    $liClass    = 'edit';
+                                    $editTitle  = '수정';
+                                } else if ($sub_db2['g_status']==2) {
+                                    $link       = 'javascript:void(0);';
+                                    $liClass    = 'live';
+                                    $editTitle  = 'LIVE';
+                                } else if ($sub_db2['g_status']==3) {
+                                    $link       = 'javascript:void(0);';
+                                    $liClass    = 'finish';
+                                    $editTitle  = '결과';
                                 }
 
                                 echo <<<LI
-                        <li class="edit">
-                            <a href="/draft/?index={$sub_db2['g_idx']}" class="active">
-                                <div class="game-thumb" style="background-image: url('$game_img_src')">
+                        <li class="{$liClass}">
+                            <a href="{$link}" class="active" title="{$sub_db2['g_name']}">
+                                <div class="game-thumb" style="background-image: url('{$game_img_src}')">
                                     <div class="subject">
                                     <img src="{$img_src}" alt="pubg_logo"/>
                                     </div>
                                 </div>
                                 <div class="contest-desc lineUP">
                                     <div class="conts-desc-l">
-                                        <div class="contest-ico">
-                                             <img src="/images/item2.png" alt="임시">
-
-                                        </div>
                                         <dl>
                                             <dt class="contest-schedule">{$sub_db2['g_date']}</dt>
-                                            <dt class="contest-title">{$sub_db2['g_name']}</dt>
+                                            <dt class="contest-title">{$title}</dt>
                                             <dd class="contest-detail">
                                                 <ul>
-                                                    <li><img src="/images/ico_pin.svg" class="mR5" alt="위치">LAS</li>
-                                                    <li>{$sub_db2['g_size']}</li>
-                                                    <li>1,254 Slots</li>
+                                                    <li>{$reward} FP</li>
+                                                    <li>{$sub_db2['g_fee']} FP</li>
+                                                    <li>{$sub_db2['g_entry']}/{$sub_db2['g_size']}</li>
                                                 </ul>
                                             </dd>
                                         </dl>
                                     </div>
-                                    <div class="current-price">
-                                        <p>PRIZE</p>
-                                        <span>{$sub_db2['g_fee']}</span>
-                                    </div>
                                 </div>
+                                <span class="line-up-badge btnPush">{$editTitle}</span>
                             </a>
                             <table class="entries-table">
                                 <thead>
@@ -204,7 +228,7 @@ try {
                                 <tbody>
                                 <tr>
                                     <td>{$sub_db2['g_entry']}</td>
-                                    <td>{$sub_db3['left_salary']}</td>
+                                    <td>{$left_salary}</td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -220,18 +244,51 @@ try {
                                 <tbody>
 LI;
 
-
                                 if (!$sub_result) {
                                 }
+                                $sub_result->data_seek(0);
                                 while ($sub_db = $sub_result->fetch_assoc()) {
                                     //p($sub_db);
+                                    if($sub_db['player_pos']=='TL') {
+                                        $pos_kr = '오더';
+                                    } else if($sub_db['player_pos']=='R') {
+                                        $pos_kr = '정찰';
+                                    } else if($sub_db['player_pos']=='GR') {
+                                        $pos_kr = '포탑';
+                                    } else if($sub_db['player_pos']=='AR') {
+                                        $pos_kr = '돌격';
+                                    } else {
+                                        $pos_kr = '유틸';
+                                    }
+                                    $salary     = number_format($sub_db['player_salary']);
+
+                                    $reward     = $sub_db2['g_size'] * $sub_db2['g_fee'] * (100 - COMMISSION) / 100;
+
+                                    $player_name    = utf8_substr($sub_db['player_name'], 0, 5);
+
+                                    // 팀 정보
+                                    $_query = "
+                                        SELECT
+                                            team_alias
+                                        FROM pubg_team_profile_player
+                                        WHERE 1=1 
+                                            AND player_id = '{$sub_db['player_id']}'
+                                        LIMIT 1
+                                    ";
+                                    //p($_query);
+                                    $_result = $_mysqli_game->query($_query);
+                                    if (!$_result) {
+
+                                    }
+                                    $_db    = $_result->fetch_assoc();
+                                    $team_name = !empty($_db['team_alias'])  ? $_db['team_alias']    : '';
 
                                     echo <<<TR
                                 <tr>
-                                    <td>{$sub_db['player_pos']}</td>
-                                    <td>{$sub_db['player_name']}</td>
-                                    <td></td>
-                                    <td>$ {$sub_db['player_salary']}</td>
+                                    <td>{$pos_kr}</td>
+                                    <td>{$player_name}</td>
+                                    <td>{$team_name}</td>
+                                    <td>$ {$salary}</td>
                                 </tr>                                
 TR;
                                 }
@@ -240,9 +297,9 @@ TR;
                                     <td colspan="4" class="game-total">
                                         <div>
                                             <ul>
-                                                <li><p>기대 상금</p><span>702</span></li>
-                                                <li><p>총 상금</p><span class="fc-yellow">702</span></li>
-                                                <li><p>수정 시간</p><span><?=$sub_db3['g_date']?></span></li>
+                                                <li><p>기대 상금</p><span><?=number_format($reward);?></span></li>
+                                                <li><p>총 상금</p><span class="fc-yellow"><?=number_format($reward);?> FP</span></li>
+                                                <li><p>수정 시간</p><span><?=$sub_db2['reg_date']?></span></li>
                                             </ul>
                                         </div>
                                     </td>

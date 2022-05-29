@@ -101,8 +101,8 @@ $main_src = !empty($main['i_src']) ? $main['i_src']:'';
                     <!--                    <li><a href="javascript:void(0)" onclick="alert('준비중입니다.');">GS:GO</a></li>-->
                 </ul>
             </li>
-            <li class="<?=$_liClass2;?>"><a href="/lineups/">라인업</a></li>
-            <li class="<?=$_liClass3;?>"><a href="/contests/">콘테스트</a></li>
+            <li class="<?=$_liClass2;?>"><a href="/lineups/">내 라인업</a></li>
+            <li class="<?=$_liClass3;?>"><a href="/contests/">내 콘테스트</a></li>
             <li class="<?=$_liClass4;?>">
                 <a href="/store/">스토어</a>
                 <ul class="sub-menu">

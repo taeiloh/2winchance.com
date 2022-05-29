@@ -4,22 +4,23 @@ require_once __DIR__ .'/../_inc/config.php';
 
 // 클래스
 require_once __DIR__ .'/../class/RankReward.php';
+require_once __DIR__ .'/../class/Game.php';
 
 try {
-    // 파라미터
-
-
     // 세션 정리
     $_se_idx        = !empty($_SESSION['_se_idx'])      ? $_SESSION['_se_idx']      : 0;
     check_login($_se_idx);
-    // 변수 정리
-    $where      = '';
 
+    // 파라미터
+    $page = !empty($_GET['page']) ? $_GET['page'] : 1;
+
+    // 변수 정리
+    $cate       = 20;
+    $where      = '';
     $where      .= "
         AND g_status IN (0, 1)
     ";
 
-    $page = !empty($_GET['page']) ? $_GET['page'] : 1;
     //파라미터 체크
     if(!is_numeric($page)){
         $page       =   1;
@@ -69,6 +70,14 @@ try {
     //head
     require_once __DIR__ .'/../common/head.php';
     ?>
+    <script>
+        function invite(cate, sub_menu, gidx, gdate) {
+            var url = "<?=SSLWWW;?>/lobby/list.php?cate="+ cate +"&sub_menu="+ sub_menu +"&g_date="+ gdate +"&gidx="+ gidx;
+            $("#share_url").val(url);
+
+            copy_url();
+        }
+    </script>
 </head>
 
 <!--//head-->
@@ -178,10 +187,14 @@ try {
 
                         }
                         while ($db = $result->fetch_assoc()) {
+                            //p($db);
                             $rankReward     = new RankReward($db['g_size'], $db['g_fee'], $db['g_prize'], $db['g_entry']);
                             $total_reward   = number_format($rankReward->getTotal_reward());
                             $getFirst_place = number_format($rankReward->getFirst_place());
 
+                            $gameInfo       = new Game($cate, $_mysqli);
+                            $sub_menu       = $gameInfo->getSub_menu($db['g_prize']);
+                            $g_date         = substr($db['g_date'], 0, 10);
                             echo <<<TR
                         <tr>
                             <td>{$db['g_name']}</td>
@@ -190,8 +203,8 @@ try {
                             <td>{$getFirst_place}</td>
                             <td>{$db['g_entry']}/{$db['g_size']}</td>
                             <td>{$db['g_multi_max']}</td>
-                            <td><button type="button">수정</button></td>
-                            <td><button type="button"><img src="../images/ico_share_blue.svg" alt="공유하기">초대</button></td>
+                            <td><button type="button" onclick="go_url('/draft/?index={$db['g_idx']}&edit=1')">수정</button></td>
+                            <td><button type="button" onclick="invite({$cate}, {$sub_menu}, {$db['g_idx']}, '{$g_date}');"><img src="/images/ico_share_blue.svg" alt="공유하기">초대</button></td>
                         </tr>
 TR;
                         }
@@ -204,7 +217,7 @@ TR;
                             <td>{$db['g_size']}</td>
                             <td>{$db['g_multi_max']}</td>
                             <td><button type="button">수정</button></td>
-                            <td><button type="button"><img src="../images/ico_share_blue.svg" alt="공유하기">초대</button></td>
+                            <td><button type="button"><img src="/images/ico_share_blue.svg" alt="공유하기">초대</button></td>
                         </tr-->
                         </tbody>
                     </table>
@@ -234,5 +247,6 @@ TR;
     </footer>
     <!--//footer-->
 </div>
+<input type="text" id="share_url" value="" style="display: none;"/>
 </body>
 </html>

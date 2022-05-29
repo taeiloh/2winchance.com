@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../_inc/config.php';
 
 // 파라미터 정리
-//p($_REQUEST);
+//p($_REQUEST);exit;
 $idx        = filter_input(INPUT_POST, 'id');
 $coin       = filter_input(INPUT_POST, 'coin');
 $category   = filter_input(INPUT_POST, 'category');
@@ -41,7 +41,7 @@ if ($count_entry >= $count_size) {
 
 //골드가 부족한 경우
 $query  = "
-    SELECT m_deposit FROM members
+    SELECT m_fp_balance FROM members
     WHERE 1=1
       AND m_idx = {$u_idx}
 ";
@@ -51,7 +51,7 @@ $deposit    = 0;
 if ($result) {
     $arrDB      = $result->fetch_array();
     //p($arrDB);exit;
-    $deposit    = $arrDB['m_deposit'];
+    $deposit    = $arrDB['m_fp_balance'];
 }
 
 if ($deposit < $arr_chk_entry['g_fee']) {
@@ -135,10 +135,10 @@ try {
         //
         $qry_lh = "
           INSERT INTO lineups_history SET
-            lu_idx = $saveIdx,
-            m_idx = $u_idx, 
-            gc_idx = $category, 
-            g_idx = $game, 
+            lu_idx = {$saveIdx},
+            m_idx = {$u_idx}, 
+            gc_idx = {$category}, 
+            g_idx = {$game}, 
             g_date = '{$g_date}', 
             game_id = '{$player[$i]['game_id']}', 
             player_id = '{$arr['player_id']}', 
@@ -232,7 +232,7 @@ try {
     if ($result_game) {
         //FP 지급
         $fp_content     = "Join the contest (G{$game})";
-        $fp             = 1;
+        $fp             = -$arr_chk_entry['g_fee'];
         $trigger_type   = 'join_contest';
         $trigger_idx    = $game;
         give_fp($_mysqli, $u_idx, $fp_content, $fp, $trigger_type, $trigger_idx);

@@ -4,6 +4,7 @@ require_once __DIR__ .'/../_inc/config.php';
 
 // 클래스
 require_once __DIR__ .'/../class/Contest.php';
+require_once __DIR__ .'/../class/DraftGame.php';
 
 // 세션
 $m_idx          = !empty($_SESSION['_se_idx'])  ? $_SESSION['_se_idx']  : 0;
@@ -11,7 +12,8 @@ $m_idx          = !empty($_SESSION['_se_idx'])  ? $_SESSION['_se_idx']  : 0;
 // 파라미터
 //p($_REQUEST);
 $idx            = !empty($_GET['index'])        ? $_GET['index']        : 0;
-$lu_idx         = !empty($_GET['lu_idx'])        ? $_GET['lu_idx']        : 0;
+$lu_idx         = !empty($_GET['lu_idx'])       ? $_GET['lu_idx']       : 0;
+$edit           = !empty($_GET['edit'])         ? $_GET['edit']         : 0;
 
 // 변수 정리
 $today          = date('Y-m-d');
@@ -297,9 +299,32 @@ DIV;
                         <div class="select-player pick_player">
                             <ul>
                                 <?php
+                                // 라인업 히스토리
+                                if ($edit==1) {
+                                    $draftGame  = new DraftGame($idx, $lu_idx, $_mysqli, $_mysqli_game);
+                                    $arrLineup  = $draftGame->getListLineup();
+                                }
+                                //p($arrLineup);
+
                                 $i  = 0;
                                 foreach ($pos['pos'] as $key=>$value) {
-                                    $img_name   = $value;
+                                    if ($edit==1) {
+                                        $team_name      = $arrLineup[$key]['team_alias'];
+                                        $player_name    = $arrLineup[$key]['player_name'];
+                                        $player_salary  = $arrLineup[$key]['player_salary'];
+
+                                        $player_img     = "<img src=\"/images/player_images/pubg/{$arrLineup[$key]['player_name']}.jpg\" alt=\"\" onerror=\"this.src='/images/player_images/pubg/default.png'\" style=\"width: 68px;\">";
+                                        $btnDel         = "<button class=\"btn-delete\" data-fppg=\"0\" data-del-index=\"{$arrLineup[$key]['player_idx']}\" data-game=\"{$arrLineup[$key]['game_id']}\" onclick=\"delPlayer('pubg', {$arrLineup[$key]['player_idx']}, '{$value}');\">삭제</button>";
+
+                                    } else {
+                                        $team_name      = 'Team';
+                                        $player_name    = 'Player Name';
+                                        $player_salary  = '0';
+
+                                        $player_img     = "<p style=\"background-image:url('/images/PUBG/pos/{$value}.png');background-size:100%;\"></p>";
+                                        $btnDel         = '';
+                                    }
+
                                     /*if($i==4) {
                                         $img_name   = 'BK';
                                     } else if($i==5) {
@@ -310,15 +335,15 @@ DIV;
                                     echo <<<LI
                                 <!-- TODO 20220524 syryu 아래 영역은 선택 전디폴트 화면 입니다. -->
                                 <li class="player-info lineup_{$value}">
-                                    <div class="player-img player_img"><p style="background-image:url('/images/PUBG/pos/{$img_name}.png');background-size:100%;"></p></div>
+                                    <div class="player-img player_img">{$player_img}</div>
                                     <div class="player-skill">
                                         <div class="skill-top">
                                             <div class="name">
                                                 <h2>
-                                                    <span class="fc-blue team_name">Team</span>
-                                                    <span class="player_name">Player Name</span>
+                                                    <span class="fc-blue team_name">{$team_name}</span>
+                                                    <span class="player_name">{$player_name}</span>
                                                 </h2>
-                                                <p class="player-money salary">$ 0</p>
+                                                <p class="player-money salary">$ {$player_salary}</p>
                                             </div>
                                             <table class="border-table">
                                                 <colgroup>
@@ -342,7 +367,7 @@ DIV;
                                             </tbody></table>
                                         </div>
                                     </div>
-                                    <div class="del"></div>
+                                    <div class="del">{$btnDel}</div>
                                 </li>
                                 <!-- TODO 20220524 syryu 아래 영역은 선수 선택 후 값이 들어오는 화면입니다. -->
                                 <!--li class="player-info">
@@ -386,7 +411,7 @@ LI;
                             </ul>
                             <div class="btn-group">
                                 <button type="button" id="btnClear" class="btn-8 btn-grey">전부 삭제하기</button>
-                                <button type="button" id="btnConfirmDraft" class="btn-8 btn-blue btn-confirm-draft" data-coin="<?=$gfee;?>" data-category="20" data-game="<?=$idx;?>">라인업 저장하기</button>
+                                <button type="button" id="btnConfirmDraft" class="btn-8 btn-blue btn-confirm-draft" data-coin="<?=$gfee;?>" data-category="20" data-game="<?=$idx;?>">콘테스트 참여하기</button>
                             </div>
                         </div>
                     </div>
@@ -623,6 +648,8 @@ LI;
     setInterval(remaindTime,1000); //1초마다 검사를 해주면 실시간으로 시간을 알 수 있다.
 </script>
 <script>
+    var isEdit          = <?=$edit;?>;
+    var lu_idx          = <?=$lu_idx;?>;
     var what_category   = "pubg";
     var count_time      = $("#game_date").attr('data-next-game');
     var nextDate        = moment.tz(count_time, "GMT");
@@ -1122,13 +1149,13 @@ LI;
         }
     }
 
-    function draft_proccess(data, url) {
+    function draft_proccess(data, edit) {
         console.log("=== draft_proccess ===");
 
         var data = data;
-        var go_url = '';
-        if (url) {
-            go_url = url;
+        var go_url = "";
+        if (edit == 1) {
+            go_url = "_edit";
         }
 
         data['player'] = {};
@@ -1150,7 +1177,7 @@ LI;
         $.when(del).then(function () {
             if (error === false) {
                 $.ajax({
-                    url: '/ajax/draftgame.php',
+                    url: "/ajax/draftgame"+ go_url +".php",
                     type: 'post',
                     data: data,
                     beforeSend: function () {
@@ -1160,7 +1187,12 @@ LI;
                         console.log(data);
 
                         if (data === '100') {
-                            alert("라인업이 저장되었습니다.");
+                            if (isEdit==1) {
+                                alert("콘테스트 수정이 완료되었습니다.");
+                            } else {
+                                alert("콘테스트 참여가 완료되었습니다.");
+                            }
+
                             location.href = "/lineups/?sub=upcoming";
 
                         } else if (data === '411') {
@@ -1462,12 +1494,14 @@ LI;
             var category = $(this).attr('data-category');
             var game = $(this).attr('data-game');
             var data = {
-                'id': '<?=$m_idx;?>',
-                'coin': coin,
-                'category': category,
-                'game': game
+                "edit": isEdit,
+                "id": <?=$m_idx;?>,
+                "coin": coin,
+                "category": category,
+                "game": game,
+                "lu_idx": lu_idx
             };
-            draft_proccess(data);
+            draft_proccess(data, isEdit);
         });
 
         $(".sort").on("click", function () {
