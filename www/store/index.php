@@ -105,7 +105,7 @@ try {
             <input id="requestByJs" name="requestByJs" type="hidden" value="true">
 
         </form-->
-        <form id="SendPayForm_id" name="" method="POST" action="https://stdpay.inicis.com/payMain/pay" accept-charset="UTF-8" target="iframe_13eae6eca05ff4">
+        <form id="SendPayForm_id" name="" method="POST" action="https://stdpay.inicis.com/payMain/pay">
             <input type="hidden" name="mid" value="INIpayTest">
             <input type="hidden" name="goodname" id="goodname" value="500c" spellcheck="false">
             <input type="hidden" name="price" id="price" value="55000" spellcheck="false" readonly="">

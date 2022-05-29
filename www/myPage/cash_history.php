@@ -125,8 +125,8 @@ try {
                         <colgroup>
                             <col style="width:25%">
                             <col style="width:25%">
-                            <col style="width:10%">
-                            <col style="width:10%">
+                            <!--col style="width:10%"-->
+                            <col style="width:20%">
                             <col style="width:12%">
                             <col style="width:10%">
                             <col style="width:12%">
@@ -135,7 +135,7 @@ try {
                         <tr class="filter">
                             <th><a href="javascript:void(0);">일자</a></th>
                             <th>내용</th>
-                            <th><a href="javascript:void(0);">거래ID</a></th>
+                            <!--th><a href="javascript:void(0);">거래ID</a></th-->
                             <th><a href="javascript:void(0);">결제 정보</a></th>
                             <th><a href="javascript:void(0);">금액(KRW)</a></th>
                             <th><a href="javascript:void(0);">캐시</a></th>
@@ -162,7 +162,7 @@ try {
                         <tr>
                             <td class="Fgray">{$regdate}</td>
                             <td>{$title}</td>
-                            <td>{$tid}</td>
+                            <!--td>{$tid}</td-->
                             <td>2winchance</td>
                             <td>{$deposit}</td>
                             <td>{$amount}</td>

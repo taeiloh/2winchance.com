@@ -174,7 +174,7 @@ try {
     $s = $e->getMessage() . ' (오류코드:' . $e->getCode() . ')';
     echo $s;
 } finally {
-    header('Location:/main/');
+    header('Location:/myPage/cash_history.php');
 }
 
 ?>
