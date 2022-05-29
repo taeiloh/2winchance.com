@@ -4,6 +4,7 @@ require_once __DIR__ .'/../_inc/config.php';
 $id=!empty($_SESSION['_se_id']) ? $_SESSION['_se_id'] : "";        // 세션 아이디
 $idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : 0;      // 세션 시퀀스
 
+
 require_once __DIR__ .'/../libs/INIStdPayUtil.php';
 $SignatureUtil = new INIStdPayUtil();
 
@@ -121,8 +122,8 @@ try {
             <input type="hidden" name="timestamp" id="timestamp" value="<?=$timestamp?>">
             <input type="hidden" name="signature" id="sign" value="<?=$sign?>">
             <input type="hidden" name="mKey" id="mKey" value="<?=$mKey?>">
-            <input type="hidden" name="returnUrl" value="<?=SSLWWW;?>/store/INIStdPayReturn.php?id=<?=$idx?>">
-            <input type="hidden" name="closeUrl" value="<?=SSLWWW;?>/store/close.php">
+            <input type="hidden" name="returnUrl" value="https://<?=$_SERVER['SERVER_NAME']?>/store/INIStdPayReturn.php?id=<?=$idx?>">
+            <input type="hidden" name="closeUrl" value="https://<?=$_SERVER['SERVER_NAME']?>/store/close.php">
             <input type="hidden"  name="acceptmethod" value="CARDPOINT:va_receipt:HPP(1):below1000" >
 
             <input id="requestByJs" name="requestByJs" type="hidden" value="true">
