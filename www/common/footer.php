@@ -63,6 +63,7 @@ switch ($_url_f3) {
             <li>TEL : +82-2-515-0630 / FAX +82-2-515-0930</li>
             <li>상호 : ㈜ 메타록 | 대표이사 : 서해영</li>
             <li>게임 관련 문의 BIZ@Metarock.co.kr | 사업 문의 BIZ@Metarock.co.kr</li>
+            <li>고객서비스 담당자 이름 TEL : 000-000-0000</li>
             <li>사업자번호: 831-87-01160 | 통신판매업 신고번호: 제 2022-서울강남-02801 호</li>
             <li>ⓒ 2021-2022, Metarock Inc., All rights Reserved.</li>
         </ul>

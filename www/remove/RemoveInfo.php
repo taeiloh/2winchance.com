@@ -65,7 +65,7 @@ try {
                                 <ul>
                                     <li><p>COIN</p><span class="fc-yellow coin"><?=$deposit?></span></li>
                                     <li><p>Fight Point</p><span class="fp"><?=$m_fp_balance?></span></li>
-                                    <li><p>Honor Point</p><span class="fp"><?=$hph_balance?></span></li>
+                                    <li><p>Honor Point</p><span class="hp"><?=$hph_balance?></span></li>
                                 </ul>
                             </div>
                         </div>

@@ -76,7 +76,7 @@ try {
                         <div class="title">
                             <h2>비밀번호 확인</h2>
                         </div>
-                        <form action="setting_cash.php" name="pwFrm" id="pwFrm" method="post">
+                        <form name="pwFrm" id="pwFrm" method="post" onsubmit="return check()">
                             <div class="sub-content">
                                 <h3>회원정보를 안전하게 관리하기 위해 비밀번호를 한번 더 입력해 주세요.<br>
                                     비밀번호는 타인에게 노출 되지 않도록 주의가 필요 합니다.
@@ -87,7 +87,7 @@ try {
                                     <!--        이메일 에러시 <p class="invalid-feedback error">비밀번호가 일치하지 않습니다. 다시 한번 확인해 주세요.
 </p>-->
                                 </div>
-                                <button type="button" class="btn-blue btn-6 mT50" onclick="check()">확인</button>
+                                <button type="submit" class="btn-blue btn-6 mT50">확인</button>
                             </div>
                         </form>
                     </div>
@@ -103,6 +103,7 @@ try {
     </footer>
 </div>
 <script type="text/javascript">
+
     function check(){
 
         if ($.trim($("#m_pw").val()) == "") {
@@ -122,8 +123,49 @@ try {
             data: postData,
             dataType: "JSON",
             success: function (data){
-                alert(data.msg);
+
                 if(data.code == 200){
+                    alert(data.msg);
+                    $("#pwFrm").attr("action","setting_cash.php");
+                    //$("#pwFrm").submit();
+                    return true;
+                }
+                else
+                {
+                    alert(data.msg);
+                    return false;
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown){
+                console.log(textStatus, errorThrown);
+            }
+        });
+    }
+    function check1(){
+
+        if ($.trim($("#m_pw").val()) == "") {
+            alert("비밀번호를 입력해 주세요");
+            $("#m_pw").focus();
+            return false;
+        }
+
+        var postData = {
+            "m_pw" : $("#m_pw").val()
+        };
+
+        $.ajax({
+            url: "setting_pw_proc.php",
+            type: "POST",
+            async: false,
+            data: postData,
+            dataType: "JSON",
+            success: function (data){
+
+                if(data.code == 200){
+                    $("#pwFrm").submit();
+                }
+                else
+                {
                     $("#pwFrm").submit();
                 }
             },

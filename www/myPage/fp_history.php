@@ -135,11 +135,13 @@ try{
                                 $balance = empty(!$dbfp['fph_balance']) ? $dbfp['fph_balance'] : '';
                                 $i++;
                                 $no=$total_count-($i+($page-1)*$rows);
+                                $setfp = '';
+                                if($fp > 0){$setfp ='+';}
                                 echo <<<TR
                         <tr>
                             <td class="Fgray">{$regdate}</td>
                             <td>{$title}</td>
-                            <td>{$fp}</td>
+                            <td>{$setfp}{$fp}</td>
                             <td>{$balance}</td>
                         </tr>
 TR;

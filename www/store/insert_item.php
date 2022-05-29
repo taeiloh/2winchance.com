@@ -41,7 +41,7 @@ try{
             $query2 = "insert into deposit_history
                     (dh_u_idx, dh_deposit,dh_amount,dh_paymethod,dh_pay_key,dh_content,dh_condition, dh_balance, dh_req_date, dh_res_date)
                     VALUES
-                     ('{$idx}','0','-{$price}','0','Buy item', 'item', '1', '0',now(),now())";
+                     ('{$idx}','0','-{$price}','0','아이템 구매', '아이템 구매', '1', '0',now(),now())";
             $result2 = $_mysqli->query($query2);
 
             $query3 = "UPDATE members SET m_fp_balance = m_fp_balance + '{$fp}' WHERE m_idx = '{$idx}'";
@@ -58,7 +58,7 @@ try{
             $query4 = "insert into fantasy_point_history
                             (fph_m_idx, fph_content,fph_point,fph_balance,fph_trigger_type,created_at)
                             VALUES
-                             ('{$idx}','Buy_item','{$fp}',{$m_fp_balance},'item', now())";
+                             ('{$idx}','보너스지급(아이템구매)','{$fp}',{$m_fp_balance},'item', now())";
             $result4 = $_mysqli->query($query4);
 
             if (!$result) {

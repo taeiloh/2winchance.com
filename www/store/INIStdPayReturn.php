@@ -87,6 +87,9 @@ try {
     $dh_pay_key = !empty($resultMap["tid"]) ? $resultMap["tid"] : "";
     $dh_content = !empty($resultMap["resultMsg"]) ? $resultMap["resultMsg"] : "";
     $dh_pay_key = !empty($resultMap["tid"]) ? $resultMap["tid"] : "";
+    $ins_cash_type = !empty($resultMap["payMethod"]) ? $resultMap["payMethod"] : "";
+    $ins_tid = !empty($resultMap["tid"]) ? $resultMap["tid"] : "";
+
 
     if($m_limit_deposit != 0){
 
@@ -126,7 +129,6 @@ try {
     }
 
 
-
         $sql = " update members set    
             m_deposit=m_deposit+{$dh_deposit}
             where 1=1
@@ -155,9 +157,9 @@ try {
     $_SESSION['_se_deposit']       = $m_deposit;
 
     $sql  = " insert into  deposit_history
-        (dh_u_idx, dh_deposit, dh_amount, dh_paymethod ,dh_pay_key, dh_content, dh_condition,dh_balance,  dh_req_date)
+        (dh_u_idx, dh_deposit, dh_amount, dh_paymethod ,dh_cash_type,dh_pay_key, dh_content, dh_condition,dh_balance,  dh_req_date)
     VALUES
-        ('{$idx}','{$dh_deposit}','{$dh_amount1}', 1,'{$dh_pay_key}', '{$dh_content}',1 , {$m_deposit},  now())";
+        ('{$idx}','{$dh_deposit}','{$dh_amount1}', 1,'{$ins_cash_type}','{$dh_pay_key}', '캐시 구매 완료',1 , '{$m_deposit}',  now())";
     //echo $sql;
     //exit;
     $result1 = mysqli_query($_mysqli, $sql);
@@ -174,7 +176,7 @@ try {
     $s = $e->getMessage() . ' (오류코드:' . $e->getCode() . ')';
     echo $s;
 } finally {
-    header('Location:/myPage/cash_history.php');
+    header('Location:/main/');
 }
 
 ?>

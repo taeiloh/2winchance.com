@@ -44,7 +44,7 @@ try {
     $query  = "
         select 
               dh_idx, DATE_FORMAT(dh_req_date,'%Y-%m-%d %h:%i:%s') AS regdate, dh_content,
-               dh_condition, dh_amount, dh_balance, dh_pay_key, dh_deposit
+               dh_condition, dh_amount, dh_balance, dh_pay_key, dh_deposit,dh_cash_type
         from deposit_history
         WHERE dh_u_idx = '{$idx}'
         order by dh_idx desc
@@ -155,6 +155,7 @@ try {
                                 $balance = empty(!$dbgold['dh_balance']) ? $dbgold['dh_balance'] : 0;
                                 $deposit = empty(!$dbgold['dh_deposit']) ? $dbgold['dh_deposit'] : 0;
                                 $total_amount = !empty($_arrAmount['total_amount']) ? $_arrAmount['total_amount'] : 0;
+                                $dh_cash_type = !empty($dbgold['dh_cash_type']) ? $dbgold['dh_cash_type'] : '';
                                 $i++;
                                 $no=$total_count-($i+($page-1)*$rows);
                                 $total_amount=$total_amount-$total_amount1;
@@ -163,7 +164,7 @@ try {
                             <td class="Fgray">{$regdate}</td>
                             <td>{$title}</td>
                             <!--td>{$tid}</td-->
-                            <td>2winchance</td>
+                            <td>{$dh_cash_type}</td>
                             <td>{$deposit}</td>
                             <td>{$amount}</td>
                             <td>{$total_amount}</td>

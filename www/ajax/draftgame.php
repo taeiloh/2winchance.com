@@ -232,7 +232,7 @@ try {
 
     if ($result_game) {
         //FP 지급
-        $fp_content     = "Join the contest (G{$game})";
+        $fp_content     = "콘테스트참가 (G{$game})";
         $fp             = -$arr_chk_entry['g_fee'];
         $trigger_type   = 'join_contest';
         $trigger_idx    = $game;
