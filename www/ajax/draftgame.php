@@ -173,7 +173,7 @@ try {
     }
 
 //회원 머니 차감
-    $qry_get_gold = "select m_deposit from members where m_idx = {$u_idx}";
+    $qry_get_gold = "select m_fp_balance from members where m_idx = {$u_idx}";
     //p($qry_get_gold);
     $result_get_gold = $_mysqli->query($qry_get_gold);
 
@@ -185,11 +185,11 @@ try {
     } else {
         $arr_get_gold = $result_get_gold->fetch_array();
 //    $now_gold = bcsub($arr_get_gold[0], $coin);
-        $now_gold = digitMath($arr_get_gold[0], $coin, 'minus');
+        $now_gold = digitMath($arr_get_gold[0], $arr_chk_entry['g_fee'], 'minus');
     }
-
+/*
     $qry = "update members set ";
-    $qry .= "m_deposit = $now_gold ";
+    $qry .= "m_fp_balance = $now_gold ";
     $qry .= "where m_idx= $u_idx ";
     //p($qry);
     $result = $_mysqli->query($qry);
@@ -199,8 +199,9 @@ try {
         echo 505;
         exit;
     }
-
-// 로그에 쌓음
+    */
+/*
+    // 로그에 쌓음
     $qry_log = "insert into deposit_history set ";
     $qry_log .= "dh_u_idx = $u_idx, ";
     $qry_log .= "dh_amount = -$coin, ";
@@ -220,7 +221,7 @@ try {
         $_mysqli->rollback();
         echo 506;
         exit;
-    }
+    }*/
 
 //게임 참여 카운트 추가
     $qry_game = "update game set ";
