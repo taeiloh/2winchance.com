@@ -797,7 +797,7 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 .tooltip dl dt{width: 100px;}
 .tooltip dl dd:last-child{margin-left: auto;}
 .tooltip .score-total{padding: 1rem 0 0; font-weight: 700;}
-.hover:hover .tooltip{display: block;}
+/*.hover:hover .tooltip{display: block;}*/
 .fold-content {margin: 0.6rem; padding: 2.4rem; background: #1c1c1c; }
 .fold-content h3 {font-size: 2rem; letter-spacing: .12rem; font-weight: 600; text-align: left; margin-bottom: 2rem;}
 .fold-content .fold-table-wrap{display: flex; justify-content: space-between;}
@@ -805,13 +805,13 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 .contents-table .fold-content th {padding: 1.5rem 0; font-size: 1.3rem;}
 .contents-table .fold-content th:after {display: none;}
 .lanking-table {width: 40%; margin-right: 4rem; }
-.lanking-table > table{height: 56.6rem; overflow-y: scroll; }
+.lanking-table > table{max-height: 56.6rem; overflow-y: auto; }
 .player-table {width: 60%;}
 .lanking-table table,.player-table table {display: block; width: 100%;}
 .lanking-table table thead,.player-table table thead {display: inline-block; width: 100%;}
 .lanking-table table tbody,.player-table table tbody {display: inline-block; width: 100%;}
 /* TODO 20220530 ykshin css추가 */
-.lanking-table table thead th,.lanking-table table tbody td {width: 9.9rem;}
+.lanking-table table thead th,.lanking-table table tbody td {width: 10rem;}
 .lanking-table table thead th:nth-of-type(2),.lanking-table table tbody td:nth-of-type(2) {width: 21.5rem;}
 /* TODO 20220530 ykshin css추가완료 */
 .player-table table thead th:nth-of-type(1),.player-table table tbody td:nth-of-type(1),.player-table table thead th:nth-of-type(2),.player-table table tbody td:nth-of-type(2){width: 10rem;}
