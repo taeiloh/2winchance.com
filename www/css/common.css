@@ -804,24 +804,24 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 .fold-content .status-txt{margin-top: 2rem; font-size: 1.8rem;color: #3bff00; text-align: left;}
 .contents-table .fold-content th {padding: 1.5rem 0; font-size: 1.3rem;}
 .contents-table .fold-content th:after {display: none;}
-.lanking-table {width: 40%; margin-right: 4rem; }
+.lanking-table {width: 35%; margin-right: 4rem; }
 .lanking-table > table{max-height: 56.6rem; overflow-y: auto; }
-.player-table {width: 60%;}
+.player-table {width: 65%;}
 .lanking-table table,.player-table table {display: block; width: 100%;}
 .lanking-table table thead,.player-table table thead {display: inline-block; width: 100%;}
 .lanking-table table tbody,.player-table table tbody {display: inline-block; width: 100%;}
 /* TODO 20220530 ykshin css추가 */
-.lanking-table table thead th,.lanking-table table tbody td {width: 10rem;}
-.lanking-table table thead th:nth-of-type(2),.lanking-table table tbody td:nth-of-type(2) {width: 21.5rem;}
+.lanking-table table thead th,.lanking-table table tbody td {width: 8rem;}
+.lanking-table table thead th:nth-of-type(2),.lanking-table table tbody td:nth-of-type(2) {width: 20.5rem;}
 /* TODO 20220530 ykshin css추가완료 */
 .player-table table thead th:nth-of-type(1),.player-table table tbody td:nth-of-type(1),.player-table table thead th:nth-of-type(2),.player-table table tbody td:nth-of-type(2){width: 10rem;}
 .player-table table thead th:nth-of-type(3),.player-table table tbody td:nth-of-type(3){width: 22rem;}
 .player-table table thead th:nth-of-type(4),.player-table table tbody td:nth-of-type(4) {width: 39rem}
 .player-table table thead th:nth-of-type(5),.player-table table tbody td:nth-of-type(5) {width: 10rem;}
 .lanking-table table tbody tr,.player-table table tbody tr {background: #303030;}
-.lanking-table table td {position: relative; padding: 2.4rem 0 !important; font-size: 2rem !important;}
+.lanking-table table td {position: relative; padding: 2.4rem 0.5rem !important; font-size: 2rem !important;}
 .lanking-table table td:nth-child(3) {color: #ffdc50;}
-.player-table table td {padding: 2rem 0 !important; border-bottom: 1px dashed rgba(255, 255, 255, 0.4);}
+.player-table table td {padding: 2rem 0.5rem !important; border-bottom: 1px dashed rgba(255, 255, 255, 0.4);}
 .player-table table tr:last-child td {border-bottom: none;}
 .lanking-table table td:after {position: absolute; content: ''; display: block; right: 0; top: 50%; transform: translateY(-50%); background: #707070; width: 1px; height: 30%;}
 .lanking-table table td:last-child:after {display: none;}
