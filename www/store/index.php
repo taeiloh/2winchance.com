@@ -141,11 +141,11 @@ try {
                         <div>
                             <ul class="total-coin">
                                 <li>총 결제금액</li>
-                                <li id="total-money">55,000</li>
+                                <li id="total-money">0</li>
                             </ul>
                             <ul class="intend-charge">
                                 <li>충전 예정</li>
-                                <li class="fc-yellow"><span id="total-coin">500 <span class="fc-yellow">ⓒ</span></span></li>
+                                <li class="fc-yellow"><span id="total-coin">0 <span class="fc-yellow">ⓒ</span></span></li>
                             </ul>
                             <ul>
                                 <li>결제 알림 메일</li>
@@ -187,7 +187,7 @@ try {
                                         <div class="price-box"><p>22,000</p></div>
                                     </a>
                                 </li>
-                                <li class="active">
+                                <li>
                                     <a href="javascript:void(0);" data-money="3">
                                         <div class="coin-price">
                                             <!--                                            <span><img src="../images/100coin.svg" alt=""></span>-->
