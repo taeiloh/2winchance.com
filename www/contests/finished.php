@@ -125,12 +125,10 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                         </tr>
                         </thead>
                         <tbody>
+                        <!--  20220530 박형은 -->
                         <?php
                             if($_se_idx == 16){
                         ?>
-
-
-
                         <tr class="view">
                             <td>COUNTER SHOT [싱글 & 우승 252FP]	</td>
                             <td>2022-05-29 23:00​</td>
