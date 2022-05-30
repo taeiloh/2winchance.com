@@ -125,7 +125,7 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                         </tr>
                         </thead>
                         <tbody>
-                        <!--tr class="view">
+                        <tr class="view">
                             <td>{$db['g_name']}</td>
                             <td>{$db['jc_result_update']}</td>
                             <td>{$db['g_multi_max']}</td>
@@ -226,7 +226,8 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                     </div>
                                 </div>
                             </td>
-                        </tr-->
+                        </tr>
+                        <!--
                         <?php
                         // 콘테스트
                         $query  = "
@@ -446,7 +447,7 @@ TR;
                          </tr>
 TR;
                         }
-                        ?>
+                        ?>-->
                         </tbody>
                     </table>
                 </div>
