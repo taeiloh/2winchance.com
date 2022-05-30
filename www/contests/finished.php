@@ -2619,7 +2619,7 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                             </div>
                                         </td>
                                     </tr>
-                                    <tr class="view">
+                                    <tr class="view last">
                                             <td>돌격 [싱글 & 우승 200FP]</td>
                                             <td>2022-05-29 23:00​</td>
                                             <td>1</td>
