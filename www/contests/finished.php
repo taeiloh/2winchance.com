@@ -1139,7 +1139,7 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                 <td>FREE [싱글 & 상위 50% WIN]</td>
                                 <td>2022-05-29 23:00​</td>
                                 <td>1</td>
-                                <td>0</td>
+                                <td>61</td>
                                 <td>0</td>
                                 <td>5</td>
                                 <td>
