@@ -116,7 +116,7 @@ $total_size     = $db['total_size'];
                               AND timezone_scheduled <= '{$today} 23:59:59'+ INTERVAL 10 DAY
                             GROUP BY date(timezone_scheduled)
                             ORDER BY timezone_scheduled ASC
-                            LIMIT 5
+                            LIMIT 7
                         ";
                     //p($query);
                     $result = $_mysqli_game->query($query);
