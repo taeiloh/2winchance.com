@@ -240,7 +240,7 @@ try {
                                 <li><p>캐시</p><span class="fc-yellow coin"><?=number_format($total_coin)?></span></li>
                                 <li><p>파이트 포인트</p><span class="fp"><?=number_format($m_fp)?></span></li>
                                 <!--                                <li><p>명예 포인트</p><span class="hp">--><?//=$dbhp['pg_amount']?><!--</span></li>-->
-                                <li><p>명예 포인트</p><span class="hp"><?=number_format($hp)?></span></li>
+                                <li><p>누적 전투력</p><span class="hp"><?=number_format($hp)?></span></li>
                                 <li><p>진행 중 문의</p><span class="count"><?=$my_contactus?></span></li>
                             </ul>
                         </div>

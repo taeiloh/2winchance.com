@@ -964,7 +964,7 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 .coin-b:after{content: 'ⓒ'; background-size: contain; display: inline-block; margin-left: 1rem; color: #ffdc50;}
 .fp:after{content: 'FP'; margin-left: 1rem;}
 .hp{color: #0b943a!important;}
-.hp:after{content: 'HP'; margin-left: 1rem; color: #0b943a; }
+.hp:after{content: 'PW'; margin-left: 1rem; color: #0b943a; }
 .count:after{content: '건'; margin-left: 0.5rem;}
 
 .user-item{width: 77.4rem;}

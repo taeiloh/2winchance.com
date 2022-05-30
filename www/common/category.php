@@ -42,7 +42,7 @@ switch ($_url_f3) {
         <li class="<?=$_liClass7;?>"><a href="/myPage/contactus_history.php">문의 내역</a></li>
         <li class="<?=$_liClass8;?>"><a href="/myPage/cash_history.php">캐시 내역</a></li>
         <li class="<?=$_liClass9;?>"><a href="/myPage/fp_history.php">FP 내역</a></li>
-        <li class="<?=$_liClass10;?>"><a href="/myPage/hp_history.php">HP 내역</a></li>
+        <li class="<?=$_liClass10;?>"><a href="/myPage/hp_history.php">전투력 내역</a></li>
         <li class="<?=$_liClass11;?>"><a href="/myPage/howtoplay.php">게임 가이드</a></li>
     </ul>
 </div>
