@@ -787,7 +787,9 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 .fold-table > tbody > tr.fold td {padding: 0;}
 .fold-table > tbody > tr.fold.open {display: table-row;}
 .hover{position: relative;}
-.tooltip{display:none; min-width: 45rem; background: rgba(255,255,255,0.9); color: #131313; padding: 2rem; border-radius: 1rem; font-size: 1.8rem; position: absolute; top: 65px; left: 50%; transform: translateX(-50%); text-align: left;}
+/* TODO 20220530 ykshin css추가 */
+.tooltip{display:none; min-width: 45rem; background: rgba(255,255,255,0.9); color: #131313; padding: 2rem; border-radius: 1rem; font-size: 1.8rem; position: absolute; top: 65px; left: 50%; transform: translateX(-50%); text-align: left; z-index: 1;}
+/* TODO 20220530 ykshin css추가완료 */
 .tooltip .title{font-size: 2rem; font-weight: 600; padding: 0 0 1rem;}
 .tooltip .score-detail{border-top: 1px dashed #1c1c1c; border-bottom: 1px dashed #1c1c1c; padding: 1rem 0;}
 .tooltip dl{display: flex; align-items: center;}
@@ -802,12 +804,15 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 .fold-content .status-txt{margin-top: 2rem; font-size: 1.8rem;color: #3bff00; text-align: left;}
 .contents-table .fold-content th {padding: 1.5rem 0; font-size: 1.3rem;}
 .contents-table .fold-content th:after {display: none;}
-.lanking-table {width: 30%; margin-right: 4rem;}
-.player-table {width: 70%;}
+.lanking-table {width: 40%; margin-right: 4rem;}
+.player-table {width: 60%;}
 .lanking-table table,.player-table table {display: block; width: 100%;}
 .lanking-table table thead,.player-table table thead {display: inline-block; width: 100%;}
 .lanking-table table tbody,.player-table table tbody {display: inline-block; width: 100%;}
 .lanking-table table thead th,.lanking-table table tbody td {width: 11rem;}
+/* TODO 20220530 ykshin css추가 */
+.lanking-table table thead th,.lanking-table table tbody td:nth-of-type(2) {width: 20rem;}
+/* TODO 20220530 ykshin css추가완료 */
 .player-table table thead th:nth-of-type(1),.player-table table tbody td:nth-of-type(1),.player-table table thead th:nth-of-type(2),.player-table table tbody td:nth-of-type(2){width: 8.8rem;}
 .player-table table thead th:nth-of-type(3),.player-table table tbody td:nth-of-type(3),.player-table table thead th:nth-of-type(4),.player-table table tbody td:nth-of-type(4) {width: 32rem}
 .player-table table thead th:nth-of-type(5),.player-table table tbody td:nth-of-type(5) {width: 9.4rem;}

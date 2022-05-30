@@ -25,31 +25,31 @@ try {
     p($e);
 }
 $query  = "
-                            SELECT 
+                            SELECT
                                 count(*)
-                            FROM 
+                            FROM
                             (
                                 SELECT
                                     jc_idx
                                 FROM join_contest
                                 WHERE 1=1
                                     AND jc_u_idx = {$_se_idx}
-                            ) b INNER JOIN join_contest 
+                            ) b INNER JOIN join_contest
                                 ON join_contest.jc_idx = b.jc_idx
-                            LEFT JOIN lineups 
-                                ON lu_idx = jc_lineups 
-                            LEFT JOIN game 
-                                ON g_idx = jc_game 
-                            LEFT JOIN game_category 
-                                ON gc_idx = g_sport 
-                            LEFT JOIN members 
-                                ON m_idx = lu_u_idx 
-                            WHERE 1=1 
-                                AND lu_u_idx = {$_se_idx} 
-                                {$where} 
-                            
-                            
-                            
+                            LEFT JOIN lineups
+                                ON lu_idx = jc_lineups
+                            LEFT JOIN game
+                                ON g_idx = jc_game
+                            LEFT JOIN game_category
+                                ON gc_idx = g_sport
+                            LEFT JOIN members
+                                ON m_idx = lu_u_idx
+                            WHERE 1=1
+                                AND lu_u_idx = {$_se_idx}
+                                {$where}
+
+
+
                         ";
 //echo $query;
 $result = $_mysqli->query($query);
@@ -230,34 +230,34 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                         <?php
                         // 콘테스트
                         $query  = "
-                            SELECT 
-                                join_contest.*, 
-                                game.*,  
-                                game_category.gc_name 
-                            FROM 
+                            SELECT
+                                join_contest.*,
+                                game.*,
+                                game_category.gc_name
+                            FROM
                             (
                                 SELECT
                                     jc_idx
                                 FROM join_contest
                                 WHERE 1=1
                                     AND jc_u_idx = {$_se_idx}
-                            ) b INNER JOIN join_contest 
+                            ) b INNER JOIN join_contest
                                 ON join_contest.jc_idx = b.jc_idx
-                            LEFT JOIN lineups 
-                                ON lu_idx = jc_lineups 
-                            LEFT JOIN game 
-                                ON g_idx = jc_game 
-                            LEFT JOIN game_category 
-                                ON gc_idx = g_sport 
-                            LEFT JOIN members 
-                                ON m_idx = lu_u_idx 
-                            WHERE 1=1 
-                                AND lu_u_idx = {$_se_idx} 
-                                {$where} 
-                            GROUP BY jc_game 
+                            LEFT JOIN lineups
+                                ON lu_idx = jc_lineups
+                            LEFT JOIN game
+                                ON g_idx = jc_game
+                            LEFT JOIN game_category
+                                ON gc_idx = g_sport
+                            LEFT JOIN members
+                                ON m_idx = lu_u_idx
+                            WHERE 1=1
+                                AND lu_u_idx = {$_se_idx}
+                                {$where}
+                            GROUP BY jc_game
                             ORDER BY g_date DESC,  jc_result_update DESC
                             LIMIT {$from_record}, {$rows}
-                            
+
                         ";
                         //echo $query;
                         $result = $_mysqli->query($query);
@@ -278,8 +278,7 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                             <td>{$db['g_fee']}</td>
                             <td>{$db['g_prize']}</td>
                             <td>
-                                <p>결과보기</p>
-                                <img src="../images/ico_arrow_blue.svg" alt="결과 보기">
+                                <p>결과보기<img src="../images/ico_arrow_blue.svg" alt="결과 보기"></p>
                             </td>
                         </tr>
                         <tr class="fold">
@@ -300,7 +299,7 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                 <tbody>
 TR;
                             $sub_query  = "
-                                SELECT 
+                                SELECT
                                     jc_u_idx, jc_rank, jc_prize, jc_point,
                                     (SELECT m_name FROM members WHERE 1=1 AND m_idx=a.jc_u_idx ) AS m_name
                                 FROM join_contest a
@@ -345,11 +344,11 @@ TR;
                                                 <tbody>
 TR;
                             $sub_query1  = "
-                                SELECT * 
+                                SELECT *
                                 FROM lineups a
-                                LEFT JOIN game b 
+                                LEFT JOIN game b
                                     ON b.g_idx = a.lu_g_idx
-                                LEFT JOIN lineups_history c 
+                                LEFT JOIN lineups_history c
                                     ON c.lu_idx = a.lu_idx
                                 WHERE 1=1
                                     AND c.lu_idx = '{$db['jc_lineups']}'
@@ -362,7 +361,7 @@ TR;
 
                                 // 경기 정보
                                 $_query = "
-                                    SELECT * 
+                                    SELECT *
                                     FROM lineups_history a
                                     LEFT JOIN lineups_history_score b
                                         ON b.game_id = a.game_id
