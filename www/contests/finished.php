@@ -3014,7 +3014,7 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                         <?php
                             }
                         ?>
-                        <!--
+
                         <?php
                         // 콘테스트
                         $query  = "
@@ -3230,11 +3230,11 @@ TR;
                         }else{
                             echo <<<TR
                          <tr>
-                                <td colspan="7">등록된 정보가 없습니다.</td>
+                                <td colspan="7">등록된 콘테스트가 없습니다.</td>
                          </tr>
 TR;
                         }
-                        ?>-->
+                        ?>
                         </tbody>
                     </table>
                 </div>

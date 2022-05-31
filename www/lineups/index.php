@@ -183,19 +183,22 @@ try {
                                     $link       = "/draft/?edit=1&index={$sub_db2['g_idx']}&lu_idx={$sub_db2['lu_idx']}";
                                     $liClass    = 'edit';
                                     $editTitle  = '<span class="line-up-badge btnPush">수정</span>';
+                                    $cursor = '';
                                 } else if ($sub_db2['g_status']==2) {
                                     $link       = 'javascript:void(0);';
                                     $liClass    = 'live';
                                     $editTitle  = 'LIVE';
+                                    $cursor = '';
                                 } else if ($sub_db2['g_status']==3) {
                                     $link       = 'javascript:void(0);';
                                     $liClass    = 'finished';
-                                    $editTitle  = '<span class="line-up-badge">결과</span>';
+                                    $editTitle  = '<span class="line-up-badge" >결과</span>';
+                                    $cursor = 'style="cursor: default;"';
                                 }
 
                                 echo <<<LI
                         <li class="{$liClass}">
-                            <a href="{$link}" class="active" title="{$sub_db2['g_name']}">
+                            <a href="{$link}" {$cursor} class="active" title="{$sub_db2['g_name']}">
                                 <div class="game-thumb" style="background-image: url('{$game_img_src}')">
                                     <div class="subject">
                                     <img src="{$img_src}" alt="pubg_logo"/>
