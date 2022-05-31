@@ -139,7 +139,7 @@ try{
 //                        }else {
 //                            echo <<<TR
 //                         <tr>
-//                                <td colspan="6">HP 내역이 없습니다.</td>
+//                                <td colspan="6">전투력 내역이 없습니다.</td>
 //                         </tr>
 //TR;
 //                        }
