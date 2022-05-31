@@ -345,12 +345,12 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                             <p class="title">상세 점수</p>
                                                             <div class="score-detail">
                                                                 <dl>
-                                                                    <dt>순위</dt>
+                                                                    <dt>팀순위</dt>
                                                                     <dd>$$ + $$ + $$ + $$ + $$</dd>
                                                                     <dd>= $$</dd>
                                                                 </dl>
                                                                 <dl>
-                                                                    <dt>킬수</dt>
+                                                                    <dt>킬</dt>
                                                                     <dd>$$ X 1</dd>
                                                                     <dd>= $$</dd>
                                                                 </dl>
@@ -360,13 +360,18 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                                     <dd>= $$</dd>
                                                                 </dl>
                                                                 <dl>
-                                                                    <dt>팀킬</dt>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
                                                                     <dd>$$ X 1</dd>
                                                                     <dd>= $$</dd>
                                                                 </dl>
                                                             </div>
                                                             <dl class="score-total">
-                                                                <dt>합계</dt>
+                                                                <dt>획득 점수</dt>
                                                                 <dd>= $$</dd>
                                                             </dl>
                                                         </div>
@@ -383,12 +388,12 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                             <p class="title">상세 점수</p>
                                                             <div class="score-detail">
                                                                 <dl>
-                                                                    <dt>순위</dt>
+                                                                    <dt>팀순위</dt>
                                                                     <dd>$$ + $$ + $$ + $$ + $$</dd>
                                                                     <dd>= $$</dd>
                                                                 </dl>
                                                                 <dl>
-                                                                    <dt>킬수</dt>
+                                                                    <dt>킬</dt>
                                                                     <dd>$$ X 1</dd>
                                                                     <dd>= $$</dd>
                                                                 </dl>
@@ -398,13 +403,18 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                                     <dd>= $$</dd>
                                                                 </dl>
                                                                 <dl>
-                                                                    <dt>팀킬</dt>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
                                                                     <dd>$$ X 1</dd>
                                                                     <dd>= $$</dd>
                                                                 </dl>
                                                             </div>
                                                             <dl class="score-total">
-                                                                <dt>합계</dt>
+                                                                <dt>획득 점수</dt>
                                                                 <dd>= $$</dd>
                                                             </dl>
                                                         </div>
@@ -421,12 +431,12 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                             <p class="title">상세 점수</p>
                                                             <div class="score-detail">
                                                                 <dl>
-                                                                    <dt>순위</dt>
+                                                                    <dt>팀순위</dt>
                                                                     <dd>$$ + $$ + $$ + $$ + $$</dd>
                                                                     <dd>= $$</dd>
                                                                 </dl>
                                                                 <dl>
-                                                                    <dt>킬수</dt>
+                                                                    <dt>킬</dt>
                                                                     <dd>$$ X 1</dd>
                                                                     <dd>= $$</dd>
                                                                 </dl>
@@ -436,13 +446,18 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                                     <dd>= $$</dd>
                                                                 </dl>
                                                                 <dl>
-                                                                    <dt>팀킬</dt>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
                                                                     <dd>$$ X 1</dd>
                                                                     <dd>= $$</dd>
                                                                 </dl>
                                                             </div>
                                                             <dl class="score-total">
-                                                                <dt>합계</dt>
+                                                                <dt>획득 점수</dt>
                                                                 <dd>= $$</dd>
                                                             </dl>
                                                         </div>
@@ -459,12 +474,12 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                             <p class="title">상세 점수</p>
                                                             <div class="score-detail">
                                                                 <dl>
-                                                                    <dt>순위</dt>
+                                                                    <dt>팀순위</dt>
                                                                     <dd>$$ + $$ + $$ + $$ + $$</dd>
                                                                     <dd>= $$</dd>
                                                                 </dl>
                                                                 <dl>
-                                                                    <dt>킬수</dt>
+                                                                    <dt>킬</dt>
                                                                     <dd>$$ X 1</dd>
                                                                     <dd>= $$</dd>
                                                                 </dl>
@@ -474,13 +489,18 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                                     <dd>= $$</dd>
                                                                 </dl>
                                                                 <dl>
-                                                                    <dt>팀킬</dt>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
                                                                     <dd>$$ X 1</dd>
                                                                     <dd>= $$</dd>
                                                                 </dl>
                                                             </div>
                                                             <dl class="score-total">
-                                                                <dt>합계</dt>
+                                                                <dt>획득 점수</dt>
                                                                 <dd>= $$</dd>
                                                             </dl>
                                                         </div>
@@ -493,35 +513,40 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                       <td>COUNTER SHOT</td>
                                                       <td class="hover">
                                                           <p>팀순위(3) 킬수(1) 팀킬(0) 자살(0) 부활(0)</p>
-                                                          <div class="tooltip">
-                                                              <p class="title">상세 점수</p>
-                                                              <div class="score-detail">
-                                                                  <dl>
-                                                                      <dt>순위</dt>
-                                                                      <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                      <dd>= $$</dd>
-                                                                  </dl>
-                                                                  <dl>
-                                                                      <dt>킬수</dt>
-                                                                      <dd>$$ X 1</dd>
-                                                                      <dd>= $$</dd>
-                                                                  </dl>
-                                                                  <dl>
-                                                                      <dt>팀킬</dt>
-                                                                      <dd>$$ X -1</dd>
-                                                                      <dd>= $$</dd>
-                                                                  </dl>
-                                                                  <dl>
-                                                                      <dt>팀킬</dt>
-                                                                      <dd>$$ X 1</dd>
-                                                                      <dd>= $$</dd>
-                                                                  </dl>
-                                                              </div>
-                                                              <dl class="score-total">
-                                                                  <dt>합계</dt>
-                                                                  <dd>= $$</dd>
-                                                              </dl>
-                                                          </div>
+                                                         <div class="tooltip">
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                       </td>
                                                       <td>4</td>
                                                   </tr>
@@ -531,35 +556,40 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                       <td>COUNTER SHOT</td>
                                                       <td class="hover">
                                                           <p>팀순위(4) 킬수(1) 팀킬(0) 자살(0) 부활(4)</p>
-                                                          <div class="tooltip">
-                                                              <p class="title">상세 점수</p>
-                                                              <div class="score-detail">
-                                                                  <dl>
-                                                                      <dt>순위</dt>
-                                                                      <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                      <dd>= $$</dd>
-                                                                  </dl>
-                                                                  <dl>
-                                                                      <dt>킬수</dt>
-                                                                      <dd>$$ X 1</dd>
-                                                                      <dd>= $$</dd>
-                                                                  </dl>
-                                                                  <dl>
-                                                                      <dt>팀킬</dt>
-                                                                      <dd>$$ X -1</dd>
-                                                                      <dd>= $$</dd>
-                                                                  </dl>
-                                                                  <dl>
-                                                                      <dt>팀킬</dt>
-                                                                      <dd>$$ X 1</dd>
-                                                                      <dd>= $$</dd>
-                                                                  </dl>
-                                                              </div>
-                                                              <dl class="score-total">
-                                                                  <dt>합계</dt>
-                                                                  <dd>= $$</dd>
-                                                              </dl>
-                                                          </div>
+                                                         <div class="tooltip">
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                       </td>
                                                       <td>9</td>
                                                 </tr>
@@ -569,35 +599,40 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                       <td>COUNTER SHOT</td>
                                                       <td class="hover">
                                                           <p>팀순위(0) 킬수(0) 팀킬(0) 자살(0) 부활(0)</p>
-                                                          <div class="tooltip">
-                                                              <p class="title">상세 점수</p>
-                                                              <div class="score-detail">
-                                                                  <dl>
-                                                                      <dt>순위</dt>
-                                                                      <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                      <dd>= $$</dd>
-                                                                  </dl>
-                                                                  <dl>
-                                                                      <dt>킬수</dt>
-                                                                      <dd>$$ X 1</dd>
-                                                                      <dd>= $$</dd>
-                                                                  </dl>
-                                                                  <dl>
-                                                                      <dt>팀킬</dt>
-                                                                      <dd>$$ X -1</dd>
-                                                                      <dd>= $$</dd>
-                                                                  </dl>
-                                                                  <dl>
-                                                                      <dt>팀킬</dt>
-                                                                      <dd>$$ X 1</dd>
-                                                                      <dd>= $$</dd>
-                                                                  </dl>
-                                                              </div>
-                                                              <dl class="score-total">
-                                                                  <dt>합계</dt>
-                                                                  <dd>= $$</dd>
-                                                              </dl>
-                                                          </div>
+                                                         <div class="tooltip">
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                       </td>
                                                       <td>0</td>
                                                 </tr>
@@ -833,12 +868,12 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                             <p class="title">상세 점수</p>
                                                             <div class="score-detail">
                                                                 <dl>
-                                                                    <dt>순위</dt>
+                                                                    <dt>팀순위</dt>
                                                                     <dd>$$ + $$ + $$ + $$ + $$</dd>
                                                                     <dd>= $$</dd>
                                                                 </dl>
                                                                 <dl>
-                                                                    <dt>킬수</dt>
+                                                                    <dt>킬</dt>
                                                                     <dd>$$ X 1</dd>
                                                                     <dd>= $$</dd>
                                                                 </dl>
@@ -848,13 +883,18 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                                     <dd>= $$</dd>
                                                                 </dl>
                                                                 <dl>
-                                                                    <dt>팀킬</dt>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
                                                                     <dd>$$ X 1</dd>
                                                                     <dd>= $$</dd>
                                                                 </dl>
                                                             </div>
                                                             <dl class="score-total">
-                                                                <dt>합계</dt>
+                                                                <dt>획득 점수</dt>
                                                                 <dd>= $$</dd>
                                                             </dl>
                                                         </div>
@@ -871,12 +911,12 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                             <p class="title">상세 점수</p>
                                                             <div class="score-detail">
                                                                 <dl>
-                                                                    <dt>순위</dt>
+                                                                    <dt>팀순위</dt>
                                                                     <dd>$$ + $$ + $$ + $$ + $$</dd>
                                                                     <dd>= $$</dd>
                                                                 </dl>
                                                                 <dl>
-                                                                    <dt>킬수</dt>
+                                                                    <dt>킬</dt>
                                                                     <dd>$$ X 1</dd>
                                                                     <dd>= $$</dd>
                                                                 </dl>
@@ -886,13 +926,18 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                                     <dd>= $$</dd>
                                                                 </dl>
                                                                 <dl>
-                                                                    <dt>팀킬</dt>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
                                                                     <dd>$$ X 1</dd>
                                                                     <dd>= $$</dd>
                                                                 </dl>
                                                             </div>
                                                             <dl class="score-total">
-                                                                <dt>합계</dt>
+                                                                <dt>획득 점수</dt>
                                                                 <dd>= $$</dd>
                                                             </dl>
                                                         </div>
@@ -909,12 +954,12 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                             <p class="title">상세 점수</p>
                                                             <div class="score-detail">
                                                                 <dl>
-                                                                    <dt>순위</dt>
+                                                                    <dt>팀순위</dt>
                                                                     <dd>$$ + $$ + $$ + $$ + $$</dd>
                                                                     <dd>= $$</dd>
                                                                 </dl>
                                                                 <dl>
-                                                                    <dt>킬수</dt>
+                                                                    <dt>킬</dt>
                                                                     <dd>$$ X 1</dd>
                                                                     <dd>= $$</dd>
                                                                 </dl>
@@ -924,13 +969,18 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                                     <dd>= $$</dd>
                                                                 </dl>
                                                                 <dl>
-                                                                    <dt>팀킬</dt>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
                                                                     <dd>$$ X 1</dd>
                                                                     <dd>= $$</dd>
                                                                 </dl>
                                                             </div>
                                                             <dl class="score-total">
-                                                                <dt>합계</dt>
+                                                                <dt>획득 점수</dt>
                                                                 <dd>= $$</dd>
                                                             </dl>
                                                         </div>
@@ -947,12 +997,12 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                             <p class="title">상세 점수</p>
                                                             <div class="score-detail">
                                                                 <dl>
-                                                                    <dt>순위</dt>
+                                                                    <dt>팀순위</dt>
                                                                     <dd>$$ + $$ + $$ + $$ + $$</dd>
                                                                     <dd>= $$</dd>
                                                                 </dl>
                                                                 <dl>
-                                                                    <dt>킬수</dt>
+                                                                    <dt>킬</dt>
                                                                     <dd>$$ X 1</dd>
                                                                     <dd>= $$</dd>
                                                                 </dl>
@@ -962,13 +1012,18 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                                     <dd>= $$</dd>
                                                                 </dl>
                                                                 <dl>
-                                                                    <dt>팀킬</dt>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
                                                                     <dd>$$ X 1</dd>
                                                                     <dd>= $$</dd>
                                                                 </dl>
                                                             </div>
                                                             <dl class="score-total">
-                                                                <dt>합계</dt>
+                                                                <dt>획득 점수</dt>
                                                                 <dd>= $$</dd>
                                                             </dl>
                                                         </div>
@@ -981,35 +1036,40 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                   <td>4 MAN</td>
                                                   <td class="hover">
                                                       <p>팀순위(0) 킬수(1) 팀킬(0) 자살(0) 부활(0)</p>
-                                                      <div class="tooltip">
-                                                          <p class="title">상세 점수</p>
-                                                          <div class="score-detail">
-                                                              <dl>
-                                                                  <dt>순위</dt>
-                                                                  <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                  <dd>= $$</dd>
-                                                              </dl>
-                                                              <dl>
-                                                                  <dt>킬수</dt>
-                                                                  <dd>$$ X 1</dd>
-                                                                  <dd>= $$</dd>
-                                                              </dl>
-                                                              <dl>
-                                                                  <dt>팀킬</dt>
-                                                                  <dd>$$ X -1</dd>
-                                                                  <dd>= $$</dd>
-                                                              </dl>
-                                                              <dl>
-                                                                  <dt>팀킬</dt>
-                                                                  <dd>$$ X 1</dd>
-                                                                  <dd>= $$</dd>
-                                                              </dl>
-                                                          </div>
-                                                          <dl class="score-total">
-                                                              <dt>합계</dt>
-                                                              <dd>= $$</dd>
-                                                          </dl>
-                                                      </div>
+                                                     <div class="tooltip">
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                   </td>
                                                   <td>1</td>
                                               </tr>
@@ -1019,35 +1079,40 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                   <td>4 MAN</td>
                                                   <td class="hover">
                                                       <p>팀순위(3) 킬수(2) 팀킬(0) 자살(0) 부활(0)</p>
-                                                      <div class="tooltip">
-                                                          <p class="title">상세 점수</p>
-                                                          <div class="score-detail">
-                                                              <dl>
-                                                                  <dt>순위</dt>
-                                                                  <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                  <dd>= $$</dd>
-                                                              </dl>
-                                                              <dl>
-                                                                  <dt>킬수</dt>
-                                                                  <dd>$$ X 1</dd>
-                                                                  <dd>= $$</dd>
-                                                              </dl>
-                                                              <dl>
-                                                                  <dt>팀킬</dt>
-                                                                  <dd>$$ X -1</dd>
-                                                                  <dd>= $$</dd>
-                                                              </dl>
-                                                              <dl>
-                                                                  <dt>팀킬</dt>
-                                                                  <dd>$$ X 1</dd>
-                                                                  <dd>= $$</dd>
-                                                              </dl>
-                                                          </div>
-                                                          <dl class="score-total">
-                                                              <dt>합계</dt>
-                                                              <dd>= $$</dd>
-                                                          </dl>
-                                                      </div>
+                                                     <div class="tooltip">
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                   </td>
                                                   <td>5</td>
                                               </tr>
@@ -1061,12 +1126,12 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                             <p class="title">상세 점수</p>
                                                             <div class="score-detail">
                                                                 <dl>
-                                                                    <dt>순위</dt>
+                                                                    <dt>팀순위</dt>
                                                                     <dd>$$ + $$ + $$ + $$ + $$</dd>
                                                                     <dd>= $$</dd>
                                                                 </dl>
                                                                 <dl>
-                                                                    <dt>킬수</dt>
+                                                                    <dt>킬</dt>
                                                                     <dd>$$ X 1</dd>
                                                                     <dd>= $$</dd>
                                                                 </dl>
@@ -1076,13 +1141,18 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                                     <dd>= $$</dd>
                                                                 </dl>
                                                                 <dl>
-                                                                    <dt>팀킬</dt>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
                                                                     <dd>$$ X 1</dd>
                                                                     <dd>= $$</dd>
                                                                 </dl>
                                                             </div>
                                                             <dl class="score-total">
-                                                                <dt>합계</dt>
+                                                                <dt>획득 점수</dt>
                                                                 <dd>= $$</dd>
                                                             </dl>
                                                         </div>
@@ -1095,35 +1165,40 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                   <td>4 MAN</td>
                                                   <td class="hover">
                                                       <p>팀순위(1) 킬수(2) 팀킬(0) 자살(0) 부활(0)</p>
-                                                      <div class="tooltip">
-                                                          <p class="title">상세 점수</p>
-                                                          <div class="score-detail">
-                                                              <dl>
-                                                                  <dt>순위</dt>
-                                                                  <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                  <dd>= $$</dd>
-                                                              </dl>
-                                                              <dl>
-                                                                  <dt>킬수</dt>
-                                                                  <dd>$$ X 1</dd>
-                                                                  <dd>= $$</dd>
-                                                              </dl>
-                                                              <dl>
-                                                                  <dt>팀킬</dt>
-                                                                  <dd>$$ X -1</dd>
-                                                                  <dd>= $$</dd>
-                                                              </dl>
-                                                              <dl>
-                                                                  <dt>팀킬</dt>
-                                                                  <dd>$$ X 1</dd>
-                                                                  <dd>= $$</dd>
-                                                              </dl>
-                                                          </div>
-                                                          <dl class="score-total">
-                                                              <dt>합계</dt>
-                                                              <dd>= $$</dd>
-                                                          </dl>
-                                                      </div>
+                                                     <div class="tooltip">
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                   </td>
                                                   <td>1</td>
                                               </tr>
@@ -1367,35 +1442,40 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                            <td>FREE</td>
                                                            <td class="hover">
                                                                <p>팀순위(0) 킬수(2) 팀킬(0) 자살(0) 부활(3)</p>
-                                                               <div class="tooltip">
-                                                                   <p class="title">상세 점수</p>
-                                                                   <div class="score-detail">
-                                                                       <dl>
-                                                                           <dt>순위</dt>
-                                                                           <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                           <dd>= $$</dd>
-                                                                       </dl>
-                                                                       <dl>
-                                                                           <dt>킬수</dt>
-                                                                           <dd>$$ X 1</dd>
-                                                                           <dd>= $$</dd>
-                                                                       </dl>
-                                                                       <dl>
-                                                                           <dt>팀킬</dt>
-                                                                           <dd>$$ X -1</dd>
-                                                                           <dd>= $$</dd>
-                                                                       </dl>
-                                                                       <dl>
-                                                                           <dt>팀킬</dt>
-                                                                           <dd>$$ X 1</dd>
-                                                                           <dd>= $$</dd>
-                                                                       </dl>
-                                                                   </div>
-                                                                   <dl class="score-total">
-                                                                       <dt>합계</dt>
-                                                                       <dd>= $$</dd>
-                                                                   </dl>
-                                                               </div>
+                                                              <div class="tooltip">
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                            </td>
                                                            <td>5</td>
                                                        </tr>
@@ -1405,35 +1485,40 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                            <td>FREE</td>
                                                            <td class="hover">
                                                                <p>팀순위(10) 킬수(4) 팀킬(0) 자살(0) 부활(0)</p>
-                                                               <div class="tooltip">
-                                                                   <p class="title">상세 점수</p>
-                                                                   <div class="score-detail">
-                                                                       <dl>
-                                                                           <dt>순위</dt>
-                                                                           <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                           <dd>= $$</dd>
-                                                                       </dl>
-                                                                       <dl>
-                                                                           <dt>킬수</dt>
-                                                                           <dd>$$ X 1</dd>
-                                                                           <dd>= $$</dd>
-                                                                       </dl>
-                                                                       <dl>
-                                                                           <dt>팀킬</dt>
-                                                                           <dd>$$ X -1</dd>
-                                                                           <dd>= $$</dd>
-                                                                       </dl>
-                                                                       <dl>
-                                                                           <dt>팀킬</dt>
-                                                                           <dd>$$ X 1</dd>
-                                                                           <dd>= $$</dd>
-                                                                       </dl>
-                                                                   </div>
-                                                                   <dl class="score-total">
-                                                                       <dt>합계</dt>
-                                                                       <dd>= $$</dd>
-                                                                   </dl>
-                                                               </div>
+                                                              <div class="tooltip">
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                            </td>
                                                            <td>14</td>
                                                        </tr>
@@ -1443,35 +1528,40 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                            <td>FREE</td>
                                                            <td class="hover">
                                                                <p>팀순위(0) 킬수(0) 팀킬(0) 자살(0) 부활(3)</p>
-                                                               <div class="tooltip">
-                                                                   <p class="title">상세 점수</p>
-                                                                   <div class="score-detail">
-                                                                       <dl>
-                                                                           <dt>순위</dt>
-                                                                           <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                           <dd>= $$</dd>
-                                                                       </dl>
-                                                                       <dl>
-                                                                           <dt>킬수</dt>
-                                                                           <dd>$$ X 1</dd>
-                                                                           <dd>= $$</dd>
-                                                                       </dl>
-                                                                       <dl>
-                                                                           <dt>팀킬</dt>
-                                                                           <dd>$$ X -1</dd>
-                                                                           <dd>= $$</dd>
-                                                                       </dl>
-                                                                       <dl>
-                                                                           <dt>팀킬</dt>
-                                                                           <dd>$$ X 1</dd>
-                                                                           <dd>= $$</dd>
-                                                                       </dl>
-                                                                   </div>
-                                                                   <dl class="score-total">
-                                                                       <dt>합계</dt>
-                                                                       <dd>= $$</dd>
-                                                                   </dl>
-                                                               </div>
+                                                              <div class="tooltip">
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                            </td>
                                                            <td>3</td>
                                                        </tr>
@@ -1481,35 +1571,40 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                            <td>FREE</td>
                                                            <td class="hover">
                                                                <p>팀순위(10) 킬수(6) 팀킬(0) 자살(0) 부활(3)</p>
-                                                               <div class="tooltip">
-                                                                   <p class="title">상세 점수</p>
-                                                                   <div class="score-detail">
-                                                                       <dl>
-                                                                           <dt>순위</dt>
-                                                                           <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                           <dd>= $$</dd>
-                                                                       </dl>
-                                                                       <dl>
-                                                                           <dt>킬수</dt>
-                                                                           <dd>$$ X 1</dd>
-                                                                           <dd>= $$</dd>
-                                                                       </dl>
-                                                                       <dl>
-                                                                           <dt>팀킬</dt>
-                                                                           <dd>$$ X -1</dd>
-                                                                           <dd>= $$</dd>
-                                                                       </dl>
-                                                                       <dl>
-                                                                           <dt>팀킬</dt>
-                                                                           <dd>$$ X 1</dd>
-                                                                           <dd>= $$</dd>
-                                                                       </dl>
-                                                                   </div>
-                                                                   <dl class="score-total">
-                                                                       <dt>합계</dt>
-                                                                       <dd>= $$</dd>
-                                                                   </dl>
-                                                               </div>
+                                                              <div class="tooltip">
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                            </td>
                                                            <td>19</td>
                                                        </tr>
@@ -1520,34 +1615,39 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                          <td class="hover">
                                                              <p>팀순위(0) 킬수(10) 팀킬(0) 자살(0) 부활(0)</p>
                                                              <div class="tooltip">
-                                                                 <p class="title">상세 점수</p>
-                                                                 <div class="score-detail">
-                                                                     <dl>
-                                                                         <dt>순위</dt>
-                                                                         <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                         <dd>= $$</dd>
-                                                                     </dl>
-                                                                     <dl>
-                                                                         <dt>킬수</dt>
-                                                                         <dd>$$ X 1</dd>
-                                                                         <dd>= $$</dd>
-                                                                     </dl>
-                                                                     <dl>
-                                                                         <dt>팀킬</dt>
-                                                                         <dd>$$ X -1</dd>
-                                                                         <dd>= $$</dd>
-                                                                     </dl>
-                                                                     <dl>
-                                                                         <dt>팀킬</dt>
-                                                                         <dd>$$ X 1</dd>
-                                                                         <dd>= $$</dd>
-                                                                     </dl>
-                                                                 </div>
-                                                                 <dl class="score-total">
-                                                                     <dt>합계</dt>
-                                                                     <dd>= $$</dd>
-                                                                 </dl>
-                                                             </div>
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                          </td>
                                                          <td>10</td>
                                                      </tr>
@@ -1558,34 +1658,39 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                          <td class="hover">
                                                              <p>팀순위(1) 킬수(1) 팀킬(0) 자살(0) 부활(0)</p>
                                                              <div class="tooltip">
-                                                                 <p class="title">상세 점수</p>
-                                                                 <div class="score-detail">
-                                                                     <dl>
-                                                                         <dt>순위</dt>
-                                                                         <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                         <dd>= $$</dd>
-                                                                     </dl>
-                                                                     <dl>
-                                                                         <dt>킬수</dt>
-                                                                         <dd>$$ X 1</dd>
-                                                                         <dd>= $$</dd>
-                                                                     </dl>
-                                                                     <dl>
-                                                                         <dt>팀킬</dt>
-                                                                         <dd>$$ X -1</dd>
-                                                                         <dd>= $$</dd>
-                                                                     </dl>
-                                                                     <dl>
-                                                                         <dt>팀킬</dt>
-                                                                         <dd>$$ X 1</dd>
-                                                                         <dd>= $$</dd>
-                                                                     </dl>
-                                                                 </div>
-                                                                 <dl class="score-total">
-                                                                     <dt>합계</dt>
-                                                                     <dd>= $$</dd>
-                                                                 </dl>
-                                                             </div>
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                          </td>
                                                          <td>2</td>
                                                      </tr>
@@ -1595,35 +1700,40 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                            <td>FREE</td>
                                                            <td class="hover">
                                                                <p>팀순위(1) 킬수(1) 팀킬(0) 자살(0) 부활(4)</p>
-                                                               <div class="tooltip">
-                                                                   <p class="title">상세 점수</p>
-                                                                   <div class="score-detail">
-                                                                       <dl>
-                                                                           <dt>순위</dt>
-                                                                           <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                           <dd>= $$</dd>
-                                                                       </dl>
-                                                                       <dl>
-                                                                           <dt>킬수</dt>
-                                                                           <dd>$$ X 1</dd>
-                                                                           <dd>= $$</dd>
-                                                                       </dl>
-                                                                       <dl>
-                                                                           <dt>팀킬</dt>
-                                                                           <dd>$$ X -1</dd>
-                                                                           <dd>= $$</dd>
-                                                                       </dl>
-                                                                       <dl>
-                                                                           <dt>팀킬</dt>
-                                                                           <dd>$$ X 1</dd>
-                                                                           <dd>= $$</dd>
-                                                                       </dl>
-                                                                   </div>
-                                                                   <dl class="score-total">
-                                                                       <dt>합계</dt>
-                                                                       <dd>= $$</dd>
-                                                                   </dl>
-                                                               </div>
+                                                              <div class="tooltip">
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                            </td>
                                                            <td>7</td>
                                                        </tr>
@@ -1634,34 +1744,39 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                          <td class="hover">
                                                              <p>팀순위(1) 킬수(0) 팀킬(0) 자살(0) 부활(0)</p>
                                                              <div class="tooltip">
-                                                                 <p class="title">상세 점수</p>
-                                                                 <div class="score-detail">
-                                                                     <dl>
-                                                                         <dt>순위</dt>
-                                                                         <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                         <dd>= $$</dd>
-                                                                     </dl>
-                                                                     <dl>
-                                                                         <dt>킬수</dt>
-                                                                         <dd>$$ X 1</dd>
-                                                                         <dd>= $$</dd>
-                                                                     </dl>
-                                                                     <dl>
-                                                                         <dt>팀킬</dt>
-                                                                         <dd>$$ X -1</dd>
-                                                                         <dd>= $$</dd>
-                                                                     </dl>
-                                                                     <dl>
-                                                                         <dt>팀킬</dt>
-                                                                         <dd>$$ X 1</dd>
-                                                                         <dd>= $$</dd>
-                                                                     </dl>
-                                                                 </div>
-                                                                 <dl class="score-total">
-                                                                     <dt>합계</dt>
-                                                                     <dd>= $$</dd>
-                                                                 </dl>
-                                                             </div>
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                          </td>
                                                          <td>1</td>
                                                      </tr>
@@ -1893,35 +2008,40 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                             <td>에어드랍</td>
                                                             <td class="hover">
                                                                 <p>팀순위(0) 킬수(2) 팀킬(0) 자살(0) 부활(0)</p>
-                                                                <div class="tooltip">
-                                                                    <p class="title">상세 점수</p>
-                                                                    <div class="score-detail">
-                                                                        <dl>
-                                                                            <dt>순위</dt>
-                                                                            <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                            <dd>= $$</dd>
-                                                                        </dl>
-                                                                        <dl>
-                                                                            <dt>킬수</dt>
-                                                                            <dd>$$ X 1</dd>
-                                                                            <dd>= $$</dd>
-                                                                        </dl>
-                                                                        <dl>
-                                                                            <dt>팀킬</dt>
-                                                                            <dd>$$ X -1</dd>
-                                                                            <dd>= $$</dd>
-                                                                        </dl>
-                                                                        <dl>
-                                                                            <dt>팀킬</dt>
-                                                                            <dd>$$ X 1</dd>
-                                                                            <dd>= $$</dd>
-                                                                        </dl>
-                                                                    </div>
-                                                                    <dl class="score-total">
-                                                                        <dt>합계</dt>
-                                                                        <dd>= $$</dd>
-                                                                    </dl>
-                                                                </div>
+                                                               <div class="tooltip">
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                             </td>
                                                             <td>2</td>
                                                         </tr>
@@ -1932,34 +2052,39 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                               <td class="hover">
                                                                   <p>팀순위(1) 킬수(1) 팀킬(0) 자살(0) 부활(0)</p>
                                                                   <div class="tooltip">
-                                                                      <p class="title">상세 점수</p>
-                                                                      <div class="score-detail">
-                                                                          <dl>
-                                                                              <dt>순위</dt>
-                                                                              <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                              <dd>= $$</dd>
-                                                                          </dl>
-                                                                          <dl>
-                                                                              <dt>킬수</dt>
-                                                                              <dd>$$ X 1</dd>
-                                                                              <dd>= $$</dd>
-                                                                          </dl>
-                                                                          <dl>
-                                                                              <dt>팀킬</dt>
-                                                                              <dd>$$ X -1</dd>
-                                                                              <dd>= $$</dd>
-                                                                          </dl>
-                                                                          <dl>
-                                                                              <dt>팀킬</dt>
-                                                                              <dd>$$ X 1</dd>
-                                                                              <dd>= $$</dd>
-                                                                          </dl>
-                                                                      </div>
-                                                                      <dl class="score-total">
-                                                                          <dt>합계</dt>
-                                                                          <dd>= $$</dd>
-                                                                      </dl>
-                                                                  </div>
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                               </td>
                                                               <td>2</td>
                                                           </tr>
@@ -1970,34 +2095,39 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                               <td class="hover">
                                                                   <p>팀순위(0) 킬수(0) 팀킬(0) 자살(0) 부활(0)</p>
                                                                   <div class="tooltip">
-                                                                      <p class="title">상세 점수</p>
-                                                                      <div class="score-detail">
-                                                                          <dl>
-                                                                              <dt>순위</dt>
-                                                                              <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                              <dd>= $$</dd>
-                                                                          </dl>
-                                                                          <dl>
-                                                                              <dt>킬수</dt>
-                                                                              <dd>$$ X 1</dd>
-                                                                              <dd>= $$</dd>
-                                                                          </dl>
-                                                                          <dl>
-                                                                              <dt>팀킬</dt>
-                                                                              <dd>$$ X -1</dd>
-                                                                              <dd>= $$</dd>
-                                                                          </dl>
-                                                                          <dl>
-                                                                              <dt>팀킬</dt>
-                                                                              <dd>$$ X 1</dd>
-                                                                              <dd>= $$</dd>
-                                                                          </dl>
-                                                                      </div>
-                                                                      <dl class="score-total">
-                                                                          <dt>합계</dt>
-                                                                          <dd>= $$</dd>
-                                                                      </dl>
-                                                                  </div>
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                               </td>
                                                               <td>0</td>
                                                           </tr>
@@ -2007,35 +2137,40 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                                 <td>에어드랍</td>
                                                                 <td class="hover">
                                                                     <p>팀순위(0) 킬수(0) 팀킬(0) 자살(0) 부활(0)</p>
-                                                                    <div class="tooltip">
-                                                                        <p class="title">상세 점수</p>
-                                                                        <div class="score-detail">
-                                                                            <dl>
-                                                                                <dt>순위</dt>
-                                                                                <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                                <dd>= $$</dd>
-                                                                            </dl>
-                                                                            <dl>
-                                                                                <dt>킬수</dt>
-                                                                                <dd>$$ X 1</dd>
-                                                                                <dd>= $$</dd>
-                                                                            </dl>
-                                                                            <dl>
-                                                                                <dt>팀킬</dt>
-                                                                                <dd>$$ X -1</dd>
-                                                                                <dd>= $$</dd>
-                                                                            </dl>
-                                                                            <dl>
-                                                                                <dt>팀킬</dt>
-                                                                                <dd>$$ X 1</dd>
-                                                                                <dd>= $$</dd>
-                                                                            </dl>
-                                                                        </div>
-                                                                        <dl class="score-total">
-                                                                            <dt>합계</dt>
-                                                                            <dd>= $$</dd>
-                                                                        </dl>
-                                                                    </div>
+                                                                   <div class="tooltip">
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                                 </td>
                                                                 <td>0</td>
                                                             </tr>
@@ -2045,35 +2180,40 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                                 <td>에어드랍</td>
                                                                 <td class="hover">
                                                                     <p>팀순위(1) 킬수(0) 팀킬(0) 자살(0) 부활(0)</p>
-                                                                    <div class="tooltip">
-                                                                        <p class="title">상세 점수</p>
-                                                                        <div class="score-detail">
-                                                                            <dl>
-                                                                                <dt>순위</dt>
-                                                                                <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                                <dd>= $$</dd>
-                                                                            </dl>
-                                                                            <dl>
-                                                                                <dt>킬수</dt>
-                                                                                <dd>$$ X 1</dd>
-                                                                                <dd>= $$</dd>
-                                                                            </dl>
-                                                                            <dl>
-                                                                                <dt>팀킬</dt>
-                                                                                <dd>$$ X -1</dd>
-                                                                                <dd>= $$</dd>
-                                                                            </dl>
-                                                                            <dl>
-                                                                                <dt>팀킬</dt>
-                                                                                <dd>$$ X 1</dd>
-                                                                                <dd>= $$</dd>
-                                                                            </dl>
-                                                                        </div>
-                                                                        <dl class="score-total">
-                                                                            <dt>합계</dt>
-                                                                            <dd>= $$</dd>
-                                                                        </dl>
-                                                                    </div>
+                                                                   <div class="tooltip">
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                                 </td>
                                                                 <td>1</td>
                                                             </tr>
@@ -2083,35 +2223,40 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                                 <td>에어드랍</td>
                                                                 <td class="hover">
                                                                     <p>팀순위(0) 킬수(1) 팀킬(0) 자살(0) 부활(0)</p>
-                                                                    <div class="tooltip">
-                                                                        <p class="title">상세 점수</p>
-                                                                        <div class="score-detail">
-                                                                            <dl>
-                                                                                <dt>순위</dt>
-                                                                                <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                                <dd>= $$</dd>
-                                                                            </dl>
-                                                                            <dl>
-                                                                                <dt>킬수</dt>
-                                                                                <dd>$$ X 1</dd>
-                                                                                <dd>= $$</dd>
-                                                                            </dl>
-                                                                            <dl>
-                                                                                <dt>팀킬</dt>
-                                                                                <dd>$$ X -1</dd>
-                                                                                <dd>= $$</dd>
-                                                                            </dl>
-                                                                            <dl>
-                                                                                <dt>팀킬</dt>
-                                                                                <dd>$$ X 1</dd>
-                                                                                <dd>= $$</dd>
-                                                                            </dl>
-                                                                        </div>
-                                                                        <dl class="score-total">
-                                                                            <dt>합계</dt>
-                                                                            <dd>= $$</dd>
-                                                                        </dl>
-                                                                    </div>
+                                                                   <div class="tooltip">
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                                 </td>
                                                                 <td>1</td>
                                                             </tr>
@@ -2121,35 +2266,40 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                                 <td>에어드랍</td>
                                                                 <td class="hover">
                                                                     <p>팀순위(1) 킬수(1) 팀킬(0) 자살(0) 부활(3)</p>
-                                                                    <div class="tooltip">
-                                                                        <p class="title">상세 점수</p>
-                                                                        <div class="score-detail">
-                                                                            <dl>
-                                                                                <dt>순위</dt>
-                                                                                <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                                <dd>= $$</dd>
-                                                                            </dl>
-                                                                            <dl>
-                                                                                <dt>킬수</dt>
-                                                                                <dd>$$ X 1</dd>
-                                                                                <dd>= $$</dd>
-                                                                            </dl>
-                                                                            <dl>
-                                                                                <dt>팀킬</dt>
-                                                                                <dd>$$ X -1</dd>
-                                                                                <dd>= $$</dd>
-                                                                            </dl>
-                                                                            <dl>
-                                                                                <dt>팀킬</dt>
-                                                                                <dd>$$ X 1</dd>
-                                                                                <dd>= $$</dd>
-                                                                            </dl>
-                                                                        </div>
-                                                                        <dl class="score-total">
-                                                                            <dt>합계</dt>
-                                                                            <dd>= $$</dd>
-                                                                        </dl>
-                                                                    </div>
+                                                                   <div class="tooltip">
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                                 </td>
                                                                 <td>5</td>
                                                             </tr>
@@ -2159,35 +2309,40 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                                 <td>에어드랍</td>
                                                                 <td class="hover">
                                                                     <p>팀순위(0) 킬수(0) 팀킬(0) 자살(0) 부활(0)</p>
-                                                                    <div class="tooltip">
-                                                                        <p class="title">상세 점수</p>
-                                                                        <div class="score-detail">
-                                                                            <dl>
-                                                                                <dt>순위</dt>
-                                                                                <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                                <dd>= $$</dd>
-                                                                            </dl>
-                                                                            <dl>
-                                                                                <dt>킬수</dt>
-                                                                                <dd>$$ X 1</dd>
-                                                                                <dd>= $$</dd>
-                                                                            </dl>
-                                                                            <dl>
-                                                                                <dt>팀킬</dt>
-                                                                                <dd>$$ X -1</dd>
-                                                                                <dd>= $$</dd>
-                                                                            </dl>
-                                                                            <dl>
-                                                                                <dt>팀킬</dt>
-                                                                                <dd>$$ X 1</dd>
-                                                                                <dd>= $$</dd>
-                                                                            </dl>
-                                                                        </div>
-                                                                        <dl class="score-total">
-                                                                            <dt>합계</dt>
-                                                                            <dd>= $$</dd>
-                                                                        </dl>
-                                                                    </div>
+                                                                   <div class="tooltip">
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                                 </td>
                                                                 <td>0</td>
                                                             </tr>
@@ -2314,34 +2469,39 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                              <td class="hover">
                                                                  <p>팀순위(0) 킬수(0) 팀킬(0) 자살(0) 부활(0)</p>
                                                                  <div class="tooltip">
-                                                                     <p class="title">상세 점수</p>
-                                                                     <div class="score-detail">
-                                                                         <dl>
-                                                                             <dt>순위</dt>
-                                                                             <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                             <dd>= $$</dd>
-                                                                         </dl>
-                                                                         <dl>
-                                                                             <dt>킬수</dt>
-                                                                             <dd>$$ X 1</dd>
-                                                                             <dd>= $$</dd>
-                                                                         </dl>
-                                                                         <dl>
-                                                                             <dt>팀킬</dt>
-                                                                             <dd>$$ X -1</dd>
-                                                                             <dd>= $$</dd>
-                                                                         </dl>
-                                                                         <dl>
-                                                                             <dt>팀킬</dt>
-                                                                             <dd>$$ X 1</dd>
-                                                                             <dd>= $$</dd>
-                                                                         </dl>
-                                                                     </div>
-                                                                     <dl class="score-total">
-                                                                         <dt>합계</dt>
-                                                                         <dd>= $$</dd>
-                                                                     </dl>
-                                                                 </div>
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                              </td>
                                                              <td>0</td>
                                                          </tr>
@@ -2352,34 +2512,39 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                              <td class="hover">
                                                                 <p>팀순위(0) 킬수(0) 팀킬(0) 자살(0) 부활(0)</p>
                                                                  <div class="tooltip">
-                                                                     <p class="title">상세 점수</p>
-                                                                     <div class="score-detail">
-                                                                         <dl>
-                                                                             <dt>순위</dt>
-                                                                             <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                             <dd>= $$</dd>
-                                                                         </dl>
-                                                                         <dl>
-                                                                             <dt>킬수</dt>
-                                                                             <dd>$$ X 1</dd>
-                                                                             <dd>= $$</dd>
-                                                                         </dl>
-                                                                         <dl>
-                                                                             <dt>팀킬</dt>
-                                                                             <dd>$$ X -1</dd>
-                                                                             <dd>= $$</dd>
-                                                                         </dl>
-                                                                         <dl>
-                                                                             <dt>팀킬</dt>
-                                                                             <dd>$$ X 1</dd>
-                                                                             <dd>= $$</dd>
-                                                                         </dl>
-                                                                     </div>
-                                                                     <dl class="score-total">
-                                                                         <dt>합계</dt>
-                                                                         <dd>= $$</dd>
-                                                                     </dl>
-                                                                 </div>
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                              </td>
                                                              <td>0</td>
                                                          </tr>
@@ -2389,35 +2554,40 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                            <td>SNOW STORM</td>
                                                            <td class="hover">
                                                                <p>팀순위(0) 킬수(0) 팀킬(0) 자살(0) 부활(0)</p>
-                                                               <div class="tooltip">
-                                                                   <p class="title">상세 점수</p>
-                                                                   <div class="score-detail">
-                                                                       <dl>
-                                                                           <dt>순위</dt>
-                                                                           <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                           <dd>= $$</dd>
-                                                                       </dl>
-                                                                       <dl>
-                                                                           <dt>킬수</dt>
-                                                                           <dd>$$ X 1</dd>
-                                                                           <dd>= $$</dd>
-                                                                       </dl>
-                                                                       <dl>
-                                                                           <dt>팀킬</dt>
-                                                                           <dd>$$ X -1</dd>
-                                                                           <dd>= $$</dd>
-                                                                       </dl>
-                                                                       <dl>
-                                                                           <dt>팀킬</dt>
-                                                                           <dd>$$ X 1</dd>
-                                                                           <dd>= $$</dd>
-                                                                       </dl>
-                                                                   </div>
-                                                                   <dl class="score-total">
-                                                                       <dt>합계</dt>
-                                                                       <dd>= $$</dd>
-                                                                   </dl>
-                                                               </div>
+                                                              <div class="tooltip">
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                            </td>
                                                            <td>0</td>
                                                        </tr>
@@ -2427,35 +2597,40 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                                 <td>SNOW STORM</td>
                                                                  <td class="hover">
                                                                      <p>팀순위(0) 킬수(0) 팀킬(0) 자살(0) 부활(0)</p>
-                                                                     <div class="tooltip">
-                                                                         <p class="title">상세 점수</p>
-                                                                         <div class="score-detail">
-                                                                             <dl>
-                                                                                 <dt>순위</dt>
-                                                                                 <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                                 <dd>= $$</dd>
-                                                                             </dl>
-                                                                             <dl>
-                                                                                 <dt>킬수</dt>
-                                                                                 <dd>$$ X 1</dd>
-                                                                                 <dd>= $$</dd>
-                                                                             </dl>
-                                                                             <dl>
-                                                                                 <dt>팀킬</dt>
-                                                                                 <dd>$$ X -1</dd>
-                                                                                 <dd>= $$</dd>
-                                                                             </dl>
-                                                                             <dl>
-                                                                                 <dt>팀킬</dt>
-                                                                                 <dd>$$ X 1</dd>
-                                                                                 <dd>= $$</dd>
-                                                                             </dl>
-                                                                         </div>
-                                                                         <dl class="score-total">
-                                                                             <dt>합계</dt>
-                                                                             <dd>= $$</dd>
-                                                                         </dl>
-                                                                     </div>
+                                                                             <div class="tooltip">
+                                                                    <p class="title">상세 점수</p>
+                                                                    <div class="score-detail">
+                                                                        <dl>
+                                                                            <dt>팀순위</dt>
+                                                                            <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                            <dd>= $$</dd>
+                                                                        </dl>
+                                                                        <dl>
+                                                                            <dt>킬</dt>
+                                                                            <dd>$$ X 1</dd>
+                                                                            <dd>= $$</dd>
+                                                                        </dl>
+                                                                        <dl>
+                                                                            <dt>팀킬</dt>
+                                                                            <dd>$$ X -1</dd>
+                                                                            <dd>= $$</dd>
+                                                                        </dl>
+                                                                        <dl>
+                                                                            <dt>자살</dt>
+                                                                            <dd>$$ X -1</dd>
+                                                                            <dd>= $$</dd>
+                                                                        </dl>
+                                                                         <dl>
+                                                                            <dt>부활</dt>
+                                                                            <dd>$$ X 1</dd>
+                                                                            <dd>= $$</dd>
+                                                                        </dl>
+                                                                    </div>
+                                                                    <dl class="score-total">
+                                                                        <dt>획득 점수</dt>
+                                                                        <dd>= $$</dd>
+                                                                    </dl>
+                                                                </div>
                                                                  </td>
                                                                  <td>0</td>
                                                              </tr>
@@ -2466,34 +2641,39 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                                  <td class="hover">
                                                                     <p>팀순위(0) 킬수(0) 팀킬(0) 자살(0) 부활(0)</p>
                                                                      <div class="tooltip">
-                                                                         <p class="title">상세 점수</p>
-                                                                         <div class="score-detail">
-                                                                             <dl>
-                                                                                 <dt>순위</dt>
-                                                                                 <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                                 <dd>= $$</dd>
-                                                                             </dl>
-                                                                             <dl>
-                                                                                 <dt>킬수</dt>
-                                                                                 <dd>$$ X 1</dd>
-                                                                                 <dd>= $$</dd>
-                                                                             </dl>
-                                                                             <dl>
-                                                                                 <dt>팀킬</dt>
-                                                                                 <dd>$$ X -1</dd>
-                                                                                 <dd>= $$</dd>
-                                                                             </dl>
-                                                                             <dl>
-                                                                                 <dt>팀킬</dt>
-                                                                                 <dd>$$ X 1</dd>
-                                                                                 <dd>= $$</dd>
-                                                                             </dl>
-                                                                         </div>
-                                                                         <dl class="score-total">
-                                                                             <dt>합계</dt>
-                                                                             <dd>= $$</dd>
-                                                                         </dl>
-                                                                     </div>
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                                  </td>
                                                                  <td>0</td>
                                                              </tr>
@@ -2504,34 +2684,39 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                                  <td class="hover">
                                                                     <p>팀순위(0) 킬수(0) 팀킬(0) 자살(0) 부활(0)</p>
                                                                      <div class="tooltip">
-                                                                         <p class="title">상세 점수</p>
-                                                                         <div class="score-detail">
-                                                                             <dl>
-                                                                                 <dt>순위</dt>
-                                                                                 <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                                 <dd>= $$</dd>
-                                                                             </dl>
-                                                                             <dl>
-                                                                                 <dt>킬수</dt>
-                                                                                 <dd>$$ X 1</dd>
-                                                                                 <dd>= $$</dd>
-                                                                             </dl>
-                                                                             <dl>
-                                                                                 <dt>팀킬</dt>
-                                                                                 <dd>$$ X -1</dd>
-                                                                                 <dd>= $$</dd>
-                                                                             </dl>
-                                                                             <dl>
-                                                                                 <dt>팀킬</dt>
-                                                                                 <dd>$$ X 1</dd>
-                                                                                 <dd>= $$</dd>
-                                                                             </dl>
-                                                                         </div>
-                                                                         <dl class="score-total">
-                                                                             <dt>합계</dt>
-                                                                             <dd>= $$</dd>
-                                                                         </dl>
-                                                                     </div>
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                                  </td>
                                                                  <td>0</td>
                                                              </tr>
@@ -2542,34 +2727,39 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                                  <td class="hover">
                                                                      <p>팀순위(0) 킬수(0) 팀킬(0) 자살(0) 부활(0)</p>
                                                                      <div class="tooltip">
-                                                                         <p class="title">상세 점수</p>
-                                                                         <div class="score-detail">
-                                                                             <dl>
-                                                                                 <dt>순위</dt>
-                                                                                 <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                                 <dd>= $$</dd>
-                                                                             </dl>
-                                                                             <dl>
-                                                                                 <dt>킬수</dt>
-                                                                                 <dd>$$ X 1</dd>
-                                                                                 <dd>= $$</dd>
-                                                                             </dl>
-                                                                             <dl>
-                                                                                 <dt>팀킬</dt>
-                                                                                 <dd>$$ X -1</dd>
-                                                                                 <dd>= $$</dd>
-                                                                             </dl>
-                                                                             <dl>
-                                                                                 <dt>팀킬</dt>
-                                                                                 <dd>$$ X 1</dd>
-                                                                                 <dd>= $$</dd>
-                                                                             </dl>
-                                                                         </div>
-                                                                         <dl class="score-total">
-                                                                             <dt>합계</dt>
-                                                                             <dd>= $$</dd>
-                                                                         </dl>
-                                                                     </div>
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                                  </td>
                                                                  <td>0</td>
                                                              </tr>
@@ -2580,34 +2770,39 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                                  <td class="hover">
                                                                      <p>팀순위(0) 킬수(0) 팀킬(0) 자살(0) 부활(0)</p>
                                                                      <div class="tooltip">
-                                                                         <p class="title">상세 점수</p>
-                                                                         <div class="score-detail">
-                                                                             <dl>
-                                                                                 <dt>순위</dt>
-                                                                                 <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                                 <dd>= $$</dd>
-                                                                             </dl>
-                                                                             <dl>
-                                                                                 <dt>킬수</dt>
-                                                                                 <dd>$$ X 1</dd>
-                                                                                 <dd>= $$</dd>
-                                                                             </dl>
-                                                                             <dl>
-                                                                                 <dt>팀킬</dt>
-                                                                                 <dd>$$ X -1</dd>
-                                                                                 <dd>= $$</dd>
-                                                                             </dl>
-                                                                             <dl>
-                                                                                 <dt>팀킬</dt>
-                                                                                 <dd>$$ X 1</dd>
-                                                                                 <dd>= $$</dd>
-                                                                             </dl>
-                                                                         </div>
-                                                                         <dl class="score-total">
-                                                                             <dt>합계</dt>
-                                                                             <dd>= $$</dd>
-                                                                         </dl>
-                                                                     </div>
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                                  </td>
                                                                  <td>0</td>
                                                              </tr>
@@ -2702,34 +2897,39 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                                   <td class="hover">
                                                                       <p>팀순위(0) 킬수(0) 팀킬(0) 자살(0) 부활(0)</p>
                                                                       <div class="tooltip">
-                                                                          <p class="title">상세 점수</p>
-                                                                          <div class="score-detail">
-                                                                              <dl>
-                                                                                  <dt>순위</dt>
-                                                                                  <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                                  <dd>= $$</dd>
-                                                                              </dl>
-                                                                              <dl>
-                                                                                  <dt>킬수</dt>
-                                                                                  <dd>$$ X 1</dd>
-                                                                                  <dd>= $$</dd>
-                                                                              </dl>
-                                                                              <dl>
-                                                                                  <dt>팀킬</dt>
-                                                                                  <dd>$$ X -1</dd>
-                                                                                  <dd>= $$</dd>
-                                                                              </dl>
-                                                                              <dl>
-                                                                                  <dt>팀킬</dt>
-                                                                                  <dd>$$ X 1</dd>
-                                                                                  <dd>= $$</dd>
-                                                                              </dl>
-                                                                          </div>
-                                                                          <dl class="score-total">
-                                                                              <dt>합계</dt>
-                                                                              <dd>= $$</dd>
-                                                                          </dl>
-                                                                      </div>
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                                   </td>
                                                                   <td>0</td>
                                                               </tr>
@@ -2740,34 +2940,39 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                                     <td class="hover">
                                                                         <p>팀순위(0) 킬수(0) 팀킬(0) 자살(0) 부활(0)</p>
                                                                         <div class="tooltip">
-                                                                            <p class="title">상세 점수</p>
-                                                                            <div class="score-detail">
-                                                                                <dl>
-                                                                                    <dt>순위</dt>
-                                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                                    <dd>= $$</dd>
-                                                                                </dl>
-                                                                                <dl>
-                                                                                    <dt>킬수</dt>
-                                                                                    <dd>$$ X 1</dd>
-                                                                                    <dd>= $$</dd>
-                                                                                </dl>
-                                                                                <dl>
-                                                                                    <dt>팀킬</dt>
-                                                                                    <dd>$$ X -1</dd>
-                                                                                    <dd>= $$</dd>
-                                                                                </dl>
-                                                                                <dl>
-                                                                                    <dt>팀킬</dt>
-                                                                                    <dd>$$ X 1</dd>
-                                                                                    <dd>= $$</dd>
-                                                                                </dl>
-                                                                            </div>
-                                                                            <dl class="score-total">
-                                                                                <dt>합계</dt>
-                                                                                <dd>= $$</dd>
-                                                                            </dl>
-                                                                        </div>
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                                     </td>
                                                                     <td>0</td>
                                                                 </tr>
@@ -2778,34 +2983,39 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                                     <td class="hover">
                                                                         <p>팀순위(0) 킬수(0) 팀킬(0) 자살(0) 부활(0)</p>
                                                                         <div class="tooltip">
-                                                                            <p class="title">상세 점수</p>
-                                                                            <div class="score-detail">
-                                                                                <dl>
-                                                                                    <dt>순위</dt>
-                                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                                    <dd>= $$</dd>
-                                                                                </dl>
-                                                                                <dl>
-                                                                                    <dt>킬수</dt>
-                                                                                    <dd>$$ X 1</dd>
-                                                                                    <dd>= $$</dd>
-                                                                                </dl>
-                                                                                <dl>
-                                                                                    <dt>팀킬</dt>
-                                                                                    <dd>$$ X -1</dd>
-                                                                                    <dd>= $$</dd>
-                                                                                </dl>
-                                                                                <dl>
-                                                                                    <dt>팀킬</dt>
-                                                                                    <dd>$$ X 1</dd>
-                                                                                    <dd>= $$</dd>
-                                                                                </dl>
-                                                                            </div>
-                                                                            <dl class="score-total">
-                                                                                <dt>합계</dt>
-                                                                                <dd>= $$</dd>
-                                                                            </dl>
-                                                                        </div>
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                                     </td>
                                                                     <td>0</td>
                                                                 </tr>
@@ -2815,35 +3025,40 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                                       <td>돌격</td>
                                                                       <td class="hover">
                                                                           <p>팀순위(0) 킬수(0) 팀킬(0) 자살(0) 부활(0)</p>
-                                                                          <div class="tooltip">
-                                                                              <p class="title">상세 점수</p>
-                                                                              <div class="score-detail">
-                                                                                  <dl>
-                                                                                      <dt>순위</dt>
-                                                                                      <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                                      <dd>= $$</dd>
-                                                                                  </dl>
-                                                                                  <dl>
-                                                                                      <dt>킬수</dt>
-                                                                                      <dd>$$ X 1</dd>
-                                                                                      <dd>= $$</dd>
-                                                                                  </dl>
-                                                                                  <dl>
-                                                                                      <dt>팀킬</dt>
-                                                                                      <dd>$$ X -1</dd>
-                                                                                      <dd>= $$</dd>
-                                                                                  </dl>
-                                                                                  <dl>
-                                                                                      <dt>팀킬</dt>
-                                                                                      <dd>$$ X 1</dd>
-                                                                                      <dd>= $$</dd>
-                                                                                  </dl>
-                                                                              </div>
-                                                                              <dl class="score-total">
-                                                                                  <dt>합계</dt>
-                                                                                  <dd>= $$</dd>
-                                                                              </dl>
-                                                                          </div>
+                                                                           <div class="tooltip">
+                                                              <p class="title">상세 점수</p>
+                                                              <div class="score-detail">
+                                                                  <dl>
+                                                                      <dt>팀순위</dt>
+                                                                      <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                      <dd>= $$</dd>
+                                                                  </dl>
+                                                                  <dl>
+                                                                      <dt>킬</dt>
+                                                                      <dd>$$ X 1</dd>
+                                                                      <dd>= $$</dd>
+                                                                  </dl>
+                                                                  <dl>
+                                                                      <dt>팀킬</dt>
+                                                                      <dd>$$ X -1</dd>
+                                                                      <dd>= $$</dd>
+                                                                  </dl>
+                                                                  <dl>
+                                                                      <dt>자살</dt>
+                                                                      <dd>$$ X -1</dd>
+                                                                      <dd>= $$</dd>
+                                                                  </dl>
+                                                                   <dl>
+                                                                      <dt>부활</dt>
+                                                                      <dd>$$ X 1</dd>
+                                                                      <dd>= $$</dd>
+                                                                  </dl>
+                                                              </div>
+                                                              <dl class="score-total">
+                                                                  <dt>획득 점수</dt>
+                                                                  <dd>= $$</dd>
+                                                              </dl>
+                                                          </div>
                                                                       </td>
                                                                       <td>0</td>
                                                                   </tr>
@@ -2853,35 +3068,40 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                                       <td>돌격</td>
                                                                       <td class="hover">
                                                                           <p>팀순위(0) 킬수(0) 팀킬(0) 자살(0) 부활(0)</p>
-                                                                          <div class="tooltip">
-                                                                              <p class="title">상세 점수</p>
-                                                                              <div class="score-detail">
-                                                                                  <dl>
-                                                                                      <dt>순위</dt>
-                                                                                      <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                                      <dd>= $$</dd>
-                                                                                  </dl>
-                                                                                  <dl>
-                                                                                      <dt>킬수</dt>
-                                                                                      <dd>$$ X 1</dd>
-                                                                                      <dd>= $$</dd>
-                                                                                  </dl>
-                                                                                  <dl>
-                                                                                      <dt>팀킬</dt>
-                                                                                      <dd>$$ X -1</dd>
-                                                                                      <dd>= $$</dd>
-                                                                                  </dl>
-                                                                                  <dl>
-                                                                                      <dt>팀킬</dt>
-                                                                                      <dd>$$ X 1</dd>
-                                                                                      <dd>= $$</dd>
-                                                                                  </dl>
-                                                                              </div>
-                                                                              <dl class="score-total">
-                                                                                  <dt>합계</dt>
-                                                                                  <dd>= $$</dd>
-                                                                              </dl>
-                                                                          </div>
+                                                                         <div class="tooltip">
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                                       </td>
                                                                       <td>0</td>
                                                                   </tr>
@@ -2891,35 +3111,40 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                                       <td>돌격</td>
                                                                       <td class="hover">
                                                                           <p>팀순위(0) 킬수(0) 팀킬(0) 자살(0) 부활(0)</p>
-                                                                          <div class="tooltip">
-                                                                              <p class="title">상세 점수</p>
-                                                                              <div class="score-detail">
-                                                                                  <dl>
-                                                                                      <dt>순위</dt>
-                                                                                      <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                                      <dd>= $$</dd>
-                                                                                  </dl>
-                                                                                  <dl>
-                                                                                      <dt>킬수</dt>
-                                                                                      <dd>$$ X 1</dd>
-                                                                                      <dd>= $$</dd>
-                                                                                  </dl>
-                                                                                  <dl>
-                                                                                      <dt>팀킬</dt>
-                                                                                      <dd>$$ X -1</dd>
-                                                                                      <dd>= $$</dd>
-                                                                                  </dl>
-                                                                                  <dl>
-                                                                                      <dt>팀킬</dt>
-                                                                                      <dd>$$ X 1</dd>
-                                                                                      <dd>= $$</dd>
-                                                                                  </dl>
-                                                                              </div>
-                                                                              <dl class="score-total">
-                                                                                  <dt>합계</dt>
-                                                                                  <dd>= $$</dd>
-                                                                              </dl>
-                                                                          </div>
+                                                                         <div class="tooltip">
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                                       </td>
                                                                       <td>0</td>
                                                                   </tr>
@@ -2929,35 +3154,40 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                                       <td>돌격</td>
                                                                       <td class="hover">
                                                                          <p>팀순위(0) 킬수(0) 팀킬(0) 자살(0) 부활(0)</p>
-                                                                          <div class="tooltip">
-                                                                              <p class="title">상세 점수</p>
-                                                                              <div class="score-detail">
-                                                                                  <dl>
-                                                                                      <dt>순위</dt>
-                                                                                      <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                                      <dd>= $$</dd>
-                                                                                  </dl>
-                                                                                  <dl>
-                                                                                      <dt>킬수</dt>
-                                                                                      <dd>$$ X 1</dd>
-                                                                                      <dd>= $$</dd>
-                                                                                  </dl>
-                                                                                  <dl>
-                                                                                      <dt>팀킬</dt>
-                                                                                      <dd>$$ X -1</dd>
-                                                                                      <dd>= $$</dd>
-                                                                                  </dl>
-                                                                                  <dl>
-                                                                                      <dt>팀킬</dt>
-                                                                                      <dd>$$ X 1</dd>
-                                                                                      <dd>= $$</dd>
-                                                                                  </dl>
-                                                                              </div>
-                                                                              <dl class="score-total">
-                                                                                  <dt>합계</dt>
-                                                                                  <dd>= $$</dd>
-                                                                              </dl>
-                                                                          </div>
+                                                                         <div class="tooltip">
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                                       </td>
                                                                       <td>0</td>
                                                                   </tr>
@@ -2967,35 +3197,40 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                                       <td>돌격</td>
                                                                       <td class="hover">
                                                                           <p>팀순위(0) 킬수(0) 팀킬(0) 자살(0) 부활(0)</p>
-                                                                          <div class="tooltip">
-                                                                              <p class="title">상세 점수</p>
-                                                                              <div class="score-detail">
-                                                                                  <dl>
-                                                                                      <dt>순위</dt>
-                                                                                      <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                                      <dd>= $$</dd>
-                                                                                  </dl>
-                                                                                  <dl>
-                                                                                      <dt>킬수</dt>
-                                                                                      <dd>$$ X 1</dd>
-                                                                                      <dd>= $$</dd>
-                                                                                  </dl>
-                                                                                  <dl>
-                                                                                      <dt>팀킬</dt>
-                                                                                      <dd>$$ X -1</dd>
-                                                                                      <dd>= $$</dd>
-                                                                                  </dl>
-                                                                                  <dl>
-                                                                                      <dt>팀킬</dt>
-                                                                                      <dd>$$ X 1</dd>
-                                                                                      <dd>= $$</dd>
-                                                                                  </dl>
-                                                                              </div>
-                                                                              <dl class="score-total">
-                                                                                  <dt>합계</dt>
-                                                                                  <dd>= $$</dd>
-                                                                              </dl>
-                                                                          </div>
+                                                                         <div class="tooltip">
+                                                            <p class="title">상세 점수</p>
+                                                            <div class="score-detail">
+                                                                <dl>
+                                                                    <dt>팀순위</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>킬</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>팀킬</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                <dl>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
+                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                            </div>
+                                                            <dl class="score-total">
+                                                                <dt>획득 점수</dt>
+                                                                <dd>= $$</dd>
+                                                            </dl>
+                                                        </div>
                                                                       </td>
                                                                       <td>0</td>
                                                                   </tr>
@@ -3180,12 +3415,12 @@ TR;
                                                             <p class="title">상세 점수</p>
                                                             <div class="score-detail">
                                                                 <dl>
-                                                                    <dt>순위</dt>
+                                                                    <dt>팀순위</dt>
                                                                     <dd>$$ + $$ + $$ + $$ + $$</dd>
                                                                     <dd>= $$</dd>
                                                                 </dl>
                                                                 <dl>
-                                                                    <dt>킬수</dt>
+                                                                    <dt>킬</dt>
                                                                     <dd>$$ X 1</dd>
                                                                     <dd>= $$</dd>
                                                                 </dl>
@@ -3195,13 +3430,18 @@ TR;
                                                                     <dd>= $$</dd>
                                                                 </dl>
                                                                 <dl>
-                                                                    <dt>팀킬</dt>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
                                                                     <dd>$$ X 1</dd>
                                                                     <dd>= $$</dd>
                                                                 </dl>
                                                             </div>
                                                             <dl class="score-total">
-                                                                <dt>합계</dt>
+                                                                <dt>획득 점수</dt>
                                                                 <dd>= $$</dd>
                                                             </dl>
                                                         </div>
