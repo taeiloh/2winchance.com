@@ -49,7 +49,7 @@ try {
         LEFT JOIN game b
             ON a.lu_g_idx = b.g_idx
         WHERE 1=1
-            AND a.lu_u_idx = {$_se_idx}
+            AND a.lu_u_idx = {$_se_idx}{$where}
         ORDER BY a.lu_idx DESC
     ";
     //p($sql);
@@ -108,7 +108,6 @@ try {
                 <div class="inner">
                     <ul class="contest-list lineup-list">
                         <?php
-
                         if($total_count > 0){
                             $i=0;
                             $query  = "
@@ -119,7 +118,8 @@ try {
                                 WHERE 1=1
                                   AND a.lu_u_idx = {$_se_idx}
                                     {$where}
-                                ORDER BY a.lu_idx DESC
+                                ORDER BY a.lu_idx DESC 
+                                LIMIT {$from_record}, {$rows}
                             ";
                             //p($query);
                             $result = $_mysqli->query($query);
@@ -295,6 +295,7 @@ LI;
                                 </tr>
 TR;
                                 }
+                                $sub_result->free();
                                 ?>
                                 <tr>
                                     <td colspan="4" class="game-total">
@@ -312,10 +313,8 @@ TR;
                                 </li>
                                 <?php
                             }
+                            $result->free();
                         }
-
-                        $result->free();
-                        $sub_result->free();
                         ?>
                     </ul>
                 </div>
@@ -323,7 +322,8 @@ TR;
             <!--//sec-01-->
             <div class="pagination">
                 <?php
-                //echo paging($page,$total_page,5,"{$_SERVER['SCRIPT_NAME']}?page=");
+
+                echo paging($page,$total_page,5,"{$_SERVER['SCRIPT_NAME']}?page=");
                 ?>
                 <!--<a href="javascript:void(0)" class="active" >1</a>
                 <a href="javascript:void(0)">2</a>
