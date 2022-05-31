@@ -22,7 +22,7 @@ try {
 
 }
 ?>
-<div class="player-img">
+<div class="player-img <?php if($photo!=""){echo "on";}?>">
     <img src="/images/player_images/pubg/<?=$photo;?>" alt="<?=$info['full_name'];?>'s photo"/>
 </div>
 <div class="player-skill">

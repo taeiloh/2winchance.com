@@ -312,7 +312,7 @@ DIV;
                                         $team_name      = $arrLineup[$key]['team_alias'];
                                         $player_name    = $arrLineup[$key]['player_name'];
                                         $player_salary  = $arrLineup[$key]['player_salary'];
-
+                                        $on ="on";
                                         $player_img     = "<img src=\"/images/player_images/pubg/{$arrLineup[$key]['player_name']}.jpg\" alt=\"\" onerror=\"this.src='/images/player_images/pubg/default.png'\" style=\"width: 68px;\">";
                                         $btnDel         = "<button class=\"btn-delete\" data-fppg=\"0\" data-del-index=\"{$arrLineup[$key]['player_idx']}\" data-game=\"{$arrLineup[$key]['game_id']}\" onclick=\"delPlayer('pubg', {$arrLineup[$key]['player_idx']}, '{$value}');\">삭제</button>";
 
@@ -320,7 +320,7 @@ DIV;
                                         $team_name      = 'Team';
                                         $player_name    = 'Player Name';
                                         $player_salary  = '0';
-
+                                        $on="";
                                         $player_img     = "<p style=\"background-image:url('/images/PUBG/pos/{$value}.png');background-size:100%;\"></p>";
                                         $btnDel         = '';
                                     }
@@ -335,7 +335,7 @@ DIV;
                                     echo <<<LI
                                 <!-- TODO 20220524 syryu 아래 영역은 선택 전디폴트 화면 입니다. -->
                                 <li class="player-info lineup_{$value}">
-                                    <div class="player-img player_img">{$player_img}</div>
+                                    <div class="player-img player_img {$on}">{$player_img}</div>
                                     <div class="player-skill">
                                         <div class="skill-top">
                                             <div class="name">
@@ -1054,6 +1054,7 @@ LI;
                 name = name.split(" ");
                 input_node(pos, 'player_img', '<img src="/images/player_images/pubg/'+ name[1] +'.jpg" alt="" onerror=\'this.src="/images/player_images/pubg/default.png"\' style="width: 68px;" />');
 
+
             }
 
             input_node(pos, 'team_name', team);
@@ -1102,6 +1103,7 @@ LI;
         console.log(pos, node, text);
 
         var table = $(".lineup_" + pos).find('.' + node);
+        $(".lineup_" + pos).children(".player-img").addClass('on');
         var count = table.length;
         //
         for (var i=0; i<count; i++) {
@@ -1567,6 +1569,7 @@ LI;
             this_btn.parent().parent().find('.img').html('<img src="/images/player_images/soc/'+ category +'/img_s/home_s.png" width="50">');
 
         } else if (category == "pubg") {
+            this_btn.parent().parent().find('.player_img').removeClass("on");
             this_btn.parent().parent().find('.player_img').html("<p style=\"background-image:url('/images/PUBG/pos/"+ pos +".png');background-size:100%;\"></p>");
         }
 
