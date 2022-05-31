@@ -112,8 +112,8 @@ try{
                         <tr class="filter">
                             <th><a href="javascript:void(0);">일자</a></th>
                             <th><a href="javascript:void(0);">내용</a></th>
-                            <th><a href="javascript:void(0);">HP</a></th>
-                            <th><a href="javascript:void(0);">HP 잔액</a></th>
+                            <th><a href="javascript:void(0);">전투력</a></th>
+                            <th><a href="javascript:void(0);">보유 전투력</a></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -146,67 +146,67 @@ try{
 //                        ?>
 <tr>
     <td>2022-1-03-04 13:25:49</td>
-    <td>Join the contest (G55362)</td>
+    <td>전투력 결과(G55362)</td>
     <td>+ 25</td>
     <td>4,946</td>
 </tr>
 <tr>
     <td>2022-1-03-04 13:25:49</td>
-    <td>Join the contest (G55362)</td>
+    <td>전투력 결과(G55362)</td>
     <td>+ 25</td>
     <td>4,946</td>
 </tr>
 <tr>
     <td>2022-1-03-04 13:25:49</td>
-    <td>Join the contest (G55362)</td>
+    <td>전투력 결과(G55362)</td>
     <td>+ 25</td>
     <td>4,946</td>
 </tr>
 <tr>
     <td>2022-1-03-04 13:25:49</td>
-    <td>Join the contest (G55362)</td>
+    <td>전투력 결과(G55362)</td>
     <td>+ 25</td>
     <td>4,946</td>
 </tr>
 <tr>
     <td>2022-1-03-04 13:25:49</td>
-    <td>Join the contest (G55362)</td>
+    <td>전투력 결과(G55362)</td>
     <td>+ 25</td>
     <td>4,946</td>
 </tr>
 <tr>
     <td>2022-1-03-04 13:25:49</td>
-    <td>Join the contest (G55362)</td>
+    <td>전투력 결과(G55362)</td>
     <td>+ 25</td>
     <td>4,946</td>
 </tr>
 <tr>
     <td>2022-1-03-04 13:25:49</td>
-    <td>Join the contest (G55362)</td>
+    <td>전투력 결과(G55362)</td>
     <td>+ 25</td>
     <td>4,946</td>
 </tr>
 <tr>
     <td>2022-1-03-04 13:25:49</td>
-    <td>Join the contest (G55362)</td>
+    <td>전투력 결과(G55362)</td>
     <td>+ 25</td>
     <td>4,946</td>
 </tr>
 <tr>
     <td>2022-1-03-04 13:25:49</td>
-    <td>Join the contest (G55362)</td>
+    <td>전투력 결과(G55362)</td>
     <td>+ 25</td>
     <td>4,946</td>
 </tr>
 <tr>
     <td>2022-1-03-04 13:25:49</td>
-    <td>Join the contest (G55362)</td>
+    <td>전투력 결과(G55362)</td>
     <td>+ 25</td>
     <td>4,946</td>
 </tr>
 <tr>
     <td>2022-1-03-04 13:25:49</td>
-    <td>Join the contest (G55362)</td>
+    <td>전투력 결과(G55362)</td>
     <td>+ 25</td>
     <td>4,946</td>
 </tr>
