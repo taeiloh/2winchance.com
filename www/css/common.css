@@ -538,8 +538,8 @@ table.border-table th, td{padding: 1rem 0;}
 .league-left .contents-table tbody tr{border-bottom: 1px dashed rgba(255, 255, 255, 0.4); text-align: center; font-size: 2.4rem;}
 .league-left .contents-table tbody tr:last-child{border-bottom: none;}
 .league-left .contents-table tbody tr td{position: relative; padding: 2rem 1rem;}
+.league-left .contents-table tbody tr.active td{background-color: #707070;}
 .league-left .contents-table tbody tr td ~ td:after { position: absolute; content: ''; display: block; left: 0; top: 50%; transform: translateY(-50%); width: 1px; height: 3rem; background: #707070;}
-.league-left .contents-table tbody tr td:nth-child(3):after{display:none;}
 .scroll-tbody{width: 100%; background: #303030; min-height: 80rem; height: 80rem; overflow-y: auto;}
 .league-left .contents-table tbody tr td.tR{ padding: 2rem 3rem 2rem 1rem;}
 .league-left .contents-table tbody tr td:last-child:after{display: none;}
