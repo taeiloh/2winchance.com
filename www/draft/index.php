@@ -253,7 +253,7 @@ DIV;
                                     <button class="search-btn"></button>
                                 </th>
                                 <th><a href="javascript:void(0);">팀</a></th>
-                                <th><a href="javascript:void(0);">HP</a></th>
+                                <th><a href="javascript:void(0);">전투력</a></th>
                                 <th><a href="javascript:void(0);">연봉</a></th>
                                 <th>선택</th>
                             </tr>
@@ -285,7 +285,7 @@ DIV;
                             </li>
                             <li>
                                 <dl>
-                                    <dt>총 HP</dt>
+                                    <dt>총 전투력</dt>
                                     <dd><span class="total_fppg">0</span></dd>
                                 </dl>
                             </li>
@@ -356,7 +356,7 @@ DIV;
                                                     <th>최근 경기</th>
                                                     <th>순위</th>
                                                     <th>킬 수</th>
-                                                    <th>HP</th>
+                                                    <th>전투력</th>
                                                 </tr>
                                                 <tr>
                                                     <td>-</td>
