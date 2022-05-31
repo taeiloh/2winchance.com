@@ -164,7 +164,7 @@ TR;
                         }else {
                             echo <<<TR
                          <tr>
-                                <td colspan="7">LIVE가 없습니다.</td>
+                                <td colspan="7">LIVE중인 콘테스트가 없습니다.</td>
                          </tr>
 TR;
                         }

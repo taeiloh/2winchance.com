@@ -182,7 +182,7 @@ try {
                                 if ($sub_db2['g_status']==0 || $sub_db2['g_status']==1) {
                                     $link       = "/draft/?edit=1&index={$sub_db2['g_idx']}&lu_idx={$sub_db2['lu_idx']}";
                                     $liClass    = 'edit';
-                                    $editTitle  = '수정';
+                                    $editTitle  = '<span class="line-up-badge btnPush">수정</span>';
                                 } else if ($sub_db2['g_status']==2) {
                                     $link       = 'javascript:void(0);';
                                     $liClass    = 'live';
@@ -190,7 +190,7 @@ try {
                                 } else if ($sub_db2['g_status']==3) {
                                     $link       = 'javascript:void(0);';
                                     $liClass    = 'finished';
-                                    $editTitle  = '결과';
+                                    $editTitle  = '<span class="line-up-badge">결과</span>';
                                 }
 
                                 echo <<<LI
@@ -216,7 +216,7 @@ try {
                                         </dl>
                                     </div>
                                 </div>
-                                <span class="line-up-badge btnPush">{$editTitle}</span>
+                                {$editTitle}
                             </a>
                             <table class="entries-table">
                                 <thead>
