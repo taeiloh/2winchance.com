@@ -230,7 +230,7 @@ try {
                                         <?php
                                     }?>
                                 </dl>
-                                    <button class="cash-limit" onclick="location.href='setting_pw.php'">캐시 구매 잔여 한도 내역 | FP 사용 제한 설정</button>
+                                    <button class="cash-limit" onclick="<?php if($id!=""){?>location.href='setting_pw.php'<?php }else{?>location.href='setting_cash.php'<?php }?>">캐시 구매 잔여 한도 내역 | FP 사용 제한 설정</button>
 
                             </div>
                         </div>
