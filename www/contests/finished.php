@@ -302,12 +302,12 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                             <p class="title">상세 점수</p>
                                                             <div class="score-detail">
                                                                 <dl>
-                                                                    <dt>순위</dt>
+                                                                    <dt>팀순위</dt>
                                                                     <dd>$$ + $$ + $$ + $$ + $$</dd>
                                                                     <dd>= $$</dd>
                                                                 </dl>
                                                                 <dl>
-                                                                    <dt>킬수</dt>
+                                                                    <dt>킬</dt>
                                                                     <dd>$$ X 1</dd>
                                                                     <dd>= $$</dd>
                                                                 </dl>
@@ -317,13 +317,18 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                                     <dd>= $$</dd>
                                                                 </dl>
                                                                 <dl>
-                                                                    <dt>팀킬</dt>
+                                                                    <dt>자살</dt>
+                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>= $$</dd>
+                                                                </dl>
+                                                                 <dl>
+                                                                    <dt>부활</dt>
                                                                     <dd>$$ X 1</dd>
                                                                     <dd>= $$</dd>
                                                                 </dl>
                                                             </div>
                                                             <dl class="score-total">
-                                                                <dt>합계</dt>
+                                                                <dt>획득 점수</dt>
                                                                 <dd>= $$</dd>
                                                             </dl>
                                                         </div>
