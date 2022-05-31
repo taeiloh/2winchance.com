@@ -25,7 +25,7 @@ require_once __DIR__ .'/../_inc/config.php';
                     <div class="title">
                         <h2>지금은 서비스 기간이 아닙니다.</h2>
                     </div>
-
+                    <button type="button" class="btn-blue btn-6" onclick="location.href='/main/'" style="margin: 200px 0 0 0;">홈으로</button>
                 </div>
             </section>
             <!--//sec-01-->
