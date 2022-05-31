@@ -231,7 +231,7 @@ DIV;
                                 <span></span>
                                 <span></span>
                                 <span></span>
-                                무작위 선택
+                                무작위 선발
                             </button>
                         </div>
                         <table class="contents-table">
@@ -391,7 +391,7 @@ DIV;
                                                     <th>최근 경기</th>
                                                     <th>순위</th>
                                                     <th>킬 수</th>
-                                                    <th>HP</th>
+                                                    <th>전투력</th>
                                                 </tr>
                                                 <tr>
                                                     <td>MM-DD</td>
@@ -459,7 +459,7 @@ LI;
                         </dl>
                         <dl>
                             <dt>205</dt>
-                            <dd>평균 HP</dd>
+                            <dd>평균 전투력</dd>
                         </dl>
                         <dl>
                             <dt>90%</dt>
@@ -496,7 +496,7 @@ LI;
                                 <th>평균 킬</th>
                                 <th>평균 생존</th>
                                 <th>평균 데미지</th>
-                                <th>평균 HP</th>
+                                <th>평균 전투력</th>
                                 <th>승률</th>
                                 <th>KDA</th>
                             </tr>
@@ -526,7 +526,7 @@ LI;
                                 <th>킬</th>
                                 <th>생존</th>
                                 <th>데미지</th>
-                                <th>HP</th>
+                                <th>전투력</th>
                                 <th>KDA</th>
                             </tr>
                             <tr>
@@ -1011,7 +1011,7 @@ LI;
                 pos = 'FLEX';
                 //
                 if (chk_flex(data_flex, "player_name", name) === false) {
-                    alert('You have already selected that position. (001)');
+                    alert('선수 포지션이 중복되었습니다. (001)');
                     return false;
                 }
             }
@@ -1024,7 +1024,7 @@ LI;
                 }
             });
             if (overlap === true) {
-                alert('You have already selected that position. (002)');
+                alert('선수 포지션이 중복되었습니다. (002)');
                 return;
             }
 
@@ -1037,7 +1037,7 @@ LI;
                 avg_salary      = (50000 - total_salary) / cnt;
 
             } else {
-                alert('You have already selected that position. (003)');
+                alert('선수 포지션이 중복되었습니다. (003)');
                 return;
             }
 
@@ -1162,7 +1162,7 @@ LI;
         var error = true;
         var del = $(".del").each(function (i) {
             if ($(this).html() == "") {
-                alert('You must select all positions.');
+                alert('선수 선발을 완료해 주세요.');
                 error = true;
                 return false;
 
@@ -1196,11 +1196,11 @@ LI;
                             location.href = "/lineups/?sub=upcoming";
 
                         } else if (data === '411') {
-                            alert('Not enough Gold.');
+                            alert('FP가 부족합니다.');
                             //location.replace('/index.php?menu=store');
 
                         } else if (data === '412') {
-                            alert('You have already reached Max entry limit.');
+                            alert('잔여연봉이 부족합니다.');
                             //location.replace('/index.php?menu=lobby');
 
                         } else {

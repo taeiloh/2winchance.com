@@ -12,7 +12,7 @@ try {
     $where      = '';
 
     $where      .= "
-        AND g_status = 1
+        AND g_status = 2
     ";
     $page = !empty($_GET['page']) ? $_GET['page'] : 1;
     //파라미터 체크
@@ -20,7 +20,7 @@ try {
         $page       =   1;
     }
     //페이징
-    $sql = "select count(*) from join_contest where 1=1 and jc_u_idx = '{$_se_idx}'";
+    $sql = "select count(*) from join_contest where 1=1 and jc_u_idx = '{$_se_idx}'{$where}";
     $tresult = mysqli_query($_mysqli, $sql);
     $row1   = mysqli_fetch_row($tresult);
     $total_count = $row1[0]; //전체갯수
@@ -124,11 +124,12 @@ try {
                             WHERE 1=1 
                                 AND lu_u_idx = {$_se_idx} 
                                 {$where} 
-                            ORDER BY g_c_date DESC, jc_result_update DESC
+                            ORDER BY g_date DESC, jc_result DESC
                             GROUP BY jc_game
                         ";
                         //echo $query;
                         //p($query);
+                        echo $total_count;
                         $result = $_mysqli->query($query);
                         if (!$result) {
 
@@ -178,10 +179,10 @@ TR;
                 <?php
                 echo paging($page,$total_page,5,"{$_SERVER['SCRIPT_NAME']}?page=");
                 ?>
-<!--                <a href="javascript:void(0)" class="active">1</a>-->
-<!--                <a class="" href="javascript:void(0)">2</a>-->
-<!--                <a href="javascript:void(0)">3</a>-->
-<!--                <a href="javascript:void(0)">4</a>-->
+               <!-- <a href="javascript:void(0)" class="active">1</a>
+                <a class="" href="javascript:void(0)">2</a>
+                <a href="javascript:void(0)">3</a>
+                <a href="javascript:void(0)">4</a>-->
             </div>
         </div>
         <!--//content-->
