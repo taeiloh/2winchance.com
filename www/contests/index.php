@@ -25,6 +25,21 @@ try {
     if(!is_numeric($page)){
         $page       =   1;
     }
+
+    $page = !empty($_GET['page']) ? $_GET['page'] : 1;
+    //파라미터 체크
+    if(!is_numeric($page)){
+        $page       =   1;
+    }
+    //페이징
+    $sql = "select count(*) from join_contest where 1=1 and jc_u_idx = '{$_se_idx}'{$where}";
+    $tresult = mysqli_query($_mysqli, $sql);
+    $row1   = mysqli_fetch_row($tresult);
+    $total_count = $row1[0]; //전체갯수
+    $rows = 10;
+    $total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
+    if ($page < 1) { $page = 1; } // 페이지가 없으면 첫 페이지 (1 페이지)
+    $from_record = ($page - 1) * $rows; // 시작 열을 구함
     //페이징
     /*$sql  = "
                             SELECT 
@@ -186,6 +201,8 @@ try {
                         if (!$result) {
 
                         }
+
+                        if($total_count > 0) {
                         while ($db = $result->fetch_assoc()) {
                             //p($db);
                             $rankReward     = new RankReward($db['g_size'], $db['g_fee'], $db['g_prize'], $db['g_entry']);
@@ -206,6 +223,13 @@ try {
                             <td><button type="button" onclick="go_url('/draft/?index={$db['g_idx']}&edit=1')">수정</button></td>
                             <td><button type="button" onclick="invite({$cate}, {$sub_menu}, {$db['g_idx']}, '{$g_date}');"><img src="/images/ico_share_blue.svg" alt="공유하기">초대</button></td>
                         </tr>
+TR;
+                                 }
+                        }else {
+                            echo <<<TR
+                         <tr>
+                                <td colspan="8">대기중인 콘테스트가 없습니다.</td>
+                         </tr>
 TR;
                         }
                         ?>

@@ -190,7 +190,7 @@ try {
                                 } else if ($sub_db2['g_status']==3) {
                                     $link       = 'javascript:void(0);';
                                     $liClass    = 'finished';
-                                   $editTitle  = '결과';
+                                    $editTitle  = '결과';
                                 }
 
                                 echo <<<LI
