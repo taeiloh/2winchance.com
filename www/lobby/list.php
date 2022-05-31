@@ -432,21 +432,31 @@ SCRIPT;
 <script>
     function remaindTime() {
         var now = new Date(); //현재시간을 구한다.
-        var end = new Date(<?=$year?>,<?=$month?>,<?=$days?>,18,00,00);
+        var end = new Date(<?=$year?>,<?=$month-1?>,<?=$days?>,18,00,00);
 
         var endDays="<?=$days?>";
 //오늘날짜의 저녁 9시 - 종료시간기준
         var open = new Date(now.getFullYear(),now.getMonth(),now.getDate(),09,00,00);
-        console.log(now.getFullYear());
-        console.log(now.getMonth());
-        console.log(now.getDate());
+        //console.log(now.getFullYear());
+        //console.log(now.getMonth());
+        //console.log(now.getDate());
+        //console.log(endDays);
 //오늘날짜의 오전9시 - 오픈시간기준
 
         var nt = now.getTime(); // 현재의 시간만 가져온다
         var ot = open.getTime(); // 오픈시간만 가져온다
         var et = end.getTime(); // 종료시간만 가져온다.
-        
-        var days=parseInt(endDays)-parseInt(now.getDate()); //마감까지의 날짜
+
+        //console.log(end.getDay());
+        /*
+        if(months>0){
+            var days=Number(endDays)+months*30-Number(now.getDate()); //마감까지의 날짜
+        }else{
+
+        }
+        */
+
+        //console.log(days);
         /*
         if(nt<ot){ //현재시간이 오픈시간보다 이르면 오픈시간까지의 남은 시간을 구한다.
             $(".time").fadeIn();
@@ -467,12 +477,13 @@ SCRIPT;
             $(".seconds").html(sec);
         } else
             */
-        if(nt>et){ //현재시간이 종료시간보다 크면
+        if(now>end){ //현재시간이 종료시간보다 크면
             $(".timer").html("종료 되었습니다.");
             //$(".time").fadeOut();
-        }else if(days>=0){ //현재시간이 오픈시간보다 늦고 마감시간보다 이르면 마감시간까지 남은 시간을 구한다.
+        }else{ //현재시간이 오픈시간보다 늦고 마감시간보다 이르면 마감시간까지 남은 시간을 구한다.
             $(".time").fadeIn();
             $("p.time-title").html("금일 마감까지 남은 시간");
+
             sec =parseInt(et - nt) / 1000;
             day  = parseInt(sec/60/60/24);
             sec = (sec - (day * 60 * 60 * 24));
@@ -483,7 +494,7 @@ SCRIPT;
             if(hour<10){hour="0"+hour;}
             if(min<10){min="0"+min;}
             if(sec<10){sec="0"+sec;}
-            $(".day").html(days);
+            $(".day").html(day);
             $(".hours").html(hour);
             $(".minutes").html(min);
             $(".seconds").html(sec);
