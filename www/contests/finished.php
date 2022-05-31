@@ -131,7 +131,7 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                         ?>
                         <tr class="view">
                             <td>COUNTER SHOT [싱글 & 우승 252FP]	</td>
-                            <td>2022-05-29 23:00​</td>
+                            <td>2022-05-29 23:00</td>
                             <td>1</td>
                             <td>65</td>
                             <td>50</td>
@@ -158,121 +158,121 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                 <tbody>
                                                     <tr>
                                                         <td>1</td>
-                                                        <td>victorglentz</td>
+                                                        <td class="ellipsis_multiple2">victorglentz</td>
                                                         <td>252</td>
                                                         <td>65</td>
                                                     </tr>
                                                      <tr>
                                                         <td>2</td>
-                                                        <td>ddol303</td>
+                                                        <td class="ellipsis_multiple2">ddol303</td>
                                                         <td>216</td>
                                                         <td>60</td>
                                                      </tr>
                                                      <tr>
                                                          <td>3</td>
-                                                         <td>elmagolucero</td>
+                                                         <td class="ellipsis_multiple2 user">elmagolucero</td>
                                                          <td>180</td>
                                                          <td>59</td>
                                                      </tr>
                                                      <tr>
                                                          <td>4</td>
-                                                         <td>first_incel</td>
+                                                         <td class="ellipsis_multiple2">first_incel</td>
                                                          <td>144</td>
                                                          <td>54</td>
                                                      </tr>
                                                      <tr>
                                                          <td>5</td>
-                                                         <td>adamgrutz</td>
+                                                         <td class="ellipsis_multiple2">adamgrutz</td>
                                                          <td>108</td>
                                                          <td>51</td>
                                                      </tr>
                                                      <tr>
                                                          <td>6</td>
-                                                         <td>antoniohafelipe</td>
+                                                         <td class="ellipsis_multiple2">antoniohafelipe</td>
                                                          <td>0</td>
                                                          <td>50</td>
                                                      </tr>
                                                      <tr>
                                                           <td>7</td>
-                                                          <td>ljurczak1208</td>
+                                                          <td class="ellipsis_multiple2">ljurczak1208</td>
                                                           <td>0</td>
                                                           <td>48</td>
                                                      </tr>
                                                      <tr>
                                                           <td>8</td>
-                                                          <td>cvanderbilt5</td>
+                                                          <td class="ellipsis_multiple2">cvanderbilt5</td>
                                                           <td>0</td>
                                                           <td>47</td>
                                                      </tr>
                                                      <tr>
                                                          <td>9</td>
-                                                         <td>box99</td>
+                                                         <td class="ellipsis_multiple2">box99</td>
                                                          <td>0</td>
                                                          <td>45</td>
                                                      </tr>
                                                      <tr>
                                                          <td>10</td>
-                                                         <td>cparker04005</td>
+                                                         <td class="ellipsis_multiple2">cparker04005</td>
                                                          <td>0</td>
                                                          <td>42</td>
                                                      </tr>
                                                      <tr>
                                                           <td>11</td>
-                                                          <td>ejrtkd5899</td>
+                                                          <td class="ellipsis_multiple2">ejrtkd5899</td>
                                                           <td>0</td>
                                                           <td>40</td>
                                                      </tr>
                                                      <tr>
                                                         <td>12</td>
-                                                        <td>bigroyers01</td>
+                                                        <td class="ellipsis_multiple2">bigroyers01</td>
                                                         <td>0</td>
                                                         <td>39</td>
                                                      </tr>
                                                      <tr>
                                                         <td>13</td>
-                                                        <td>zhflrkq123</td>
+                                                        <td class="ellipsis_multiple2">zhflrkq123</td>
                                                         <td>0</td>
                                                         <td>38</td>
                                                      </tr>
                                                      <tr>
                                                         <td>14</td>
-                                                        <td>el_joelvalerio2</td>
+                                                        <td class="ellipsis_multiple2">el_joelvalerio2</td>
                                                         <td>0</td>
                                                         <td>37</td>
                                                      </tr>
                                                      <tr>
                                                          <td>15</td>
-                                                         <td>dennis.mille</td>
+                                                         <td class="ellipsis_multiple2">dennis.mille</td>
                                                          <td>0</td>
                                                          <td>33</td>
                                                       </tr>
                                                      <tr>
                                                          <td>16</td>
-                                                         <td>cristi.platica</td>
+                                                         <td class="ellipsis_multiple2">cristi.platica</td>
                                                          <td>0</td>
                                                          <td>32</td>
                                                      </tr>
                                                       <tr>
                                                          <td>17</td>
-                                                         <td>crazymanqu</td>
+                                                         <td class="ellipsis_multiple2">crazymanqu</td>
                                                          <td>0</td>
                                                          <td>31</td>
                                                       </tr>
                                                       <tr>
                                                          <td>18</td>
-                                                         <td>mitchell.duttry</td>
+                                                         <td class="ellipsis_multiple2">mitchell.duttry</td>
                                                          <td>0</td>
                                                          <td>30</td>
                                                       </tr>
                                                       <tr>
                                                           <td>19</td>
-                                                          <td>damien-emma</td>
+                                                          <td class="ellipsis_multiple2">damien-emma</td>
                                                           <td>0</td>
                                                           <td>28</td>
                                                        </tr>
                                                       <tr>
                                                           <td>20</td>
-                                                          <td>abhisek.ekka17</td>
+                                                          <td class="ellipsis_multiple2">abhisek.ekka17</td>
                                                           <td>0</td>
                                                           <td>22</td>
                                                       </tr>
@@ -280,7 +280,7 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                             </table>
                                         </div>
                                         <div class="player-table">
-                                            <h3>선수 상세 결과</h3>
+                                            <h3>선수 상세 결과 <span class="sub-ex">(획득 점수는 “전투력”으로 변환/저장됩니다. 마이페이지에서 누적되는 “전투력”을 확인하세요.)</span></h3>
                                             <table>
                                                 <thead>
                                                 <tr>
@@ -295,7 +295,7 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                 <tr>
                                                     <td>오더</td>
                                                     <td>HingHing</td>
-                                                    <td>COUNTER SHOT​</td>
+                                                    <td>COUNTER SHOT</td>
                                                     <td class="hover">
                                                         <p>팀순위(10) 킬수(2) 팀킬(0) 자살(0) 부활(3)</p>
                                                         <div class="tooltip">
@@ -636,169 +636,169 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                 <tbody>
                                                 <tr>
                                                    <td>1</td>
-                                                   <td>ddol303</td>
+                                                   <td class="ellipsis_multiple2">ddol303</td>
                                                    <td>162</td>
                                                    <td>92</td>
                                                </tr>
                                                 <tr>
                                                    <td>2</td>
-                                                   <td>gaetan.c35550</td>
+                                                   <td class="ellipsis_multiple2">gaetan.c35550</td>
                                                    <td>162</td>
                                                    <td>88</td>
                                                 </tr>
                                                 <tr>
                                                     <td>3</td>
-                                                    <td>cvanderbilt5</td>
+                                                    <td class="ellipsis_multiple2">cvanderbilt5</td>
                                                     <td>162</td>
                                                     <td>87</td>
                                                 </tr>
                                                 <tr>
                                                     <td>4</td>
-                                                    <td>box99</td>
+                                                    <td class="ellipsis_multiple2">box99</td>
                                                     <td>162</td>
                                                     <td>86</td>
                                                 </tr>
                                                 <tr>
                                                     <td>5</td>
-                                                    <td>cparker04005</td>
+                                                    <td class="ellipsis_multiple2">cparker04005</td>
                                                     <td>162</td>
                                                     <td>85</td>
                                                 </tr>
                                                 <tr>
                                                     <td>6</td>
-                                                    <td>cramtous</td>
+                                                    <td class="ellipsis_multiple2">cramtous</td>
                                                     <td>162</td>
                                                     <td>80</td>
                                                 </tr>
                                                 <tr>
                                                      <td>7</td>
-                                                     <td>ana5858</td>
+                                                     <td class="ellipsis_multiple2">ana5858</td>
                                                      <td>162</td>
                                                      <td>78</td>
                                                 </tr>
                                                 <tr>
                                                      <td>8</td>
-                                                     <td>donmartin483</td>
+                                                     <td class="ellipsis_multiple2">donmartin483</td>
                                                      <td>162</td>
                                                      <td>76</td>
                                                 </tr>
                                                 <tr>
                                                     <td>9</td>
-                                                    <td>han07han</td>
+                                                    <td class="ellipsis_multiple2">han07han</td>
                                                     <td>162</td>
                                                     <td>74</td>
                                                 </tr>
                                                 <tr>
                                                     <td>10</td>
-                                                    <td>sosayo</td>
+                                                    <td class="ellipsis_multiple2">sosayo</td>
                                                     <td>162</td>
                                                     <td>73</td>
                                                 </tr>
                                                 <tr>
                                                      <td>11</td>
-                                                     <td>moo9356</td>
+                                                     <td class="ellipsis_multiple2">moo9356</td>
                                                      <td>162</td>
                                                      <td>69</td>
                                                 </tr>
                                                 <tr>
                                                    <td>12</td>
-                                                   <td>sg41688</td>
+                                                   <td class="ellipsis_multiple2">sg41688</td>
                                                    <td>162</td>
                                                    <td>63</td>
                                                 </tr>
                                                 <tr>
                                                    <td>13</td>
-                                                   <td>hwseog</td>
+                                                   <td class="ellipsis_multiple2">hwseog</td>
                                                    <td>162</td>
                                                    <td>62</td>
                                                 </tr>
                                                 <tr>
                                                    <td>14</td>
-                                                   <td>victorglentz</td>
+                                                   <td class="ellipsis_multiple2">victorglentz</td>
                                                    <td>162</td>
                                                    <td>61</td>
                                                 </tr>
                                                 <tr>
                                                     <td>15</td>
-                                                    <td>antoniohafelipe</td>
+                                                    <td class="ellipsis_multiple2">antoniohafelipe</td>
                                                     <td>0</td>
                                                     <td>55</td>
                                                  </tr>
                                                 <tr>
                                                     <td>16</td>
-                                                    <td>zhflrkq123</td>
+                                                    <td class="ellipsis_multiple2">zhflrkq123</td>
                                                     <td>0</td>
                                                     <td>53</td>
                                                 </tr>
                                                  <tr>
                                                     <td>17</td>
-                                                    <td>dennis.mille</td>
+                                                    <td class="ellipsis_multiple2">dennis.mille</td>
                                                     <td>0</td>
                                                     <td>52</td>
                                                  </tr>
                                                  <tr>
                                                     <td>18</td>
-                                                    <td>el_joelvalerio2</td>
+                                                    <td class="ellipsis_multiple2">el_joelvalerio2</td>
                                                     <td>0</td>
                                                     <td>51</td>
                                                  </tr>
                                                  <tr>
                                                      <td>19</td>
-                                                     <td>cristi.platica</td>
+                                                     <td class="ellipsis_multiple2">cristi.platica</td>
                                                      <td>0</td>
                                                      <td>45</td>
                                                   </tr>
                                                  <tr>
                                                      <td>20</td>
-                                                     <td>mitchell.duttry</td>
+                                                     <td class="ellipsis_multiple2">mitchell.duttry</td>
                                                      <td>0</td>
                                                      <td>41</td>
                                                  </tr>
                                                  <tr>
                                                    <td>21</td>
-                                                   <td>crazymanqu</td>
+                                                   <td class="ellipsis_multiple2">crazymanqu</td>
                                                    <td>0</td>
                                                    <td>40</td>
                                                 </tr>
                                                 <tr>
                                                    <td>22</td>
-                                                   <td>abhisek.ekka17</td>
+                                                   <td class="ellipsis_multiple2">abhisek.ekka17</td>
                                                    <td>0</td>
                                                    <td>29</td>
                                                 </tr>
                                                 <tr>
                                                    <td>23</td>
-                                                   <td>damien-emma</td>
+                                                   <td class="ellipsis_multiple2">damien-emma</td>
                                                    <td>0</td>
                                                    <td>25</td>
                                                 </tr>
                                                 <tr>
                                                     <td>24</td>
-                                                    <td>ejrtkd5899</td>
+                                                    <td class="ellipsis_multiple2">ejrtkd5899</td>
                                                     <td>0</td>
                                                     <td>22</td>
                                                  </tr>
                                                 <tr>
                                                     <td>25</td>
-                                                    <td>elmagolucero</td>
+                                                    <td class="ellipsis_multiple2">elmagolucero</td>
                                                     <td>0</td>
                                                     <td>21</td>
                                                 </tr>
                                                  <tr>
                                                     <td>26</td>
-                                                    <td>first_incel</td>
+                                                    <td class="ellipsis_multiple2">first_incel</td>
                                                     <td>0</td>
                                                     <td>19</td>
                                                  </tr>
                                                  <tr>
                                                     <td>27</td>
-                                                    <td>adamgrutz</td>
+                                                    <td class="ellipsis_multiple2">adamgrutz</td>
                                                     <td>0</td>
                                                     <td>15</td>
                                                  </tr>
                                                  <tr>
                                                      <td>28</td>
-                                                     <td>ljurczak1208</td>
+                                                     <td class="ellipsis_multiple2">ljurczak1208</td>
                                                      <td>0</td>
                                                      <td>7</td>
                                                   </tr>
@@ -806,7 +806,7 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                             </table>
                                         </div>
                                         <div class="player-table">
-                                            <h3>선수 상세 결과</h3>
+                                            <h3>선수 상세 결과 <span class="sub-ex">(획득 점수는 “전투력”으로 변환/저장됩니다. 마이페이지에서 누적되는 “전투력”을 확인하세요.)</span></h3>
                                             <table>
                                                 <thead>
                                                 <tr>
@@ -1135,7 +1135,7 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                         </tr>
                         <tr class="view">
                                 <td>FREE [싱글 & 상위 50% WIN]</td>
-                                <td>2022-05-29 23:00​</td>
+                                <td>2022-05-29 23:00</td>
                                 <td>1</td>
                                 <td>61</td>
                                 <td>0</td>
@@ -1162,181 +1162,181 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                      <tbody>
                                                          <tr>
                                                             <td>1</td>
-                                                            <td>reviewtest02</td>
+                                                            <td class="ellipsis_multiple2">reviewtest02</td>
                                                             <td>5</td>
                                                             <td>91</td>
                                                         </tr>
                                                          <tr>
                                                             <td>2</td>
-                                                            <td>cvanderbilt5</td>
+                                                            <td class="ellipsis_multiple2">cvanderbilt5</td>
                                                             <td>5</td>
                                                             <td>82</td>
                                                          </tr>
                                                          <tr>
                                                              <td>3</td>
-                                                             <td>ljurczak1208</td>
+                                                             <td class="ellipsis_multiple2">ljurczak1208</td>
                                                              <td>5</td>
                                                              <td>79</td>
                                                          </tr>
                                                          <tr>
                                                              <td>4</td>
-                                                             <td>box99</td>
+                                                             <td class="ellipsis_multiple2">box99</td>
                                                              <td>5</td>
                                                              <td>74</td>
                                                          </tr>
                                                          <tr>
                                                              <td>5</td>
-                                                             <td>cparker04005</td>
+                                                             <td class="ellipsis_multiple2">cparker04005</td>
                                                              <td>5</td>
                                                              <td>71</td>
                                                          </tr>
                                                          <tr>
                                                              <td>6</td>
-                                                             <td>cramtous</td>
+                                                             <td class="ellipsis_multiple2">cramtous</td>
                                                              <td>5</td>
                                                              <td>66</td>
                                                          </tr>
                                                          <tr>
                                                               <td>7</td>
-                                                              <td>ana5858</td>
+                                                              <td class="ellipsis_multiple2">ana5858</td>
                                                               <td>5</td>
                                                               <td>66</td>
                                                          </tr>
                                                          <tr>
                                                               <td>8</td>
-                                                              <td>donmartin483</td>
+                                                              <td class="ellipsis_multiple2">donmartin483</td>
                                                               <td>5</td>
                                                               <td>64</td>
                                                          </tr>
                                                          <tr>
                                                              <td>9</td>
-                                                             <td>Victorglentz</td>
+                                                             <td class="ellipsis_multiple2">Victorglentz</td>
                                                              <td>5</td>
                                                              <td>61</td>
                                                          </tr>
                                                          <tr>
                                                              <td>10</td>
-                                                             <td>sosayo</td>
+                                                             <td class="ellipsis_multiple2">sosayo</td>
                                                              <td>5</td>
                                                              <td>55</td>
                                                          </tr>
                                                          <tr>
                                                               <td>11</td>
-                                                              <td>moo9356</td>
+                                                              <td class="ellipsis_multiple2">moo9356</td>
                                                               <td>5</td>
                                                               <td>54</td>
                                                          </tr>
                                                          <tr>
                                                             <td>12</td>
-                                                            <td>sg41688</td>
+                                                            <td class="ellipsis_multiple2">sg41688</td>
                                                             <td>5</td>
                                                             <td>53</td>
                                                          </tr>
                                                          <tr>
                                                             <td>13</td>
-                                                            <td>hwseog</td>
+                                                            <td class="ellipsis_multiple2">hwseog</td>
                                                             <td>5</td>
                                                             <td>50</td>
                                                          </tr>
                                                          <tr>
                                                             <td>14</td>
-                                                            <td>gaetan.c35550</td>
+                                                            <td class="ellipsis_multiple2">gaetan.c35550</td>
                                                             <td>5</td>
                                                             <td>48</td>
                                                          </tr>
                                                          <tr>
                                                              <td>15</td>
-                                                             <td>first_incel</td>
+                                                             <td class="ellipsis_multiple2">first_incel</td>
                                                              <td>5</td>
                                                              <td>48</td>
                                                           </tr>
                                                          <tr>
                                                              <td>16</td>
-                                                             <td>antoniohafelipe</td>
+                                                             <td class="ellipsis_multiple2">antoniohafelipe</td>
                                                              <td>0</td>
                                                              <td>43</td>
                                                          </tr>
                                                           <tr>
                                                              <td>17</td>
-                                                             <td>ddol303.mille</td>
+                                                             <td class="ellipsis_multiple2">ddol303.mille</td>
                                                              <td>0</td>
                                                              <td>41</td>
                                                           </tr>
                                                           <tr>
                                                              <td>18</td>
-                                                             <td>el_joelvalerio2</td>
+                                                             <td class="ellipsis_multiple2">el_joelvalerio2</td>
                                                              <td>0</td>
                                                              <td>37</td>
                                                           </tr>
                                                           <tr>
                                                               <td>19</td>
-                                                              <td>zhflrkq123</td>
+                                                              <td class="ellipsis_multiple2">zhflrkq123</td>
                                                               <td>0</td>
                                                               <td>32</td>
                                                            </tr>
                                                           <tr>
                                                               <td>20</td>
-                                                              <td>cristi.platica</td>
+                                                              <td class="ellipsis_multiple2">cristi.platica</td>
                                                               <td>0</td>
                                                               <td>31</td>
                                                           </tr>
                                                           <tr>
                                                             <td>21</td>
-                                                            <td>dennis.mille</td>
+                                                            <td class="ellipsis_multiple2">dennis.mille</td>
                                                             <td>0</td>
                                                             <td>30</td>
                                                          </tr>
                                                          <tr>
                                                             <td>22</td>
-                                                            <td>crazymanqu</td>
+                                                            <td class="ellipsis_multiple2">crazymanqu</td>
                                                             <td>0</td>
                                                             <td>27</td>
                                                          </tr>
                                                          <tr>
                                                             <td>23</td>
-                                                            <td>mitchell.duttry</td>
+                                                            <td class="ellipsis_multiple2">mitchell.duttry</td>
                                                             <td>0</td>
                                                             <td>26</td>
                                                          </tr>
                                                          <tr>
                                                              <td>24</td>
-                                                             <td>damien-emma</td>
+                                                             <td class="ellipsis_multiple2">damien-emma</td>
                                                              <td>0</td>
                                                              <td>25</td>
                                                           </tr>
                                                          <tr>
                                                              <td>25</td>
-                                                             <td>abhisek.ekka17</td>
+                                                             <td class="ellipsis_multiple2">abhisek.ekka17</td>
                                                              <td>0</td>
                                                              <td>25</td>
                                                          </tr>
                                                           <tr>
                                                              <td>26</td>
-                                                             <td>bigroyers01</td>
+                                                             <td class="ellipsis_multiple2">bigroyers01</td>
                                                              <td>0</td>
                                                              <td>25</td>
                                                           </tr>
                                                           <tr>
                                                              <td>27</td>
-                                                             <td>elmagolucero</td>
+                                                             <td class="ellipsis_multiple2">elmagolucero</td>
                                                              <td>0</td>
                                                              <td>23</td>
                                                           </tr>
                                                           <tr>
                                                               <td>28</td>
-                                                              <td>ejrtkd5899</td>
+                                                              <td class="ellipsis_multiple2">ejrtkd5899</td>
                                                               <td>0</td>
                                                               <td>21</td>
                                                            </tr>
                                                              <tr>
                                                                 <td>29</td>
-                                                                <td>adamgrutz</td>
+                                                                <td class="ellipsis_multiple2">adamgrutz</td>
                                                                 <td>0</td>
                                                                 <td>20</td>
                                                              </tr>
                                                              <tr>
                                                                  <td>30</td>
-                                                                 <td>han07han</td>
+                                                                 <td class="ellipsis_multiple2">han07han</td>
                                                                  <td>0</td>
                                                                  <td>18</td>
                                                               </tr>
@@ -1344,7 +1344,7 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                 </table>
                                             </div>
                                             <div class="player-table">
-                                                <h3>선수 상세 결과</h3>
+                                                <h3>선수 상세 결과 <span class="sub-ex">(획득 점수는 “전투력”으로 변환/저장됩니다. 마이페이지에서 누적되는 “전투력”을 확인하세요.)</span></h3>
                                                 <table>
                                                     <thead>
                                                     <tr>
@@ -1673,7 +1673,7 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                             </tr>
                             <tr class="view">
                                     <td>에어 드롭 [싱글 & 우승 500FP]</td>
-                                    <td>2022-05-29 23:00​</td>
+                                    <td>2022-05-29 23:00</td>
                                     <td>1</td>
                                     <td>0</td>
                                     <td>50</td>
@@ -1700,169 +1700,169 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                              <tbody>
                                                                  <tr>
                                                                     <td>1</td>
-                                                                    <td>ddol303</td>
+                                                                    <td class="ellipsis_multiple2">ddol303</td>
                                                                     <td>500</td>
                                                                     <td>103</td>
                                                                 </tr>
                                                                  <tr>
                                                                     <td>2</td>
-                                                                    <td>cvanderbilt5</td>
+                                                                    <td class="ellipsis_multiple2">cvanderbilt5</td>
                                                                     <td>500</td>
                                                                     <td>95</td>
                                                                  </tr>
                                                                  <tr>
                                                                      <td>3</td>
-                                                                     <td>gaetan.c35550</td>
+                                                                     <td class="ellipsis_multiple2">gaetan.c35550</td>
                                                                      <td>0</td>
                                                                      <td>85</td>
                                                                  </tr>
                                                                  <tr>
                                                                      <td>4</td>
-                                                                     <td>cparker04005</td>
+                                                                     <td class="ellipsis_multiple2">cparker04005</td>
                                                                      <td>0</td>
                                                                      <td>66</td>
                                                                  </tr>
                                                                  <tr>
                                                                      <td>5</td>
-                                                                     <td>cramtous</td>
+                                                                     <td class="ellipsis_multiple2">cramtous</td>
                                                                      <td>0</td>
                                                                      <td>62</td>
                                                                  </tr>
                                                                  <tr>
                                                                      <td>6</td>
-                                                                     <td>ana5858</td>
+                                                                     <td class="ellipsis_multiple2">ana5858</td>
                                                                      <td>0</td>
                                                                      <td>61</td>
                                                                  </tr>
                                                                  <tr>
                                                                       <td>7</td>
-                                                                      <td>donmartin483</td>
+                                                                      <td class="ellipsis_multiple2">donmartin483</td>
                                                                       <td>0</td>
                                                                       <td>57</td>
                                                                  </tr>
                                                                  <tr>
                                                                       <td>8</td>
-                                                                      <td>han07han</td>
+                                                                      <td class="ellipsis_multiple2">han07han</td>
                                                                       <td>0</td>
                                                                       <td>55</td>
                                                                  </tr>
                                                                  <tr>
                                                                      <td>9</td>
-                                                                     <td>sosayo</td>
+                                                                     <td class="ellipsis_multiple2">sosayo</td>
                                                                      <td>0</td>
                                                                      <td>52</td>
                                                                  </tr>
                                                                  <tr>
                                                                      <td>10</td>
-                                                                     <td>moo9356</td>
+                                                                     <td class="ellipsis_multiple2">moo9356</td>
                                                                      <td>0</td>
                                                                      <td>51</td>
                                                                  </tr>
                                                                  <tr>
                                                                       <td>11</td>
-                                                                      <td>sg41688</td>
+                                                                      <td class="ellipsis_multiple2">sg41688</td>
                                                                       <td>0</td>
                                                                       <td>49</td>
                                                                  </tr>
                                                                  <tr>
                                                                     <td>12</td>
-                                                                    <td>hwseog</td>
+                                                                    <td class="ellipsis_multiple2">hwseog</td>
                                                                     <td>0</td>
                                                                     <td>24</td>
                                                                  </tr>
                                                                  <tr>
                                                                     <td>13</td>
-                                                                    <td>victorglentz</td>
+                                                                    <td class="ellipsis_multiple2">victorglentz</td>
                                                                     <td>0</td>
                                                                     <td>11</td>
                                                                  </tr>
                                                                  <tr>
                                                                     <td>14</td>
-                                                                    <td>ljurczak1208</td>
+                                                                    <td class="ellipsis_multiple2">ljurczak1208</td>
                                                                     <td>0</td>
                                                                     <td>10</td>
                                                                  </tr>
                                                                  <tr>
                                                                      <td>15</td>
-                                                                     <td>antoniohafelipe</td>
+                                                                     <td class="ellipsis_multiple2">antoniohafelipe</td>
                                                                      <td>0</td>
                                                                      <td>10</td>
                                                                   </tr>
                                                                  <tr>
                                                                      <td>16</td>
-                                                                     <td>zhflrkq123</td>
+                                                                     <td class="ellipsis_multiple2">zhflrkq123</td>
                                                                      <td>0</td>
                                                                      <td>10</td>
                                                                  </tr>
                                                                   <tr>
                                                                      <td>17</td>
-                                                                     <td>el_joelvalerio2</td>
+                                                                     <td class="ellipsis_multiple2">el_joelvalerio2</td>
                                                                      <td>0</td>
                                                                      <td>10</td>
                                                                   </tr>
                                                                   <tr>
                                                                      <td>18</td>
-                                                                     <td>cristi.platica</td>
+                                                                     <td class="ellipsis_multiple2">cristi.platica</td>
                                                                      <td>0</td>
                                                                      <td>10</td>
                                                                   </tr>
                                                                   <tr>
                                                                       <td>19</td>
-                                                                      <td>crazymanqu</td>
+                                                                      <td class="ellipsis_multiple2">crazymanqu</td>
                                                                       <td>0</td>
                                                                       <td>7</td>
                                                                    </tr>
                                                                   <tr>
                                                                       <td>20</td>
-                                                                      <td>mitchell.duttry</td>
+                                                                      <td class="ellipsis_multiple2">mitchell.duttry</td>
                                                                       <td>0</td>
                                                                       <td>6</td>
                                                                   </tr>
                                                                   <tr>
                                                                     <td>21</td>
-                                                                    <td>abhisek.ekka17</td>
+                                                                    <td class="ellipsis_multiple2">abhisek.ekka17</td>
                                                                     <td>0</td>
                                                                     <td>6</td>
                                                                  </tr>
                                                                  <tr>
                                                                     <td>22</td>
-                                                                    <td>damien-emma</td>
+                                                                    <td class="ellipsis_multiple2">damien-emma</td>
                                                                     <td>0</td>
                                                                     <td>3</td>
                                                                  </tr>
                                                                  <tr>
                                                                     <td>23</td>
-                                                                    <td>bigroyers01</td>
+                                                                    <td class="ellipsis_multiple2">bigroyers01</td>
                                                                     <td>0</td>
                                                                     <td>0</td>
                                                                  </tr>
                                                                  <tr>
                                                                      <td>24</td>
-                                                                     <td>ejrtkd5899</td>
+                                                                     <td class="ellipsis_multiple2">ejrtkd5899</td>
                                                                      <td>0</td>
                                                                      <td>0</td>
                                                                   </tr>
                                                                  <tr>
                                                                      <td>25</td>
-                                                                     <td>elmagolucero</td>
+                                                                     <td class="ellipsis_multiple2">elmagolucero</td>
                                                                      <td>0</td>
                                                                      <td>0</td>
                                                                  </tr>
                                                                   <tr>
                                                                      <td>26</td>
-                                                                     <td>first_incel</td>
+                                                                     <td class="ellipsis_multiple2">first_incel</td>
                                                                      <td>0</td>
                                                                      <td>0</td>
                                                                   </tr>
                                                                   <tr>
                                                                      <td>27</td>
-                                                                     <td>adamgrutz</td>
+                                                                     <td class="ellipsis_multiple2">adamgrutz</td>
                                                                      <td>0</td>
                                                                      <td>0</td>
                                                                   </tr>
                                                                   <tr>
                                                                       <td>28</td>
-                                                                      <td>gsjin23</td>
+                                                                      <td class="ellipsis_multiple2">gsjin23</td>
                                                                       <td>0</td>
                                                                       <td>0</td>
                                                                    </tr>
@@ -1870,7 +1870,7 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                     </table>
                                                 </div>
                                                 <div class="player-table">
-                                                    <h3>선수 상세 결과</h3>
+                                                    <h3>선수 상세 결과 <span class="sub-ex">(획득 점수는 “전투력”으로 변환/저장됩니다. 마이페이지에서 누적되는 “전투력”을 확인하세요.)</span></h3>
                                                     <table>
                                                         <thead>
                                                         <tr>
@@ -2200,7 +2200,7 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                 </tr>
                                 <tr class="view">
                                         <td>SNOW STORM [싱글 & 우승 300FP]</td>
-                                        <td>2022-05-29 23:00​</td>
+                                        <td>2022-05-29 23:00</td>
                                         <td>1</td>
                                         <td>0</td>
                                         <td>100</td>
@@ -2227,61 +2227,61 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                             <tbody>
                                                              <tr>
                                                                 <td>1</td>
-                                                                <td>thib.td</td>
+                                                                <td class="ellipsis_multiple2">thib.td</td>
                                                                 <td>300</td>
                                                                 <td>127</td>
                                                             </tr>
                                                              <tr>
                                                                 <td>2</td>
-                                                                <td>damien-emma</td>
+                                                                <td class="ellipsis_multiple2">damien-emma</td>
                                                                 <td>300</td>
                                                                 <td>107</td>
                                                              </tr>
                                                              <tr>
                                                                  <td>3</td>
-                                                                 <td>mitchell.duttry</td>
+                                                                 <td class="ellipsis_multiple2">mitchell.duttry</td>
                                                                  <td>300</td>
                                                                  <td>85</td>
                                                              </tr>
                                                              <tr>
                                                                  <td>4</td>
-                                                                 <td>crazymanqu</td>
+                                                                 <td class="ellipsis_multiple2">crazymanqu</td>
                                                                  <td>0</td>
                                                                  <td>80</td>
                                                              </tr>
                                                              <tr>
                                                                  <td>5</td>
-                                                                 <td>cristi.platica</td>
+                                                                 <td class="ellipsis_multiple2">cristi.platica</td>
                                                                  <td>0</td>
                                                                  <td>79</td>
                                                              </tr>
                                                              <tr>
                                                                  <td>6</td>
-                                                                 <td>dennis.mille</td>
+                                                                 <td class="ellipsis_multiple2">dennis.mille</td>
                                                                  <td>0</td>
                                                                  <td>77</td>
                                                              </tr>
                                                              <tr>
                                                                   <td>7</td>
-                                                                  <td>el_joelvalerio2</td>
+                                                                  <td class="ellipsis_multiple2">el_joelvalerio2</td>
                                                                   <td>0</td>
                                                                   <td>67</td>
                                                              </tr>
                                                              <tr>
                                                                   <td>8</td>
-                                                                  <td>zhflrkq123</td>
+                                                                  <td class="ellipsis_multiple2">zhflrkq123</td>
                                                                   <td>0</td>
                                                                   <td>48</td>
                                                              </tr>
                                                              <tr>
                                                                  <td>9</td>
-                                                                 <td>ddol303</td>
+                                                                 <td class="ellipsis_multiple2">ddol303</td>
                                                                  <td>0</td>
                                                                  <td>9</td>
                                                              </tr>
                                                              <tr>
                                                                  <td>10</td>
-                                                                 <td>victorglentz</td>
+                                                                 <td class="ellipsis_multiple2">victorglentz</td>
                                                                  <td>0</td>
                                                                  <td>0 </td>
                                                              </tr>
@@ -2290,7 +2290,7 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                         </table>
                                                     </div>
                                                     <div class="player-table">
-                                                        <h3>선수 상세 결과</h3>
+                                                        <h3>선수 상세 결과 <span class="sub-ex">(획득 점수는 “전투력”으로 변환/저장됩니다. 마이페이지에서 누적되는 “전투력”을 확인하세요.)</span></h3>
                                                         <table>
                                                             <thead>
                                                             <tr>
@@ -2619,7 +2619,7 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                     </tr>
                                     <tr class="view last">
                                             <td>돌격 [싱글 & 우승 200FP]</td>
-                                            <td>2022-05-29 23:00​</td>
+                                            <td>2022-05-29 23:00</td>
                                             <td>1</td>
                                             <td>0</td>
                                             <td>100</td>
@@ -2646,31 +2646,31 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                                 <tbody>
                                                             <tr>
                                                                 <td>1</td>
-                                                                <td>ddol303</td>
+                                                                <td class="ellipsis_multiple2">ddol303</td>
                                                                 <td>200</td>
                                                                 <td>75</td>
                                                             </tr>
                                                              <tr>
                                                                 <td>2</td>
-                                                                <td>zhflrkq123</td>
+                                                                <td class="ellipsis_multiple2">zhflrkq123</td>
                                                                 <td>200</td>
                                                                 <td>43</td>
                                                              </tr>
                                                              <tr>
                                                                  <td>3</td>
-                                                                 <td>el_joelvalerio2</td>
+                                                                 <td class="ellipsis_multiple2">el_joelvalerio2</td>
                                                                  <td>0</td>
                                                                  <td>24</td>
                                                              </tr>
                                                              <tr>
                                                                  <td>4</td>
-                                                                 <td>dennis.mille</td>
+                                                                 <td class="ellipsis_multiple2">dennis.mille</td>
                                                                  <td>0</td>
                                                                  <td>0</td>
                                                              </tr>
                                                              <tr>
                                                                  <td>5</td>
-                                                                 <td>victorglentz</td>
+                                                                 <td class="ellipsis_multiple2">victorglentz</td>
                                                                  <td>0</td>
                                                                  <td>0</td>
                                                              </tr>
@@ -2678,7 +2678,7 @@ $from_record = ($page - 1) * $rows; // 시작 열을 구함
                                                             </table>
                                                         </div>
                                                         <div class="player-table">
-                                                            <h3>선수 상세 결과</h3>
+                                                            <h3>선수 상세 결과 <span class="sub-ex">(획득 점수는 “전투력”으로 변환/저장됩니다. 마이페이지에서 누적되는 “전투력”을 확인하세요.)</span></h3>
                                                             <table>
                                                                 <thead>
                                                                 <tr>
@@ -3113,7 +3113,7 @@ TR;
                                             </table>
                                         </div>
                                         <div class="player-table">
-                                            <h3>선수 상세 결과</h3>
+                                            <h3>선수 상세 결과 <span class="sub-ex">(획득 점수는 “전투력”으로 변환/저장됩니다. 마이페이지에서 누적되는 “전투력”을 확인하세요.)</span></h3>
                                             <table>
                                                 <thead>
                                                 <tr>

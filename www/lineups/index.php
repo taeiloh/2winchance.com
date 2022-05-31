@@ -44,8 +44,8 @@ try {
 
     $sql ="
         SELECT
-            count(*) 
-        FROM lineups a 
+            count(*)
+        FROM lineups a
         LEFT JOIN game b
             ON a.lu_g_idx = b.g_idx
         WHERE 1=1
@@ -63,8 +63,8 @@ try {
 
     $dbb = $result11->fetch_assoc();
 
-    $sql2 = "SELECT * FROM lineups a LEFT JOIN game b 
-            ON b.g_idx = a.lu_g_idx LEFT JOIN lineups_history c 
+    $sql2 = "SELECT * FROM lineups a LEFT JOIN game b
+            ON b.g_idx = a.lu_g_idx LEFT JOIN lineups_history c
            ON c.lu_idx = a.lu_idx WHERE 1=1 AND c.lu_idx = {$dbb['lu_idx']}";
 
     $result12 = $_mysqli->query($sql2);
@@ -112,8 +112,8 @@ try {
                         if($total_count > 0){
                             $i=0;
                             $query  = "
-                                SELECT a.* 
-                                FROM lineups a 
+                                SELECT a.*
+                                FROM lineups a
                                 LEFT JOIN game b
                                     ON a.lu_g_idx = b.g_idx
                                 WHERE 1=1
@@ -131,9 +131,9 @@ try {
                                 $i++;
                                 $sub_query  = "
                                     SELECT * FROM lineups a
-                                    LEFT JOIN game b 
+                                    LEFT JOIN game b
                                         ON b.g_idx = a.lu_g_idx
-                                    LEFT JOIN lineups_history c 
+                                    LEFT JOIN lineups_history c
                                         ON c.lu_idx = a.lu_idx
                                     WHERE 1=1
                                         AND c.lu_idx = {$db['lu_idx']}
@@ -146,9 +146,9 @@ try {
 
                                 $sub_query2 = "
                                     SELECT 50000-sum(player_salary) as left_salary, b.g_date FROM lineups a
-                                    LEFT JOIN game b 
+                                    LEFT JOIN game b
                                         ON b.g_idx = a.lu_g_idx
-                                    LEFT JOIN lineups_history c 
+                                    LEFT JOIN lineups_history c
                                         ON c.lu_idx = a.lu_idx
                                     WHERE 1=1
                                         AND c.lu_idx = {$db['lu_idx']}
@@ -189,8 +189,8 @@ try {
                                     $editTitle  = 'LIVE';
                                 } else if ($sub_db2['g_status']==3) {
                                     $link       = 'javascript:void(0);';
-                                    $liClass    = 'finish';
-                                    $editTitle  = '결과';
+                                    $liClass    = 'finished';
+                                   $editTitle  = '결과';
                                 }
 
                                 echo <<<LI
@@ -271,7 +271,7 @@ LI;
                                         SELECT
                                             team_alias
                                         FROM pubg_team_profile_player
-                                        WHERE 1=1 
+                                        WHERE 1=1
                                             AND player_id = '{$sub_db['player_id']}'
                                         LIMIT 1
                                     ";
@@ -289,7 +289,7 @@ LI;
                                     <td>{$player_name}</td>
                                     <td>{$team_name}</td>
                                     <td>$ {$salary}</td>
-                                </tr>                                
+                                </tr>
 TR;
                                 }
                                 ?>

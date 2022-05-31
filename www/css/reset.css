@@ -52,7 +52,7 @@ a:hover{color:inherit;}
 /* common */
 
 .ellipsis {white-space:nowrap; overflow:hidden; word-break:break-all; text-overflow:ellipsis; -o-text-overflow: ellipsis;}
-.ellipsis_multiple2 {overflow:hidden; text-overflow:ellipsis; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; word-wrap:break-word;}
+.ellipsis_multiple2 {overflow:hidden; text-overflow:ellipsis; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; word-wrap:break-word; white-space: nowrap; display: block;}
 .ellipsis_multiple3 {overflow:hidden; text-overflow:ellipsis; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; word-wrap:break-word;}
 .clearfix{zoom:1;}
 .clearfix:after{content:"";display:block; clear:both;}
