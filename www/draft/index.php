@@ -526,7 +526,7 @@ LI;
                                 <th>킬</th>
                                 <th>생존</th>
                                 <th>데미지</th>
-                                <th>HP</th>
+                                <th>전투력</th>
                                 <th>KDA</th>
                             </tr>
                             <tr>

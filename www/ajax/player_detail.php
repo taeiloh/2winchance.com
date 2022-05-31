@@ -80,7 +80,7 @@ try {
                 <th>최근 경기</th>
                 <th>순위</th>
                 <th>킬 수</th>
-                <th>HP</th>
+                <th>전투력</th>
             </tr>
             </thead>
             <tbody>
