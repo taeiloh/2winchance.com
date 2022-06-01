@@ -230,7 +230,7 @@ try {
                                         <?php
                                     }?>
                                 </dl>
-                                    <button class="cash-limit" onclick="location.href='setting_pw.php'">캐시 구매 잔여 한도 내역 | FP 사용 제한 설정</button>
+                                    <button class="cash-limit" onclick="<?php if($id!=""){?>location.href='setting_pw.php'<?php }else{?>location.href='setting_cash.php'<?php }?>">캐시 구매 잔여 한도 내역 | FP 사용 제한 설정</button>
 
                             </div>
                         </div>
@@ -240,7 +240,7 @@ try {
                                 <li><p>캐시</p><span class="fc-yellow coin"><?=number_format($total_coin)?></span></li>
                                 <li><p>파이트 포인트</p><span class="fp"><?=number_format($m_fp)?></span></li>
                                 <!--                                <li><p>명예 포인트</p><span class="hp">--><?//=$dbhp['pg_amount']?><!--</span></li>-->
-                                <li><p>명예 포인트</p><span class="hp"><?=number_format($hp)?></span></li>
+                                <li><p>누적 전투력</p><span class="hp"><?=number_format($hp)?></span></li>
                                 <li><p>진행 중 문의</p><span class="count"><?=$my_contactus?></span></li>
                             </ul>
                         </div>

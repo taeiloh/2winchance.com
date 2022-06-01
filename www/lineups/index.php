@@ -44,12 +44,12 @@ try {
 
     $sql ="
         SELECT
-            count(*) 
-        FROM lineups a 
+            count(*)
+        FROM lineups a
         LEFT JOIN game b
             ON a.lu_g_idx = b.g_idx
         WHERE 1=1
-            AND a.lu_u_idx = {$_se_idx}
+            AND a.lu_u_idx = {$_se_idx}{$where}
         ORDER BY a.lu_idx DESC
     ";
     //p($sql);
@@ -63,8 +63,8 @@ try {
 
     $dbb = $result11->fetch_assoc();
 
-    $sql2 = "SELECT * FROM lineups a LEFT JOIN game b 
-            ON b.g_idx = a.lu_g_idx LEFT JOIN lineups_history c 
+    $sql2 = "SELECT * FROM lineups a LEFT JOIN game b
+            ON b.g_idx = a.lu_g_idx LEFT JOIN lineups_history c
            ON c.lu_idx = a.lu_idx WHERE 1=1 AND c.lu_idx = {$dbb['lu_idx']}";
 
     $result12 = $_mysqli->query($sql2);
@@ -108,18 +108,18 @@ try {
                 <div class="inner">
                     <ul class="contest-list lineup-list">
                         <?php
-
                         if($total_count > 0){
                             $i=0;
                             $query  = "
-                                SELECT a.* 
-                                FROM lineups a 
+                                SELECT a.*
+                                FROM lineups a
                                 LEFT JOIN game b
                                     ON a.lu_g_idx = b.g_idx
                                 WHERE 1=1
                                   AND a.lu_u_idx = {$_se_idx}
                                     {$where}
-                                ORDER BY a.lu_idx DESC
+                                ORDER BY a.lu_idx DESC 
+                                LIMIT {$from_record}, {$rows}
                             ";
                             //p($query);
                             $result = $_mysqli->query($query);
@@ -131,9 +131,9 @@ try {
                                 $i++;
                                 $sub_query  = "
                                     SELECT * FROM lineups a
-                                    LEFT JOIN game b 
+                                    LEFT JOIN game b
                                         ON b.g_idx = a.lu_g_idx
-                                    LEFT JOIN lineups_history c 
+                                    LEFT JOIN lineups_history c
                                         ON c.lu_idx = a.lu_idx
                                     WHERE 1=1
                                         AND c.lu_idx = {$db['lu_idx']}
@@ -146,9 +146,9 @@ try {
 
                                 $sub_query2 = "
                                     SELECT 50000-sum(player_salary) as left_salary, b.g_date FROM lineups a
-                                    LEFT JOIN game b 
+                                    LEFT JOIN game b
                                         ON b.g_idx = a.lu_g_idx
-                                    LEFT JOIN lineups_history c 
+                                    LEFT JOIN lineups_history c
                                         ON c.lu_idx = a.lu_idx
                                     WHERE 1=1
                                         AND c.lu_idx = {$db['lu_idx']}
@@ -182,20 +182,23 @@ try {
                                 if ($sub_db2['g_status']==0 || $sub_db2['g_status']==1) {
                                     $link       = "/draft/?edit=1&index={$sub_db2['g_idx']}&lu_idx={$sub_db2['lu_idx']}";
                                     $liClass    = 'edit';
-                                    $editTitle  = '수정';
+                                    $editTitle  = '<span class="line-up-badge btnPush">수정</span>';
+                                    $cursor = '';
                                 } else if ($sub_db2['g_status']==2) {
                                     $link       = 'javascript:void(0);';
                                     $liClass    = 'live';
                                     $editTitle  = 'LIVE';
+                                    $cursor = '';
                                 } else if ($sub_db2['g_status']==3) {
                                     $link       = 'javascript:void(0);';
-                                    $liClass    = 'finish';
-                                    $editTitle  = '결과';
+                                    $liClass    = 'finished';
+                                    $editTitle  = '<span class="line-up-badge" >결과</span>';
+                                    $cursor = 'style="cursor: default;"';
                                 }
 
                                 echo <<<LI
                         <li class="{$liClass}">
-                            <a href="{$link}" class="active" title="{$sub_db2['g_name']}">
+                            <a href="{$link}" {$cursor} class="active" title="{$sub_db2['g_name']}">
                                 <div class="game-thumb" style="background-image: url('{$game_img_src}')">
                                     <div class="subject">
                                     <img src="{$img_src}" alt="pubg_logo"/>
@@ -216,7 +219,7 @@ try {
                                         </dl>
                                     </div>
                                 </div>
-                                <span class="line-up-badge btnPush">{$editTitle}</span>
+                                {$editTitle}
                             </a>
                             <table class="entries-table">
                                 <thead>
@@ -271,7 +274,7 @@ LI;
                                         SELECT
                                             team_alias
                                         FROM pubg_team_profile_player
-                                        WHERE 1=1 
+                                        WHERE 1=1
                                             AND player_id = '{$sub_db['player_id']}'
                                         LIMIT 1
                                     ";
@@ -289,9 +292,10 @@ LI;
                                     <td>{$player_name}</td>
                                     <td>{$team_name}</td>
                                     <td>$ {$salary}</td>
-                                </tr>                                
+                                </tr>
 TR;
                                 }
+                                $sub_result->free();
                                 ?>
                                 <tr>
                                     <td colspan="4" class="game-total">
@@ -309,10 +313,8 @@ TR;
                                 </li>
                                 <?php
                             }
+                            $result->free();
                         }
-
-                        $result->free();
-                        $sub_result->free();
                         ?>
                     </ul>
                 </div>
@@ -320,7 +322,8 @@ TR;
             <!--//sec-01-->
             <div class="pagination">
                 <?php
-                //echo paging($page,$total_page,5,"{$_SERVER['SCRIPT_NAME']}?page=");
+
+                echo paging($page,$total_page,5,"{$_SERVER['SCRIPT_NAME']}?page=");
                 ?>
                 <!--<a href="javascript:void(0)" class="active" >1</a>
                 <a href="javascript:void(0)">2</a>

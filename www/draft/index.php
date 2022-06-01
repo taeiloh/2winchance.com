@@ -231,7 +231,7 @@ DIV;
                                 <span></span>
                                 <span></span>
                                 <span></span>
-                                무작위 선택
+                                무작위 선발
                             </button>
                         </div>
                         <table class="contents-table">
@@ -253,7 +253,7 @@ DIV;
                                     <button class="search-btn"></button>
                                 </th>
                                 <th><a href="javascript:void(0);">팀</a></th>
-                                <th><a href="javascript:void(0);">HP</a></th>
+                                <th><a href="javascript:void(0);">전투력</a></th>
                                 <th><a href="javascript:void(0);">연봉</a></th>
                                 <th>선택</th>
                             </tr>
@@ -285,7 +285,7 @@ DIV;
                             </li>
                             <li>
                                 <dl>
-                                    <dt>총 HP</dt>
+                                    <dt>총 전투력</dt>
                                     <dd><span class="total_fppg">0</span></dd>
                                 </dl>
                             </li>
@@ -312,7 +312,7 @@ DIV;
                                         $team_name      = $arrLineup[$key]['team_alias'];
                                         $player_name    = $arrLineup[$key]['player_name'];
                                         $player_salary  = $arrLineup[$key]['player_salary'];
-
+                                        $on ="on";
                                         $player_img     = "<img src=\"/images/player_images/pubg/{$arrLineup[$key]['player_name']}.jpg\" alt=\"\" onerror=\"this.src='/images/player_images/pubg/default.png'\" style=\"width: 68px;\">";
                                         $btnDel         = "<button class=\"btn-delete\" data-fppg=\"0\" data-del-index=\"{$arrLineup[$key]['player_idx']}\" data-game=\"{$arrLineup[$key]['game_id']}\" onclick=\"delPlayer('pubg', {$arrLineup[$key]['player_idx']}, '{$value}');\">삭제</button>";
 
@@ -320,7 +320,7 @@ DIV;
                                         $team_name      = 'Team';
                                         $player_name    = 'Player Name';
                                         $player_salary  = '0';
-
+                                        $on="";
                                         $player_img     = "<p style=\"background-image:url('/images/PUBG/pos/{$value}.png');background-size:100%;\"></p>";
                                         $btnDel         = '';
                                     }
@@ -335,7 +335,7 @@ DIV;
                                     echo <<<LI
                                 <!-- TODO 20220524 syryu 아래 영역은 선택 전디폴트 화면 입니다. -->
                                 <li class="player-info lineup_{$value}">
-                                    <div class="player-img player_img">{$player_img}</div>
+                                    <div class="player-img player_img {$on}">{$player_img}</div>
                                     <div class="player-skill">
                                         <div class="skill-top">
                                             <div class="name">
@@ -356,7 +356,7 @@ DIV;
                                                     <th>최근 경기</th>
                                                     <th>순위</th>
                                                     <th>킬 수</th>
-                                                    <th>HP</th>
+                                                    <th>전투력</th>
                                                 </tr>
                                                 <tr>
                                                     <td>-</td>
@@ -391,7 +391,7 @@ DIV;
                                                     <th>최근 경기</th>
                                                     <th>순위</th>
                                                     <th>킬 수</th>
-                                                    <th>HP</th>
+                                                    <th>전투력</th>
                                                 </tr>
                                                 <tr>
                                                     <td>MM-DD</td>
@@ -459,7 +459,7 @@ LI;
                         </dl>
                         <dl>
                             <dt>205</dt>
-                            <dd>평균 HP</dd>
+                            <dd>평균 전투력</dd>
                         </dl>
                         <dl>
                             <dt>90%</dt>
@@ -496,7 +496,7 @@ LI;
                                 <th>평균 킬</th>
                                 <th>평균 생존</th>
                                 <th>평균 데미지</th>
-                                <th>평균 HP</th>
+                                <th>평균 전투력</th>
                                 <th>승률</th>
                                 <th>KDA</th>
                             </tr>
@@ -526,7 +526,7 @@ LI;
                                 <th>킬</th>
                                 <th>생존</th>
                                 <th>데미지</th>
-                                <th>HP</th>
+                                <th>전투력</th>
                                 <th>KDA</th>
                             </tr>
                             <tr>
@@ -1011,7 +1011,7 @@ LI;
                 pos = 'FLEX';
                 //
                 if (chk_flex(data_flex, "player_name", name) === false) {
-                    alert('You have already selected that position. (001)');
+                    alert('선수 포지션이 중복되었습니다. (001)');
                     return false;
                 }
             }
@@ -1024,7 +1024,7 @@ LI;
                 }
             });
             if (overlap === true) {
-                alert('You have already selected that position. (002)');
+                alert('선수 포지션이 중복되었습니다. (002)');
                 return;
             }
 
@@ -1037,7 +1037,7 @@ LI;
                 avg_salary      = (50000 - total_salary) / cnt;
 
             } else {
-                alert('You have already selected that position. (003)');
+                alert('선수 포지션이 중복되었습니다. (003)');
                 return;
             }
 
@@ -1053,6 +1053,7 @@ LI;
             } else if (category == "pubg") {
                 name = name.split(" ");
                 input_node(pos, 'player_img', '<img src="/images/player_images/pubg/'+ name[1] +'.jpg" alt="" onerror=\'this.src="/images/player_images/pubg/default.png"\' style="width: 68px;" />');
+
 
             }
 
@@ -1102,6 +1103,7 @@ LI;
         console.log(pos, node, text);
 
         var table = $(".lineup_" + pos).find('.' + node);
+        $(".lineup_" + pos).children(".player-img").addClass('on');
         var count = table.length;
         //
         for (var i=0; i<count; i++) {
@@ -1162,7 +1164,7 @@ LI;
         var error = true;
         var del = $(".del").each(function (i) {
             if ($(this).html() == "") {
-                alert('You must select all positions.');
+                alert('선수 선발을 완료해 주세요.');
                 error = true;
                 return false;
 
@@ -1196,11 +1198,11 @@ LI;
                             location.href = "/lineups/?sub=upcoming";
 
                         } else if (data === '411') {
-                            alert('Not enough Gold.');
+                            alert('FP가 부족합니다.');
                             //location.replace('/index.php?menu=store');
 
                         } else if (data === '412') {
-                            alert('You have already reached Max entry limit.');
+                            alert('잔여연봉이 부족합니다.');
                             //location.replace('/index.php?menu=lobby');
 
                         } else {
@@ -1567,6 +1569,7 @@ LI;
             this_btn.parent().parent().find('.img').html('<img src="/images/player_images/soc/'+ category +'/img_s/home_s.png" width="50">');
 
         } else if (category == "pubg") {
+            this_btn.parent().parent().find('.player_img').removeClass("on");
             this_btn.parent().parent().find('.player_img').html("<p style=\"background-image:url('/images/PUBG/pos/"+ pos +".png');background-size:100%;\"></p>");
         }
 

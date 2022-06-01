@@ -19,6 +19,15 @@ try {
     $honormem = $result2->fetch_array();
     $hph_balance = !empty($honormem['hph_balance']) ?$honormem['hph_balance'] : 0;
 
+    // 2022-05-31 캐시잔액 조원영
+    $querycoin = "
+        SELECT sum(dh_amount) as total_amount FROM deposit_history
+        WHERE 1 AND dh_u_idx = '{$idx}'
+   ";
+    $resultcoin = $_mysqli->query($querycoin);
+    $_arrCoin = $resultcoin->fetch_array();
+    $total_coin = !empty($_arrCoin['total_amount']) ? $_arrCoin['total_amount'] : 0;
+
 } catch (Exception $e) {
     p($e);
 }
@@ -63,9 +72,9 @@ try {
                             <h3>잔여포인트</h3>
                             <div class="user-detail-info">
                                 <ul>
-                                    <li><p>COIN</p><span class="fc-yellow coin"><?=$deposit?></span></li>
-                                    <li><p>Fight Point</p><span class="fp"><?=$m_fp_balance?></span></li>
-                                    <li><p>Honor Point</p><span class="hp"><?=$hph_balance?></span></li>
+                                    <li><p>캐시</p><span class="fc-yellow coin"><?=number_format($total_coin)?></span></li>
+                                    <li><p>파이트 포인트</p><span class="fp"><?=$m_fp_balance?></span></li>
+                                    <li><p>누적 전투력</p><span class="hp"><?=$hph_balance?></span></li>
                                 </ul>
                             </div>
                         </div>

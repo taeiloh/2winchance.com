@@ -41,12 +41,14 @@ if($age < 18)
 else if($cnt3 > 0)
 {
     $action="join_02_2.php";
+    $action="join_02_1_1.php";
 }
 else if($cnt > 0)
 {
     $action="../signup/id_check.php";
 }else{
     $action="join_02_2.php";
+    $action="join_02_1_1.php";
 }
 
 

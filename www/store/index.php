@@ -44,6 +44,8 @@ try {
     $result = $_mysqli->query($query);
     $m_deposit = $result->fetch_array();
     $db_cash = !empty($m_deposit['m_limit_deposit']) ? $m_deposit['m_limit_deposit'] : 500000;
+    $db_m_sns_id = !empty($m_deposit['m_sns_id']) ? $m_deposit['m_sns_id'] : "";
+
 
     $query2 = "
         SELECT sum(dh_deposit) as total_deposit FROM deposit_history
@@ -149,7 +151,17 @@ try {
                             </ul>
                             <ul>
                                 <li>결제 알림 메일</li>
-                                <li id="email"><?=$id?></li>
+                                <li id="email">
+                                    <br>
+                                    <?php
+                                    if($db_m_sns_id==""){
+                                       echo $id;
+    ;                                }else{
+                                        echo "결제 알림용 메일은, 결제창에 직접 입력하세요.";
+                                    }
+
+                                    ?>
+                                </li>
                             </ul>
                         </div>
                         <div class="coin-policy">

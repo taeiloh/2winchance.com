@@ -22,7 +22,7 @@ try {
 
 }
 ?>
-<div class="player-img">
+<div class="player-img <?php if($photo!=""){echo "on";}?>">
     <img src="/images/player_images/pubg/<?=$photo;?>" alt="<?=$info['full_name'];?>'s photo"/>
 </div>
 <div class="player-skill">
@@ -80,7 +80,7 @@ try {
                 <th>최근 경기</th>
                 <th>순위</th>
                 <th>킬 수</th>
-                <th>HP</th>
+                <th>전투력</th>
             </tr>
             </thead>
             <tbody>

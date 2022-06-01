@@ -53,7 +53,7 @@ $today      = date('Y-m-d');
             <!--sec-02-->
             <section class="sec sec-02">
                 <div class="inner mT10">
-                    <h2>진행 경기 정보</h2>
+                    <h2>진행중인 콘테스트</h2>
                     <ul class="contest-list">
                         <?php
                         $gameInfo   = new Game($cate, $_mysqli);
