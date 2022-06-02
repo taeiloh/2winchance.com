@@ -35,7 +35,7 @@ try {
     $query3 = "
         SELECT sum(dh_deposit) as total_deposit, DATE_FORMAT(dh_req_date, '%Y%m%d') FROM deposit_history
         WHERE 1 AND dh_u_idx='{$idx}'
-        GROUP BY DATE_FORMAT(dh_req_date, '%Y%m%d')
+        and DATE_FORMAT(DATE_ADD(dh_req_date, INTERVAL 1 MONTH), '%Y%m01') > DATE_FORMAT(CURDATE(), '%Y%m%d')
     ";
     $dayresult = $_mysqli->query($query3);
     $_arrDeposit = $dayresult->fetch_array();

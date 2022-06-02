@@ -49,12 +49,12 @@ try {
 
     $query2 = "
         SELECT sum(dh_deposit) as total_deposit FROM deposit_history
-        WHERE 1 AND dh_u_idx = '{$idx}'
+        WHERE 1 AND dh_u_idx = '{$idx}' AND DATE(dh_deposit) >= DATE_FORMAT(NOW(),'%Y-%m-01'); 
     ";
     $result2 = $_mysqli->query($query2);
     $_arrDeposit = $result2->fetch_array();
     $total_deposit = !empty($_arrDeposit['total_deposit']) ? $_arrDeposit['total_deposit'] : 0;
-    print $total_deposit;
+    //print $total_deposit;
 
 
 } catch (Exception $e) {
@@ -276,20 +276,20 @@ try {
                                         <div class="price-box"><p>16,000</p></div>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="javascript:void(0);" data-money="10">
-                                        <div class="coin-price ">
-                                            <p class="txt1">월 구독</p>
-                                            <!--                                            <span><img src="../images/1000coin.svg" alt=""></span>-->
-                                            <div class="last">
-                                                <span>10ⓒ /일</span>
-                                                <span>1치장/ 일</span>
-                                            </div>
-                                            <p class="txt2">1회 / 인</p>
-                                        </div>
-                                        <div class="price-box"><p>20,000</p></div>
-                                    </a>
-                                </li>
+<!--                                <li>-->
+<!--                                    <a href="javascript:void(0);" data-money="10">-->
+<!--                                        <div class="coin-price ">-->
+<!--                                            <p class="txt1">월 구독</p>-->
+<!--                                                                                      <span><img src="../images/1000coin.svg" alt=""></span>-->
+<!--                                            <div class="last">-->
+<!--                                                <span>10ⓒ /일</span>-->
+<!--                                                <span>1치장/ 일</span>-->
+<!--                                            </div>-->
+<!--                                            <p class="txt2">1회 / 인</p>-->
+<!--                                        </div>-->
+<!--                                        <div class="price-box"><p>20,000</p></div>-->
+<!--                                    </a>-->
+<!--                                </li>-->
                             </ul>
                         </div>
                         <!--div class="payby">
@@ -385,7 +385,7 @@ try {
         console.log("=== total_deposit ===> ", total_deposit);
 
         if(total_deposit >= 500000){
-            alert("결제가능한 월 잔여 한도를 초과하였습니다.");
+            alert("월 총 구매 한도액 50만원을 초과하였습니다. 다음에 이용해 주세요.");
             return false;
         }
 
