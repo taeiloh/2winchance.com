@@ -124,37 +124,37 @@ class RankReward {
     }
 
     // 상금 정보
-    function getReward_info($g_prize) {
+    function getReward_info($g_prize, $rtn_type='html') {
         switch($g_prize) {
             case 0:
-                $info   = $this->reward_t1();
+                $info   = $this->reward_t1($rtn_type);
                 break;
             case 1:
-                $info   = $this->reward_half();
+                $info   = $this->reward_half($rtn_type);
                 break;
             case 2:
-                $info   = $this->reward_t2();
+                $info   = $this->reward_t2($rtn_type);
                 break;
             case 3:
-                $info   = $this->reward_t3();
+                $info   = $this->reward_t3($rtn_type);
                 break;
             case 4:
-                $info   = $this->reward_t4();
+                $info   = $this->reward_t4($rtn_type);
                 break;
             case 5:
-                $info   = $this->reward_t5();
+                $info   = $this->reward_t5($rtn_type);
                 break;
             case 6:
-                $info   = $this->reward_multi();
+                $info   = $this->reward_multi($rtn_type);
                 break;
             case 7:
-                $info   = $this->reward_x(2);
+                $info   = $this->reward_x(2, $rtn_type);
                 break;
             case 8:
-                $info   = $this->reward_x(3);
+                $info   = $this->reward_x(3, $rtn_type);
                 break;
             case 9:
-                $info   = $this->reward_x(10);
+                $info   = $this->reward_x(10, $rtn_type);
                 break;
         }
 
@@ -162,15 +162,15 @@ class RankReward {
     }
 
     // 상금 정보 로직(50/50)
-    function reward_half() {
+    function reward_half($rtn_type) {
         $rtn        = '';
-        $Tpz        = $this->fee * $this->size;
+        $Tpz        = $this->fee * $this->entry;
         $TpzU       = floor($Tpz * (100 - COMMISSION) / 100);
 
         if($this->size > 6) {
             // 참가 인원이 짝수인지 체크
             if($this->size % 2 == 0) {
-                $half   = $this->size / 2;
+                $half   = $this->entry / 2;
                 if($half > 0) {
                     $reward     = floor($TpzU / $half);
                 } else {
@@ -178,15 +178,21 @@ class RankReward {
                 }
                 $this->first_place  = $reward;
 
-                $rtn    = "
-                    <ul>
-                        <li class=\"first\">
-                            <label>50/50</label>
-                            <p>{$reward} FP</p>
-                        </li>
-                    </ul>
-                ";
-
+                if ($rtn_type == 'html') {
+                    $rtn    = "
+                        <ul>
+                            <li class=\"first\">
+                                <label>50/50</label>
+                                <p>{$reward} FP</p>
+                            </li>
+                        </ul>
+                    ";
+                } else {
+                    $rtn    = array();
+                    $rtn[0]['rank']     = '50/50';
+                    $rtn[0]['reward']   = $reward;
+                    $rtn[0]['limit']    = $half;
+                }
             }
         }
 
@@ -219,7 +225,7 @@ class RankReward {
 
     function reward_t1() {
         $rtn        = '';
-        $Tpz        = $this->fee * $this->size;
+        $Tpz        = $this->fee * $this->entry;
         $TpzU       = floor($Tpz * (100 - COMMISSION) / 100);
 
         $rtn    = "
@@ -249,7 +255,7 @@ class RankReward {
 
     function reward_t4() {
         $rtn        = '';
-        $Tpz        = $this->fee * $this->size;
+        $Tpz        = $this->fee * $this->entry;
         $TpzU       = floor($Tpz * (100 - COMMISSION) / 100);
         $remainder  = $TpzU;
 
@@ -294,9 +300,10 @@ class RankReward {
         return $rtn;
     }
 
-    function reward_t5() {
+    function reward_t5($rtn_type) {
         $rtn        = '';
-        $Tpz        = $this->fee * $this->size;
+        $arrRtn     = array();
+        $Tpz        = $this->fee * $this->entry;
         $TpzU       = floor($Tpz * (100 - COMMISSION) / 100);
         $remainder  = $TpzU;
 
@@ -330,16 +337,26 @@ class RankReward {
                     $reward     = $remainder;
                 }
 
-                $rtn .= "
-                    <li class=\"{$liClass}\" style=\"height: 4rem\">
-                        <label>{$rank}위</label>
-                        <p>{$reward} FP</p>
-                    </li>
-                ";
+                if ($rtn_type == 'html') {
+                    $rtn .= "
+                        <li class=\"{$liClass}\" style=\"height: 4rem\">
+                            <label>{$rank}위</label>
+                            <p>{$reward} FP</p>
+                        </li>
+                    ";
+                } else {
+                    $arrRtn[$i]['rank']     = $rank;
+                    $arrRtn[$i]['reward']   = $reward;
+                    $arrRtn[$i]['limit']    = 1;
+                }
             }
             $rtn    .= "
                 </ul>
             ";
+        }
+
+        if ($rtn_type != 'html') {
+            $rtn    = $arrRtn;
         }
 
         return $rtn;
