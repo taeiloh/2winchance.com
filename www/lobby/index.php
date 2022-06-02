@@ -53,7 +53,7 @@ $today      = date('Y-m-d');
             <!--sec-02-->
             <section class="sec sec-02">
                 <div class="inner mT10">
-                    <h2>진행중인 콘테스트 (1회 콘테스트 사용 FP 입장료는 최대 50,000FP를 초과하지 않습니다.)</h2>
+                    <h2>진행중인 콘테스트 (1회 콘테스트 사용 FP 입장료는 최대 5,000FP를 초과하지 않습니다.)</h2>
                     <ul class="contest-list">
                         <?php
                         $gameInfo   = new Game($cate, $_mysqli);
