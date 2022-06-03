@@ -229,6 +229,9 @@ try {
                                         <dd><a href="/remove/RemoveAccept.php">회원 탈퇴하기</dd></a>
                                         <?php
                                     }?>
+                                    <dd>
+                                        <a href="setting_time.php">게임 입장<br>제한시간 설정</a>
+                                    </dd>
                                 </dl>
                                     <button class="cash-limit" onclick="<?php if($id!=""){?>location.href='setting_pw.php'<?php }else{?>location.href='setting_cash.php'<?php }?>">캐시 구매 잔여 한도 내역 | FP 사용 제한 설정</button>
 
