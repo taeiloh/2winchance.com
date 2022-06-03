@@ -60,7 +60,7 @@ try{
 
             $today = date('Y-m-d h:i:s.n', time());
 
-            if($set_time >= $today) {
+            if($set_time <= $today) {
                 //세션 생성
                 $_SESSION['_se_idx'] = $_dbAdmins['m_idx'];
                 $_SESSION['_se_id'] = $_dbAdmins['m_id'];

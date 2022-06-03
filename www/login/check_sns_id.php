@@ -61,18 +61,34 @@ try {
             echo json_encode($arrRtn);
             exit;
         }
-        $db      = $result->fetch_assoc();
-        $db_seq  = !empty($db['m_idx'])       ? $db['m_idx']          : 0;
-        $db_name   = !empty($db['m_name'])     ? $db['m_name']      : '';
-        $db_deposit   = !empty($db['m_deposit'])     ? $db['m_deposit']      : '';
+        else{
+            $query2 = "SELECT set_time from members where m_sns_id='{$m_sns_id}'";
+            $result2 = $_mysqli->query($query2);
+            $mdb = $result2->fetch_array();
+            $set_time = $mdb['set_time'];
 
-        //세션
-        //세션 생성
-        $_SESSION['_se_idx']        = $db_seq;
-        $_SESSION['_se_name']       = $db_name;
-        $_SESSION['_se_deposit']       = $db_deposit;
+            $today = date('Y-m-d h:i:s.n', time());
+            if($set_time <= $today) {
+                $db = $result->fetch_assoc();
+                $db_seq = !empty($db['m_idx']) ? $db['m_idx'] : 0;
+                $db_name = !empty($db['m_name']) ? $db['m_name'] : '';
+                $db_deposit = !empty($db['m_deposit']) ? $db['m_deposit'] : '';
 
-        $arrRtn['code'] = 200;
+                //세션
+                //세션 생성
+                $_SESSION['_se_idx'] = $db_seq;
+                $_SESSION['_se_name'] = $db_name;
+                $_SESSION['_se_deposit'] = $db_deposit;
+
+                $arrRtn['code'] = 200;
+            }
+            else{
+                $arrRtn['code'] = 205;
+                $arrRtn['msg'] = "본인 요청으로 게임입장 제한기간 설정에 따라 로그인이 제한 되었습니다. 설정기간 후 로그인이 가능합니다";
+                echo json_encode($arrRtn);
+                exit;
+            }
+        }
     }
     else{
         $query2  = "
