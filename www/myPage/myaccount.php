@@ -31,7 +31,7 @@ try {
     //진행 중 문의 총 갯수
     $querycon = "
         SELECT count(*)
-        FROM contactus 
+        FROM contactus
         WHERE 1 AND cu_u_idx = '{$idx}'
     ";
     //print $querycon;
@@ -192,12 +192,14 @@ try {
                 <div class="contents-cont inner item-page">
                     <div class="user-acct">
                         <div class="user-profile">
+                         <div class="box-right">
                             <div class="pf-pic">
                                 <img id="main_item" src="<?=$main_src?>" alt="profile">
                                 <button type="button" class="emblem" id="main_emblem" onclick="emblem_change()">
                                 <p>엠블럼 저장하기</p>
                                 </button>
-
+                            </div>
+                            <a href="setting_time.php" class="play-limit">게임입장 제한시간 설정</a>
                             </div>
                             <div class="pf-info">
                                 <ul>
@@ -229,9 +231,7 @@ try {
                                         <dd><a href="/remove/RemoveAccept.php">회원 탈퇴하기</dd></a>
                                         <?php
                                     }?>
-                                    <dd>
-                                        <a href="setting_time.php">게임 입장<br>제한시간 설정</a>
-                                    </dd>
+
                                 </dl>
                                     <button class="cash-limit" onclick="<?php if($id!=""){?>location.href='setting_pw.php'<?php }else{?>location.href='setting_cash.php'<?php }?>">캐시 구매 잔여 한도 내역 | FP 사용 제한 설정</button>
 

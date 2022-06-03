@@ -948,6 +948,8 @@ td.user{color: #ff00dd; font-weight: 600;}
 .pf-info dd{font-weight: 500; position: relative; padding-right: 1.7rem; }
 .pf-info dd ~ dd{padding-left: 1.7rem;}
 .pf-info dd ~ dd:after{content: ''; width: 0.4rem; height: 2.1rem; background-color: #3a3a3a; display: block; position: absolute; left: 0; top:50%; transform: translateY(-50%); }
+.box-right{display: flex; flex-direction: column;}
+.play-limit{ background-color: #1e8fff; margin-top: 2.3rem; text-align: center; padding: 1rem; border-radius: 0.5rem; height: 3.9rem; font-weight: 500;}
 
 .cash-limit{color: #fff; text-align: center; margin-top: 2rem; margin-left: 0; background-color: #ff0000; border-radius: 0.5rem; padding: 1rem;}
 
