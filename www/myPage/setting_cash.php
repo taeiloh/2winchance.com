@@ -10,15 +10,15 @@ $on = !empty($_GET['on']) ?$_GET['on'] : "";
 
 $date = date("Y-m-d");
 $date1 = date('Y-m-d H:m:s');
-$today1 = $date."08:59:59";
+$today1 = $date."09:00:00";
+//$today2 = $date."24:00:00";
 
 $yesterday = date("Y-m-d H:m:s", strtotime("-1 day", strtotime($date)));
-$yesterday1 = $yesterday."09:00:00";
+$yesterday1 = $yesterday."08:59:59";
 
-if($date1 > $today1){
-    $today1 = $date."24:00:00";
-}
-
+//if($date1 > $today1){
+//    $today1 = $date."24:00:00";
+//}
 
 $m_pw      = isset($_POST['m_pw'])        ?     $_POST['m_pw']       : '';
 
@@ -51,26 +51,26 @@ try {
     ";
     $dayresult = $_mysqli->query($query3);
     $_arrDeposit = $dayresult->fetch_array();
-    //  <!--   일일 초기화 쿼리 수정중  -->
-//    if($date1 > $today1){
-//        $query4 = "
-//            select sum(dh_deposit) as day_deposit, DATE_FORMAT(dh_req_date, '%Y%m%d')
-//            from deposit_history
-//            WHERE 1 and dh_u_idx='{$idx}'
-//            and DATE_FORMAT(NOW(),'%Y%m%d%H%i%s') < DATE_FORMAT('{$today1}','%Y%m%d%H%i%s')
-//        ";
-//    }else {
-//        $query4 = "
-//            select sum(dh_deposit) as day_deposit, DATE_FORMAT(dh_req_date, '%Y%m%d')
-//            from deposit_history
-//            WHERE 1 and dh_u_idx='{$idx}'
-//            and DATE_FORMAT(NOW(), '%Y%m%d%H%i%s') > DATE_FORMAT('{$yesterday1}','%Y%m%d%H%i%s')
-//            ";
-//    }
-//
-//    $day = $_mysqli->query($query4);
-//    $_dayDeposit = $day->fetch_array();
-//    $day_limit = !empty($_dayDeposit['day_deposit']) ? $_dayDeposit['day_deposit'] : 0;
+    // 일일 초기화 쿼리 수정중
+    if($date1 > $today1){ //오전 9시 이후
+        $query4 = "
+            select sum(dh_deposit) as day_deposit, DATE_FORMAT(dh_req_date, '%Y%m%d')
+            from deposit_history
+            WHERE 1 and dh_u_idx='{$idx}'
+            and DATE_FORMAT(NOW(),'%Y%m%d%H%i%s') > DATE_FORMAT('{$today1}','%Y%m%d%H%i%s')
+        ";
+    }else { //9시 이전
+        $query4 = "
+            select sum(dh_deposit) as day_deposit, DATE_FORMAT(dh_req_date, '%Y%m%d')
+            from deposit_history
+            WHERE 1 and dh_u_idx='{$idx}'
+            and DATE_FORMAT(NOW(), '%Y%m%d%H%i%s') < DATE_FORMAT('{$yesterday1}','%Y%m%d%H%i%s')
+            ";
+    }
+
+    $day = $_mysqli->query($query4);
+    $_dayDeposit = $day->fetch_array();
+    $day_limit = !empty($_dayDeposit['day_deposit']) ? $_dayDeposit['day_deposit'] : 0;
 
 }catch (Exception $e) {
     p($e);
@@ -138,7 +138,7 @@ try {
                                             }else {
                                             ?>
                                                 <!--   일일 초기화 쿼리 수정중  -->
-                                                <span class="limit-money"><?=number_format(300000-$m_deposit)?></span>
+                                                <span class="limit-money"><?=number_format(300000-$day_limit)?></span>
 
                                             <?php
                                             }
