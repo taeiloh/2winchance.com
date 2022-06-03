@@ -53,17 +53,32 @@ try{
         if (password_verify($m_pw, $_dbAdmins['m_pw'])) {
             //승인여부 체크
 
-            //세션 생성
-            $_SESSION['_se_idx']        = $_dbAdmins['m_idx'];
-            $_SESSION['_se_id']         = $_dbAdmins['m_id'];
-            $_SESSION['_se_name']       = $_dbAdmins['m_name'];
-            $_SESSION['_se_deposit']       = $_dbAdmins['m_deposit'];
-            $_SESSION['_se_fp']         = $_dbAdmins['m_fp_balance'];
-            //성공
-            $arrRtn['code']    = 200;
-            $arrRtn['msg']     = "로그인 성공하였습니다";
-            echo json_encode($arrRtn);
-            exit;
+            $query2 = "SELECT set_time from members where m_id='{$m_id}'";
+            $result2 = $_mysqli->query($query2);
+            $mdb = $result2->fetch_array();
+            $set_time = $mdb['set_time'];
+
+            $today = date('Y-m-d h:i:s.n', time());
+
+            if($set_time >= $today) {
+                //세션 생성
+                $_SESSION['_se_idx'] = $_dbAdmins['m_idx'];
+                $_SESSION['_se_id'] = $_dbAdmins['m_id'];
+                $_SESSION['_se_name'] = $_dbAdmins['m_name'];
+                $_SESSION['_se_deposit'] = $_dbAdmins['m_deposit'];
+                $_SESSION['_se_fp'] = $_dbAdmins['m_fp_balance'];
+                //성공
+                $arrRtn['code'] = 200;
+                $arrRtn['msg'] = "로그인 성공하였습니다";
+                echo json_encode($arrRtn);
+                exit;
+            }
+            else{
+                $arrRtn['code'] = 205;
+                $arrRtn['msg'] = "본인 요청으로 게임입장 제한기간 설정에 따라 로그인이 제한 되었습니다. 설정기간 후 로그인이 가능합니다";
+                echo json_encode($arrRtn);
+                exit;
+            }
 
         } else {
             $code    = 502;
