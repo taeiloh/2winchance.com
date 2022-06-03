@@ -103,9 +103,9 @@ try {
                                                 ?>
                                                 <section id="drop3" class="dropdown">
                                                     <div class="select" id="selectfp">
-                                                        <div class="text"><?php if($m_fp_limit == 0){ echo '해당사항 없음'; } else { echo number_format($m_fp_limit); }?></div>
+                                                        <div class="text"><?php if($m_fp_limit == 0){ echo '10,000'; } else { echo number_format($m_fp_limit); }?></div>
                                                         <ul class="option-list setting">
-                                                            <li class="option" value="0">해당사항 없음</li>
+                                                            <!--<li class="option" value="0">해당사항 없음</li>-->
                                                             <li class="option" value="10000">10,000</li>
                                                             <li class="option" value="15000">15,000</li>
                                                             <li class="option" value="20000">20,000</li>
@@ -122,7 +122,8 @@ try {
                                             }else{
                                                 if($m_fp_limit == 0){
                                                     ?>
-                                                    <p>해당 사항 없음</p>
+                                                    <p>10,000</p>
+                                                    <span>FP</span>
                                                     <?php
                                                 }else{?>
                                                     <p><?php  echo number_format($m_fp_limit); ?></p>
@@ -143,9 +144,9 @@ try {
                                                 ?>
                                                 <section id="drop4" class="dropdown">
                                                     <div class="select" id="selecttime">
-                                                        <div class="text"><?php if($m_time_reset == 0){ echo '해당사항 없음'; } else { echo number_format($m_time_reset); }?></div>
+                                                        <div class="text"><?php if($m_time_reset == 0){ echo '6'; } else { echo number_format($m_time_reset); }?></div>
                                                         <ul class="option-list reset_time">
-                                                            <li class="option" value="0">해당사항 없음</li>
+                                                            <!--<li class="option" value="0">해당사항 없음</li>-->
                                                             <li class="option" value="6">6</li>
                                                             <li class="option" value="8">8</li>
                                                             <li class="option" value="10">10</li>
@@ -163,7 +164,8 @@ try {
                                                 <?php
                                             }else{
                                                 if($m_time_reset == 0){
-                                                    ?><p>해당 사항 없음</p>
+                                                    ?><p>6</p>
+                                                    <span>시간</span>
                                                     <?php
                                                 }else{
                                                     ?>
