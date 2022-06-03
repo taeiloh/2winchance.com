@@ -131,7 +131,7 @@ try {
                                             <span><img src="../images/ico_alert_small.png" alt="알림">매월 1일 초기화</span></p>
                                         <p>일 현재 잔여 한도 -
                                             <?php
-                                            if($m_deposit >= 300000){
+                                            if($day_limit >= 300000){
                                                 ?>
                                                     <span class="limit-money">0</span>
                                                 <?php

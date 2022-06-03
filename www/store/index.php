@@ -49,7 +49,7 @@ try {
 
     $query2 = "
         SELECT sum(dh_deposit) as total_deposit FROM deposit_history
-        WHERE 1 AND dh_u_idx = '{$idx}' AND DATE(dh_deposit) >= DATE_FORMAT(NOW(),'%Y-%m-01'); 
+        WHERE 1 AND dh_u_idx = '{$idx}' AND DATE_FORMAT(dh_req_date,'%Y-%m-%s') >= DATE_FORMAT(NOW(),'%Y-%m-01'); 
     ";
     $result2 = $_mysqli->query($query2);
     $_arrDeposit = $result2->fetch_array();
