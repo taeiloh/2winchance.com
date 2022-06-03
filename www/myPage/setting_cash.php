@@ -8,6 +8,18 @@ $deposit=!empty($_SESSION['_se_deposit']) ? $_SESSION['_se_deposit'] : 0;    // 
 $fp=!empty($_SESSION['_se_fp']) ? $_SESSION['_se_fp'] : 0; // fantasy-point 잔액
 $on = !empty($_GET['on']) ?$_GET['on'] : "";
 
+$date = date("Y-m-d");
+$date1 = date('Y-m-d H:m:s');
+$today1 = $date."08:59:59";
+
+$yesterday = date("Y-m-d H:m:s", strtotime("-1 day", strtotime($date)));
+$yesterday1 = $yesterday."09:00:00";
+
+if($date1 > $today1){
+    $today1 = $date."24:00:00";
+}
+
+
 $m_pw      = isset($_POST['m_pw'])        ?     $_POST['m_pw']       : '';
 
 if (!$idx) {
@@ -39,11 +51,26 @@ try {
     ";
     $dayresult = $_mysqli->query($query3);
     $_arrDeposit = $dayresult->fetch_array();
-    $day_limit = !empty($_arrDeposit['total_deposit']) ? $_arrDeposit['total_deposit'] : 0;
-    //print $day_limit;
-
-
-
+    //  <!--   일일 초기화 쿼리 수정중  -->
+//    if($date1 > $today1){
+//        $query4 = "
+//            select sum(dh_deposit) as day_deposit, DATE_FORMAT(dh_req_date, '%Y%m%d')
+//            from deposit_history
+//            WHERE 1 and dh_u_idx='{$idx}'
+//            and DATE_FORMAT(NOW(),'%Y%m%d%H%i%s') < DATE_FORMAT('{$today1}','%Y%m%d%H%i%s')
+//        ";
+//    }else {
+//        $query4 = "
+//            select sum(dh_deposit) as day_deposit, DATE_FORMAT(dh_req_date, '%Y%m%d')
+//            from deposit_history
+//            WHERE 1 and dh_u_idx='{$idx}'
+//            and DATE_FORMAT(NOW(), '%Y%m%d%H%i%s') > DATE_FORMAT('{$yesterday1}','%Y%m%d%H%i%s')
+//            ";
+//    }
+//
+//    $day = $_mysqli->query($query4);
+//    $_dayDeposit = $day->fetch_array();
+//    $day_limit = !empty($_dayDeposit['day_deposit']) ? $_dayDeposit['day_deposit'] : 0;
 
 }catch (Exception $e) {
     p($e);
@@ -89,8 +116,34 @@ try {
                                 <div class="money-limit">
                                     <h3>캐시 구매 잔여 한도 내역</h3>
                                     <div class="limit-days">
-                                        <p>월 현재 잔여 한도 - <span class="limit-money"><?=number_format(500000-$m_deposit)?></span><span><img src="../images/ico_alert_small.png" alt="알림">매월 1일 초기화</span></p>
-                                        <p>일 현재 잔여 한도 - <span class="limit-money"><?=number_format(300000-$day_limit)?></span><span><img src="../images/ico_alert_small.png" alt="알림">매일 오전 09:00 초기화</span></p>
+                                        <p>월 현재 잔여 한도 -
+                                            <?php
+                                                if($m_deposit >= 500000){
+                                            ?>
+                                                <span class="limit-money">0</span>
+                                            <?php
+                                                }else {
+                                             ?>
+                                                 <span class="limit-money"><?=number_format(500000-$m_deposit )?></span>
+                                            <?php
+                                                }
+                                            ?>
+                                            <span><img src="../images/ico_alert_small.png" alt="알림">매월 1일 초기화</span></p>
+                                        <p>일 현재 잔여 한도 -
+                                            <?php
+                                            if($m_deposit >= 300000){
+                                                ?>
+                                                    <span class="limit-money">0</span>
+                                                <?php
+                                            }else {
+                                            ?>
+                                                <!--   일일 초기화 쿼리 수정중  -->
+                                                <span class="limit-money"><?=number_format(300000-$m_deposit)?></span>
+
+                                            <?php
+                                            }
+                                            ?>
+                                            <span><img src="../images/ico_alert_small.png" alt="알림">매일 오전 09:00 초기화</span></p>
                                     </div>
                                 </div>
                                 <div class="limit-input-wrap">
