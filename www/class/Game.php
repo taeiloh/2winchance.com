@@ -34,7 +34,7 @@ class Game {
                 AND g_status != 3 
                 AND DATE_SUB(g_date, INTERVAL 5 HOUR) >= '{$sdate} 00:00:00' 
                 AND DATE_SUB(g_date, INTERVAL 5 HOUR) <= '{$edate} 23:59:59'
-            ORDER BY g_sort DESC, RAND()
+            ORDER BY g_sort DESC, g_date ASC, RAND()
             {$queryLimit}
         ";
         //p($query);

@@ -23,7 +23,7 @@ try {
     $ymd        = !empty($_GET['ymd'])      ? $_GET['ymd']      : '';
 
     // 변수 정리
-    $round_seq      = 14;
+    $round_seq      = 17;
     $game_category  = 20;
 
     // 트랜잭션
@@ -35,7 +35,7 @@ try {
         FROM game g 
         WHERE 1=1
             AND g.g_round_seq = {$round_seq}
-            AND g_entry > 0
+            AND g.g_entry > 0
         ORDER BY g.g_idx ASC
     ";
     p($query);
@@ -56,15 +56,19 @@ try {
             if ($value['limit']==1) {
                 $sub_query = "
                     UPDATE join_contest SET
-                        jc_prize = {$value['reward']}
+                        jc_prize = {$value['reward']},
+                        result_report = 'finished',
+                        jc_result_update = NOW()
                     WHERE 1=1 
                         AND jc_game = {$db['g_idx']}
-                        AND jc_rank = {$value['rank']}
+                        AND jc_rank <= {$value['rank']}
                 ";
             } else {
                 $sub_query = "
                     UPDATE join_contest SET
-                        jc_prize = {$value['reward']}
+                        jc_prize = {$value['reward']},
+                        result_report = 'finished',
+                        jc_result_update = NOW()
                     WHERE 1=1 
                         AND jc_game = {$db['g_idx']}
                     ORDER BY jc_rank ASC
@@ -74,9 +78,26 @@ try {
             p($sub_query);
             $sub_result = $_mysqli->query($sub_query);
             if (!$result) {
+                $msg    = '';
+                $code   = 501;
+                throw new mysqli_sql_exception($msg, $code);
             }
-
         }
+    }
+
+    // 콘테스트 완료 처리
+    $query  = "
+        UPDATE game SET 
+            g_status = 3
+        WHERE 1=1
+            AND g_round_seq = {$round_seq}
+            AND g_entry > 0
+    ";
+    $result = $_mysqli->query($query);
+    if (!$result) {
+        $msg    = '';
+        $code   = 502;
+        throw new mysqli_sql_exception($msg, $code);
     }
 
     $_mysqli->commit();

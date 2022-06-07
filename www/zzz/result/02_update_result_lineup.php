@@ -20,7 +20,7 @@ try {
     $ymd        = !empty($_GET['ymd'])      ? $_GET['ymd']      : '';
 
     // 변수 정리
-    $round_seq      = 14;
+    $round_seq      = 17;
     $game_category  = 20;
 
     // 트랜잭션
@@ -68,8 +68,13 @@ try {
             throw new mysqli_sql_exception($msg, $code);
         }
         $sub_db     = $sub_result->fetch_assoc();
-        $players_points     = $sub_db['SUM_TEAM_SCORE'] + $sub_db['SUM_KILLED'] + $sub_db['SUM_TEAMKILLED'] + $sub_db['SUM_SELFKILLED'] + $sub_db['SUM_REVIVED'];
-        $result_json        = json_encode($sub_db);
+        if (!empty($sub_db)) {
+            $players_points     = $sub_db['SUM_TEAM_SCORE'] + $sub_db['SUM_KILLED'] + $sub_db['SUM_TEAMKILLED'] + $sub_db['SUM_SELFKILLED'] + $sub_db['SUM_REVIVED'];
+            $result_json        = json_encode($sub_db);
+        } else {
+            $players_points     = 0;
+            $result_json        = json_encode("");
+        }
         //p($game_players_points);
         //p($result_json);
 
@@ -82,6 +87,7 @@ try {
             WHERE 1=1
                 AND idx = {$db['idx']};
         ";
+        p($sub_query);
         $sub_result = $_mysqli->query($sub_query);
         if (!$sub_result) {
             $msg    = '';

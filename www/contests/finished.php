@@ -145,6 +145,7 @@ try {
                                                         AND jc.jc_game = {$db['g_idx']}
                                                     ORDER BY jc.jc_rank ASC
                                                 ";
+                                                //p($sub_query);
                                                 $sub_result     = $_mysqli->query($sub_query);
                                                 if (!$sub_result) {
                                                 }

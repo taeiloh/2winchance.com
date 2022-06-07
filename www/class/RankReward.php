@@ -164,6 +164,7 @@ class RankReward {
     // 상금 정보 로직(50/50)
     function reward_half($rtn_type) {
         $rtn        = '';
+        $arrRtn     = array();
         $Tpz        = $this->fee * $this->entry;
         $TpzU       = floor($Tpz * (100 - COMMISSION) / 100);
 
@@ -188,20 +189,24 @@ class RankReward {
                         </ul>
                     ";
                 } else {
-                    $rtn    = array();
-                    $rtn[0]['rank']     = '50/50';
-                    $rtn[0]['reward']   = $reward;
-                    $rtn[0]['limit']    = $half;
+                    $arrRtn[0]['rank']     = '50/50';
+                    $arrRtn[0]['reward']   = $reward;
+                    $arrRtn[0]['limit']    = $half;
                 }
             }
+        }
+
+        if ($rtn_type != 'html') {
+            $rtn    = $arrRtn;
         }
 
         return $rtn;
     }
 
     // 상금 정보 로직(더블)
-    function reward_x($x) {
+    function reward_x($x, $rtn_type) {
         $rtn        = '';
+        $arrRtn     = array();
         $Tpz        = $this->fee * $this->size;
         $TpzU       = floor($Tpz * (100 - COMMISSION) / 100);
         $max        = floor($TpzU / ($this->fee * $x));
@@ -210,7 +215,9 @@ class RankReward {
             $rank   = '1~'. $max;
             $reward = $this->fee * $x;
             $this->first_place  = $reward;
-            $rtn    = "
+
+            if ($rtn_type == 'html') {
+                $rtn = "
                     <ul>
                         <li class=\"first\">
                             <label>{$rank}</label>
@@ -218,6 +225,15 @@ class RankReward {
                         </li>
                     </ul>
                 ";
+            } else {
+                $arrRtn[0]['rank']     = $rank;
+                $arrRtn[0]['reward']   = $reward;
+                $arrRtn[0]['limit']    = $max;
+            }
+        }
+
+        if ($rtn_type != 'html') {
+            $rtn    = $arrRtn;
         }
 
         return $rtn;
@@ -253,8 +269,9 @@ class RankReward {
     function reward_t3() {
     }
 
-    function reward_t4() {
+    function reward_t4($rtn_type) {
         $rtn        = '';
+        $arrRtn     = array();
         $Tpz        = $this->fee * $this->entry;
         $TpzU       = floor($Tpz * (100 - COMMISSION) / 100);
         $remainder  = $TpzU;
@@ -285,16 +302,27 @@ class RankReward {
                     $reward     = $remainder;
                 }
 
-                $rtn .= "
-                    <li class=\"{$liClass}\" style=\"height: 5rem\">
-                        <label>{$rank}위</label>
-                        <p>{$reward} FP</p>
-                    </li>
-                ";
+                if ($rtn_type == 'html') {
+                    $rtn .= "
+                        <li class=\"{$liClass}\" style=\"height: 5rem\">
+                            <label>{$rank}위</label>
+                            <p>{$reward} FP</p>
+                        </li>
+                    ";
+                } else {
+                    $arrRtn[0]['rank']     = $rank;
+                    $arrRtn[0]['reward']   = $reward;
+                    $arrRtn[0]['limit']    = 1;
+                }
+
             }
             $rtn    .= "
                 </ul>
             ";
+        }
+
+        if ($rtn_type != 'html') {
+            $rtn    = $arrRtn;
         }
 
         return $rtn;

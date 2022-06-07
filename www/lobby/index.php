@@ -12,8 +12,13 @@ $more1      = 6;
 $more1      += $more;
 
 // 변수 정리
-$today      = date('Y-m-d');
+$sdate      = date('Y-m-d');
+$edate      = date('Y-m-d');
+$stime      = date('His');
 
+if ($stime >= 173000) {
+    $edate  = date('Y-m-d', strtotime('+1 day', time()));
+}
 ?>
 <!doctype html>
 <html lang="ko">
@@ -57,7 +62,7 @@ $today      = date('Y-m-d');
                     <ul class="contest-list">
                         <?php
                         $gameInfo   = new Game($cate, $_mysqli);
-                        $arrData    = $gameInfo->getListGame($today, $today);
+                        $arrData    = $gameInfo->getListGame($sdate, $edate);
                         //p($arrData);
                         foreach ($arrData as $key=>$value) {
                             // 변수 정리
@@ -74,7 +79,7 @@ $today      = date('Y-m-d');
 
                             echo <<<LI
                         <li>
-                            <a href="/lobby/list.php?cate={$cate}&sub_menu={$sub_menu}&g_date={$today}&gidx={$value['g_idx']}" title="{$title}">
+                            <a href="/lobby/list.php?cate={$cate}&sub_menu={$sub_menu}&g_date={$sdate}&gidx={$value['g_idx']}" title="{$title}">
                                 <div class="game-thumb" style="background-image: url('/images/PUBG/output/{$img_n}.jpg')">
                                     <div class="subject">
                                         <img src="/images/pubg_logo.png" alt="pubg_logo"/>
