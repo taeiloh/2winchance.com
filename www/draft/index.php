@@ -1202,7 +1202,7 @@ LI;
                             //location.replace('/index.php?menu=store');
 
                         } else if (data === '412') {
-                            alert('잔여연봉이 부족합니다.');
+                            alert("중복 참여 횟수를 초과하였습니다.");
                             //location.replace('/index.php?menu=lobby');
 
                         } else {

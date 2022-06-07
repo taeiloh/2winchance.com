@@ -70,8 +70,9 @@ $query  = "
 $result = $_mysqli->query($query);
 $join_cnt   = 0;
 if ($result) {
-    $arrDB      = $result->fetch_array();
+    $arrDB      = $result->fetch_assoc();
     $join_cnt   = $arrDB['CNT'];
+    //p($join_cnt);
 }
 
 if ($g_multi_max <= $join_cnt) {
