@@ -85,9 +85,10 @@ try {
             });
         };
         function save(){
-            if ($.trim($("#set_time").val()) == "") {
+            if ($.trim($("#set_time").val()) == "" || $.trim($("#set_time").val()) > 100 || $.trim($("#set_time").val()) <= 0) {
                 alert("1~100까지 중 입력해 주세요.");
                 $("#set_time").focus();
+                return false;
             }
 
             var set_time = $("#set_time").val();
