@@ -323,7 +323,7 @@ TR;
             <div class="pagination">
                 <?php
 
-                echo paging($page,$total_page,5,"{$_SERVER['SCRIPT_NAME']}?page=");
+                echo paging2($page,$total_page,5,$sub,"{$_SERVER['SCRIPT_NAME']}?sub={$sub}&page=");
                 ?>
                 <!--<a href="javascript:void(0)" class="active" >1</a>
                 <a href="javascript:void(0)">2</a>
