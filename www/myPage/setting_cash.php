@@ -10,15 +10,11 @@ $on = !empty($_GET['on']) ?$_GET['on'] : "";
 
 $date = date("Y-m-d");
 $date1 = date('Y-m-d H:m:s');
-$today1 = $date."09:00:00";
+$today1 = $date." 09:00:00";
 //$today2 = $date."24:00:00";
 
 $yesterday = date("Y-m-d H:m:s", strtotime("-1 day", strtotime($date)));
-$yesterday1 = $yesterday."08:59:59";
-
-//if($date1 > $today1){
-//    $today1 = $date."24:00:00";
-//}
+$yesterday1 = $yesterday." 08:59:59";
 
 $m_pw      = isset($_POST['m_pw'])        ?     $_POST['m_pw']       : '';
 
@@ -54,8 +50,6 @@ try {
     $m_deposit =  !empty($_arrDeposit['total_deposit']) ? $_arrDeposit['total_deposit'] : 0;
 
 
-
-/*    // 일일 초기화 쿼리 수정중
     if($date1 > $today1){ //오전 9시 이후
         $query4 = "
             select sum(dh_deposit) as day_deposit, DATE_FORMAT(dh_req_date, '%Y%m%d')
@@ -74,16 +68,8 @@ try {
 
     $day = $_mysqli->query($query4);
     $_dayDeposit = $day->fetch_array();
-    $day_limit = !empty($_dayDeposit['day_deposit']) ? $_dayDeposit['day_deposit'] : 0;*/
+    $day_limit = !empty($_dayDeposit['day_deposit']) ? $_dayDeposit['day_deposit'] : 0;
 
-    $dayquery = "SELECT sum(dh_deposit) as total_deposit
-                 FROM deposit_history
-                 WHERE 1 and dh_u_idx = '{$idx}'
-                 and dh_req_date >= '{$today1}' AND dh_req_date <= '{$date1}';
-                 "; // $today1 = $date."09:00:00"; $date1 = date('Y-m-d H:m:s'); 현재시간
-    $dresult = $_mysqli->query($dayquery);
-    $_arrDeposit = $dresult->fetch_array();
-    $d_deposit =  !empty($_arrDeposit['total_deposit']) ? $_arrDeposit['total_deposit'] : 0;
 
 }catch (Exception $e) {
     p($e);
@@ -151,7 +137,7 @@ try {
                                             }else {
                                             ?>
                                                 <!--   일일 초기화 쿼리 수정중  -->
-                                                <span class="limit-money"><?=number_format(300000-$d_deposit)?></span>
+                                                <span class="limit-money"><?=number_format(300000-$day_limit)?></span>
 
                                             <?php
                                             }
