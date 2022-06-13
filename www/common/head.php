@@ -6,7 +6,7 @@
 <!-- CSS -->
 <link rel="stylesheet" href="/css/swiper-bundle.min.css">
 <link rel="stylesheet" href="/css/jquery-ui.min.css">
-<link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/css/common.css?v=<?=CSSYYYYMMDD;?>">
 
 <!-- JS -->
 <script src="/js/jquery-3.6.0.min.js"></script>

@@ -47,7 +47,7 @@ try{
     //db
     $query ="
         SELECT
-            hph_idx, DATE_FORMAT(created_at,'%Y-%m-%d %h:%i:%s') AS regdate, hph_content, hph_point, hph_balance
+            hph_idx, created_at AS regdate, hph_content, hph_point, hph_balance
         FROM honor_point_history
         WHERE 1 and hph_m_idx='{$idx}'
         ORDER BY created_at DESC

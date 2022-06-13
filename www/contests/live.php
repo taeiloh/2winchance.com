@@ -20,14 +20,14 @@ try {
         $page       =   1;
     }
     //페이징
-    $sql = "select count(*) from join_contest where 1=1 and jc_u_idx = '{$_se_idx}'{$where}";
+/*    $sql = "select count(*) from join_contest where 1=1 and jc_u_idx = '{$_se_idx}'{$where}";
     $tresult = mysqli_query($_mysqli, $sql);
     $row1   = mysqli_fetch_row($tresult);
     $total_count = $row1[0]; //전체갯수
     $rows = 10;
     $total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
     if ($page < 1) { $page = 1; } // 페이지가 없으면 첫 페이지 (1 페이지)
-    $from_record = ($page - 1) * $rows; // 시작 열을 구함
+    $from_record = ($page - 1) * $rows; // 시작 열을 구함*/
 
 
 
@@ -101,50 +101,27 @@ try {
                         // 콘테스트
                         $query  = "
                             SELECT 
-                                join_contest.*, 
-                                game.*,  
-                                game_category.gc_name 
-                            FROM 
-                            (
-                                SELECT
-                                    jc_idx
-                                FROM join_contest
-                                WHERE 1=1
-                                    AND jc_u_idx = {$_se_idx}
-                            ) b INNER JOIN join_contest 
-                                ON join_contest.jc_idx = b.jc_idx
-                            LEFT JOIN lineups 
-                                ON lu_idx = jc_lineups 
-                            LEFT JOIN game 
-                                ON g_idx = jc_game 
-                            LEFT JOIN game_category 
-                                ON gc_idx = g_sport 
-                            LEFT JOIN members 
-                                ON m_idx = lu_u_idx 
+                                jc.*, 
+                                g.* 
+                            FROM join_contest jc
+                            LEFT JOIN game g
+                                ON jc.jc_game = g.g_idx 
                             WHERE 1=1 
-                                AND lu_u_idx = {$_se_idx} 
-                                {$where} 
-                            ORDER BY g_date DESC, jc_result DESC
-                            GROUP BY jc_game
+                                AND jc_u_idx = {$_se_idx} 
+                                {$where}
+                            ORDER BY jc_date DESC
                         ";
-                        //echo $query;
                         //p($query);
-                        echo $total_count;
                         $result = $_mysqli->query($query);
                         if (!$result) {
-
                         }
-
-                        if($total_count > 0) {
-
-
                         while ($db = $result->fetch_assoc()) {
                             //p($db);
                             $i = 0;
-                            $arrGjson   = json_decode($db['g_json'], true);
+                            $arrGjson = json_decode($db['g_json'], true);
                             //p($arrGjson);
                             $i++;
-                            $no=$total_count-($i+($page-1)*$rows);
+                            //$no = $total_count - ($i + ($page - 1) * $rows);
                             echo <<<TR
                         <tr>
                             <td>{$db['g_name']}</td>
@@ -156,15 +133,14 @@ try {
                             <!--<td><button type="button">수정</button></td>-->
 <!--                            <td><button type="button"><img src="../images/ico_share_blue.svg" alt="공유하기">초대</button></td>-->
                             <td>
-                            
                             </td>
                         </tr>
 TR;
-                                }
-                        }else {
+                        }
+                        if(empty($result->num_rows)) {
                             echo <<<TR
                          <tr>
-                                <td colspan="7">LIVE중인 콘테스트가 없습니다.</td>
+                                <td colspan="7">LIVE 중인 콘테스트가 없습니다.</td>
                          </tr>
 TR;
                         }
@@ -177,7 +153,7 @@ TR;
             <!--//sec-01-->
             <div class="pagination">
                 <?php
-                echo paging($page,$total_page,5,"{$_SERVER['SCRIPT_NAME']}?page=");
+                //echo paging($page,$total_page,5,"{$_SERVER['SCRIPT_NAME']}?page=");
                 ?>
                <!-- <a href="javascript:void(0)" class="active">1</a>
                 <a class="" href="javascript:void(0)">2</a>

@@ -20,7 +20,7 @@ try {
     $ymd        = !empty($_GET['ymd'])      ? $_GET['ymd']      : '';
 
     // 변수 정리
-    $round_seq      = 17;
+    $round_seq      = 25;
     $game_category  = 20;
 
     // 트랜잭션
@@ -82,6 +82,7 @@ try {
                     AND jc_lineups = {$sub_db['lu_idx']}
                     AND jc_u_idx = {$sub_db['m_idx']}
             ";
+            p($_query);
             $_result    = $_mysqli->query($_query);
             if (!$_result) {
                 $msg    = '';

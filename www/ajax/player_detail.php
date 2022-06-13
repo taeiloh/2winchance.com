@@ -55,7 +55,7 @@ try {
             </tr>
         </table>
         <button type="button" class="btn-plus add_player"
-                data-category="pubg" data-fppg="0"
+                data-category="pubg" data-fppg="<?=round($info['player_point']);?>"
                 data-game="<?=$g_id;?>" data-img_l=""
                 data-img_s="" data-index="<?=$info['idx'];?>"
                 data-name=" <?=$info['abbr_name'];?>" data-pos="<?=$info['primary_position'];?>"
@@ -88,7 +88,7 @@ try {
                 <td></td>
                 <td></td>
                 <td></td>
-                <td></td>
+                <td><?=round($info['player_point']);?></td>
             </tr>
             </tbody>
         </table>

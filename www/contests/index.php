@@ -32,6 +32,7 @@ try {
         $page       =   1;
     }
     //페이징
+    /*
     $sql = "select count(*) from join_contest where 1=1 and jc_u_idx = '{$_se_idx}'{$where}";
     $tresult = mysqli_query($_mysqli, $sql);
     $row1   = mysqli_fetch_row($tresult);
@@ -39,7 +40,7 @@ try {
     $rows = 10;
     $total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
     if ($page < 1) { $page = 1; } // 페이지가 없으면 첫 페이지 (1 페이지)
-    $from_record = ($page - 1) * $rows; // 시작 열을 구함
+    $from_record = ($page - 1) * $rows; // 시작 열을 구함*/
     //페이징
     /*$sql  = "
                             SELECT 
@@ -134,7 +135,6 @@ try {
                             <col style="width:8%"/>
                             <col style="width:8%"/>
                             <col style="width:8%"/>
-                            <col style="width:8%"/>
                         </colgroup>
                         <thead>
                         <tr>
@@ -145,9 +145,9 @@ try {
                             <th>참여자 수</th>
                             <th>중복</th>
                             <th>상태</th>
-                            <th>
+                            <!--<th>
                                 <button class="search-btn"></button>
-                            </th>
+                            </th>-->
                         </tr>
                         </thead>
                         <tbody>
@@ -202,7 +202,6 @@ try {
 
                         }
 
-                        if($total_count > 0) {
                         while ($db = $result->fetch_assoc()) {
                             //p($db);
                             $rankReward     = new RankReward($db['g_size'], $db['g_fee'], $db['g_prize'], $db['g_entry']);
@@ -220,15 +219,16 @@ try {
                             <td>{$getFirst_place}</td>
                             <td>{$db['g_entry']}/{$db['g_size']}</td>
                             <td>{$db['g_multi_max']}</td>
-                            <td><button type="button" onclick="go_url('/draft/?index={$db['g_idx']}&edit=1')">수정</button></td>
-                            <td><button type="button" onclick="invite({$cate}, {$sub_menu}, {$db['g_idx']}, '{$g_date}');"><img src="/images/ico_share_blue.svg" alt="공유하기">초대</button></td>
+                            <td><button type="button" onclick="go_url('/draft/?edit=1&index={$db['g_idx']}&lu_idx={$db['jc_lineups']}')">수정</button></td>
+                            <!-- <td><button type="button" onclick="invite({$cate}, {$sub_menu}, {$db['g_idx']}, '{$g_date}');"><img src="/images/ico_share_blue.svg" alt="공유하기">초대</button></td> -->
                         </tr>
 TR;
-                                 }
-                        }else {
+                        }
+
+                        if(empty($result->num_rows)) {
                             echo <<<TR
                          <tr>
-                                <td colspan="8">대기중인 콘테스트가 없습니다.</td>
+                                <td colspan="7">대기중인 콘테스트가 없습니다.</td>
                          </tr>
 TR;
                         }

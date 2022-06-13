@@ -226,13 +226,13 @@ DIV;
                                 <li class="sort" data-sort="UTIL"><a href="javascript:void(0);">서포터</a></li>-->
                                 <li class="sort" data-sort="UTIL"><a href="javascript:void(0);">유틸</a></li>
                             </ul>
-                            <button type="button" id="btnRandom" class="random-btn">
+                            <!--<button type="button" id="btnRandom" class="random-btn">
                                 <span></span>
                                 <span></span>
                                 <span></span>
                                 <span></span>
                                 무작위 선발
-                            </button>
+                            </button>-->
                         </div>
                         <table class="contents-table">
                             <colgroup>
@@ -362,7 +362,7 @@ DIV;
                                                     <td>-</td>
                                                     <td>-</td>
                                                     <td>-</td>
-                                                    <td>-</td>
+                                                    <td class="p_fppg">-</td>
                                                 </tr>
                                             </tbody></table>
                                         </div>
@@ -749,7 +749,7 @@ LI;
         tr += '<button type="button" class="btn-plus add_player" ';
         tr += 'data-category="' + json[15] + '" ';
         tr += 'data-flex="' + json[7] + '" ';
-        tr += 'data-fppg="' + json[20] + '" ';
+        tr += 'data-fppg="' + json[5] + '" ';
         tr += 'data-game="' + json[8] + '" ';
         tr += 'data-img_l="' + json[19] + '" ';
         tr += 'data-img_s="' + json[18] + '" ';
@@ -1002,7 +1002,7 @@ LI;
         if (total_salary - salary < 0) {
             alert("Salary exceeded the standard.");
             total_salary    = parseInt(total_salary);
-            total_fppg      = parseFloat(total_fppg);
+            total_fppg      = parseInt(total_fppg);
             avg_salary      = parseInt(avg_salary);
             return;
 
@@ -1033,7 +1033,7 @@ LI;
                 cnt = $(".del-player").length + 1;
 
                 total_salary    = total_salary - salary;
-                total_fppg      = total_fppg + parseFloat(fppg);
+                total_fppg      = total_fppg + parseInt(fppg);
                 avg_salary      = (50000 - total_salary) / cnt;
 
             } else {
@@ -1089,7 +1089,7 @@ LI;
             console.log(total_salary);
             console.log(avg_salary);
             $('.total_salary').html($.number(total_salary));
-            $('.total_fppg').html(total_fppg);
+            $('.total_fppg').html($.number(total_fppg));
             $('.avg_salary').html($.number(avg_salary));
 
             //
@@ -1126,6 +1126,7 @@ LI;
                 innet_eq.html() == "<p style=\"background-image:url('/images/PUBG/pos/BK.png');background-size:100%;\"></p>" ||
                 innet_eq.html() == "<p style=\"background-image:url('/images/PUBG/pos/SU.png');background-size:100%;\"></p>" ||
                 innet_eq.html() == "<p style=\"background-image:url('/images/PUBG/pos/UTIL.png');background-size:100%;\"></p>" ||
+                innet_eq.html() == "-" ||
                 innet_eq.html() == "") {
                 innet_eq.html(text);
                 return true;

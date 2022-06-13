@@ -46,6 +46,7 @@ class DraftGame {
                 AND lu_idx = {$this->luidx}
             ORDER BY idx ASC
         ";
+        //p($query);
         $result = $this->mysqli->query($query);
         if (!$result) {
 
