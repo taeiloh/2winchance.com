@@ -111,23 +111,20 @@ function sendEmail($email, $title, $html) {
 
 //페이징
 function paging($page,$total_page,$move_page,$url) {
-    /*
+    $start_page = (((int)(($page-1)/$move_page))*$move_page)+1;
+
     if($page > 1) {
-        echo "<a href=".$url."><li class='prev'></li></a>";//처음
+        echo  "<a href=".$url.$start_page." ><<</a>";//처음
     } else {
         echo "";
     }
-    */
 
-    $start_page=0;
-
-    $start_page = (((int)(($page-1)/$move_page))*$move_page)+1;
     $end_page = $start_page + ($move_page -1);
     if($end_page >= $total_page) {
         $end_page = $total_page;
     }
-    if($start_page > 1) {
-        echo  " <a href=".$url.($start_page-1)."><</a>";//이전
+    if($page > 1) {
+        echo  " <a href=".$url.($page-1)."><</a>";//이전
     } else {
         echo "";
     }
@@ -139,7 +136,7 @@ function paging($page,$total_page,$move_page,$url) {
                 echo "<a class='active' href='javascript:void(0)'>".$now_page."</a>";
             }
     if($total_page > $end_page) {
-        echo  "<a href=".$url.($end_page+1)." >></a>";//다음
+        echo  "<a href=".$url.($page+1)." >></a>";//다음
     } else {
         echo "";
     }
