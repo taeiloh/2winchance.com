@@ -30,7 +30,7 @@ if (!$idx) {
     exit;
 }
 try {
-    $query2 = "
+    /*$query2 = "
     SELECT *
         FROM members
         WHERE 1 and m_idx ='{$idx}'
@@ -41,17 +41,21 @@ try {
     $m_fp_limit = !empty($_arrMembers['m_fp_limit']) ? $_arrMembers['m_fp_limit'] : 0;
     $m_time_reset = !empty($_arrMembers['reset_time']) ? $_arrMembers['reset_time'] : 0;
     //$m_limit_deposit = !empty($_arrMembers['m_limit_deposit']) ? $_arrMembers['m_limit_deposit'] : 500000;
-    //$m_day_deposit = !empty($_arrMembers['m_day_deposit']) ? $_arrMembers['m_day_deposit'] : 300000;
-    $m_deposit =  !empty($_arrMembers['m_deposit']) ? $_arrMembers['m_deposit'] : 0;
+    //$m_day_deposit = !empty($_arrMembers['m_day_deposit']) ? $_arrMembers['m_day_deposit'] : 300000;*/
+
 
     $query3 = "
         SELECT sum(dh_deposit) as total_deposit, DATE_FORMAT(dh_req_date, '%Y%m%d') FROM deposit_history
         WHERE 1 AND dh_u_idx='{$idx}'
-        and DATE_FORMAT(DATE_ADD(dh_req_date, INTERVAL 1 MONTH), '%Y%m01') > DATE_FORMAT(CURDATE(), '%Y%m%d')
+        and DATE_FORMAT(DATE_ADD(dh_req_date, INTERVAL 1 MONTH), '%Y%m01') > DATE_FORMAT(CURDATE(), '%Y%m01')
     ";
     $dayresult = $_mysqli->query($query3);
     $_arrDeposit = $dayresult->fetch_array();
-    // 일일 초기화 쿼리 수정중
+    $m_deposit =  !empty($_arrDeposit['total_deposit']) ? $_arrDeposit['total_deposit'] : 0;
+
+
+
+/*    // 일일 초기화 쿼리 수정중
     if($date1 > $today1){ //오전 9시 이후
         $query4 = "
             select sum(dh_deposit) as day_deposit, DATE_FORMAT(dh_req_date, '%Y%m%d')
@@ -70,7 +74,16 @@ try {
 
     $day = $_mysqli->query($query4);
     $_dayDeposit = $day->fetch_array();
-    $day_limit = !empty($_dayDeposit['day_deposit']) ? $_dayDeposit['day_deposit'] : 0;
+    $day_limit = !empty($_dayDeposit['day_deposit']) ? $_dayDeposit['day_deposit'] : 0;*/
+
+    $dayquery = "SELECT sum(dh_deposit) as total_deposit
+                 FROM deposit_history
+                 WHERE 1 and dh_u_idx = '{$idx}'
+                 and dh_req_date >= '{$today1}' AND dh_req_date <= '{$date1}';
+                 "; // $today1 = $date."09:00:00"; $date1 = date('Y-m-d H:m:s'); 현재시간
+    $dresult = $_mysqli->query($dayquery);
+    $_arrDeposit = $dresult->fetch_array();
+    $d_deposit =  !empty($_arrDeposit['total_deposit']) ? $_arrDeposit['total_deposit'] : 0;
 
 }catch (Exception $e) {
     p($e);
@@ -138,7 +151,7 @@ try {
                                             }else {
                                             ?>
                                                 <!--   일일 초기화 쿼리 수정중  -->
-                                                <span class="limit-money"><?=number_format(300000-$day_limit)?></span>
+                                                <span class="limit-money"><?=number_format(300000-$d_deposit)?></span>
 
                                             <?php
                                             }
