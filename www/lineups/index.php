@@ -9,7 +9,7 @@ try {
 
     // 파라미터 정리
     $page = !empty($_GET['page']) ? $_GET['page'] : 1;
-    $sub        = !empty($_GET['sub'])      ? $_GET['sub']      : '';
+    $sub        = !empty($_GET['sub'])      ? $_GET['sub']      : 'upcoming';
 
     //파라미터 체크
     if(!is_numeric($page)){
@@ -69,7 +69,7 @@ try {
 
     $result12 = $_mysqli->query($sql2);
 } catch (Exception $e) {
-    p($e);
+    /*p($e);*/
 }
 ?>
 <!doctype html>
