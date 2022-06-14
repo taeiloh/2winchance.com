@@ -47,7 +47,7 @@ try{
     //db
     $query ="
         SELECT
-            hph_idx, created_at AS regdate, hph_content, hph_point, hph_balance
+            idx, created_at AS regdate, content, point, balance
         FROM honor_point_history
         WHERE 1 and hph_m_idx='{$idx}'
         ORDER BY created_at DESC
@@ -121,18 +121,17 @@ try{
                         if($total_count > 0){
                             $i = 0;
                             while ($dbhp = $resulthp->fetch_assoc()) {
-                                $title = empty(!$dbhp['hph_content']) ? $dbhp['hph_content'] : '';
+                                $title = empty(!$dbhp['content']) ? $dbhp['content'] : '';
                                 $regdate = empty(!$dbhp['regdate']) ? $dbhp['regdate'] : '';
-                                $hp = empty(!$dbhp['hph_point']) ? $dbhp['hph_point'] : '';
-                                $balance = empty(!$dbhp['hph_balance']) ? $dbhp['hph_balance'] : '';
+                                $hp = empty(!$dbhp['point']) ? $dbhp['point'] : '';
+                                $balance = empty(!$dbhp['balance']) ? $dbhp['balance'] : '';
                                 $i++;
                                 $no=$total_count-($i+($page-1)*$rows);
                                 echo <<<TR
                         <tr>
                             <td class="Fgray">{$regdate}</td>
                             <td>{$title}</td>
-                            <td></td>
-                            <!--<td>콘테스트 획득 점수는 "전투력"으로 변환/저장 됩니다. 마이페이지에서 누적되는 "전투력"을 확인하세요.</td>-->
+                            <td>+{$hp}</td>
                             <td>{$balance}</td>
                         </tr>
 TR;
