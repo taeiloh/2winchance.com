@@ -163,7 +163,7 @@ ul.tabs li a{padding: .5rem;}
 .contest-list .game-thumb{position: relative;}
 .contest-list .game-thumb:before{content:''; display: block; width: 100%; height: 100%;  background-repeat: no-repeat; background-size: 30rem 21rem; background-position: left center; position: absolute; z-index: 5; top:0; left: 0;}
 .contest-list .game-thumb:after{content:''; display: block; padding-bottom: 50%;}
-.game-thumb .subject{position: absolute; z-index: 6; top: 1rem; left: 1rem; width: 6.2rem; height: 6.2rem; background: #eee;}
+.game-thumb .subject{position: absolute; z-index: 6; top: 1rem; left: 1rem; width: 6.2rem; height: 6.2rem;}
 .game-thumb .subject img{width: 100%; height: 100%; object-fit: cover;}
 .contest-desc{display: flex; align-items: center; background: #3a3a3a; padding: 1rem 2rem 1.4rem;}
 .contest-desc .contest-ico{width: 5.8rem; height: 5.8rem; background: transparent; margin-right: 1.6rem; flex-shrink: 0;}
@@ -404,7 +404,7 @@ table tr.filter a:after{content: ''; background: url("../images/icon_filter.svg"
 .status-detail .status{font-size: 3rem; font-weight: 700;}
 .status-detail .status:after{content:''; background: url("../images/ico_live.svg")no-repeat ;display: inline-flex; width: 2.2rem; height: 2.2rem; margin-left: 1rem;}
 .status-detail.active{display: block;}
-.game-logo{position: absolute; top: 1rem; left:1rem; width: 5rem; height: 5rem; background-color: #eee;}
+.game-logo{position: absolute; top: 1rem; left:1rem; width: 5rem; height: 5rem;}
 .game-logo img{width: 100%; height: 100%; object-fit: cover;}
 .league-thumb-box{width: 36rem; margin-right: 6rem;}
 .league-thumb-box .status-detail .detail-box{width: 100%; height: 20.1rem; background: #303030; padding: 2rem; font-weight: 700; margin-top: 4rem;}
