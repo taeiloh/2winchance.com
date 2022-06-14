@@ -12,9 +12,11 @@ $date = date("Y-m-d");
 $date1 = date('Y-m-d H:m:s');
 $today1 = $date." 09:00:00";
 //$today2 = $date."24:00:00";
+$today3 = date("d");
 
 $yesterday = date("Y-m-d H:m:s", strtotime("-1 day", strtotime($date)));
 $yesterday1 = $yesterday." 08:59:59";
+$yesterday3 = date("d", strtotime("-1 day", strtotime($date)));
 
 $m_pw      = isset($_POST['m_pw'])        ?     $_POST['m_pw']       : '';
 
@@ -26,7 +28,7 @@ if (!$idx) {
     exit;
 }
 try {
-    /*$query2 = "
+    $query2 = "
     SELECT *
         FROM members
         WHERE 1 and m_idx ='{$idx}'
@@ -37,7 +39,7 @@ try {
     $m_fp_limit = !empty($_arrMembers['m_fp_limit']) ? $_arrMembers['m_fp_limit'] : 0;
     $m_time_reset = !empty($_arrMembers['reset_time']) ? $_arrMembers['reset_time'] : 0;
     //$m_limit_deposit = !empty($_arrMembers['m_limit_deposit']) ? $_arrMembers['m_limit_deposit'] : 500000;
-    //$m_day_deposit = !empty($_arrMembers['m_day_deposit']) ? $_arrMembers['m_day_deposit'] : 300000;*/
+    //$m_day_deposit = !empty($_arrMembers['m_day_deposit']) ? $_arrMembers['m_day_deposit'] : 300000;
 
 
     $query3 = "
@@ -47,29 +49,41 @@ try {
     ";
     $dayresult = $_mysqli->query($query3);
     $_arrDeposit = $dayresult->fetch_array();
-    $m_deposit =  !empty($_arrDeposit['total_deposit']) ? $_arrDeposit['total_deposit'] : 0;
+    $total_deposit =  !empty($_arrDeposit['total_deposit']) ? $_arrDeposit['total_deposit'] : 0;
 
 
     if($date1 > $today1){ //오전 9시 이후
-        $query4 = "
-            select sum(dh_deposit) as day_deposit, DATE_FORMAT(dh_req_date, '%Y%m%d')
-            from deposit_history
-            WHERE 1 and dh_u_idx='{$idx}'
-            and DATE_FORMAT(NOW(),'%Y%m%d%H%i%s') > DATE_FORMAT('{$today1}','%Y%m%d%H%i%s')
-        ";
-    }else { //9시 이전
-        $query4 = "
-            select sum(dh_deposit) as day_deposit, DATE_FORMAT(dh_req_date, '%Y%m%d')
-            from deposit_history
-            WHERE 1 and dh_u_idx='{$idx}'
-            and DATE_FORMAT(NOW(), '%Y%m%d%H%i%s') < DATE_FORMAT('{$yesterday1}','%Y%m%d%H%i%s')
-            ";
+        $daylimitquery = "
+                        select sum(dh_deposit) as day_deposit
+                        from deposit_history
+                        where 1 and dh_u_idx = '{$idx}'
+                        and date_format(dh_req_date,'%d') between '{$today3}' and '{$today3}'
+                        and date_format(dh_req_date,'%T') between '09:00:00' and '23:59:59'
+                        ";
     }
 
-    $day = $_mysqli->query($query4);
+    $daylimitquery2 = "
+                        select sum(dh_deposit) as day_deposit
+                        from deposit_history
+                        where 1 and dh_u_idx = '{$idx}'
+                        and date_format(dh_req_date,'%d') between '{$today3}' and '{$today3}'
+                        and date_format(dh_req_date,'%T') between '00:00:00' and '08:59:59'
+                        ";
+
+
+    $day = $_mysqli->query($daylimitquery);
     $_dayDeposit = $day->fetch_array();
     $day_limit = !empty($_dayDeposit['day_deposit']) ? $_dayDeposit['day_deposit'] : 0;
 
+    $day2 = $_mysqli->query($daylimitquery2);
+    $_dayDeposit2 = $day2->fetch_array();
+    $day_limit2 = !empty($_dayDeposit2['day_deposit']) ? $_dayDeposit2['day_deposit'] : 0;
+
+    if($date1 > $today1){
+        $day_limit2 = 0;
+    }
+
+    $day_result = $day_limit + $day_limit2;
 
 }catch (Exception $e) {
     p($e);
@@ -94,7 +108,7 @@ try {
     <header id="header">
         <?php
         // header
-        require_once __DIR__ .'/../common/header.php';
+         require_once __DIR__ .'/../common/header.php';
         ?>
     </header>
     <!--//header-->
@@ -117,13 +131,13 @@ try {
                                     <div class="limit-days">
                                         <p>월 현재 잔여 한도 -
                                             <?php
-                                                if($m_deposit >= 500000){
+                                                if($total_deposit >= 500000){
                                             ?>
                                                 <span class="limit-money">0</span>
                                             <?php
                                                 }else {
                                              ?>
-                                                 <span class="limit-money"><?=number_format(500000-$m_deposit )?></span>
+                                                 <span class="limit-money"><?=number_format(500000-$total_deposit )?></span>
                                             <?php
                                                 }
                                             ?>
@@ -137,7 +151,7 @@ try {
                                             }else {
                                             ?>
                                                 <!--   일일 초기화 쿼리 수정중  -->
-                                                <span class="limit-money"><?=number_format(300000-$day_limit)?></span>
+                                                <span class="limit-money"><?=number_format(300000-$day_result)?></span>
 
                                             <?php
                                             }
@@ -248,6 +262,7 @@ try {
 
                                     <?php
                                 }
+                                echo date('Y-m-d H:m:s');
                                 ?>
 
                             </div>
