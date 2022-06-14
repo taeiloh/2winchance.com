@@ -35,7 +35,7 @@ try{
     }
 
     //페이징
-    $sql = "select count(*) from honor_point_history where 1 and hph_m_idx='{$idx}'";
+    $sql = "select count(*) from honor_point_history where 1 and m_idx='{$idx}'";
     $tresult = mysqli_query($_mysqli, $sql);
     $row1   = mysqli_fetch_row($tresult);
     $total_count = $row1[0]; //전체갯수
@@ -49,7 +49,7 @@ try{
         SELECT
             idx, created_at AS regdate, content, point, balance
         FROM honor_point_history
-        WHERE 1 and hph_m_idx='{$idx}'
+        WHERE 1 and m_idx='{$idx}'
         ORDER BY created_at DESC
         LIMIT {$from_record}, {$rows}
     ";
