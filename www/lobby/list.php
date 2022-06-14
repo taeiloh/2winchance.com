@@ -65,7 +65,7 @@ $query    = "
     FROM game
     WHERE 1=1
         AND g_status != 3
-        AND DATE_SUB(g_date, INTERVAL 5 HOUR) >= '{$g_date}' 
+        AND DATE_SUB(g_date, INTERVAL 5 HOUR) >= '{$g_date}'
         AND DATE_SUB(g_date, INTERVAL 5 HOUR) <= '{$g_date1} 23:59:59'
         /*AND g_name like '%%'*/
 ";
@@ -256,8 +256,8 @@ LI;
                                 ,(g_fee * g_size) as prize
                             FROM game
                             WHERE 1=1
-                                AND g_status != 3 
-                                AND DATE_SUB(g_date, INTERVAL 5 HOUR) >= '{$g_date}' 
+                                AND g_status != 3
+                                AND DATE_SUB(g_date, INTERVAL 5 HOUR) >= '{$g_date}'
                                 AND DATE_SUB(g_date, INTERVAL 5 HOUR) <= '{$g_date1} 23:59:59'
                                 /*AND g_name like '%%'*/
                                 {$where}
@@ -312,7 +312,7 @@ LI;
                             <div class="league-thumb-box">
                                 <div class="league-thumb" style="overflow: hidden;">
                                     <img src="/images/PUBG/output/{$img_n}.jpg" alt="게임 이미지 {$db['g_idx']}" title="{$db['g_idx']}"/>
-                                    <div class="game-logo"><img src="/images/pubg.png"></div>
+                                    <div class="game-logo"><img src="/images/ico_pubg.png"></div>
                                 </div>
                                 <div class="status-detail">
                                     <div class="detail-box">
@@ -396,7 +396,7 @@ DIV;
                             $(function () {
                                 var offset = $("#gidx_{$gidx}").offset();
                                 $("html,body").animate({scrollTop:offset.top - 200}, 400);
-                                
+
                                 $("#btnDown{$gidx}").trigger("click");
                             });
                         </script>
