@@ -52,7 +52,10 @@ try {
     $total_deposit =  !empty($_arrDeposit['total_deposit']) ? $_arrDeposit['total_deposit'] : 0;
 
     // 2022-06-14 조원영
-    if($date1 > $today1){ //오전 9시 이후
+    if($date1 < $today1){
+        $today3 = $yesterday3;
+    }
+
         $daylimitquery = "
                         select sum(dh_deposit) as day_deposit
                         from deposit_history
@@ -60,7 +63,8 @@ try {
                         and date_format(dh_req_date,'%d') between '{$today3}' and '{$today3}'
                         and date_format(dh_req_date,'%T') between '09:00:00' and '23:59:59'
                         ";
-    }
+
+        $today3 = date("d");
 
     $daylimitquery2 = "
                         select sum(dh_deposit) as day_deposit
@@ -262,7 +266,7 @@ try {
 
                                     <?php
                                 }
-                                echo date('Y-m-d H:m:s');
+                                // echo date('Y-m-d H:m:s');
                                 ?>
 
                             </div>
