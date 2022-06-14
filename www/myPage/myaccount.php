@@ -54,7 +54,7 @@ try {
     $queryhp ="
         SELECT *
         FROM honor_point_history
-        WHERE 1 and hph_m_idx ='{$idx}'
+        WHERE 1 and m_idx ='{$idx}'
     ";
     $hpresult = $_mysqli->query($queryhp);
     $dbhp = $hpresult->fetch_assoc();
