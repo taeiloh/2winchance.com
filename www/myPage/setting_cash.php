@@ -51,7 +51,7 @@ try {
     $_arrDeposit = $dayresult->fetch_array();
     $total_deposit =  !empty($_arrDeposit['total_deposit']) ? $_arrDeposit['total_deposit'] : 0;
 
-
+    // 2022-06-14 조원영
     if($date1 > $today1){ //오전 9시 이후
         $daylimitquery = "
                         select sum(dh_deposit) as day_deposit
