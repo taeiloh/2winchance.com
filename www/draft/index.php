@@ -20,7 +20,7 @@ $today          = date('Y-m-d');
 $time           = date('Y-m-d H:i:s');
 
 $query  = "
-    SELECT * 
+    SELECT *
     FROM game
     LEFT JOIN game_category
         ON gc_idx = g_sport
@@ -119,7 +119,7 @@ if ($time > $ago30min) {
             <div class="inner enter">
                 <div class="game-detail">
                     <div class="thumb-icon">
-                        <img src="/images/pubg.png" alt="pubg">
+                        <img src="/images/ico_pubg.png" alt="pubg">
                     </div>
                     <div class="parti-info">
                         <p><?=$gname;?></p>
@@ -159,12 +159,12 @@ if ($time > $ago30min) {
                                     $game_daily_schedule    = "pubg_game_daily_schedule";
                                     $query  = "
                                         SELECT
-                                            home_alias, away_alias, 
+                                            home_alias, away_alias,
                                             DATE_FORMAT(standard_scheduled, '%b %e') AS sch_date,
                                             DATE_FORMAT(standard_scheduled, '%h:%i %p') AS sch_time,
                                             home_id, away_id
                                         FROM {$game_daily_schedule}
-                                        WHERE 1=1 
+                                        WHERE 1=1
                                         AND DATE_FORMAT(timezone_scheduled, '%Y-%m-%d')=DATE_FORMAT('{$db['g_date']}', '%Y-%m-%d')
                                         ORDER BY timezone_scheduled
                                     ";

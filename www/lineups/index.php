@@ -118,7 +118,7 @@ try {
                                 WHERE 1=1
                                   AND a.lu_u_idx = {$_se_idx}
                                     {$where}
-                                ORDER BY a.lu_idx DESC 
+                                ORDER BY a.lu_idx DESC
                                 LIMIT {$from_record}, {$rows}
                             ";
                             //p($query);
@@ -163,11 +163,11 @@ try {
                                 $img_n  = str_replace('%', '', $img_n);
                                 switch($sub_db2['g_league_alias']){
                                     CASE 'PUBG':
-                                        $img_src = "/images/pubg_logo.png";
+                                        $img_src = "/images/ico_pubg.png";
                                         $game_img_src = '/images/PUBG/output/'. $img_n .'.jpg';
                                         break;
                                     CASE 'NBA':
-                                        $img_src = "/images/pubg_logo.png";
+                                        $img_src = "/images/ico_pubg.png";
                                         $game_img_src = '/images/img_30multi_50.png';
                                         break;
                                 }
