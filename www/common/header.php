@@ -11,13 +11,13 @@ $_se_id     =!empty($_SESSION['_se_id']) ? $_SESSION['_se_id'] : "";        // �
 $_se_name   =!empty($_SESSION['_se_name']) ? $_SESSION['_se_name'] : "";    // 세션 닉네임
 //$deposit=!empty($_SESSION['_se_deposit']) ? $_SESSION['_se_deposit'] : 0;    // 세션 포인트
 
-$query = "
+$queryheader = "
     SELECT *
         FROM members
         WHERE 1 and m_idx ='{$_se_idx}'
     ";
 //p($query);
-$mresult        = $_mysqli->query($query);
+$mresult        = $_mysqli->query($queryheader);
 $_arrMembers    = $mresult->fetch_array();
 $m_deposit      = !empty($_arrMembers['m_deposit'])     ? $_arrMembers['m_deposit']     : 0;
 $m_fpbalance    = !empty($_arrMembers['m_fp_balance'])  ? $_arrMembers['m_fp_balance']  : 0;
@@ -77,8 +77,8 @@ switch ($_url_f[2]){
 }
 
 try{
-$sql = "SELECT * FROM members WHERE m_idx = '{$_se_idx}' ";
-$result = $_mysqli->query($sql);
+$sqlheader = "SELECT * FROM members WHERE m_idx = '{$_se_idx}' ";
+$result = $_mysqli->query($sqlheader);
 $arraymembers = $result->fetch_array();
 
 $query4 = "SELECT i_src FROM m_item WHERE main_emblem =1 and m_idx = '{$_se_idx}'";
@@ -101,7 +101,7 @@ $main_src = !empty($main['i_src']) ? $main['i_src']:'';
                     <!--                    <li><a href="javascript:void(0)" onclick="alert('준비중입니다.');">GS:GO</a></li>-->
                 </ul>
             </li>
-            <li class="<?=$_liClass2;?>"><a href="/lineups/?sub=upcoming">내 라인업</a></li>
+            <li class="<?=$_liClass2;?>"><a href="/lineups/index.php?sub=upcoming">내 라인업</a></li>
             <li class="<?=$_liClass3;?>"><a href="/contests/">내 콘테스트</a></li>
             <li class="<?=$_liClass4;?>">
                 <a href="/store/">스토어</a>
