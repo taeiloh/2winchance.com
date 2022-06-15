@@ -312,7 +312,7 @@ LI;
                             <div class="league-thumb-box">
                                 <div class="league-thumb" style="overflow: hidden;">
                                     <img src="/images/PUBG/output/{$img_n}.jpg" alt="게임 이미지 {$db['g_idx']}" title="{$db['g_idx']}"/>
-                                    <div class="game-logo"><img src="/images/ico_pubg.png"></div>
+                                    <div class="game-logo"><img src="/images/pubg.png"></div>
                                 </div>
                                 <div class="status-detail">
                                     <div class="detail-box">
