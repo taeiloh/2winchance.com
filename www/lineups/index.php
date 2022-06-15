@@ -187,7 +187,7 @@ try {
                                 } else if ($sub_db2['g_status']==2) {
                                     $link       = 'javascript:void(0);';
                                     $liClass    = 'live';
-                                    $editTitle  = 'LIVE';
+                                    $editTitle  = '<span class="line-up-badge" >LIVE</span>';
                                     $cursor = '';
                                 } else if ($sub_db2['g_status']==3) {
                                     $link       = 'javascript:void(0);';
