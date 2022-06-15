@@ -14,12 +14,11 @@ try {
     $m_sns_type = !empty($_arrMembers['m_sns_type']) ? $_arrMembers['m_sns_type'] : '';
     $m_fp_balance = !empty($_arrMembers['m_fp_balance']) ? $_arrMembers['m_fp_balance'] : 0;
 
-    $query2 = "SELECT * FROM honor_point_history WHERE hph_m_idx = '{$idx}'";
+    $query2 = "SELECT * FROM honor_point_history WHERE m_idx = '{$idx}'";
     $result2 = $_mysqli->query($query2);
     $honormem = $result2->fetch_array();
-    $hph_balance = !empty($honormem['hph_balance']) ?$honormem['hph_balance'] : 0;
+    $hph_balance = !empty($honormem['balance']) ?$honormem['balance'] : 0;
 
-    // 2022-05-31 캐시잔액 조원영
     $querycoin = "
         SELECT sum(dh_amount) as total_amount FROM deposit_history
         WHERE 1 AND dh_u_idx = '{$idx}'
