@@ -119,7 +119,7 @@ if ($time > $ago30min) {
             <div class="inner enter">
                 <div class="game-detail">
                     <div class="thumb-icon">
-                        <img src="/images/pubg.png" alt="pubg">
+                        <img src="/images/ico_pubg.png" alt="pubg">
                     </div>
                     <div class="parti-info">
                         <p><?=$gname;?></p>
