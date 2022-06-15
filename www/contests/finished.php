@@ -194,6 +194,11 @@ TR;
                                                     $result_json    = $sub_db['player_result_json'];
                                                     $arrResult      = json_decode($result_json, true);
                                                     //p($arrResult);
+                                                    $sum_team_score = !empty($arrResult['SUM_TEAM_SCORE']) ? $arrResult['SUM_TEAM_SCORE'] : '';
+                                                    $sum_killed     = !empty($arrResult['SUM_KILLED']) ? $arrResult['SUM_KILLED'] : '';
+                                                    $sum_teamkilled = !empty($arrResult['SUM_TEAMKILLED']) ? $arrResult['SUM_TEAMKILLED'] : '';
+                                                    $sum_selfkilled = !empty($arrResult['SUM_SELFKILLED']) ? $arrResult['SUM_SELFKILLED'] : '';
+                                                    $sum_revived    = !empty($arrResult['SUM_REVIVED']) ? $arrResult['SUM_REVIVED'] : '';
 
                                                     echo <<<TR
                                                 <tr>
@@ -201,34 +206,34 @@ TR;
                                                     <td>{$sub_db['player_name']}</td>
                                                     <td></td>
                                                     <td class="hover">
-                                                        <p>팀순위({$arrResult['SUM_TEAM_SCORE']}) 킬수({$arrResult['SUM_KILLED']}) 팀킬({$arrResult['SUM_TEAMKILLED']}) 자살({$arrResult['SUM_SELFKILLED']}) 부활({$arrResult['SUM_REVIVED']})</p>
+                                                        <p>팀순위({$sum_team_score}) 킬수({$sum_killed}) 팀킬({$sum_teamkilled}) 자살({$sum_selfkilled}) 부활({$sum_revived})</p>
                                                         <div class="tooltip">
                                                             <p class="title">상세 점수</p>
                                                             <div class="score-detail">
                                                                 <dl>
                                                                     <dt>팀순위</dt>
                                                                     <dd>$$ + $$ + $$ + $$ + $$</dd>
-                                                                    <dd>= {$arrResult['SUM_TEAM_SCORE']}</dd>
+                                                                    <dd>= {$sum_team_score}</dd>
                                                                 </dl>
                                                                 <dl>
                                                                     <dt>킬</dt>
                                                                     <dd>$$ X 1</dd>
-                                                                    <dd>= {$arrResult['SUM_KILLED']}</dd>
+                                                                    <dd>= {$sum_killed}</dd>
                                                                 </dl>
                                                                 <dl>
                                                                     <dt>팀킬</dt>
                                                                     <dd>$$ X -1</dd>
-                                                                    <dd>= {$arrResult['SUM_TEAMKILLED']}</dd>
+                                                                    <dd>= {$sum_teamkilled}</dd>
                                                                 </dl>
                                                                 <dl>
                                                                     <dt>자살</dt>
                                                                     <dd>$$ X -1</dd>
-                                                                    <dd>= {$arrResult['SUM_SELFKILLED']}</dd>
+                                                                    <dd>= {$sum_selfkilled}</dd>
                                                                 </dl>
                                                                 <dl>
                                                                     <dt>부활</dt>
                                                                     <dd>$$ X 1</dd>
-                                                                    <dd>= {$arrResult['SUM_REVIVED']}</dd>
+                                                                    <dd>= {$sum_revived}</dd>
                                                                 </dl>
                                                             </div>
                                                             <dl class="score-total">
