@@ -180,6 +180,7 @@ LI;
                 </ul>
                 <div class="cont">
                     <div class="visual-thumb">
+                    <span class="sample"></span>
                         <img src="/images/pubg_list.jpeg" alt="LCS">
                     </div>
                     <div class="visual-detail">
@@ -311,6 +312,7 @@ LI;
                         <div class="league-box">
                             <div class="league-thumb-box">
                                 <div class="league-thumb" style="overflow: hidden;">
+                                 <span class="sample"></span>
                                     <img src="/images/PUBG/output/{$img_n}.jpg" alt="게임 이미지 {$db['g_idx']}" title="{$db['g_idx']}"/>
                                     <div class="game-logo"><img src="/images/ico_pubg.png"></div>
                                 </div>

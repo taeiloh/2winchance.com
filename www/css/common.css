@@ -22,6 +22,7 @@ input[type=text],input[type=password],input[type=date],input[type=email],input[t
 table{text-align: center; table-layout:fixed; word-break: break-all;}
 
 /*  견본 txt */
+.league-thumb .sample{position: absolute;}
 .sample{position: relative; display: block;  width: 100%; height: 100%;  line-height: 3;}
 .sample::before{content: "견 본";  color: red; font-size: 5em; z-index: 50; font-weight: bold;  position: absolute; top:50%; transform: translateY(-30%); width: 100%; height: 100%; text-align: center;}
 
