@@ -170,7 +170,7 @@ try {
                             <td>{$total_amount}</td>
                         </tr>
 TR;
-                                $total_amount1 +=$amount;
+                               // $total_amount1 +=$amount;
                             }
                         }else {
                             echo <<<TR
