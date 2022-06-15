@@ -58,7 +58,7 @@ try {
     ";
     $hpresult = $_mysqli->query($queryhp);
     $dbhp = $hpresult->fetch_assoc();
-    $hp = !empty($dbhp['hph_balance']) ? $dbhp['hph_balance'] : 0;
+    $hp = !empty($dbhp['balance']) ? $dbhp['balance'] : 0;
 
     //dh_amount 총합
     $querycoin = "
