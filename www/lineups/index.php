@@ -95,7 +95,7 @@ try {
     <!--//header-->
 
     <!--container-->
-    <<div id="container">
+    <div id="container">
         <!--content-->
         <div id="content">
             <!--sec-01-->
@@ -200,6 +200,7 @@ try {
                         <li class="{$liClass}">
                             <a href="{$link}" {$cursor} class="active" title="{$sub_db2['g_name']}">
                                 <div class="game-thumb" style="background-image: url('{$game_img_src}')">
+                                  <span class="sample"></span>
                                     <div class="subject">
                                     <img src="{$img_src}" alt="pubg_logo"/>
                                     </div>

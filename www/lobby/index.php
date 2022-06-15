@@ -81,6 +81,7 @@ if ($stime >= 173000) {
                         <li>
                             <a href="/lobby/list.php?cate={$cate}&sub_menu={$sub_menu}&g_date={$sdate}&gidx={$value['g_idx']}" title="{$title}">
                                 <div class="game-thumb" style="background-image: url('/images/PUBG/output/{$img_n}.jpg')">
+                                    <span class="sample"></span>
                                     <div class="subject">
                                         <img src="/images/ico_pubg.png" alt="pubg_logo"/>
                                     </div>
