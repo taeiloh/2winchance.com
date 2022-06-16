@@ -23,7 +23,7 @@ try {
     $ymd        = !empty($_GET['ymd'])      ? $_GET['ymd']      : '';
 
     // 변수 정리
-    $round_seq      = 25;
+    $round_seq      = 29;
     $game_category  = 20;
 
     // 트랜잭션

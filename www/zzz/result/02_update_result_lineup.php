@@ -20,7 +20,7 @@ try {
     $ymd        = !empty($_GET['ymd'])      ? $_GET['ymd']      : '';
 
     // 변수 정리
-    $round_seq      = 25;
+    $round_seq      = 29;
     $game_category  = 20;
 
     // 트랜잭션
@@ -69,7 +69,7 @@ try {
         }
         $sub_db     = $sub_result->fetch_assoc();
         if (!empty($sub_db)) {
-            $players_points     = $sub_db['SUM_TEAM_SCORE'] + $sub_db['SUM_KILLED'] + $sub_db['SUM_TEAMKILLED'] + $sub_db['SUM_SELFKILLED'] + $sub_db['SUM_REVIVED'];
+            $players_points     = $sub_db['SUM_TEAM_SCORE'] + $sub_db['SUM_KILLED'] - $sub_db['SUM_TEAMKILLED'] - $sub_db['SUM_SELFKILLED'] + $sub_db['SUM_REVIVED'];
             $result_json        = json_encode($sub_db);
         } else {
             $players_points     = 0;
