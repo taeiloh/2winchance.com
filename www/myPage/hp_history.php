@@ -1,6 +1,6 @@
 <?php
-// config
 require_once __DIR__ .'/../_inc/config.php';
+require_once __DIR__ .'/../_inc/paging.php';
 
 $idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 시퀀스
 $id=!empty($_SESSION['_se_id']) ? $_SESSION['_se_id'] : "";        // 세션 아이디
@@ -27,22 +27,19 @@ if (!$idx) {
 try{
 
     //파라미터 정리
-    $page       = !empty($_GET['page'])     ? $_GET['page']     : 1;
+    $page               = !empty($_GET['page'])             ? $_GET['page']             : 1;
 
     //파라미터 체크
     if(!is_numeric($page)){
         $page       =   1;
     }
 
-    //페이징
-    $sql = "select count(*) from honor_point_history where 1 and m_idx='{$idx}'";
-    $tresult = mysqli_query($_mysqli, $sql);
-    $row1   = mysqli_fetch_row($tresult);
-    $total_count = $row1[0]; //전체갯수
-    $rows = 10;
-    $total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
-    if ($page < 1) { $page = 1; } // 페이지가 없으면 첫 페이지 (1 페이지)
-    $from_record = ($page - 1) * $rows; // 시작 열을 구함
+    //변수 정리
+    $size           = PAGING_SIZE;
+    $offset         = ($page - 1) * $size;
+    $scale          = PAGING_SCALE;
+    $where          = '';
+
 
     //db
     $query ="
@@ -51,10 +48,18 @@ try{
         FROM honor_point_history
         WHERE 1 and m_idx='{$idx}'
         ORDER BY created_at DESC
-        LIMIT {$from_record}, {$rows}
+        LIMIT {$offset}, {$size}
     ";
 
     $resulthp = $_mysqli->query($query);
+
+    $sub_result     = $_mysqli->query("SELECT Count(*) AS total from honor_point_history where m_idx='{$idx}'");
+    $sub_dbarray    = $sub_result->fetch_array();
+    $total          = $sub_dbarray['total'];
+    $sub_result->free();
+
+    //페이징
+    $_pg    = new PAGING($total, $page, $size, $scale);
 
 }catch (mysqli_sql_exception $e){
     $arrRtn['code']     = $e->getCode();
@@ -118,21 +123,16 @@ try{
                         </thead>
                         <tbody>
                         <?php
-                        if($total_count > 0){
-                            $i = 0;
+                        if($total > 0){
+
                             while ($dbhp = $resulthp->fetch_assoc()) {
-                                $title = empty(!$dbhp['content']) ? $dbhp['content'] : '';
-                                $regdate = empty(!$dbhp['regdate']) ? $dbhp['regdate'] : '';
-                                $hp = empty(!$dbhp['point']) ? $dbhp['point'] : '';
-                                $balance = empty(!$dbhp['balance']) ? $dbhp['balance'] : '';
-                                $i++;
-                                $no=$total_count-($i+($page-1)*$rows);
+
                                 echo <<<TR
                         <tr>
-                            <td class="Fgray">{$regdate}</td>
-                            <td>{$title}</td>
-                            <td>+{$hp}</td>
-                            <td>{$balance}</td>
+                            <td class="Fgray">{$dbhp['regdate']}</td>
+                            <td>{$dbhp['content']}</td>
+                            <td>+{$dbhp['point']}</td>
+                            <td>{$dbhp['balance']}</td>
                         </tr>
 TR;
                             }
@@ -217,9 +217,7 @@ TR;
             </section>
             <!--//sec-01-->
             <div class="pagination">
-<?php
-                echo paging($page,$total_page,5,"{$_SERVER['SCRIPT_NAME']}?page=");
-                ?>
+                <?=$_pg->getPaging();?>
 <!--                <a class="active" href="javascript:void(0)">1</a>
                 <a href="javascript:void(0)">2</a>
                 <a href="javascript:void(0)">3</a>

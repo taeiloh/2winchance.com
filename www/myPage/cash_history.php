@@ -1,9 +1,11 @@
 <?php
 require_once __DIR__ .'/../_inc/config.php';
+require_once __DIR__ .'/../_inc/paging.php';
 
 $idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 시퀀스
 $id=!empty($_SESSION['_se_id']) ? $_SESSION['_se_id'] : "";        // 세션 아이디
 $name=!empty($_SESSION['_se_name']) ? $_SESSION['_se_name'] : "";    // 세션 닉네임
+
 $arrRtn     = array(
     'code'  => 500,
     'msg'   => ''
@@ -30,15 +32,12 @@ try {
     if(!is_numeric($page)){
         $page       =   1;
     }
-    //페이징
-    $sql = "select count(*) from deposit_history where 1=1 and dh_u_idx = '{$idx}'";
-    $tresult = mysqli_query($_mysqli, $sql);
-    $row1   = mysqli_fetch_row($tresult);
-    $total_count = $row1[0]; //전체갯수
-    $rows = 10;
-    $total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
-    if ($page < 1) { $page = 1; } // 페이지가 없으면 첫 페이지 (1 페이지)
-    $from_record = ($page - 1) * $rows; // 시작 열을 구함
+
+    //변수 정리
+    $size           = PAGING_SIZE;
+    $offset         = ($page - 1) * $size;
+    $scale          = PAGING_SCALE;
+    $where          = '';
 
     // db
     $query  = "
@@ -48,7 +47,7 @@ try {
         from deposit_history
         WHERE dh_u_idx = '{$idx}'
         order by dh_idx desc
-        LIMIT {$from_record}, {$rows}
+        LIMIT {$offset}, {$size}
     ";
 
 
@@ -64,6 +63,13 @@ try {
 
     //print $total_amount;
 
+    $sub_result     = $_mysqli->query("SELECT Count(*) AS total from deposit_history where dh_u_idx='{$idx}'");
+    $sub_dbarray    = $sub_result->fetch_array();
+    $total          = $sub_dbarray['total'];
+    $sub_result->free();
+
+    //페이징
+    $_pg    = new PAGING($total, $page, $size, $scale);
 
 
 }catch (mysqli_sql_exception $e){
@@ -144,33 +150,25 @@ try {
                         </thead>
                         <tbody>
                         <?php
-                        if($total_count > 0){
-                            $i = 0;
+                        if($total > 0){
                             $total_amount1=0;
                             while ($dbgold = $result_cash->fetch_assoc()) {
-                                $title = empty(!$dbgold['dh_content']) ? $dbgold['dh_content'] : '';
-                                $regdate = empty(!$dbgold['regdate']) ? $dbgold['regdate'] : '';
                                 $tid = empty(!$dbgold['dh_pay_key']) ? $dbgold['dh_pay_key'] : '';
                                 $amount = empty(!$dbgold['dh_amount']) ? $dbgold['dh_amount'] : '';
-                                $balance = empty(!$dbgold['dh_balance']) ? $dbgold['dh_balance'] : 0;
-                                $deposit = empty(!$dbgold['dh_deposit']) ? $dbgold['dh_deposit'] : 0;
                                 $total_amount = !empty($_arrAmount['total_amount']) ? $_arrAmount['total_amount'] : 0;
-                                $dh_cash_type = !empty($dbgold['dh_cash_type']) ? $dbgold['dh_cash_type'] : '';
-                                $i++;
-                                $no=$total_count-($i+($page-1)*$rows);
                                 $total_amount=$total_amount-$total_amount1;
                                 echo <<<TR
                         <tr>
-                            <td class="Fgray">{$regdate}</td>
-                            <td>{$title}</td>
+                            <td class="Fgray">{$dbgold['regdate']}</td>
+                            <td>{$dbgold['dh_content']}</td>
                             <!--td>{$tid}</td-->
-                            <td>{$dh_cash_type}</td>
-                            <td>{$deposit}</td>
+                            <td>{$dbgold['dh_cash_type']}</td>
+                            <td>{$dbgold['dh_deposit']}</td>
                             <td>{$amount}</td>
                             <td>{$total_amount}</td>
                         </tr>
 TR;
-                               // $total_amount1 +=$amount;
+                                $total_amount1 +=$amount;
                             }
                         }else {
                             echo <<<TR
@@ -287,9 +285,7 @@ TR;
             </section>
             <!--//sec-01-->
             <div class="pagination">
-                <?php
-                echo paging($page,$total_page,5,"{$_SERVER['SCRIPT_NAME']}?page=");
-                ?>
+                <?=$_pg->getPaging();?>
 <!--                <a class="active" href="javascript:void(0)">1</a>-->
 <!--                <a href="javascript:void(0)">2</a>-->
 <!--                <a href="javascript:void(0)">3</a>-->

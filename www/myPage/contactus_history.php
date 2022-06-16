@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ .'/../_inc/config.php';
+require_once __DIR__ .'/../_inc/paging.php';
 
 $idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : "";      // 세션 시퀀스
 $id=!empty($_SESSION['_se_id']) ? $_SESSION['_se_id'] : "";        // 세션 아이디
@@ -33,17 +34,11 @@ try{
         $page = 1;
     }
 
-
-
-    //페이징
-    $sql = "select count(*) from contactus where 1=1 and cu_u_idx='{$idx}'";
-    $tresult = mysqli_query($_mysqli, $sql);
-    $row1   = mysqli_fetch_row($tresult);
-    $total_count = $row1[0]; //전체갯수
-    $rows = 10;
-    $total_page  = ceil($total_count / $rows);  // 전체 페이지 계산
-    if ($page < 1) { $page = 1; } // 페이지가 없으면 첫 페이지 (1 페이지)
-    $from_record = ($page - 1) * $rows; // 시작 열을 구함
+    //변수 정리
+    $size           = PAGING_SIZE;
+    $offset         = ($page - 1) * $size;
+    $scale          = PAGING_SCALE;
+    $where          = '';
 
     // db
     $query  = "
@@ -52,10 +47,18 @@ try{
         FROM contactus
         WHERE 1=1 and cu_u_idx='{$idx}'
         ORDER BY cu_req_date DESC
-        LIMIT {$from_record}, {$rows}
+        LIMIT {$offset}, {$size}
     ";
 
     $result1 = $_mysqli->query($query);
+
+    $sub_result     = $_mysqli->query("SELECT Count(*) AS total from contactus where cu_u_idx='{$idx}'");
+    $sub_dbarray    = $sub_result->fetch_array();
+    $total          = $sub_dbarray['total'];
+    $sub_result->free();
+
+    //페이징
+    $_pg    = new PAGING($total, $page, $size, $scale);
 
 }catch (mysqli_sql_exception $e){
     $arrRtn['code']     = $e->getCode();
@@ -131,15 +134,14 @@ try{
                         </thead>
                         <tbody>
                         <?php
-                            if($total_count > 0){
+                            if($total > 0){
                                 $i = -1;
+                                $rows = 10;
                                 while ($dbCu = $result1->fetch_assoc()) {
                                     $cu_seq  = empty(!$dbCu['cu_idx']) ? $dbCu['cu_idx'] : '';
-                                    $cu_date = empty(!$dbCu['regdate']) ? $dbCu['regdate'] : '';
-                                    $cu_title = empty(!$dbCu['cu_subject']) ? $dbCu['cu_subject'] : '';
                                     $cu_status = empty(!$dbCu['cu_status']) ? $dbCu['cu_status'] : 0;
                                     $i++;
-                                    $no=$total_count-($i+($page-1)*$rows);
+                                    $no=$total-($i+($page-1)*$rows);
                                     if ($cu_status == 0) {
                                         $cu_status = '<span style="color: gold">대기중</span>';
                                     }else if($cu_status == 1){
@@ -148,8 +150,8 @@ try{
                                     echo <<<TR
                         <tr style="cursor: default;">
                             <td>{$no}</td>
-                            <td class="Fgray">{$cu_date}</td>
-                            <td><a style="width: 100%; cursor: pointer;" onclick="sel_List({$cu_seq})">{$cu_title}</a></td>
+                            <td class="Fgray">{$dbCu['regdate']}</td>
+                            <td><a style="width: 100%; cursor: pointer;" onclick="sel_List({$cu_seq})">{$dbCu['cu_subject']}</a></td>
                             <td>{$cu_status}</td>
                         </tr>
 TR;
@@ -171,9 +173,7 @@ TR;
             <div class="qna-btn-box inner">
                 <div style="width: 15rem;"></div>
                 <div class="pagination">
-                    <?php
-                    echo paging($page,$total_page,5,"{$_SERVER['SCRIPT_NAME']}?page=");
-                    ?>
+                    <?=$_pg->getPaging();?>
 <!--                    <a href="javascript:void(0)">1</a>-->
 <!--                    <a class="active" href="javascript:void(0)">2</a>-->
 <!--                    <a href="javascript:void(0)">3</a>-->
