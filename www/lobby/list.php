@@ -121,9 +121,14 @@ $total_size     = $db['total_size'];
                     //p($query);
                     $result = $_mysqli_game->query($query);
                     if (!$result) {
-
                     }
+                    $i = 0;
                     while ($db = $result->fetch_assoc()) {
+                        if ($i==0) {
+                            $start_date = "{$db['games_timezone_scheduled']}";
+                            $start_hour = date('H', strtotime($start_date));
+                            $start_min  = date('i', strtotime($start_date));
+                        }
                         //p($db);
                         $games_timezone_scheduled1 = substr($db['games_timezone_scheduled'], 0, 10);
                         $games_timezone_scheduled2 = substr($db['games_timezone_scheduled'], 11, 5);
@@ -147,6 +152,7 @@ LI;
                     </li>
 LI;
                         }
+                        $i++;
                     }
                     ?>
                     <!--li class="active">
@@ -193,8 +199,8 @@ LI;
                             </ul>
                             <div id="tab-1"  class="tab-content on">
                                 <dl>
-                                    <dd class="start-date">시작 시간 : <?=$g_date?> 18:00:00</dd>
-                                    <dd class="timer">남은 시간 : <span class="day">00</span>일  <span class="hours">00</span>:<span class="minutes">00</span>:<span class="seconds">00</span></dd>
+                                    <dd class="start-date">시작 시간 : <?=$start_date;?></dd>
+                                    <dd class="timer">남은 시간 : <span class="day">0</span>일  <span class="hours">00</span>:<span class="minutes">00</span>:<span class="seconds">00</span></dd>
                                 </dl>
                                 <div class="parti-info">
                                     <p class="prize-money">총 상금<b><?=number_format($total_prize);?></b><span> FP</span></p>
@@ -434,7 +440,7 @@ SCRIPT;
 <script>
     function remaindTime() {
         var now = new Date(); //현재시간을 구한다.
-        var end = new Date(<?=$year?>,<?=$month-1?>,<?=$days?>,18,00,00);
+        var end = new Date(<?=$year?>,<?=$month-1?>,<?=$days?>,<?=$start_hour;?>,<?=$start_min;?>,00);
 
         var endDays="<?=$days?>";
 //오늘날짜의 저녁 9시 - 종료시간기준
