@@ -117,15 +117,15 @@ try {
                 //header
                 require_once __DIR__ . '/../common/category.php';
                 ?>
-<!--                <div class="category inner">-->
-<!--                    <ul>-->
-<!--                        <li><a href="javascript:void(0)">MY ACCOUNT</a></li>-->
-<!--                        <li><a href="javascript:void(0)">1 : 1 HISTORY</a></li>-->
-<!--                        <li class="active"><a href="javascript:void(0)">CASH HISTORY</a></li>-->
-<!--                        <li><a href="javascript:void(0)">FP HISTORY</a></li>-->
-<!--                        <li><a href="javascript:void(0)">게임 가이드</a></li>-->
-<!--                    </ul>-->
-<!--                </div>-->
+                <!--                <div class="category inner">-->
+                <!--                    <ul>-->
+                <!--                        <li><a href="javascript:void(0)">MY ACCOUNT</a></li>-->
+                <!--                        <li><a href="javascript:void(0)">1 : 1 HISTORY</a></li>-->
+                <!--                        <li class="active"><a href="javascript:void(0)">CASH HISTORY</a></li>-->
+                <!--                        <li><a href="javascript:void(0)">FP HISTORY</a></li>-->
+                <!--                        <li><a href="javascript:void(0)">게임 가이드</a></li>-->
+                <!--                    </ul>-->
+                <!--                </div>-->
                 <div class="contents-cont inner">
                     <table class="contents-table cash-table">
                         <colgroup>
@@ -180,105 +180,105 @@ TR;
 
                         ?>
 
-<!--                        <tr>-->
-<!--                            <td>2022-1-03-04 13:25:49</td>-->
-<!--                            <td>Join the contest (G55362)</td>-->
-<!--                            <td>Join</td>-->
-<!--                            <td>spo - bit</td>-->
-<!--                            <td>-</td>-->
-<!--                            <td class="">- 60</td>-->
-<!--                            <td>4,946</td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>2022-1-03-04 13:25:49</td>-->
-<!--                            <td>Join the contest (G55362)</td>-->
-<!--                            <td>Join</td>-->
-<!--                            <td>spo - bit</td>-->
-<!--                            <td>-</td>-->
-<!--                            <td class="">- 60</td>-->
-<!--                            <td>4,946</td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>2022-1-03-04 13:25:49</td>-->
-<!--                            <td>Join the contest (G55362)</td>-->
-<!--                            <td>Join</td>-->
-<!--                            <td>spo - bit</td>-->
-<!--                            <td>-</td>-->
-<!--                            <td class="">- 60</td>-->
-<!--                            <td>4,946</td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>2022-1-03-04 13:25:49</td>-->
-<!--                            <td>Join the contest (G55362)</td>-->
-<!--                            <td>Join</td>-->
-<!--                            <td>spo - bit</td>-->
-<!--                            <td>-</td>-->
-<!--                            <td class="">- 60</td>-->
-<!--                            <td>4,946</td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>2022-1-03-04 13:25:49</td>-->
-<!--                            <td>Join the contest (G55362)</td>-->
-<!--                            <td>Join</td>-->
-<!--                            <td>spo - bit</td>-->
-<!--                            <td>-</td>-->
-<!--                            <td class="">- 60</td>-->
-<!--                            <td>4,946</td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>2022-1-03-04 13:25:49</td>-->
-<!--                            <td>Join the contest (G55362)</td>-->
-<!--                            <td>Join</td>-->
-<!--                            <td>spo - bit</td>-->
-<!--                            <td>-</td>-->
-<!--                            <td class="">- 60</td>-->
-<!--                            <td>4,946</td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>2022-1-03-04 13:25:49</td>-->
-<!--                            <td>Join the contest (G55362)</td>-->
-<!--                            <td>Join</td>-->
-<!--                            <td>spo - bit</td>-->
-<!--                            <td>-</td>-->
-<!--                            <td class="">- 60</td>-->
-<!--                            <td>4,946</td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>2022-1-03-04 13:25:49</td>-->
-<!--                            <td>Join the contest (G55362)</td>-->
-<!--                            <td>Join</td>-->
-<!--                            <td>spo - bit</td>-->
-<!--                            <td>-</td>-->
-<!--                            <td class="">- 60</td>-->
-<!--                            <td>4,946</td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>2022-1-03-04 13:25:49</td>-->
-<!--                            <td>Join the contest (G55362)</td>-->
-<!--                            <td>Join</td>-->
-<!--                            <td>spo - bit</td>-->
-<!--                            <td>-</td>-->
-<!--                            <td class="">- 60</td>-->
-<!--                            <td>4,946</td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>2022-1-03-04 13:25:49</td>-->
-<!--                            <td>Join the contest (G55362)</td>-->
-<!--                            <td>Join</td>-->
-<!--                            <td>spo - bit</td>-->
-<!--                            <td>-</td>-->
-<!--                            <td class="">- 60</td>-->
-<!--                            <td>4,946</td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>2022-1-03-04 13:25:49</td>-->
-<!--                            <td>Join the contest (G55362)</td>-->
-<!--                            <td>Join</td>-->
-<!--                            <td>spo - bit</td>-->
-<!--                            <td>-</td>-->
-<!--                            <td class="">- 60</td>-->
-<!--                            <td>4,946</td>-->
-<!--                        </tr>-->
+                        <!--                        <tr>-->
+                        <!--                            <td>2022-1-03-04 13:25:49</td>-->
+                        <!--                            <td>Join the contest (G55362)</td>-->
+                        <!--                            <td>Join</td>-->
+                        <!--                            <td>spo - bit</td>-->
+                        <!--                            <td>-</td>-->
+                        <!--                            <td class="">- 60</td>-->
+                        <!--                            <td>4,946</td>-->
+                        <!--                        </tr>-->
+                        <!--                        <tr>-->
+                        <!--                            <td>2022-1-03-04 13:25:49</td>-->
+                        <!--                            <td>Join the contest (G55362)</td>-->
+                        <!--                            <td>Join</td>-->
+                        <!--                            <td>spo - bit</td>-->
+                        <!--                            <td>-</td>-->
+                        <!--                            <td class="">- 60</td>-->
+                        <!--                            <td>4,946</td>-->
+                        <!--                        </tr>-->
+                        <!--                        <tr>-->
+                        <!--                            <td>2022-1-03-04 13:25:49</td>-->
+                        <!--                            <td>Join the contest (G55362)</td>-->
+                        <!--                            <td>Join</td>-->
+                        <!--                            <td>spo - bit</td>-->
+                        <!--                            <td>-</td>-->
+                        <!--                            <td class="">- 60</td>-->
+                        <!--                            <td>4,946</td>-->
+                        <!--                        </tr>-->
+                        <!--                        <tr>-->
+                        <!--                            <td>2022-1-03-04 13:25:49</td>-->
+                        <!--                            <td>Join the contest (G55362)</td>-->
+                        <!--                            <td>Join</td>-->
+                        <!--                            <td>spo - bit</td>-->
+                        <!--                            <td>-</td>-->
+                        <!--                            <td class="">- 60</td>-->
+                        <!--                            <td>4,946</td>-->
+                        <!--                        </tr>-->
+                        <!--                        <tr>-->
+                        <!--                            <td>2022-1-03-04 13:25:49</td>-->
+                        <!--                            <td>Join the contest (G55362)</td>-->
+                        <!--                            <td>Join</td>-->
+                        <!--                            <td>spo - bit</td>-->
+                        <!--                            <td>-</td>-->
+                        <!--                            <td class="">- 60</td>-->
+                        <!--                            <td>4,946</td>-->
+                        <!--                        </tr>-->
+                        <!--                        <tr>-->
+                        <!--                            <td>2022-1-03-04 13:25:49</td>-->
+                        <!--                            <td>Join the contest (G55362)</td>-->
+                        <!--                            <td>Join</td>-->
+                        <!--                            <td>spo - bit</td>-->
+                        <!--                            <td>-</td>-->
+                        <!--                            <td class="">- 60</td>-->
+                        <!--                            <td>4,946</td>-->
+                        <!--                        </tr>-->
+                        <!--                        <tr>-->
+                        <!--                            <td>2022-1-03-04 13:25:49</td>-->
+                        <!--                            <td>Join the contest (G55362)</td>-->
+                        <!--                            <td>Join</td>-->
+                        <!--                            <td>spo - bit</td>-->
+                        <!--                            <td>-</td>-->
+                        <!--                            <td class="">- 60</td>-->
+                        <!--                            <td>4,946</td>-->
+                        <!--                        </tr>-->
+                        <!--                        <tr>-->
+                        <!--                            <td>2022-1-03-04 13:25:49</td>-->
+                        <!--                            <td>Join the contest (G55362)</td>-->
+                        <!--                            <td>Join</td>-->
+                        <!--                            <td>spo - bit</td>-->
+                        <!--                            <td>-</td>-->
+                        <!--                            <td class="">- 60</td>-->
+                        <!--                            <td>4,946</td>-->
+                        <!--                        </tr>-->
+                        <!--                        <tr>-->
+                        <!--                            <td>2022-1-03-04 13:25:49</td>-->
+                        <!--                            <td>Join the contest (G55362)</td>-->
+                        <!--                            <td>Join</td>-->
+                        <!--                            <td>spo - bit</td>-->
+                        <!--                            <td>-</td>-->
+                        <!--                            <td class="">- 60</td>-->
+                        <!--                            <td>4,946</td>-->
+                        <!--                        </tr>-->
+                        <!--                        <tr>-->
+                        <!--                            <td>2022-1-03-04 13:25:49</td>-->
+                        <!--                            <td>Join the contest (G55362)</td>-->
+                        <!--                            <td>Join</td>-->
+                        <!--                            <td>spo - bit</td>-->
+                        <!--                            <td>-</td>-->
+                        <!--                            <td class="">- 60</td>-->
+                        <!--                            <td>4,946</td>-->
+                        <!--                        </tr>-->
+                        <!--                        <tr>-->
+                        <!--                            <td>2022-1-03-04 13:25:49</td>-->
+                        <!--                            <td>Join the contest (G55362)</td>-->
+                        <!--                            <td>Join</td>-->
+                        <!--                            <td>spo - bit</td>-->
+                        <!--                            <td>-</td>-->
+                        <!--                            <td class="">- 60</td>-->
+                        <!--                            <td>4,946</td>-->
+                        <!--                        </tr>-->
                         </tbody>
                     </table>
                 </div>
@@ -286,10 +286,10 @@ TR;
             <!--//sec-01-->
             <div class="pagination">
                 <?=$_pg->getPaging();?>
-<!--                <a class="active" href="javascript:void(0)">1</a>-->
-<!--                <a href="javascript:void(0)">2</a>-->
-<!--                <a href="javascript:void(0)">3</a>-->
-<!--                <a href="javascript:void(0)">4</a>-->
+                <!--                <a class="active" href="javascript:void(0)">1</a>-->
+                <!--                <a href="javascript:void(0)">2</a>-->
+                <!--                <a href="javascript:void(0)">3</a>-->
+                <!--                <a href="javascript:void(0)">4</a>-->
             </div>
         </div>
         <!--//content-->

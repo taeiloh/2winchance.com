@@ -107,15 +107,15 @@ try{
                 //header
                 require_once __DIR__ . '/../common/category.php';
                 ?>
-<!--                <div class="category inner">-->
-<!--                    <ul>-->
-<!--                        <li><a href="javascript:void(0)">MY ACCOUNT</a></li>-->
-<!--                        <li class="active"><a href="javascript:void(0)">1 : 1 HISTORY</a></li>-->
-<!--                        <li><a href="javascript:void(0)">CASH HISTORY</a></li>-->
-<!--                        <li><a href="javascript:void(0)">FP HISTORY</a></li>-->
-<!--                        <li><a href="javascript:void(0)">게임 가이드</a></li>-->
-<!--                    </ul>-->
-<!--                </div>-->
+                <!--                <div class="category inner">-->
+                <!--                    <ul>-->
+                <!--                        <li><a href="javascript:void(0)">MY ACCOUNT</a></li>-->
+                <!--                        <li class="active"><a href="javascript:void(0)">1 : 1 HISTORY</a></li>-->
+                <!--                        <li><a href="javascript:void(0)">CASH HISTORY</a></li>-->
+                <!--                        <li><a href="javascript:void(0)">FP HISTORY</a></li>-->
+                <!--                        <li><a href="javascript:void(0)">게임 가이드</a></li>-->
+                <!--                    </ul>-->
+                <!--                </div>-->
                 <div class="contents-cont inner">
                     <table class="contents-table personalQna">
                         <colgroup>
@@ -134,20 +134,20 @@ try{
                         </thead>
                         <tbody>
                         <?php
-                            if($total > 0){
-                                $i = -1;
-                                $rows = 10;
-                                while ($dbCu = $result1->fetch_assoc()) {
-                                    $cu_seq  = empty(!$dbCu['cu_idx']) ? $dbCu['cu_idx'] : '';
-                                    $cu_status = empty(!$dbCu['cu_status']) ? $dbCu['cu_status'] : 0;
-                                    $i++;
-                                    $no=$total-($i+($page-1)*$rows);
-                                    if ($cu_status == 0) {
-                                        $cu_status = '<span style="color: gold">대기중</span>';
-                                    }else if($cu_status == 1){
-                                        $cu_status = '<span style="color: #9f9f9f">상담완료</span>';
-                                    }
-                                    echo <<<TR
+                        if($total > 0){
+                            $i = -1;
+                            $rows = 10;
+                            while ($dbCu = $result1->fetch_assoc()) {
+                                $cu_seq  = empty(!$dbCu['cu_idx']) ? $dbCu['cu_idx'] : '';
+                                $cu_status = empty(!$dbCu['cu_status']) ? $dbCu['cu_status'] : 0;
+                                $i++;
+                                $no=$total-($i+($page-1)*$rows);
+                                if ($cu_status == 0) {
+                                    $cu_status = '<span style="color: gold">대기중</span>';
+                                }else if($cu_status == 1){
+                                    $cu_status = '<span style="color: #9f9f9f">상담완료</span>';
+                                }
+                                echo <<<TR
                         <tr style="cursor: default;">
                             <td>{$no}</td>
                             <td class="Fgray">{$dbCu['regdate']}</td>
@@ -155,14 +155,14 @@ try{
                             <td>{$cu_status}</td>
                         </tr>
 TR;
-                                }
-                            }else{
-                                    echo <<<TR
+                            }
+                        }else{
+                            echo <<<TR
                          <tr>
                                 <td colspan="4">아직 문의하신 내역이 없습니다.</td>
                          </tr>
 TR;
-                            }
+                        }
                         ?>
                         </tbody>
                     </table>
@@ -174,10 +174,10 @@ TR;
                 <div style="width: 15rem;"></div>
                 <div class="pagination">
                     <?=$_pg->getPaging();?>
-<!--                    <a href="javascript:void(0)">1</a>-->
-<!--                    <a class="active" href="javascript:void(0)">2</a>-->
-<!--                    <a href="javascript:void(0)">3</a>-->
-<!--                    <a href="javascript:void(0)">4</a>-->
+                    <!--                    <a href="javascript:void(0)">1</a>-->
+                    <!--                    <a class="active" href="javascript:void(0)">2</a>-->
+                    <!--                    <a href="javascript:void(0)">3</a>-->
+                    <!--                    <a href="javascript:void(0)">4</a>-->
                 </div>
                 <button class="btn-blue btn-6" onclick="location.href='contactus.php'">문의하기</button>
             </div>
