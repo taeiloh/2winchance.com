@@ -218,10 +218,10 @@ DIV;
                         <div class="category-wrap">
                             <ul class="category dp_tab_draft">
                                 <li class="active sort" data-sort="ALL"><a href="javascript:void(0);">ALL</a></li>
-                                <li class="sort" data-sort="TL"><a href="javascript:void(0);">오더</a></li>
-                                <li class="sort" data-sort="R"><a href="javascript:void(0);">정찰</a></li>
-                                <li class="sort" data-sort="GR"><a href="javascript:void(0);">포탑</a></li>
-                                <li class="sort" data-sort="AR"><a href="javascript:void(0);">돌격</a></li>
+                                <li class="sort" data-sort="OD"><a href="javascript:void(0);">오더</a></li>
+                                <li class="sort" data-sort="ST"><a href="javascript:void(0);">정찰</a></li>
+                                <li class="sort" data-sort="TW"><a href="javascript:void(0);">포탑</a></li>
+                                <li class="sort" data-sort="RR"><a href="javascript:void(0);">돌격</a></li>
                                 <!--<li class="sort" data-sort="UTIL"><a href="javascript:void(0);">백업</a></li>
                                 <li class="sort" data-sort="UTIL"><a href="javascript:void(0);">서포터</a></li>-->
                                 <li class="sort" data-sort="UTIL"><a href="javascript:void(0);">유틸</a></li>
@@ -280,7 +280,7 @@ DIV;
                             <li>
                                 <dl>
                                     <dt>잔여 연봉</dt>
-                                    <dd>$ <span class="total_salary">50,000</span></dd>
+                                    <dd>$ <span class="total_salary">0</span></dd>
                                 </dl>
                             </li>
                             <li>
@@ -307,13 +307,14 @@ DIV;
                                 //p($arrLineup);
 
                                 $i  = 0;
+                                $sum_player_salary  = 0;
                                 foreach ($pos['pos'] as $key=>$value) {
                                     if ($edit==1) {
                                         $team_name      = $arrLineup[$key]['team_alias'];
                                         $player_name    = $arrLineup[$key]['player_name'];
                                         $player_salary  = $arrLineup[$key]['player_salary'];
                                         $on ="on";
-                                        $player_img     = "<img src=\"/images/player_images/pubg/{$arrLineup[$key]['player_name']}.jpg\" alt=\"\" onerror=\"this.src='/images/player_images/pubg/default.png'\" style=\"width: 68px;\">";
+                                        $player_img     = "<img src=\"/images/player_images/pubg/{$arrLineup[$key]['player_name']}.png\" alt=\"\" onerror=\"this.src='/images/player_images/pubg/default.png'\" style=\"width: 68px;\">";
                                         $btnDel         = "<button class=\"btn-delete\" data-fppg=\"0\" data-del-index=\"{$arrLineup[$key]['player_idx']}\" data-game=\"{$arrLineup[$key]['game_id']}\" onclick=\"delPlayer('pubg', {$arrLineup[$key]['player_idx']}, '{$value}');\">삭제</button>";
 
                                     } else {
@@ -324,6 +325,7 @@ DIV;
                                         $player_img     = "<p style=\"background-image:url('/images/PUBG/pos/{$value}.png');background-size:100%;\"></p>";
                                         $btnDel         = '';
                                     }
+                                    $sum_player_salary  += $player_salary;
 
                                     /*if($i==4) {
                                         $img_name   = 'BK';
@@ -649,6 +651,11 @@ LI;
 </script>
 <script>
     var isEdit          = <?=$edit;?>;
+    if (isEdit) {
+        $(".total_salary").text("<?=number_format(50000 - $sum_player_salary);?>");
+    } else {
+        $(".total_salary").text("50,000");
+    }
     var lu_idx          = <?=$lu_idx;?>;
     var what_category   = "pubg";
     var count_time      = $("#game_date").attr('data-next-game');
@@ -658,6 +665,7 @@ LI;
     var avg_salary      = (50000 - total_salary) / 8;
     var flex            = false;
     var tab_draft       = $(".dp_tab_draft");
+    var arrTeam         = new Array();
 
     $(".avg_salary").html($.number(avg_salary));
 
@@ -735,8 +743,8 @@ LI;
             name = json[11] + ' ' + json[12];
 
         } else if (json[15] === "pubg") {
-            tr += json[3];
-            name = json[11] + ' ' + json[12];
+            tr += json[2];
+            name = json[2];
         }
         //
         tr += '</td>';
@@ -754,7 +762,7 @@ LI;
         tr += 'data-img_l="' + json[19] + '" ';
         tr += 'data-img_s="' + json[18] + '" ';
         tr += 'data-index="' + json[9] + '" ';
-        tr += 'data-name ="' + name + '" ';
+        tr += 'data-name="' + name + '" ';
         tr += 'data-pos="' + json[7] + '" ';
         tr += 'data-pos2="' + json[16] + '" ';
         tr += 'data-salary="' + json[10] + '" ';
@@ -894,13 +902,13 @@ LI;
     }
 
     function init_add_player() {
-        console.log("=== init_add_player ===");
+        console.log("===> init_add_player()");
 
         var add_player = $(".add_player");
 
         //왼쪽 선수 리스트에서 + 클릭 시
         $(document).on("click", ".add_player", function () {
-            console.log("=== add_player click ===");
+            console.log("===> .add_player");
 
             var data_category   = $(this).attr('data-category');
             var data_flex       = $(this).attr('data-flex');
@@ -995,12 +1003,12 @@ LI;
     }
 
     function addPlayer(pos, game_id, id, salary, name, team, data_flex, category, img_s, img_l, fppg, data_mpg, data_rpg, data_ppg, data_apg, data_bpg, data_gg, data_ag, data_sg, data_crsa, data_inta, data_dbpg, data_kpg, data_hkpg, data_dpg) {
-        console.log("=== addPlayer ===");
+        console.log("===> addPlayer()");
 
         var cnt = 0;
 
         if (total_salary - salary < 0) {
-            alert("Salary exceeded the standard.");
+            alert("선수 연봉이 초과되었습니다.");
             total_salary    = parseInt(total_salary);
             total_fppg      = parseInt(total_fppg);
             avg_salary      = parseInt(avg_salary);
@@ -1016,17 +1024,30 @@ LI;
                 }
             }
 
-            //2018-01-18 진경수 (선수 중복 걸러내기 추가)
+            // 20220616 진경수 (라인업 선수는 1명만 가능)
             var overlap = false;
-            $(".del-player").each(function () {
+            $(".btn-delete").each(function () {
+                console.log("===> data-del-index: ", $(this).attr("data-del-index"));
                 if ($(this).attr("data-del-index") == id) {
                     overlap = true;
                 }
             });
             if (overlap === true) {
-                alert('선수 포지션이 중복되었습니다. (002)');
+                alert("선수 선발은 중복될 수 없습니다.");
                 return;
             }
+
+            // 20220616 진경수 (팀당 3명만 가능)
+            const result = {};
+            arrTeam.forEach((x) => {
+                result[x] = (result[x] || 0) + 1;
+            });
+            if (result[team] == 3) {
+                alert("같은 팀 선발은 총 3명까지 가능합니다.");
+                return false;
+            }
+            arrTeam.push(team);
+            console.log("===> arrTeam: ", arrTeam);
 
             if (input_node(pos, "player_name", name) === true) {
                 //선택된 선수 개수 찾기
@@ -1052,9 +1073,7 @@ LI;
 
             } else if (category == "pubg") {
                 name = name.split(" ");
-                input_node(pos, 'player_img', '<img src="/images/player_images/pubg/'+ name[1] +'.jpg" alt="" onerror=\'this.src="/images/player_images/pubg/default.png"\' style="width: 68px;" />');
-
-
+                input_node(pos, 'player_img', '<img src="/images/player_images/pubg/'+ img_s +'" alt="" onerror=\'this.src="/images/player_images/pubg/default.png"\' style="width: 68px;" />');
             }
 
             input_node(pos, 'team_name', team);
@@ -1119,12 +1138,10 @@ LI;
                 innet_eq.html() == '<img src="/images/player_images/soc/wc/img_s/home_s.png" width="50">' ||
                 innet_eq.html() == '<img src="/images/player_images/soc/epl/img_s/home_s.png" width="50">' ||
                 innet_eq.html() == '<img src="/images/player_images/soc/tsl/img_s/home_s.png" width="50">' ||
-                innet_eq.html() == "<p style=\"background-image:url('/images/PUBG/pos/TL.png');background-size:100%;\"></p>" ||
-                innet_eq.html() == "<p style=\"background-image:url('/images/PUBG/pos/R.png');background-size:100%;\"></p>" ||
-                innet_eq.html() == "<p style=\"background-image:url('/images/PUBG/pos/GR.png');background-size:100%;\"></p>" ||
-                innet_eq.html() == "<p style=\"background-image:url('/images/PUBG/pos/AR.png');background-size:100%;\"></p>" ||
-                innet_eq.html() == "<p style=\"background-image:url('/images/PUBG/pos/BK.png');background-size:100%;\"></p>" ||
-                innet_eq.html() == "<p style=\"background-image:url('/images/PUBG/pos/SU.png');background-size:100%;\"></p>" ||
+                innet_eq.html() == "<p style=\"background-image:url('/images/PUBG/pos/OD.png');background-size:100%;\"></p>" ||
+                innet_eq.html() == "<p style=\"background-image:url('/images/PUBG/pos/ST.png');background-size:100%;\"></p>" ||
+                innet_eq.html() == "<p style=\"background-image:url('/images/PUBG/pos/TW.png');background-size:100%;\"></p>" ||
+                innet_eq.html() == "<p style=\"background-image:url('/images/PUBG/pos/RR.png');background-size:100%;\"></p>" ||
                 innet_eq.html() == "<p style=\"background-image:url('/images/PUBG/pos/UTIL.png');background-size:100%;\"></p>" ||
                 innet_eq.html() == "-" ||
                 innet_eq.html() == "") {
@@ -1387,17 +1404,13 @@ LI;
 
                 } else if (what_category == "pubg") {
                     if(index==0) {
-                        $(this).html("<p style=\"background-image:url('/images/PUBG/pos/TL.png');background-size:100%;\"></p>");
+                        $(this).html("<p style=\"background-image:url('/images/PUBG/pos/OD.png');background-size:100%;\"></p>");
                     } else if(index==1) {
-                        $(this).html("<p style=\"background-image:url('/images/PUBG/pos/R.png');background-size:100%;\"></p>");
+                        $(this).html("<p style=\"background-image:url('/images/PUBG/pos/ST.png');background-size:100%;\"></p>");
                     } else if(index==2) {
-                        $(this).html("<p style=\"background-image:url('/images/PUBG/pos/GR.png');background-size:100%;\"></p>");
+                        $(this).html("<p style=\"background-image:url('/images/PUBG/pos/TW.png');background-size:100%;\"></p>");
                     } else if(index==3) {
-                        $(this).html("<p style=\"background-image:url('/images/PUBG/pos/AR.png');background-size:100%;\"></p>");
-                    } else if(index==4) {
-                        $(this).html("<p style=\"background-image:url('/images/PUBG/pos/BK.png');background-size:100%;\"></p>");
-                    } else if(index==5) {
-                        $(this).html("<p style=\"background-image:url('/images/PUBG/pos/SU.png');background-size:100%;\"></p>");
+                        $(this).html("<p style=\"background-image:url('/images/PUBG/pos/RR.png');background-size:100%;\"></p>");
                     } else {
                         $(this).html("<p style=\"background-image:url('/images/PUBG/pos/UTIL.png');background-size:100%;\"></p>");
                     }

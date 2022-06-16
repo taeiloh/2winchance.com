@@ -31,7 +31,7 @@ class Game {
             FROM game
             WHERE 1=1
                 AND g_sport = {$this->cate}
-                AND g_status != 3 
+                AND g_status IN (0, 1) 
                 AND DATE_SUB(g_date, INTERVAL 5 HOUR) >= '{$sdate} 00:00:00' 
                 AND DATE_SUB(g_date, INTERVAL 5 HOUR) <= '{$edate} 23:59:59'
             ORDER BY g_sort DESC, g_date ASC, RAND()

@@ -62,11 +62,11 @@ try {
         $salary         = $teamPlayers[$i]['player_id']['player_salary'];
 
         $position2      = '';
-        $player_img_s   = '';
-        $player_img_l   = '';
+        $player_img_s   = $teamPlayers[$i]['player_id']['player_img'];
+        $player_img_l   = $teamPlayers[$i]['player_id']['player_img'];
         $position       = $teamPlayers[$i]['player_id']['primary_position'];
         $position2      = $teamPlayers[$i]['player_id']['position'];
-        if($position=='TL') {
+        /*if($position=='TL') {
             $position_kr    = '오더';
         } else if($position=='R') {
             $position_kr    = '정찰';
@@ -74,12 +74,22 @@ try {
             $position_kr    = '포탑';
         } else if($position=='AR') {
             $position_kr    = '돌격';
+        }*/
+        // 20220616 진경수 (새 포지션으로 정리)
+        if($position=='OD') {
+            $position_kr    = '오더';
+        } else if($position=='ST') {
+            $position_kr    = '정찰';
+        } else if($position=='TW') {
+            $position_kr    = '포탑';
+        } else if($position=='RR') {
+            $position_kr    = '돌격';
         }
 
         // 작은 따옴표 처리할것
         $t_name         = $teamPlayers[$i]['player_id']['team_name'];
-        $p_f_name       = "";
-        $p_l_name       = $teamPlayers[$i]['player_id']['abbr_name'];
+        $p_f_name       = $teamPlayers[$i]['player_id']['abbr_name'];
+        $p_l_name       = '';
         $t_alias        = $teamPlayers[$i]['player_id']['team_alias'];
 
         //선수 통계
