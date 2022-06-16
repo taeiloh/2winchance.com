@@ -813,9 +813,9 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 .fold-content .status-txt{margin-top: 2rem; font-size: 1.8rem;color: #3bff00; text-align: left;}
 .contents-table .fold-content th {padding: 1.5rem 0; font-size: 1.3rem;}
 .contents-table .fold-content th:after {display: none;}
-.lanking-table {width: 35%; margin-right: 4rem; }
+.lanking-table {width: 32%; margin-right: 3rem; }
 .lanking-table > table{max-height: 56.6rem; overflow-y: auto; }
-.player-table {width: 65%;}
+.player-table {width: 68%;}
 .lanking-table table,.player-table table {display: block; width: 100%;}
 .lanking-table table thead,.player-table table thead {display: inline-block; width: 100%;}
 .lanking-table table tbody,.player-table table tbody {display: inline-block; width: 100%;}
