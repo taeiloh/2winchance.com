@@ -781,7 +781,7 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 .contents-table thead th input::-webkit-search-decoration,.contents-table thead th input::-webkit-search-cancel-button, .contents-table thead th input::-webkit-search-results-button, .contents-table thead th input::-webkit-search-results-decoration {display:none;}
 .contents-table thead th .search-btn {position: absolute; right: 4.5rem; top: 50%; transform: translateY(-50%); width: 1.4rem; height: 1.4rem; background: url("../images/ico_search_blue.svg") no-repeat center/cover;}
 .fold-table > tbody {padding: 0 2rem;}
-.contents-table > tbody > tr td,.fold-table > tbody > tr.view td {background: #303030; padding: 2.5rem 0; font-size: 2rem;}
+.contents-table > tbody > tr td,.fold-table > tbody > tr.view td {background: #303030; padding: 2.5rem 0; font-size: 1.8rem;}
 .fold-table > tbody > tr.view td:nth-child(2),.upcomming-table td:nth-child(2) {color: #d9d9d9;}
 .fold-table > tbody > tr.view td:nth-child(5) {color: #ffdc50;}
 .fold-table > tbody > tr.view td:nth-child(6) {color: #3bff00;}
@@ -813,22 +813,22 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 .fold-content .status-txt{margin-top: 2rem; font-size: 1.8rem;color: #3bff00; text-align: left;}
 .contents-table .fold-content th {padding: 1.5rem 0; font-size: 1.3rem;}
 .contents-table .fold-content th:after {display: none;}
-.lanking-table {width: 32%; margin-right: 3rem; }
+.lanking-table {width: 30%; margin-right: 3rem; }
 .lanking-table > table{max-height: 56.6rem; overflow-y: auto; }
-.player-table {width: 68%;}
-.lanking-table table,.player-table table {display: block; width: 100%;}
-.lanking-table table thead,.player-table table thead {display: inline-block; width: 100%;}
-.lanking-table table tbody,.player-table table tbody {display: inline-block; width: 100%;}
+.player-table {width: 70%;}
+/*.lanking-table table,.player-table table {display: block; width: 100%;}*/
+.lanking-table table thead,.player-table table thead {width: 100%;}
+.lanking-table table tbody,.player-table table tbody {width: 100%;}
 /* TODO 20220530 ykshin css추가 */
 td.user{color: #ff00dd; font-weight: 600;}
 .sub-ex{font-size: 1.5rem;}
-.lanking-table table thead th,.lanking-table table tbody td {width: 8rem;}
-.lanking-table table thead th:nth-of-type(2),.lanking-table table tbody td:nth-of-type(2) {width: 20.5rem;}
+/*.lanking-table table thead th,.lanking-table table tbody td {width: 8rem;}*/
+/*.lanking-table table thead th:nth-of-type(2),.lanking-table table tbody td:nth-of-type(2) {width: 20.5rem;}*/
 /* TODO 20220530 ykshin css추가완료 */
-.player-table table thead th:nth-of-type(1),.player-table table tbody td:nth-of-type(1),.player-table table thead th:nth-of-type(2),.player-table table tbody td:nth-of-type(2){width: 10rem;}
-.player-table table thead th:nth-of-type(3),.player-table table tbody td:nth-of-type(3){width: 22rem;}
-.player-table table thead th:nth-of-type(4),.player-table table tbody td:nth-of-type(4) {width: 39rem}
-.player-table table thead th:nth-of-type(5),.player-table table tbody td:nth-of-type(5) {width: 10rem;}
+/*.player-table table thead th:nth-of-type(1),.player-table table tbody td:nth-of-type(1),.player-table table thead th:nth-of-type(2),.player-table table tbody td:nth-of-type(2){width: 10rem;}*/
+/*.player-table table thead th:nth-of-type(3),.player-table table tbody td:nth-of-type(3){width: 22rem;}*/
+/*.player-table table thead th:nth-of-type(4),.player-table table tbody td:nth-of-type(4) {width: 39rem}*/
+/*.player-table table thead th:nth-of-type(5),.player-table table tbody td:nth-of-type(5) {width: 10rem;}*/
 .lanking-table table tbody tr,.player-table table tbody tr {background: #303030;}
 .lanking-table table td {position: relative; padding: 2.4rem 0.5rem !important; font-size: 2rem !important;}
 .lanking-table table td:nth-child(3) {color: #ffdc50;}

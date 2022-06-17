@@ -124,6 +124,12 @@ try {
                                         <div class="lanking-table">
                                             <h3>입상 순위</h3>
                                             <table>
+                                                <colgroup>
+                                                    <col style="width:16.666%;">
+                                                    <col style="width:50%;">
+                                                    <col style="width:16.666%;">
+                                                    <col style="width:16.666%;">
+                                                </colgroup>
                                                 <thead>
                                                 <tr>
                                                     <th>순위</th>
@@ -135,13 +141,13 @@ try {
                                                 <tbody>
                                                 <?php
                                                 $sub_query  = "
-                                                    SELECT 
+                                                    SELECT
                                                         jc.jc_idx, jc.jc_game, jc.jc_rank, jc.jc_point, jc.jc_prize,
                                                         m.m_name
-                                                    FROM join_contest jc 
-                                                    INNER JOIN members m 
+                                                    FROM join_contest jc
+                                                    INNER JOIN members m
                                                         ON jc.jc_u_idx = m.m_idx
-                                                    WHERE 1=1 
+                                                    WHERE 1=1
                                                         AND jc.jc_game = {$db['g_idx']}
                                                     ORDER BY jc.jc_rank ASC
                                                 ";
@@ -166,6 +172,13 @@ TR;
                                         <div class="player-table">
                                             <h3>선수 상세 결과 <span class="sub-ex">(획득 점수는 “전투력”으로 변환/저장됩니다. 마이페이지에서 누적되는 “전투력”을 확인하세요.)</span></h3>
                                             <table>
+                                                <colgroup>
+                                                    <col style="width:7%;">
+                                                    <col style="width:14.333%;">
+                                                    <col style="width:35%;">
+                                                    <col style="width:42%;">
+                                                    <col style="width:5.5%;">
+                                                </colgroup>
                                                 <thead>
                                                 <tr>
                                                     <th>포지션</th>
@@ -178,10 +191,10 @@ TR;
                                                 <tbody>
                                                 <?php
                                                 $sub_query  = "
-                                                    SELECT 
-                                                        player_pos, player_name, player_result_json, game_players_points 
+                                                    SELECT
+                                                        player_pos, player_name, player_result_json, game_players_points
                                                     FROM lineups_history
-                                                    WHERE 1=1   
+                                                    WHERE 1=1
                                                         AND m_idx = {$_se_idx}
                                                         AND g_idx = {$db['jc_game']}
                                                         AND lu_idx = {$db['jc_lineups']}
@@ -211,33 +224,33 @@ TR;
                                                             <p class="title">상세 점수</p>
                                                             <div class="score-detail">
                                                                 <dl>
-                                                                    <dt>팀순위</dt>
+                                                                    <dt>순위</dt>
                                                                     <dd>$$ + $$ + $$ + $$ + $$</dd>
                                                                     <dd>= {$sum_team_score}</dd>
                                                                 </dl>
                                                                 <dl>
-                                                                    <dt>킬</dt>
-                                                                    <dd>$$ X 1</dd>
+                                                                    <dt>킬수</dt>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
                                                                     <dd>= {$sum_killed}</dd>
                                                                 </dl>
                                                                 <dl>
                                                                     <dt>팀킬</dt>
-                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>($$ + $$ + $$ + $$ + $$) X -1</dd>
                                                                     <dd>= {$sum_teamkilled}</dd>
                                                                 </dl>
                                                                 <dl>
                                                                     <dt>자살</dt>
-                                                                    <dd>$$ X -1</dd>
+                                                                    <dd>($$ + $$ + $$ + $$ + $$) X -1</dd>
                                                                     <dd>= {$sum_selfkilled}</dd>
                                                                 </dl>
                                                                 <dl>
                                                                     <dt>부활</dt>
-                                                                    <dd>$$ X 1</dd>
+                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
                                                                     <dd>= {$sum_revived}</dd>
                                                                 </dl>
                                                             </div>
                                                             <dl class="score-total">
-                                                                <dt>획득 점수</dt>
+                                                                <dt>총점</dt>
                                                                 <dd>= {$sub_db['game_players_points']}</dd>
                                                             </dl>
                                                         </div>
