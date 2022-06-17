@@ -1574,7 +1574,9 @@ LI;
         var this_btn    = $('[data-del-index="' + id + '"]');
         //console.log(this_btn.parent().parent().next().find('.p_fppg').html());
         var salary      = parseInt((this_btn.parent().parent().find('.salary').text()).replace('$', '').replace(',', ''));
+        console.log(salary);
         var fppg        = parseFloat(this_btn.attr("data-fppg"));
+        var team = this_btn.parent().parent().find('.team_name').text();
 
         if (category == "nba" || category == "nba_allstar") {
             this_btn.parent().parent().find('.img').html('<img src="/images/player_images/nba/default.png" width="50">'); //2018-01-09 진경수 (디자인 수정)
@@ -1617,6 +1619,12 @@ LI;
         }
         this_btn.parent().parent().find('.del').html(""); //마지막에 처리
 
+        for(i=0; i<arrTeam.length; i++) {
+            if (arrTeam[i] == team) {
+                arrTeam.splice(i, 1);
+            }
+        }
+        console.log(arrTeam);
         //Your Lineup 영역
         total_salary    = total_salary + salary;
         $('.total_salary').html($.number(total_salary));
