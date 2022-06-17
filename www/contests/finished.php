@@ -89,7 +89,7 @@ try {
                         $query  = "
                             SELECT
                                 jc.jc_idx, jc.jc_game, jc.jc_lineups, MAX(jc.jc_point) AS point,
-                                g.g_idx, g.g_name, g.g_fee,
+                                g.g_idx, g.g_name, g.g_fee,jc.jc_prize,
                                 COUNT(jc.jc_game) AS multi_join
                             FROM join_contest jc
                             INNER JOIN game g
@@ -112,7 +112,7 @@ try {
                             <td><?=$db['multi_join'];?></td>
                             <td><?=$db['point'];?></td>
                             <td><?=$db['g_fee'];?></td>
-                            <td></td>
+                            <td><?=$db['jc_prize'];?></td>
                             <td>
                                 <p>결과보기 <img src="/images/ico_arrow_blue.svg" alt="결과 보기"/></p>
                             </td>
