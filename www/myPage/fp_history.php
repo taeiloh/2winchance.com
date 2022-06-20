@@ -136,15 +136,30 @@ try{
                             while ($dbfp = $resultfp->fetch_assoc()) {
                                 $fp = $dbfp['fph_point'];
                                 $setfp = '';
-                                if($fp > 0){$setfp ='+';}
-                                echo <<<TR
+                                if($fp > 0) {
+                                    $setfp = '+';
+                                    echo <<<TR
                         <tr>
                             <td class="Fgray">{$dbfp['regdate']}</td>
                             <td>{$dbfp['fph_content']}</td>
-                            <td>{$setfp}{$dbfp['fph_point']}</td>
+                            <td>{$setfp}$fp</td>
                             <td>{$dbfp['fph_balance']}</td>
                         </tr>
 TR;
+                                }
+                                else{
+
+                                    echo <<< TR
+                        <tr>
+                            <td class="Fgray">{$dbfp['regdate']}</td>
+                            <td>{$dbfp['fph_content']}</td>
+                            <td><span class="fc-red">$fp</span></td>
+                            
+                            <td class="balance">{$dbfp['fph_balance']}</td>
+                        </tr>
+TR;
+
+                                }
                             }
                         }else {
                             echo <<<TR

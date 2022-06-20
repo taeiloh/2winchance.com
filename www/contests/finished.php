@@ -107,7 +107,19 @@ try {
                         if (!$result) {
 
                         }
+                        $balancequery = "SELECT MAX(balance) as balance
+                        FROM honor_point_history
+                        where m_idx = {$_se_idx};
+                        ";
+                        $resultbalance = $_mysqli->query($balancequery);
+                        $dbb = $resultbalance->fetch_assoc();
+                        $balance = $dbb['balance'];
+
                         while ($db = $result->fetch_assoc()) {
+                            $gamename = $db['g_name'];
+                            $point = $db['point'];
+                            $balance += $point;
+
                             //lineup에서 결과값이 넘어온 경우
                             if($db['jc_game'] == $index)
                             {
@@ -116,7 +128,14 @@ try {
                             else{
                                 $on = "";
                             }
-                        ?>
+                            // 2022-06-20 조원영, 전투력내역테이블에 데이터 삽입
+                            $insertquery = "
+                            INSERT INTO honor_point_history
+                            (m_idx, content, point, balance) VALUES ($_se_idx, '콘테스트결과('+$gamename+')', $point, $balance)";
+
+                            $_mysqli->query($insertquery);
+
+                            ?>
                         <tr class="view">
                             <td><?=$db['g_name'];?> <span class="contest_num">G(<?=$db['g_idx'];?>)</span></td>
                             <td></td>
