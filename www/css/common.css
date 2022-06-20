@@ -284,7 +284,7 @@ video{max-width: 140rem; width: 100%; margin: 0 auto; display: block;}
 
 /* 04_01 */
 .balance{color: #ffdc50; font-weight: 600;}
-
+.contest_num{display: block;}
 .myAcct .category{justify-content: unset; }
 .myAcct .category ul{width: 70%; display: flex; align-items: center; justify-content: space-evenly;}
 .myAcct .category li{ font-weight: 700;}
