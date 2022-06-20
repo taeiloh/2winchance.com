@@ -253,16 +253,18 @@ LI;
 
                                 if (!$sub_result) {
                                 }
+                                $i=0;
                                 $sub_result->data_seek(0);
                                 while ($sub_db = $sub_result->fetch_assoc()) {
+                                    $i++;
                                     //p($sub_db);
-                                    if($sub_db['player_pos']=='TL') {
+                                    if($sub_db['player_pos']=='OD' and $i<5) {
                                         $pos_kr = '오더';
-                                    } else if($sub_db['player_pos']=='R') {
+                                    } else if($sub_db['player_pos']=='ST' and $i<5 ) {
                                         $pos_kr = '정찰';
-                                    } else if($sub_db['player_pos']=='GR') {
+                                    } else if($sub_db['player_pos']=='TW' and $i<5 ) {
                                         $pos_kr = '포탑';
-                                    } else if($sub_db['player_pos']=='AR') {
+                                    } else if($sub_db['player_pos']=='RR' and $i<5 ) {
                                         $pos_kr = '돌격';
                                     } else {
                                         $pos_kr = '유틸';
