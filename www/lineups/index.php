@@ -195,7 +195,7 @@ try {
                                     $link       = "/contests/finished.php?index={$sub_db2['g_idx']}&lu_idx={$sub_db2['lu_idx']}";
                                     $blank      = '';
                                     $liClass    = 'finished';
-                                    $editTitle  = '<span class="line-up-badge" >결과</span>';
+                                    $editTitle  = '<span class="line-up-badge" >결과 확인</span>';
                                     $cursor = 'style="cursor: default;"';
                                 }
 
