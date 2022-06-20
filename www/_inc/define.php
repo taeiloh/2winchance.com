@@ -10,7 +10,7 @@ $config['ip']['dev']    = array(
 
 //테스트 장비 IP
 $config['ip']['test']   = array(
-    '172.31.1.138',
+    '172.31.49.75',
 );
 
 //실 장비 IP

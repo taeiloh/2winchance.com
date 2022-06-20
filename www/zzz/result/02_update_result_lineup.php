@@ -20,7 +20,7 @@ try {
     $ymd        = !empty($_GET['ymd'])      ? $_GET['ymd']      : '';
 
     // 변수 정리
-    $round_seq      = 29;
+    $round_seq      = 32;
     $game_category  = 20;
 
     // 트랜잭션
@@ -48,17 +48,11 @@ try {
         // 해당 라인업 선수의 경기 결과 점수를 가져온다.
         $sub_query = "
             SELECT 
-                PLAYER_SEQ, 
-                SUM(TEAM_SCORE) AS SUM_TEAM_SCORE,
-                SUM(KILLED) AS SUM_KILLED,
-                SUM(TEAMKILLED) AS SUM_TEAMKILLED,
-                SUM(SELFKILLED) AS SUM_SELFKILLED,
-                SUM(REVIVED) AS SUM_REVIVED
+                TEAM_SCORE, KILLED, TEAMKILLED, SELFKILLED, REVIVED
             FROM PLAYER_RESULT 
             WHERE 1=1
                 AND ROUNDS_SEQ = {$round_seq}
                 AND PLAYER_SEQ = {$db['player_id']}
-            GROUP BY PLAYER_SEQ
         ";
         //p($sub_query);
         $sub_result = $_mysqli->query($sub_query);
@@ -67,16 +61,15 @@ try {
             $code   = 501;
             throw new mysqli_sql_exception($msg, $code);
         }
-        $sub_db     = $sub_result->fetch_assoc();
-        if (!empty($sub_db)) {
-            $players_points     = $sub_db['SUM_TEAM_SCORE'] + $sub_db['SUM_KILLED'] - $sub_db['SUM_TEAMKILLED'] - $sub_db['SUM_SELFKILLED'] + $sub_db['SUM_REVIVED'];
-            $result_json        = json_encode($sub_db);
-        } else {
-            $players_points     = 0;
-            $result_json        = json_encode("");
+        $players_points = 0;
+        $result_json    = array();
+        while ($sub_db = $sub_result->fetch_assoc()) {
+            $players_points += $sub_db['TEAM_SCORE'] + $sub_db['KILLED'] - $sub_db['TEAMKILLED'] - $sub_db['SELFKILLED'] + $sub_db['REVIVED'];
+            $result_json[] = $sub_db;
         }
-        //p($game_players_points);
+        //p($players_points);
         //p($result_json);
+        $result_json    = json_encode($result_json);
 
         // 라인업 리스트에 경기 결과 점수를 업데이트 한다.
         $sub_query  = "
