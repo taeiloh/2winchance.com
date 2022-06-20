@@ -7,7 +7,7 @@ $idx=!empty($_SESSION['_se_idx']) ? $_SESSION['_se_idx'] : 0;      // 세션 시
 require_once __DIR__ .'/../libs/INIStdPayUtil.php';
 $SignatureUtil = new INIStdPayUtil();
 
-$price     = 55000;
+$price     = 0;
 
 
 $mid = "INIpayTest";  // 가맹점 ID(가맹점 수정후 고정)
@@ -109,8 +109,8 @@ try {
       </form-->
       <form id="SendPayForm_id" name="" method="POST" action="https://stdpay.inicis.com/payMain/pay">
           <input type="hidden" name="mid" value="INIpayTest">
-          <input type="hidden" name="goodname" id="goodname" value="500c" spellcheck="false">
-          <input type="hidden" name="price" id="price" value="55000" spellcheck="false" readonly="">
+          <input type="hidden" name="goodname" id="goodname" value="0" spellcheck="false">
+          <input type="hidden" name="price" id="price" value="0" spellcheck="false" readonly="">
           <input type="hidden" name="buyername" id="buyername" value="길동이" spellcheck="false">
           <input type="hidden" name="buyertel" id="buyertel" value="010-1111-2222" spellcheck="false">
           <input type="hidden" name="buyeremail" value="<?=$id?>" placeholder="이메일을 입력하세요." spellcheck="false">
@@ -366,6 +366,11 @@ try {
 
 <script>
   function pay(){
+      var price=$("#price").val();
+
+      if(price != 0)
+      {
+
       console.log("=== pay ===");
 
       var check=$('#policy07').is(':checked');
@@ -394,6 +399,11 @@ try {
           INIStdPay.pay('SendPayForm_id');
       }else{
           alert("로그인 이후 사용가능합니다.");
+      }
+      }
+      else
+      {
+          alert("상품을 먼저 선택해 주세요");
       }
   }
 
@@ -486,7 +496,6 @@ try {
                   break;
           }
           var price=$("#price").val();
-
 
           var postData = {
               "price": price
