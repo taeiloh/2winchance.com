@@ -213,15 +213,21 @@ TR;
                                                 $sub_result     = $_mysqli->query($sub_query);
                                                 if (!$sub_result) {
                                                 }
+                                                $sum_team_score     = 0;
+                                                $sum_killed     = 0;
+                                                $sum_teamkilled     = 0;
+                                                $sum_selfkilled     = 0;
+                                                $sum_revived     = 0;
                                                 while ($sub_db = $sub_result->fetch_assoc()) {
+                                                    //p($sub_db);
                                                     $result_json    = $sub_db['player_result_json'];
                                                     $arrResult      = json_decode($result_json, true);
                                                     //p($arrResult);
-                                                    $sum_team_score = !empty($arrResult['SUM_TEAM_SCORE']) ? $arrResult['SUM_TEAM_SCORE'] : '';
-                                                    $sum_killed     = !empty($arrResult['SUM_KILLED']) ? $arrResult['SUM_KILLED'] : '';
-                                                    $sum_teamkilled = !empty($arrResult['SUM_TEAMKILLED']) ? $arrResult['SUM_TEAMKILLED'] : '';
-                                                    $sum_selfkilled = !empty($arrResult['SUM_SELFKILLED']) ? $arrResult['SUM_SELFKILLED'] : '';
-                                                    $sum_revived    = !empty($arrResult['SUM_REVIVED']) ? $arrResult['SUM_REVIVED'] : '';
+                                                    $sum_team_score = $arrResult[0]['TEAM_SCORE'] + $arrResult[1]['TEAM_SCORE'] + $arrResult[2]['TEAM_SCORE'] + $arrResult[3]['TEAM_SCORE'] + $arrResult[4]['TEAM_SCORE'];
+                                                    $sum_killed     = $arrResult[0]['KILLED'] + $arrResult[1]['KILLED'] + $arrResult[2]['KILLED'] + $arrResult[3]['KILLED'] + $arrResult[4]['KILLED'];
+                                                    $sum_teamkilled = $arrResult[0]['TEAMKILLED'] + $arrResult[1]['TEAMKILLED'] + $arrResult[2]['TEAMKILLED'] + $arrResult[3]['TEAMKILLED'] + $arrResult[4]['TEAMKILLED'];
+                                                    $sum_selfkilled = $arrResult[0]['SELFKILLED'] + $arrResult[1]['SELFKILLED'] + $arrResult[2]['SELFKILLED'] + $arrResult[3]['SELFKILLED'] + $arrResult[4]['SELFKILLED'];
+                                                    $sum_revived    = $arrResult[0]['REVIVED'] + $arrResult[1]['REVIVED'] + $arrResult[2]['REVIVED'] + $arrResult[3]['REVIVED'] + $arrResult[4]['REVIVED'];
 
                                                     echo <<<TR
                                                 <tr>
@@ -234,28 +240,28 @@ TR;
                                                             <p class="title">상세 점수</p>
                                                             <div class="score-detail">
                                                                 <dl>
-                                                                    <dt>순위</dt>
-                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dt>팀 순위</dt>
+                                                                    <dd>{$arrResult[0]['TEAM_SCORE']} + {$arrResult[1]['TEAM_SCORE']} + {$arrResult[2]['TEAM_SCORE']} + {$arrResult[3]['TEAM_SCORE']} + {$arrResult[4]['TEAM_SCORE']}</dd>
                                                                     <dd>= {$sum_team_score}</dd>
                                                                 </dl>
                                                                 <dl>
                                                                     <dt>킬수</dt>
-                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>{$arrResult[0]['KILLED']} + {$arrResult[1]['KILLED']} + {$arrResult[2]['KILLED']} + {$arrResult[3]['KILLED']} + {$arrResult[4]['KILLED']}</dd>
                                                                     <dd>= {$sum_killed}</dd>
                                                                 </dl>
                                                                 <dl>
                                                                     <dt>팀킬</dt>
-                                                                    <dd>($$ + $$ + $$ + $$ + $$) X -1</dd>
+                                                                    <dd>({$arrResult[0]['TEAMKILLED']} + {$arrResult[1]['TEAMKILLED']} + {$arrResult[2]['TEAMKILLED']} + {$arrResult[3]['TEAMKILLED']} + {$arrResult[4]['TEAMKILLED']}) x -1</dd>
                                                                     <dd>= {$sum_teamkilled}</dd>
                                                                 </dl>
                                                                 <dl>
                                                                     <dt>자살</dt>
-                                                                    <dd>($$ + $$ + $$ + $$ + $$) X -1</dd>
+                                                                    <dd>({$arrResult[0]['SELFKILLED']} + {$arrResult[1]['SELFKILLED']} + {$arrResult[2]['SELFKILLED']} + {$arrResult[3]['SELFKILLED']} + {$arrResult[4]['SELFKILLED']}) x -1</dd>
                                                                     <dd>= {$sum_selfkilled}</dd>
                                                                 </dl>
                                                                 <dl>
                                                                     <dt>부활</dt>
-                                                                    <dd>$$ + $$ + $$ + $$ + $$</dd>
+                                                                    <dd>{$arrResult[0]['REVIVED']} + {$arrResult[1]['REVIVED']} + {$arrResult[2]['REVIVED']} + {$arrResult[3]['REVIVED']} + {$arrResult[4]['REVIVED']}</dd>
                                                                     <dd>= {$sum_revived}</dd>
                                                                 </dl>
                                                             </div>
