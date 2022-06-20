@@ -192,7 +192,7 @@ try {
                                     $editTitle  = '<span class="line-up-badge" >LIVE</span>';
                                     $cursor = '';
                                 } else if ($sub_db2['g_status']==3) {
-                                    $link       = 'javascript:void(0);';
+                                    $link       = "/contests/finished.php?index={$sub_db2['g_idx']}&lu_idx={$sub_db2['lu_idx']}";
                                     $blank      = '';
                                     $liClass    = 'finished';
                                     $editTitle  = '<span class="line-up-badge" >결과</span>';
@@ -258,13 +258,13 @@ LI;
                                 while ($sub_db = $sub_result->fetch_assoc()) {
                                     $i++;
                                     //p($sub_db);
-                                    if($sub_db['player_pos']=='OD' and $i<5) {
+                                    if(($sub_db['player_pos']=='OD' or $sub_db['player_pos']=='TL') and $i<5) {
                                         $pos_kr = '오더';
-                                    } else if($sub_db['player_pos']=='ST' and $i<5 ) {
+                                    } else if(($sub_db['player_pos']=='ST' or $sub_db['player_pos']=='R') and $i<5 ) {
                                         $pos_kr = '정찰';
-                                    } else if($sub_db['player_pos']=='TW' and $i<5 ) {
+                                    } else if(($sub_db['player_pos']=='TW' or $sub_db['player_pos']=='GR') and $i<5 ) {
                                         $pos_kr = '포탑';
-                                    } else if($sub_db['player_pos']=='RR' and $i<5 ) {
+                                    } else if(($sub_db['player_pos']=='RR' or $sub_db['player_pos']=='AR') and $i<5 ) {
                                         $pos_kr = '돌격';
                                     } else {
                                         $pos_kr = '유틸';

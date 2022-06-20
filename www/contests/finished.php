@@ -7,6 +7,8 @@ try {
     $page = !empty($_GET['page']) ? $_GET['page'] : 1;
     // 세션 정리
     $_se_idx        = !empty($_SESSION['_se_idx'])      ? $_SESSION['_se_idx']      : 0;
+    $index        = !empty($_GET['index'])      ? $_GET['index']      : 0;
+    $lu_idx        = !empty($_GET['lu_idx'])      ? $_GET['lu_idx']      : 0;
 
     // 변수 정리
     $where      = '';
@@ -86,6 +88,7 @@ try {
                         </thead>
                         <tbody>
                         <?php
+                        $on = "";
                         $query  = "
                             SELECT
                                 jc.jc_idx, jc.jc_game, jc.jc_lineups, MAX(jc.jc_point) AS point,
@@ -105,6 +108,13 @@ try {
 
                         }
                         while ($db = $result->fetch_assoc()) {
+                            if($db['jc_game'] == $index)
+                            {
+                                $on = "open";
+                            }
+                            else{
+                                $on = "";
+                            }
                         ?>
                         <tr class="view">
                             <td><?=$db['g_name'];?></td>
@@ -117,7 +127,7 @@ try {
                                 <p>결과보기 <img src="/images/ico_arrow_blue.svg" alt="결과 보기"/></p>
                             </td>
                         </tr>
-                        <tr class="fold">
+                        <tr class="fold <?=$on?>">
                             <td colspan="7">
                                 <div class="fold-content">
                                     <div class="fold-table-wrap">
