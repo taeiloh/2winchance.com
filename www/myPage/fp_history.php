@@ -132,7 +132,6 @@ try{
                         </thead>
                         <tbody>
                         <?php
-                        // 2022-06-20 조원영
                         if($total > 0){
                             while ($dbfp = $resultfp->fetch_assoc()) {
                                 $fp = $dbfp['fph_point'];
@@ -155,6 +154,7 @@ TR;
                             <td class="Fgray">{$dbfp['regdate']}</td>
                             <td>{$dbfp['fph_content']}</td>
                             <td><span class="fc-red">$fp</span></td>
+                            
                             <td class="balance">{$dbfp['fph_balance']}</td>
                         </tr>
 TR;
