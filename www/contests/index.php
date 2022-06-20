@@ -213,7 +213,7 @@ try {
                             $g_date         = substr($db['g_date'], 0, 10);
                             echo <<<TR
                         <tr>
-                            <td>{$db['g_name']}</td>
+                            <td>{$db['g_name']}<span class="contest_num">G({$db['g_idx']})</span></td>
                             <td>{$db['g_date']}</td>
                             <td>{$total_reward}</td>
                             <td>{$getFirst_place}</td>

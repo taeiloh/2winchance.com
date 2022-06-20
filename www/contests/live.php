@@ -124,7 +124,7 @@ try {
                             //$no = $total_count - ($i + ($page - 1) * $rows);
                             echo <<<TR
                         <tr>
-                            <td>{$db['g_name']}</td>
+                            <td>{$db['g_name']}<span class="contest_num">G({$db['g_idx']})</span></td>
                             <td>{$arrGjson[0]['timezone_scheduled']}</td>
                             <td>{$db['g_prize']}</td>
                             <td>{$db['jc_prize']}</td>

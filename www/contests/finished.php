@@ -118,7 +118,7 @@ try {
                             }
                         ?>
                         <tr class="view">
-                            <td><?=$db['g_name'];?> <span>G(<?=$db['g_idx'];?>)</span></td>
+                            <td><?=$db['g_name'];?> <span class="contest_num">G(<?=$db['g_idx'];?>)</span></td>
                             <td></td>
                             <td><?=$db['multi_join'];?></td>
                             <td><?=$db['point'];?></td>
@@ -219,6 +219,10 @@ TR;
                                                 $sum_teamkilled     = 0;
                                                 $sum_selfkilled     = 0;
                                                 $sum_revived     = 0;
+
+                                                $pos = !empty($sub_db['player_pos']) ? ($sub_db['player_pos']) : "";
+
+                                                $j = 0;
                                                 while ($sub_db = $sub_result->fetch_assoc()) {
                                                     //p($sub_db);
                                                     $result_json    = $sub_db['player_result_json'];
@@ -232,6 +236,19 @@ TR;
                                                         $arrResult[$i]['SELFKILLED'] = 0;
                                                         $arrResult[$i]['REVIVED'] = 0;
                                                     }
+                                                    $j++;
+                                                    //p($sub_db);
+                                                    if(($sub_db['player_pos']=='OD' or $sub_db['player_pos']=='TL') and $j<5) {
+                                                        $pos = '오더';
+                                                    } else if(($sub_db['player_pos']=='ST' or $sub_db['player_pos']=='R') and $j<5 ) {
+                                                        $pos = '정찰';
+                                                    } else if(($sub_db['player_pos']=='TW' or $sub_db['player_pos']=='GR') and $j<5 ) {
+                                                        $pos = '포탑';
+                                                    } else if(($sub_db['player_pos']=='RR' or $sub_db['player_pos']=='AR') and $j<5 ) {
+                                                        $pos = '돌격';
+                                                    } else {
+                                                        $pos = '유틸';
+                                                    }
                                                     $sum_team_score = $arrResult[0]['TEAM_SCORE'] + $arrResult[1]['TEAM_SCORE'] + $arrResult[2]['TEAM_SCORE'] + $arrResult[3]['TEAM_SCORE'] + $arrResult[4]['TEAM_SCORE'];
                                                     $sum_killed     = $arrResult[0]['KILLED'] + $arrResult[1]['KILLED'] + $arrResult[2]['KILLED'] + $arrResult[3]['KILLED'] + $arrResult[4]['KILLED'];
                                                     $sum_teamkilled = $arrResult[0]['TEAMKILLED'] + $arrResult[1]['TEAMKILLED'] + $arrResult[2]['TEAMKILLED'] + $arrResult[3]['TEAMKILLED'] + $arrResult[4]['TEAMKILLED'];
@@ -240,9 +257,9 @@ TR;
 
                                                     echo <<<TR
                                                 <tr>
-                                                    <td>{$sub_db['player_pos']}</td>
+                                                    <td>{$pos}</td>
                                                     <td>{$sub_db['player_name']}</td>
-                                                    <td></td>
+                                                    <td>G({$db['g_idx']})</td>
                                                     <td class="hover">
                                                         <p>팀순위({$sum_team_score}) 킬수({$sum_killed}) 팀킬({$sum_teamkilled}) 자살({$sum_selfkilled}) 부활({$sum_revived})</p>
                                                         <div class="tooltip">
