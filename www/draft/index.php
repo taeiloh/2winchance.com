@@ -1059,6 +1059,7 @@ LI;
 
             } else {
                 alert('선수 포지션이 중복되었습니다. (003)');
+                arrTeam.pop();
                 return;
             }
 
@@ -1622,6 +1623,7 @@ LI;
         for(i=0; i<arrTeam.length; i++) {
             if (arrTeam[i] == team) {
                 arrTeam.splice(i, 1);
+                break;
             }
         }
         console.log(arrTeam);
