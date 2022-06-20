@@ -108,6 +108,7 @@ try {
 
                         }
                         while ($db = $result->fetch_assoc()) {
+                            //lineup에서 결과값이 넘어온 경우
                             if($db['jc_game'] == $index)
                             {
                                 $on = "open";
