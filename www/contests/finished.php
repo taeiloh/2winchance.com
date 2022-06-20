@@ -128,7 +128,7 @@ try {
                             else{
                                 $on = "";
                             }
-                            // 2022-06-20 조원영, 전투력내역테이블에 데이터 삽입
+                            // 2022-06-20 조원영// 전투력내역테이블에 데이터 삽입
                             $insertquery = "
                             INSERT INTO honor_point_history
                             (m_idx, content, point, balance) VALUES ($_se_idx, '콘테스트결과('+$gamename+')', $point, $balance)";
