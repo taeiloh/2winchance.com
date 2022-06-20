@@ -1491,6 +1491,9 @@ LI;
                 $(this).html("");
             });
 
+
+            arrTeam         = new Array();
+
             //남은 salary
             total_salary    = total_salary - total_salary + 50000;
             $('.total_salary').html($.number(total_salary));
