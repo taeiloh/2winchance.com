@@ -283,11 +283,13 @@ video{max-width: 140rem; width: 100%; margin: 0 auto; display: block;}
 
 
 /* 04_01 */
+.balance{color: #ffdc50; font-weight: 600;}
+
 .myAcct .category{justify-content: unset; }
 .myAcct .category ul{width: 70%; display: flex; align-items: center; justify-content: space-evenly;}
 .myAcct .category li{ font-weight: 700;}
-.myAcct .cash-table td:nth-of-type(6){color: #dc0909; font-weight: 600;}
-.myAcct .cash-table td:nth-of-type(7){color: #ffdc50; font-weight: 600;}
+/*.myAcct .cash-table td:nth-of-type(5){color: #dc0909; font-weight: 600;}*/
+/*.myAcct .cash-table td:nth-of-type(6){color: #ffdc50; font-weight: 600;}*/
 table tr.filter a:after{content: ''; background: url("../images/icon_filter.svg")no-repeat center/contain;display: inline-block; margin-left: 1rem; width: 1.2rem; height: 1rem;}
 .myAcct .cash-table th:nth-of-type(2) a:after{content: none;}
 
