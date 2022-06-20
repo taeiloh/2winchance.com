@@ -118,7 +118,7 @@ try {
                             }
                         ?>
                         <tr class="view">
-                            <td><?=$db['g_name'];?></td>
+                            <td><?=$db['g_name'];?> <span>G(<?=$db['g_idx'];?>)</span></td>
                             <td></td>
                             <td><?=$db['multi_join'];?></td>
                             <td><?=$db['point'];?></td>
@@ -224,6 +224,14 @@ TR;
                                                     $result_json    = $sub_db['player_result_json'];
                                                     $arrResult      = json_decode($result_json, true);
                                                     //p($arrResult);
+                                                    for($i=0; $i<5; $i++)
+                                                    {
+                                                        $arrResult[$i]['TEAM_SCORE'] = 0;
+                                                        $arrResult[$i]['KILLED'] = 0;
+                                                        $arrResult[$i]['TEAMKILLED'] = 0;
+                                                        $arrResult[$i]['SELFKILLED'] = 0;
+                                                        $arrResult[$i]['REVIVED'] = 0;
+                                                    }
                                                     $sum_team_score = $arrResult[0]['TEAM_SCORE'] + $arrResult[1]['TEAM_SCORE'] + $arrResult[2]['TEAM_SCORE'] + $arrResult[3]['TEAM_SCORE'] + $arrResult[4]['TEAM_SCORE'];
                                                     $sum_killed     = $arrResult[0]['KILLED'] + $arrResult[1]['KILLED'] + $arrResult[2]['KILLED'] + $arrResult[3]['KILLED'] + $arrResult[4]['KILLED'];
                                                     $sum_teamkilled = $arrResult[0]['TEAMKILLED'] + $arrResult[1]['TEAMKILLED'] + $arrResult[2]['TEAMKILLED'] + $arrResult[3]['TEAMKILLED'] + $arrResult[4]['TEAMKILLED'];
