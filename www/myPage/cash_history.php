@@ -157,6 +157,9 @@ try {
                                 $amount = empty(!$dbgold['dh_amount']) ? $dbgold['dh_amount'] : '';
                                 $total_amount = !empty($_arrAmount['total_amount']) ? $_arrAmount['total_amount'] : 0;
                                 $total_amount=$total_amount-$total_amount1;
+                                if($amount > 0 ){
+
+
                                 echo <<<TR
                         <tr>
                             <td class="Fgray">{$dbgold['regdate']}</td>
@@ -164,10 +167,24 @@ try {
                             <!--td>{$tid}</td-->
                             <td>{$dbgold['dh_cash_type']}</td>
                             <td>{$dbgold['dh_deposit']}</td>
-                            <td>{$amount}</td>
+                            <td class="fc-blue">+{$amount}</td>
                             <td class="balance">{$total_amount}</td>
                         </tr>
 TR;
+                                }else{
+                                    echo <<<TR
+                        <tr>
+                            <td class="Fgray">{$dbgold['regdate']}</td>
+                            <td>{$dbgold['dh_content']}</td>
+                            <!--td>{$tid}</td-->
+                            <td>{$dbgold['dh_cash_type']}</td>
+                            <td>{$dbgold['dh_deposit']}</td>
+                            <td class="fc-red">{$amount}</td>
+                            <td class="balance">{$total_amount}</td>
+                        </tr>
+TR;
+
+                                }
                                 $total_amount1 +=$amount;
                             }
                         }else {
