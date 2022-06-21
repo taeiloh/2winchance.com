@@ -313,6 +313,17 @@ LI;
                             }else{
                                 $my_entry_cnt=0;
                             }
+                            if($sub_menu == 1){
+                                $total_reward = 5000;
+                                $reward_info = "
+                        <ul>
+                            <li class=\"first\">
+                                <label>50/50</label>
+                                <p>10 FP</p>
+                            </li>
+                        </ul>
+                    ";
+                            }
                             echo <<<DIV
                         <a id="gidx_{$db['g_idx']}"></a>
                         <div class="league-box">
