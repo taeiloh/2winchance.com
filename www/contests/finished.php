@@ -187,7 +187,7 @@ try {
                                                 }
                                                 while ($sub_db = $sub_result->fetch_assoc()) {
                                                     echo <<<TR
-                                                <tr>
+                                                <tr class="user">
                                                     <td>{$sub_db['jc_rank']}</td>
                                                     <td class="ellipsis_multiple2">{$sub_db['m_name']}</td>
                                                     <td>{$sub_db['jc_point']}</td>

@@ -823,7 +823,7 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 .lanking-table table thead,.player-table table thead {width: 100%;}
 .lanking-table table tbody,.player-table table tbody {width: 100%;}
 /* TODO 20220530 ykshin css추가 */
-td.user{color: #ff00dd; font-weight: 600;}
+tr.user td{background-color: #707070!important;}
 .sub-ex{font-size: 1.5rem;}
 /*.lanking-table table thead th,.lanking-table table tbody td {width: 8rem;}*/
 /*.lanking-table table thead th:nth-of-type(2),.lanking-table table tbody td:nth-of-type(2) {width: 20.5rem;}*/
