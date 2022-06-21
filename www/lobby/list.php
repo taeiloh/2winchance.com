@@ -376,10 +376,10 @@ LI;
                                                     <h3>요약</h3>
                                                     <p>{$summary}</p>
                                                 </div>
-                                                <!--<div>
+                                                <div>
                                                     <h3>참가자</h3>
                                                     <a href="javascript:void(0);">참가자 리스트 자세히 보기</a>
-                                                </div>-->
+                                                </div>
                                             </div>
                                             <div class="ranking">
                                                 <div class="ranking-box">
