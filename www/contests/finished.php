@@ -9,7 +9,7 @@ try {
     $_se_idx        = !empty($_SESSION['_se_idx'])      ? $_SESSION['_se_idx']      : 0;
     $index        = !empty($_GET['index'])      ? $_GET['index']      : 0;
     $lu_idx        = !empty($_GET['lu_idx'])      ? $_GET['lu_idx']      : 0;
-
+    $_se_nm             = !empty($_SESSION['_se_name'])             ? $_SESSION['_se_name']           : '';
     // 변수 정리
     $where      = '';
 
@@ -186,14 +186,31 @@ try {
                                                 if (!$sub_result) {
                                                 }
                                                 while ($sub_db = $sub_result->fetch_assoc()) {
-                                                    echo <<<TR
+                                                    $m_name = empty(!$sub_db['m_name']) ? ($sub_db['m_name']) : '';
+
+                                                    if($_se_nm == $m_name) {
+
+
+                                                        echo <<<TR
                                                 <tr class="user">
                                                     <td>{$sub_db['jc_rank']}</td>
                                                     <td class="ellipsis_multiple2">{$sub_db['m_name']}</td>
+                                                    
                                                     <td>{$sub_db['jc_point']}</td>
                                                     <td>{$sub_db['jc_prize']}</td>
                                                 </tr>
 TR;
+                                                    }else{
+                                                        echo <<<TR
+                                                <tr>
+                                                    <td>{$sub_db['jc_rank']}</td>
+                                                    <td class="ellipsis_multiple2">{$sub_db['m_name']}</td>
+                                                    
+                                                    <td>{$sub_db['jc_point']}</td>
+                                                    <td>{$sub_db['jc_prize']}</td>
+                                                </tr>
+TR;
+                                                    }
                                                 }
                                                 ?>
                                                 </tbody>
