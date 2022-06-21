@@ -79,7 +79,7 @@ try {
                                 <div class="contest-desc">
                                     <dl>
                                         <!--dt class="contest-schedule">2022-05-20 | 02:56:12</dt-->
-                                        <dt class="contest-schedule contest_info">{$value['g_date']}<span class="contest_num">G({$db['g_idx']})</span></dt>
+                                        <dt class="contest-schedule contest_info">{$value['g_date']}<span class="contest_num">G({$value['g_idx']})</span></dt>
                                         <dt class="contest-title">{$title}</dt>
                                         <dd class="contest-detail">
                                             <ul>

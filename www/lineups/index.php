@@ -211,7 +211,7 @@ try {
                                 <div class="contest-desc lineUP">
                                     <div class="conts-desc-l">
                                         <dl>
-                                            <dt class="contest-schedule contest_info">{$sub_db2['g_date']}<span class="contest_num">G({$db['g_idx']})</span></dt>
+                                            <dt class="contest-schedule contest_info">{$sub_db2['g_date']}<span class="contest_num">G({$sub_db2['g_idx']})</span></dt>
                                             <dt class="contest-title">{$title}</dt>
                                             <dd class="contest-detail">
                                                 <ul>
