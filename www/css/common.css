@@ -174,8 +174,9 @@ ul.tabs li a{padding: .5rem;}
 .contest-desc{display: flex; align-items: center; background: #3a3a3a; padding: 1rem 2rem 1.4rem;}
 .contest-desc .contest-ico{width: 5.8rem; height: 5.8rem; background: transparent; margin-right: 1.6rem; flex-shrink: 0;}
 .contest-desc .contest-ico img{width: 100%; height: 100%; object-fit: contain;}
-.contest-desc dl{display: flex; flex-direction: column;}
+.contest-desc dl{display: flex; flex-direction: column; width: 100%;}
 .contest-desc .contest-schedule{color: #c9c9c9;}
+.contest_info{display: flex; justify-content: space-between; align-items: center;}
 .contest-desc .contest-title{font-size: 2.4rem; font-weight: 700; padding: 0.5rem 0;}
 .contest-desc .coin-b:after{margin-left: 0.5rem;}
 .contest-detail ul {display: flex; align-items: center; font-size: 1.4rem; flex-wrap: wrap;}
@@ -232,7 +233,7 @@ video{max-width: 140rem; width: 100%; margin: 0 auto; display: block;}
 /* 02_01.html */
 .B0{padding-bottom: 0px!important;}
 .contest-desc.lineUP{display: flex; align-items: flex-end; justify-content: space-between;}
-.conts-desc-l{display: flex; align-items: center;}
+.conts-desc-l{display: flex; align-items: center; width: 100%;}
 .current-price{border: 1px solid #ffdc50; padding: 0.5rem 1rem; color:#ffdc50; font-size: 2rem; font-weight: 700;}
 .current-price span > img{margin-right: 1rem;}
 
