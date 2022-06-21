@@ -165,7 +165,7 @@ try {
                             <td>{$dbgold['dh_cash_type']}</td>
                             <td>{$dbgold['dh_deposit']}</td>
                             <td>{$amount}</td>
-                            <td>{$total_amount}</td>
+                            <td class="balance">{$total_amount}</td>
                         </tr>
 TR;
                                 $total_amount1 +=$amount;

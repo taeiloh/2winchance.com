@@ -132,7 +132,7 @@ try{
                             <td class="Fgray">{$dbhp['regdate']}</td>
                             <td>{$dbhp['content']}</td>
                             <td>+{$dbhp['point']}</td>
-                            <td>{$dbhp['balance']}</td>
+                            <td class="balance">{$dbhp['balance']}</td>
                         </tr>
 TR;
                             }
