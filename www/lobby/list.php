@@ -326,7 +326,6 @@ LI;
                                 $summary = "
                     * 1000명으로 구성된 본 콘테스트는 총 5000 FP의 상금을 상위 순위 50%에게 지급합니다.<br/>
                     * 우승자의 상금은 각 10 FP입니다.<br/>
-                    * 최종 참가자 수에 따라 상금이 다를 수 있습니다.
                 ";
                             }
                             echo <<<DIV
@@ -392,10 +391,10 @@ LI;
                                                     <h3>요약</h3>
                                                     <p>{$summary}</p>
                                                 </div>
-                                                <div>
+                                                <!--<div>
                                                     <h3>참가자</h3>
                                                     <a href="javascript:void(0);">참가자 리스트 자세히 보기</a>
-                                                </div>
+                                                </div>-->
                                             </div>
                                             <div class="ranking">
                                                 <div class="ranking-box">
