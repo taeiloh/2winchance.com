@@ -81,7 +81,7 @@ try {
                             <th><a href="javascript:void(0);">사용 FP</a></th>
                             <th><a href="javascript:void(0);">상금</a></th>
                             <th>
-                                <input type="search" placeholder="플레이어를 검색해주세요.">
+                                <input type="search" placeholder="콘테스트를 검색해주세요.">
                                 <button class="search-btn"></button>
                             </th>
                         </tr>
@@ -195,7 +195,7 @@ try {
                                                 <tr class="user">
                                                     <td>{$sub_db['jc_rank']}</td>
                                                     <td class="ellipsis_multiple2">{$sub_db['m_name']}</td>
-                                                    
+
                                                     <td>{$sub_db['jc_point']}</td>
                                                     <td>{$sub_db['jc_prize']}</td>
                                                 </tr>
@@ -205,7 +205,7 @@ TR;
                                                 <tr>
                                                     <td>{$sub_db['jc_rank']}</td>
                                                     <td class="ellipsis_multiple2">{$sub_db['m_name']}</td>
-                                                    
+
                                                     <td>{$sub_db['jc_point']}</td>
                                                     <td>{$sub_db['jc_prize']}</td>
                                                 </tr>
