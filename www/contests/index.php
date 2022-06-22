@@ -43,27 +43,27 @@ try {
     $from_record = ($page - 1) * $rows; // 시작 열을 구함*/
     //페이징
     /*$sql  = "
-                            SELECT 
+                            SELECT
                                 count(*)
-                            FROM 
+                            FROM
                             (
                                 SELECT
                                     jc_idx
                                 FROM join_contest
                                 WHERE 1=1
                                     AND jc_u_idx = {$_se_idx}
-                            ) b INNER JOIN join_contest 
+                            ) b INNER JOIN join_contest
                                 ON join_contest.jc_idx = b.jc_idx
-                            LEFT JOIN lineups 
-                                ON lu_idx = jc_lineups 
-                            LEFT JOIN game 
-                                ON g_idx = jc_game 
-                            LEFT JOIN game_category 
-                                ON gc_idx = g_sport 
-                            LEFT JOIN members 
-                                ON m_idx = lu_u_idx 
-                            WHERE 1=1 
-                                AND lu_u_idx = {$_se_idx} 
+                            LEFT JOIN lineups
+                                ON lu_idx = jc_lineups
+                            LEFT JOIN game
+                                ON g_idx = jc_game
+                            LEFT JOIN game_category
+                                ON gc_idx = g_sport
+                            LEFT JOIN members
+                                ON m_idx = lu_u_idx
+                            WHERE 1=1
+                                AND lu_u_idx = {$_se_idx}
                                 {$where} ";
 
     $tresult = $_mysqli->query($sql);
@@ -128,13 +128,13 @@ try {
                     </div>-->
                     <table class="contents-table upcomming-table">
                         <colgroup>
-                            <col/>
-                            <col style="width: 200px;"/>
-                            <col style="width:8%"/>
-                            <col style="width:8%"/>
-                            <col style="width:8%"/>
-                            <col style="width:8%"/>
-                            <col style="width:8%"/>
+                            <col style="width:25%"/>
+                            <col style="width:20%"/>
+                            <col style="width:10%"/>
+                            <col style="width:10%"/>
+                            <col style="width:10%"/>
+                            <col style="width:10%"/>
+                            <col style="width:10%"/>
                         </colgroup>
                         <thead>
                         <tr>
@@ -185,14 +185,14 @@ try {
                         */
                         // 콘테스트
                         $query  = "
-                            SELECT 
-                                jc.*, 
-                                g.* 
+                            SELECT
+                                jc.*,
+                                g.*
                             FROM join_contest jc
                             LEFT JOIN game g
-                                ON jc.jc_game = g.g_idx 
-                            WHERE 1=1 
-                                AND jc_u_idx = {$_se_idx} 
+                                ON jc.jc_game = g.g_idx
+                            WHERE 1=1
+                                AND jc_u_idx = {$_se_idx}
                                 {$where}
                             ORDER BY jc_date DESC
                         ";
