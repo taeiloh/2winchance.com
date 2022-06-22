@@ -70,7 +70,7 @@ switch ($_url_f3) {
     </div>
     <div class="ft-right">
         <div class="footer-permission">
-            <img src="../images/img_footer.png" alt="심의">
+            <img src="../images/img_footer_sample.png" alt="심의">
         </div>
     </div>
 
