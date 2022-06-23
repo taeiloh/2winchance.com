@@ -156,7 +156,8 @@ if ($time > $ago30min) {
                                         </a>
                                     </div>
                                     <?php
-                                    $game_daily_schedule    = "pubg_game_daily_schedule";
+                                    //구 DB 쿼리
+                                    /*$game_daily_schedule    = "pubg_game_daily_schedule";
                                     $query  = "
                                         SELECT
                                             home_alias, away_alias,
@@ -167,9 +168,20 @@ if ($time > $ago30min) {
                                         WHERE 1=1
                                         AND DATE_FORMAT(timezone_scheduled, '%Y-%m-%d')=DATE_FORMAT('{$db['g_date']}', '%Y-%m-%d')
                                         ORDER BY timezone_scheduled
+                                    ";*/
+                                    //변경 DB 쿼리
+                                    $game_daily_schedule    = "ROUNDS";
+                                    $query = "
+                                        SELECT
+                                            DATE_FORMAT(START_DT, '%b %e') AS sch_date,
+                                            DATE_FORMAT(START_DT, '%h:%i %p') AS sch_time
+                                        FROM {$game_daily_schedule}
+                                        WHERE 1=1
+                                        AND DATE_FORMAT(START_DT, '%Y-%m-%d')=DATE_FORMAT('{$db['g_date']}', '%Y-%m-%d')
+                                        ORDER BY START_DT
                                     ";
                                     //p($query);
-                                    $result = $_mysqli_game->query($query);
+                                    $result = $_mysqli->query($query);
                                     if (!$result) {
 
                                     }

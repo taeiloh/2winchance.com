@@ -105,7 +105,8 @@ $total_size     = $db['total_size'];
             <div class="inner">
                 <ul class="game-schedule">
                     <?php
-                    $query  = "
+                    //구 DB 테이블 query
+                    /*$query  = "
                             SELECT
                                 count(1) as count, timezone_type AS games_timezone_type, MIN(timezone_scheduled) AS games_timezone_scheduled
                             FROM pubg_game_daily_schedule
@@ -117,9 +118,23 @@ $total_size     = $db['total_size'];
                             GROUP BY date(timezone_scheduled)
                             ORDER BY timezone_scheduled ASC
                             LIMIT 7
+                        ";*/
+                    //변경 DB 테이블 QUERY
+                    $query  = "
+                            SELECT
+                                count(1) as count, MIN(START_DT) AS games_timezone_scheduled
+                            FROM ROUNDS
+                            LEFT JOIN matches m on rounds.SEQ = m.ROUNDS_SEQ
+                            WHERE 1=1
+                              AND START_DT > NOW()
+                              AND START_DT >= '{$today} 00:00:00'
+                              AND START_DT <= '{$today} 23:59:59'+ INTERVAL 10 DAY
+                            GROUP BY date(START_DT)
+                            ORDER BY START_DT ASC
+                            LIMIT 7
                         ";
                     //p($query);
-                    $result = $_mysqli_game->query($query);
+                    $result = $_mysqli->query($query);
                     if (!$result) {
                     }
                     $i = 0;
