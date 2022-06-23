@@ -803,11 +803,11 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 .tooltip{display:none; min-width: 45rem; background: rgba(255,255,255,0.9); color: #131313; padding: 2rem; border-radius: 1rem; font-size: 1.8rem; position: absolute; top: 80px; left: 50%; transform: translateX(-50%); text-align: left; z-index: 1;}
 /* TODO 20220530 ykshin css추가완료 */
 .tooltip .title{font-size: 2rem; font-weight: 600; padding: 0 0 1rem;}
-.tooltip .score-detail table{border-top: 1px dashed #1c1c1c; padding: 1rem 0;}
-.tooltip .score-detail table td{padding: 1rem 0.5rem!important; }
-.tooltip .score-detail table tr:last-of-type th{text-align: left;}
+.tooltip .score-detail table, .tooltip .score-detail table tr {border:1px solid #707070;  padding: 1rem 0;}
+.tooltip .score-detail table td{padding: 1rem 0.5rem!important; border:1px solid #707070;}
 .player-table > table.player-detail-table > tbody tr .tooltip tr {border-bottom: unset;}
-.player-table > table.player-detail-table > tbody tr.last{border-top: 1px dashed #1c1c1c; text-align: left;}
+.player-table > table.player-detail-table > tbody tr.last{text-align: center;}
+.player-table > table.player-detail-table > tbody tr.last th{padding-left: 0.5rem;}
 /*.tooltip dl{display: flex; align-items: center;}*/
 /*.tooltip dl ~ dl{margin: 1rem 0 0;}*/
 /*.tooltip dl dt{width: 100px;}*/
