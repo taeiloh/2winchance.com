@@ -332,6 +332,7 @@ table tr.filter a:after{content: ''; background: url("../images/icon_filter.svg"
 
 .myAcct .cash-table.fp-page td:nth-of-type(3){color: #1e8fff; font-weight: 600;}
 .myAcct .cash-table.fp-page td:nth-of-type(4){color: #ffdc50; font-weight: 600;}
+/*.myAcct .cash-table.fp-page .contents_txt{text-align: left; padding-left: 5rem;}*/
 
 .category-wrap{display: flex; align-items: center; background-color: #090e10}
 .category{width: 100%; height: 10rem; background: #090e10; display: flex; align-items: center; justify-content: space-evenly; font-weight: 500; font-size: 2rem;}

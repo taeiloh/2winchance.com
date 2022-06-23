@@ -108,10 +108,10 @@ try{
                 <div class="contents-cont inner">
                     <table class="contents-table cash-table fp-page">
                         <colgroup>
-                            <col style="width:25%">
-                            <col style="width:25%">
-                            <col style="width:25%">
-                            <col style="width:25%">
+                            <col style="width:20%">
+                            <col style="width:40%">
+                            <col style="width:20%">
+                            <col style="width:20%">
                         </colgroup>
                         <thead>
                         <tr class="filter">
@@ -130,7 +130,7 @@ try{
                                 echo <<<TR
                         <tr>
                             <td class="Fgray">{$dbhp['regdate']}</td>
-                            <td>{$dbhp['content']}</td>
+                            <td class="contents_txt">{$dbhp['content']}</td>
                             <td>+{$dbhp['point']}</td>
                             <td class="balance">{$dbhp['balance']}</td>
                         </tr>
