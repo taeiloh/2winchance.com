@@ -2,6 +2,7 @@ $(function(){
     $(".btn-down").click(function(){
         var slideCont = $(this).parents('.league-detail');
         var showCont = $(this).parents('.league-box').children().children('.status-detail');
+        var g_idx = $(this).attr("g_idx");
 
         slideCont.toggleClass('active');
         showCont.toggleClass('active');
@@ -9,7 +10,7 @@ $(function(){
         if(slideCont.hasClass('active')){
             $(this).children('span').text('닫기');
         }else{
-            $(this).children('span').text('경기정보');
+            $(this).children('span').text("G("+g_idx+")");
         }
 
     })

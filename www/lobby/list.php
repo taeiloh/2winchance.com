@@ -406,7 +406,7 @@ LI;
                                         </div>
                                     </div>
                                     <div class="btn-group">
-                                        <button type="button" id="btnDown{$db['g_idx']}" class="btn-grey btn-down">
+                                        <button type="button" id="btnDown{$db['g_idx']}" class="btn-grey btn-down" g_idx="{$db['g_idx']}">
                                          <span class="contest_num">G({$db['g_idx']})</span>
                                          <div><span>경기정보</span> <img src="/images/ico_arrow.svg" alt="더보기"></div>
                                         </button>
