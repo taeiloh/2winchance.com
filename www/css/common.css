@@ -257,7 +257,9 @@ video{max-width: 140rem; width: 100%; margin: 0 auto; display: block;}
 .lineup-list li.live a.active{border: 5px solid #ff0000;}
 .lineup-list li.live a.active > .line-up-badge{background-color: #ff0000;}
 .lineup-list li.finished a.active{border: 5px solid #3a3a3a;}
-.lineup-list li.finished a.active > .line-up-badge{background-color: #707070; cursor: pointer;}
+.lineup-list li.finished a.active > .line-up-badge{width: 120px;  height: 44px; background: linear-gradient(235deg, #5b5b5b, #949393, #464346); transition: all 0.2s; cursor: pointer;}
+.lineup-list li.finished a.active > .line-up-badge.btnPush {box-shadow: 0px 5px 0px 0px #3a3a3a;}
+.lineup-list li.finished a.active > .line-up-badge.btnPush:hover {box-shadow: 0px 0px 0px 0px transparent;}
 
 .line-up-badge{display: block; min-width: 10.2rem; padding: 1rem 2rem; height:4.4rem; border-radius: 2.3rem;  position: absolute; top:1.6rem; right:1rem; text-align: center;  font-weight: 600; font-size: 2rem; z-index: 5;}
 
