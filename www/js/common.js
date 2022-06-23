@@ -8,13 +8,12 @@ $(function(){
         showCont.toggleClass('active');
 
         if(slideCont.hasClass('active')){
-            $(this).children('span').text('닫기');
+            $(this).children().children('span').text('닫기');
         }else{
-            $(this).children('span').text("G("+g_idx+")");
+            $(this).children().children('span').text('경기정보');
         }
 
     })
-
     // 카테고리
     $(".category li a").click(function(){
         $('.category li').removeClass('active');
@@ -159,4 +158,6 @@ $(function(){
         $('.game-schedule li').removeClass('active');
         $(this).addClass('active');
     })
+
+
 })
