@@ -124,7 +124,7 @@ $total_size     = $db['total_size'];
                             SELECT
                                 count(1) as count, MIN(START_DT) AS games_timezone_scheduled
                             FROM ROUNDS
-                            LEFT JOIN matches m on rounds.SEQ = m.ROUNDS_SEQ
+                            LEFT JOIN MATCHES m on ROUNDS.SEQ = m.ROUNDS_SEQ
                             WHERE 1=1
                               AND START_DT > NOW()
                               AND START_DT >= '{$today} 00:00:00'
@@ -423,7 +423,7 @@ LI;
                                     <div class="btn-group">
                                         <button type="button" id="btnDown{$db['g_idx']}" class="btn-grey btn-down" g_idx="{$db['g_idx']}">
                                          <span class="contest_num">G({$db['g_idx']})</span>
-                                         <div><span>경기정보</span> <img src="/images/ico_arrow.svg" alt="더보기"></div>
+                                         <div><span class="play_closeBtn" onclick='change()'>경기정보</span><img src="/images/ico_arrow.svg" alt="더보기"></div>
                                         </button>
                                         <button type="button" onclick="go_draft({$db['g_idx']},'{$m_idx}' );" class="btn-blue slide-cont"> 게임참가</button>
                                     </div>
