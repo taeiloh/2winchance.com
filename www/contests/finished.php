@@ -332,31 +332,6 @@ TR;
                                                         <div class="tooltip">
                                                             <p class="title">상세 점수</p>
                                                             <div class="score-detail">
-                                                            <!--    <dl>
-                                                                    <dt>팀 순위</dt>
-                                                                    <dd>{$arrResult[0]['TEAM_SCORE']} + {$arrResult[1]['TEAM_SCORE']} + {$arrResult[2]['TEAM_SCORE']} + {$arrResult[3]['TEAM_SCORE']} + {$arrResult[4]['TEAM_SCORE']}</dd>
-                                                                    <dd>= {$sum_team_score}</dd>
-                                                                </dl>
-                                                                <dl>
-                                                                    <dt>킬수</dt>
-                                                                    <dd>{$arrResult[0]['KILLED']} + {$arrResult[1]['KILLED']} + {$arrResult[2]['KILLED']} + {$arrResult[3]['KILLED']} + {$arrResult[4]['KILLED']}</dd>
-                                                                    <dd>= {$sum_killed}</dd>
-                                                                </dl>
-                                                                <dl>
-                                                                    <dt>팀킬</dt>
-                                                                    <dd>({$arrResult[0]['TEAMKILLED']} + {$arrResult[1]['TEAMKILLED']} + {$arrResult[2]['TEAMKILLED']} + {$arrResult[3]['TEAMKILLED']} + {$arrResult[4]['TEAMKILLED']}) x -1</dd>
-                                                                    <dd>= {$sum_teamkilled}</dd>
-                                                                </dl>
-                                                                <dl>
-                                                                    <dt>자살</dt>
-                                                                    <dd>({$arrResult[0]['SELFKILLED']} + {$arrResult[1]['SELFKILLED']} + {$arrResult[2]['SELFKILLED']} + {$arrResult[3]['SELFKILLED']} + {$arrResult[4]['SELFKILLED']}) x -1</dd>
-                                                                    <dd>= {$sum_selfkilled}</dd>
-                                                                </dl>
-                                                                <dl>
-                                                                    <dt>부활</dt>
-                                                                    <dd>{$arrResult[0]['REVIVED']} + {$arrResult[1]['REVIVED']} + {$arrResult[2]['REVIVED']} + {$arrResult[3]['REVIVED']} + {$arrResult[4]['REVIVED']}</dd>
-                                                                    <dd>= {$sum_revived}</dd>
-                                                                </dl> -->
                                                                 <table>
                                                                      <tr>
                                                                         <th>팀 순위</th>
@@ -403,16 +378,12 @@ TR;
                                                                         <td>{$arrResult[4]['REVIVED']}</td>
                                                                         <td>= {$sum_revived}</td>
                                                                      </tr>
-                                                                     <tr style="border-top: 1px dashed #1c1c1c;">
+                                                                     <tr>
                                                                         <th colspan="6">총점 (전투력)</th>
                                                                         <td>= {$sub_db['game_players_points']}</td>
                                                                      </tr>
                                                                 </table>
                                                             </div>
-                                                            <!-- <dl class="score-total">
-                                                                <dt>총점</dt>
-                                                                <dd>= {$sub_db['game_players_points']}</dd>
-                                                            </dl>-->
                                                         </div>
                                                     </td>
                                                 <td>{$sub_db['game_players_points']}</td>
