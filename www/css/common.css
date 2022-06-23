@@ -801,13 +801,15 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 .hover{position: relative;}
 /* TODO 20220530 ykshin css추가 */
 .tooltip{display:none; min-width: 45rem; background: rgba(255,255,255,0.9); color: #131313; padding: 2rem; border-radius: 1rem; font-size: 1.8rem; position: absolute; top: 80px; left: 50%; transform: translateX(-50%); text-align: left; z-index: 1;}
+.tooltip > table > tbody{background: rgba(255,255,255,0.9); color: #131313;}
 /* TODO 20220530 ykshin css추가완료 */
 .tooltip .title{font-size: 2rem; font-weight: 600; padding: 0 0 1rem;}
-.tooltip .score-detail{border-top: 1px dashed #1c1c1c; border-bottom: 1px dashed #1c1c1c; padding: 1rem 0;}
-.tooltip dl{display: flex; align-items: center;}
-.tooltip dl ~ dl{margin: 1rem 0 0;}
-.tooltip dl dt{width: 100px;}
-.tooltip dl dd:last-child{margin-left: auto;}
+.tooltip table.score-detail{border-top: 1px dashed #1c1c1c; border-bottom: 1px dashed #1c1c1c; padding: 1rem 0;}
+/*.tooltip dl{display: flex; align-items: center;}*/
+/*.tooltip dl ~ dl{margin: 1rem 0 0;}*/
+/*.tooltip dl dt{width: 100px;}*/
+/*.tooltip dl dd:last-child{margin-left: auto;}*/
+.tooltip table.score-detail tbody > tr > td{background: rgba(255,255,255,0.9) !important; color: #131313;}
 .tooltip .score-total{padding: 1rem 0 0; font-weight: 700;}
 .hover:hover .tooltip{display: block;}
 .fold-content {margin: 0.6rem; padding: 2.4rem; background: #1c1c1c; }

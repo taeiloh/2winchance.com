@@ -181,6 +181,7 @@ try {
                                         <div class="fold-table-wrap">
                                             <div class="lanking-table">
                                                 <h3>입상 순위</h3>
+                                                <div class="tb-wrap">
                                                 <table>
                                                     <colgroup>
                                                         <col style="width:16.666%;">
@@ -223,7 +224,7 @@ try {
                                                 <tr class="user">
                                                     <td>{$sub_db['jc_rank']}</td>
                                                     <td class="ellipsis_multiple2">{$sub_db['m_name']}</td></button>
-                                                    
+
                                                     <td>{$sub_db['jc_point']}</td>
                                                     <td>{$sub_db['jc_prize']}</td>
                                                 </tr>
@@ -233,7 +234,7 @@ TR;
                                                 <tr>
                                                     <td>{$sub_db['jc_rank']}</td>
                                                     <td class="ellipsis_multiple2">{$sub_db['m_name']}</td>
-                                                    
+
                                                     <td>{$sub_db['jc_point']}</td>
                                                     <td>{$sub_db['jc_prize']}</td>
                                                 </tr>
@@ -243,6 +244,7 @@ TR;
                                                     ?>
                                                     </tbody>
                                                 </table>
+                                                </div>
                                             </div>
                                             <div class="player-table">
                                                 <h3>선수 상세 결과 <span class="sub-ex">(획득 점수는 “전투력”으로 변환/저장됩니다. 마이페이지에서 누적되는 “전투력”을 확인하세요.)</span></h3>
