@@ -143,27 +143,28 @@ try {
                         $dbb = $resultbalance->fetch_assoc();
                         $balance = $dbb['balance'];
 
-                        while ($db = $result->fetch_assoc()) {
-                            $gamename = $db['g_name'];
-                            $point = $db['point'];
-                            $balance += $point;
+                            while ($db = $result->fetch_assoc()) {
+                                $gamename = $db['g_name'];
+                                $point = $db['point'];
+                                $balance += $point;
+                                $gamename2 = "콘테스트참가 (G{$gamename})";
 
-                            //lineup에서 결과값이 넘어온 경우
-                            if($db['jc_game'] == $index)
-                            {
-                                $on = "open";
-                            }
-                            else{
-                                $on = "";
-                            }
-                            // 2022-06-20 조원영// 전투력내역테이블에 데이터 삽입
-                            /*$insertquery = "
+                                //lineup에서 결과값이 넘어온 경우
+                                if($db['jc_game'] == $index)
+                                {
+                                    $on = "open";
+                                }
+                                else{
+                                    $on = "";
+                                }
+                                // 2022-06-20 조원영// 전투력내역테이블에 데이터 삽입
+                                $insertquery = "
                             INSERT INTO honor_point_history
-                            (m_idx, content, point, balance) VALUES ($_se_idx, '콘테스트결과('+$gamename+')', $point, $balance)";
+                            (m_idx, content, point, balance) VALUES ($_se_idx, $gamename2, $point, $balance)";
 
-                            $_mysqli->query($insertquery);*/
+                                $_mysqli->query($insertquery);
 
-                            ?>
+                                ?>
                             <tr class="view">
                                 <td><?=$db['g_name'];?> <span class="contest_num">G(<?=$db['g_idx'];?>)</span></td>
                                 <td></td>
