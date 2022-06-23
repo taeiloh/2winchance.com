@@ -250,11 +250,11 @@ TR;
                                                 <h3>선수 상세 결과 <span class="sub-ex">(획득 점수는 “전투력”으로 변환/저장됩니다. 마이페이지에서 누적되는 “전투력”을 확인하세요.)</span></h3>
                                                 <table>
                                                     <colgroup>
-                                                        <col style="width:7%;">
-                                                        <col style="width:14.333%;">
+                                                        <col style="width:7.5%;">
+                                                        <col style="width:20%;">
+                                                        <col style="width:15%;">
                                                         <col style="width:35%;">
-                                                        <col style="width:42%;">
-                                                        <col style="width:5.5%;">
+                                                        <col style="width:7.5%;">
                                                     </colgroup>
                                                     <thead>
                                                     <tr>
