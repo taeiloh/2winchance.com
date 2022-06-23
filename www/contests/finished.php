@@ -160,10 +160,10 @@ try {
                                 // 2022-06-20 조원영// 전투력내역테이블에 데이터 삽입
                                 $insertquery = "
                             INSERT INTO honor_point_history
-                            (m_idx, content, point, balance) VALUES ($_se_idx, $gamename2, $point, $balance)";
+                            (m_idx, content, point, balance) VALUES ($_se_idx, '$gamename2', $point, $balance)";
 
                                 $_mysqli->query($insertquery);
-
+                                p($insertquery);
                                 ?>
                             <tr class="view">
                                 <td><?=$db['g_name'];?> <span class="contest_num">G(<?=$db['g_idx'];?>)</span></td>
