@@ -366,7 +366,7 @@ LI;
                                 <div class="league-title">
                                     <h2>{$db['g_name']}</h2>
                                     {$badge}
-                                    <button type="button" onclick="copy_url();"><img class="mR10" src="/images/ico_share.svg" alt="공유하기"/>공유하기</button>
+                                   <!-- <button type="button" onclick="copy_url();"><img class="mR10" src="/images/ico_share.svg" alt="공유하기"/>공유하기</button> -->
                                 </div>
                                 <div class="league-detail">
                                     <div class="info-box">
