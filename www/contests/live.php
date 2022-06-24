@@ -113,15 +113,29 @@ try {
                         ";
                         //p($query);
                         $result = $_mysqli->query($query);
+
+                        //현재 honor 포인트 중 가장 큰 잔액을 가져오는 QUERY
+                        $balancequery = "SELECT MAX(balance) as balance
+                        FROM honor_point_history
+                        where m_idx = {$_se_idx};
+                        ";
+                        $resultbalance = $_mysqli->query($balancequery);
+                        $dbb = $resultbalance->fetch_assoc();
+                        $balance = $dbb['balance'];
+
                         if (!$result) {
                         }
                         while ($db = $result->fetch_assoc()) {
                             //p($db);
                             $i = 0;
                             $arrGjson = json_decode($db['g_json'], true);
+                            $gamename = $db['g_name'];
+                            $jc_game = $db['jc_game'];
                             //p($arrGjson);
                             $i++;
                             //$no = $total_count - ($i + ($page - 1) * $rows);
+                            $gamename2 = "콘테스트참가 (G{$gamename})";
+
                             echo <<<TR
                         <tr>
                             <td>{$db['g_name']}<span class="contest_num">G({$db['g_idx']})</span></td>
@@ -136,7 +150,24 @@ try {
                             </td>
                         </tr>
 TR;
+                            $selectquery = "SELECT count(g_idx) as cnt from honor_point_history WHERE 1=1 and m_idx = $_se_idx and g_idx = $jc_game";
+                            $result2 = $_mysqli->query($selectquery);
+                            $db2 = $result2->fetch_assoc();
+                            $g_idxcount = $db2['cnt'];
+
+                            //p($selectquery);
+
+                            if($g_idxcount < 1)
+                            {
+                                $insertquery = "
+                            INSERT INTO honor_point_history
+                            (m_idx, content, point,g_idx, balance) VALUES ($_se_idx, '$gamename2', 0 ,$jc_game, $balance)";
+                                $_mysqli->query($insertquery);
+                                $g_idxcount = 0;
+                            }
                         }
+
+
                         if(empty($result->num_rows)) {
                             echo <<<TR
                          <tr>
