@@ -202,7 +202,7 @@ LI;
                 <div class="cont">
                     <div class="visual-thumb">
                     <span class="sample"></span>
-                        <img src="/images/pubg_list.jpeg" alt="LCS">
+                        <img src="/images/pubg_list.jpg" alt="LCS">
                     </div>
                     <div class="visual-detail">
                         <div class="contest-info tab-wrap">
