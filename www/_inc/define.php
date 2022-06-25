@@ -15,7 +15,7 @@ $config['ip']['test']   = array(
 
 //실 장비 IP
 $config['ip']['real']   = array(
-    '',
+    '172.31.1.138',
 );
 
 //사무실 IP
@@ -32,7 +32,7 @@ $config['isOffice']     = in_array( $_SERVER['REMOTE_ADDR'], $config['ip']['offi
 
 //database
 if ( $config['isDev'] ) {
-    define('DBHOST',        'www.2winchance.com');
+    define('DBHOST',        'dev.2winchance.com');
     define('DBUSERNAME',    '2winchance');
     define('DBPASSWD',      '2winchance!2022@');
     define('DBNAME',        'db2winchance_web');
