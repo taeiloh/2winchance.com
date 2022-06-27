@@ -39,7 +39,7 @@ class PAGING
     public function getPaging() {
         if ( $this->block > 0 ) {
             $prev_block = ($this->block - 1) * $this->scale + 1;
-            $op         = '<a href="'. $_SERVER['PHP_SELF'] .'?'. $this->tails .'&page='. $prev_block .'" class="img"><img src="../images/pg_prev.gif" alt="이전" /></a> ';
+            $op         = '<a href="'. $_SERVER['PHP_SELF'] .'?'. $this->tails .'&page='. $prev_block .'" class="img"><img src="../images/pg_prev.png" alt="이전" /></a> ';
         } else {
             $op         = '';
         }
@@ -55,7 +55,7 @@ class PAGING
 
         if ($this->page_max > ($this->block + 1) * $this->scale) {
             $next_block = ($this->block + 1) * $this->scale + 1;
-            $op         .= ' <a href="'. $_SERVER['PHP_SELF'] .'?'. $this->tails .'&page='. $next_block .'" class="img"><img src="../images/pg_next.gif" alt="다음" /></a>';
+            $op         .= ' <a href="'. $_SERVER['PHP_SELF'] .'?'. $this->tails .'&page='. $next_block .'" class="img"><img src="../images/pg_next.png" alt="다음" /></a>';
         } else {
             $op         .= '';
         }
