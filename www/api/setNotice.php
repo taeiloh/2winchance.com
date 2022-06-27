@@ -1,7 +1,12 @@
 <?php
 /**
  * 20220625 진경수 (공지사항 등록 및 수정)
+ * 20220628 CORS 허용 (todo-gsjin 오픈 시 주석 필요)
  */
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Max-Age: 86400');
+header('Access-Control-Allow-Headers: x-requested-with');
+header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
 //config
 require_once __DIR__ .'/../_inc/config.php';
 
@@ -82,6 +87,7 @@ try {
             LIMIT 1
         ";
     }
+    //p($query);
     $result = $_mysqli->query($query);
     if (!$result) {
         $msg    = $msg ." 중 오류가 발생했습니다.\r\n관리자에게 문의해 주세요.";

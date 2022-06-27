@@ -1,7 +1,12 @@
 <?php
 /**
  * 20220625 진경수 (관리자 연동 api)
+ * 20220628 CORS 허용 (todo-gsjin 오픈 시 주석 필요)
  */
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Max-Age: 86400');
+header('Access-Control-Allow-Headers: x-requested-with');
+header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
 // config
 require_once __DIR__ .'/../_inc/config.php';
 
