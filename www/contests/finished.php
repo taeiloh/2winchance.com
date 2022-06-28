@@ -189,7 +189,7 @@ try {
                                 $resultbalance = $_mysqli->query($balancequery);
                                 $dbb = $resultbalance->fetch_assoc();
                                 $balance = $dbb['balance'];
-                                $g_idx = $dbb['g_idx'];
+                                $g_idx = $db['g_idx'];
                                 $gamename = $db['g_name'];
                                 $point = $db['point'];
                                 $balance += $point;
