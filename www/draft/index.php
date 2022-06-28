@@ -1605,7 +1605,7 @@ LI;
             this_btn.parent().parent().find('.player_img').html("<p style=\"background-image:url('/images/PUBG/pos/"+ pos +".png');background-size:100%;\"></p>");
         }
 
-        this_btn.parent().parent().next().find('.p_fppg').html("0");
+        this_btn.parent().parent().find('.p_fppg').html("-");
         this_btn.parent().parent().find('.player_name').html("Player Name");
         this_btn.parent().parent().find('.team_name').html("Team");
         //this_btn.parent().parent().find('.point').html("");
