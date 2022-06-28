@@ -31,7 +31,7 @@ legend {border: 0; padding: 0;}
 
 /* Form Controls */
 input[type=text],input[type=password],input[type=date],input[type=email],input[type=number], select, textarea {font-size: inherit; font-weight: inherit; font-family: inherit; box-sizing:border-box; vertical-align:middle; border-radius: 0; background:#fff; box-shadow:initial; -webkit-appearance: none; -moz-appearance: none; appearance: none;}
-button{border-radius:0; font-family: inherit; cursor: pointer; vertical-align:middle; border:none; box-shadow:initial; -webkit-appearance: none; -moz-appearance: none; appearance: none; font-size: 1.6rem; font-weight: 500; color: inherit; background-color: transparent!important;}
+button{border-radius:0; font-family: inherit; cursor: pointer; vertical-align:middle; border:none; box-shadow:initial; -webkit-appearance: none; -moz-appearance: none; appearance: none; font-size: 1.6rem; font-weight: 500; color: inherit; background-color: inherit;}
 textarea {border: 1px solid #dfdfdf; border-radius: 0; padding: 1.2rem; background:#fff; resize: none;}
 textarea:focus{outline: none;}
 input:-moz-placeholder,textarea:-moz-placeholder {color: #707070; font-weight: 500;}
