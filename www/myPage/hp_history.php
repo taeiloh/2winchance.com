@@ -127,12 +127,18 @@ try{
 
                             while ($dbhp = $resulthp->fetch_assoc()) {
                                 $myhonotpoint = !empty($dbhp['point']) ? ($dbhp['point']) : 0;
+                                $regdate = !empty($dbhp['regdate']) ? ($dbhp['regdate']) : 0;
+                                $content = !empty($dbhp['content']) ? ($dbhp['content']) : 0;
+                                number_format($myhonotpoint);
+                                $balance = !empty($dbhp['balance']) ? ($dbhp['balance']) : 0;
+                                $balance = number_format($balance);
+
                                 echo <<<TR
                         <tr>
-                            <td class="Fgray">{$dbhp['regdate']}</td>
-                            <td class="contents_txt">{$dbhp['content']}</td>
+                            <td class="Fgray">$regdate</td>
+                            <td class="contents_txt">$content</td>
                             <td>+$myhonotpoint</td>
-                            <td class="balance">{$dbhp['balance']}</td>
+                            <td class="balance">$balance</td>
                         </tr>
 TR;
                             }
