@@ -162,7 +162,7 @@ try {
                             $query  = "
                             SELECT
                                 jc.jc_idx, jc.jc_game, jc.jc_lineups, MAX(jc.jc_point) AS point,
-                                g.g_idx, g.g_name, g.g_fee,jc.jc_prize,
+                                g.g_idx, g.g_name, g.g_fee,jc.jc_prize,g.g_round_seq,
                                 COUNT(jc.jc_game) AS multi_join
                             FROM join_contest jc
                             INNER JOIN game g
@@ -175,11 +175,10 @@ try {
                         ";
                             //p($query);
                             $result     = $_mysqli->query($query);
+
                             if (!$result) {
 
                             }
-
-
                             while ($db = $result->fetch_assoc()) {
 
                                 $balancequery = "SELECT MAX(balance) as balance
@@ -195,6 +194,12 @@ try {
                                 $balance += $point;
                                 $gamename2 = "콘테스트참가 (G{$g_idx})";
                                 $jc_game = $db['jc_game'];
+                                $round_seq = $db['g_round_seq'];
+
+                                $query2 = "SELECT END_DT FROM ROUNDS WHERE SEQ = $round_seq";
+                                $resultdate = $_mysqli->query($query2);
+                                $round_data = $resultdate ->fetch_assoc();
+                                $end_dt = !empty($round_data['END_DT']) ? ($round_data['END_DT']) : '';
 
                                 //lineup에서 결과값이 넘어온 경우
                                 if($db['jc_game'] == $index)
@@ -214,7 +219,7 @@ try {
                                 ?>
                                 <tr class="view">
                                     <td><?=$db['g_name'];?> <span class="contest_num">G(<?=$db['g_idx'];?>)</span></td>
-                                    <td></td>
+                                    <td><?=$end_dt?></td>
                                     <td><?=$db['multi_join'];?></td>
                                     <td><?=$db['point'];?></td>
                                     <td><?=$db['g_fee'];?></td>
