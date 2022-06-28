@@ -189,11 +189,11 @@ try {
                                 $resultbalance = $_mysqli->query($balancequery);
                                 $dbb = $resultbalance->fetch_assoc();
                                 $balance = $dbb['balance'];
-
+                                $g_idx = $dbb['g_idx'];
                                 $gamename = $db['g_name'];
                                 $point = $db['point'];
                                 $balance += $point;
-                                $gamename2 = "콘테스트참가 (G{$gamename})";
+                                $gamename2 = "콘테스트참가 (G{$g_idx})";
                                 $jc_game = $db['jc_game'];
 
                                 //lineup에서 결과값이 넘어온 경우
@@ -207,7 +207,7 @@ try {
 
                                 // 2022-06-20 조원영// 전투력내역테이블에 데이터 삽입
                                 $updatequery = "
-                            update honor_point_history set point = $point where m_idx = $_se_idx and g_idx = $jc_game ";
+                            update honor_point_history set point = $point where m_idx = $_se_idx and g_idx = $g_idx ";
 
                                 $_mysqli->query($updatequery);
                                 //p($insertquery);
