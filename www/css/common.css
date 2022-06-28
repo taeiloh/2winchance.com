@@ -457,7 +457,7 @@ table.border-table th, td{padding: 1rem 0;}
 .info-box .slide-cont h3{font-size: 2.8rem; font-weight: 600; position: relative; margin-bottom: 2.5rem;}
 .info-box .slide-cont h3:before{content:''; display: block; width: 6.7rem; height: 0.2rem; background: #1e8fff; position: absolute; bottom: -1rem; left: 0;}
 .info-box .league-desc{width:33.7rem;  margin: 2rem 0 0 2.8rem;}
-.info-box .league-desc a{color: #1e8fff; text-decoration: underline;}
+.info-box .league-desc button{color: #1e8fff; text-decoration: underline; background-color: transparent;}
 .info-box .league-desc div ~ div{margin-top: 6rem;}
 .info-box .ranking{width: 31.6rem; margin-left: 3rem;}
 .info-box .ranking h4{ margin-bottom: 2rem;}
@@ -466,6 +466,17 @@ table.border-table th, td{padding: 1rem 0;}
 .info-box .ranking .ranking-box ul li.first{color: #3bff00;}
 .info-box .ranking .ranking-box ul li label{padding-right: 7rem; font-size:2rem;}
 .info-box .ranking .ranking-box ul li p{font-size: 3rem; font-weight: 700;}
+
+.join_list_wrap{position: relative;}
+.join_list{position: absolute; top: -8rem; width: 33.7rem; height: 31rem; background-color: #1c1c1c; padding: 1.5rem; display: none;}
+.join_list.active{display: block;}
+.join_header{display: flex; align-items: flex-start; justify-content: space-between; font-size: 1.8rem;}
+.closeBtn{cursor: pointer;}
+.slide-cont .join_header h3{font-size:2rem;}
+.join_scroll{margin-top: 0!important; width: 100%; height: 23rem; overflow-y: auto;}
+.join_player{display: flex; flex-wrap: wrap; justify-content: space-between;}
+.join_player p{    white-space: normal;display: inline-block;width: 9rem;line-height: 1.2;height: 4.7rem;overflow: hidden;text-align: left;word-break: break-word;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 2;
+}
 
 .league-detail .btn-group{margin-left: 2rem;}
 .league-detail .btn-group button{width: 13.6rem; height: 13.6rem; align-items: center; justify-content: center; margin-bottom: 3rem;}

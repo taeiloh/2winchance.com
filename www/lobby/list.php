@@ -401,15 +401,30 @@ LI;
                                             </div>
                                         </div>
                                         <div class="slide-cont">
-                                            <div class="league-desc">
+                                            <div class="league-desc join_list_wrap">
                                                 <div>
                                                     <h3>요약</h3>
                                                     <p>{$summary}</p>
                                                 </div>
-                                                <!--<div>
+                                                <div>
                                                     <h3>참가자</h3>
-                                                    <a href="javascript:void(0);">참가자 리스트 자세히 보기</a>
-                                                </div>-->
+                                                    <button type="button" class="openList_btn" data-target="popup-1">참가자 리스트 자세히 보기</button>
+                                                </div>
+                                                <div class="join_list" id="popup-1">
+                                                    <div class="join_header"><h3>참가자</h3> <button class="closeBtn"><img src="../images/close_btn.svg" alt="닫기"></button></div>
+                                                    <div class="join_scroll">
+                                                        <div class="join_player">
+                                                            <p>Nickname1231455655</p><p>Nickname1</p><p>Nickname1231455655</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p>
+                                                            <p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p>
+                                                            <p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p>
+                                                            <p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p>
+                                                            <p>Nickname1231455655</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p>
+                                                            <p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p>
+                                                            <p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p>
+                                                            <p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="ranking">
                                                 <div class="ranking-box">

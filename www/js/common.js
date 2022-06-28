@@ -80,6 +80,33 @@ $(function(){
         $(this).parents('.modal').removeClass('active');
     })
 
+   // layer popup
+    $('.openList_btn').click(function(){
+
+      $(this).parents('.join_list').addClass('active');
+    })
+    $('.closeBtn').click(function(){
+      $(this).parents('.join_list').removeClass('active');
+    })
+    $('.openList_btn').click(function (){
+      $('.join_list').addClass('active');
+      $(this).removeClass('active');
+    });
+  //
+  // $('.openList_btn').click(function(){
+  //   var popup_id = $(this).attr('data-target');
+  //
+  //   $('body').addClass('modal-open');
+  //   $('#'+popup_id).addClass('active');
+  // })
+  // $('.close-btn').click(function(){
+  //   $('body').removeClass('modal-open');
+  //   $(this).parents('.modal').removeClass('active');
+  // })
+
+
+
+
     // 공지사항
     $('.notice-title').click(function(){
        $(this).parent($('.notice-wrap')).toggleClass('open').siblings().removeClass('open');
@@ -159,5 +186,46 @@ $(function(){
         $(this).addClass('active');
     })
 
+
+    // const modal = document.querySelector('.join_list');
+    // const btnOpenPopup = document.querySelector('.openList_btn');
+    //
+    // btnOpenPopup.addEventListener('click', () => {
+    //   modal.style.display = 'block';
+    // });
+
+    // const modal = document.querySelector('.join_list');
+    // const btnOpenPopup = document.querySelector('.openList_btn');
+    // const btnClosePopup = document.querySelector('.closeBtn');
+    //
+    // btnOpenPopup.addEventListener('click', () => {
+    //   modal.classList.toggle('active');
+    //
+    // });
+    //
+    // btnClosePopup.addEventListener('click', (event) => {
+    //   if (event.target === modal) {
+    //     modal.classList.toggle('active');
+    //
+    //   }
+    // });
+
+    // var modal = document.querySelector(".join_list");
+    // var trigger = document.querySelector(".openList_btn");
+    // var closeButton = document.querySelector(".closeBtn");
+    //
+    // function toggleModal() {
+    //   modal.classList.toggle("active");
+    // }
+    //
+    // function windowOnClick(event) {
+    //   if (event.target === modal) {
+    //     toggleModal();
+    //   }
+    // }
+    //
+    // trigger.addEventListener("click", toggleModal);
+    // closeButton.addEventListener("click", toggleModal);
+    // window.addEventListener("click", windowOnClick);
 
 })
