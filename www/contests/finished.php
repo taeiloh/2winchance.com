@@ -59,6 +59,49 @@ try {
     //head
     require_once __DIR__ .'/../common/head.php';
     ?>
+    <script>
+        function get_player_score(se_name, name, jc_idx, g_idx) {
+            console.log("===> get_player_score");
+            if (se_name == name) {
+                console.log("1");
+
+            } else {
+                console.log("2"+g_idx);
+                var postData = {
+                    "jc_idx" : jc_idx,
+                    "g_idx" : g_idx
+                };
+                $.ajax({
+                    url: "another_player_score.php",
+                    type: "POST",
+                    async: false,
+                    data: postData,
+                    success: function (data) {
+                        //console.log(data);
+                        var json = JSON.parse(data);
+                        //console.log(json);
+                        if (json.code == 200) {
+                            alert(json.msg);
+                            //location.reload();
+                        } else {
+                            alert(json.msg);
+                            //console.log(json);
+                        }
+                    },
+                    beforeSend: function () {
+                        $(".wrap-loading").removeClass("display-none");
+                    },
+                    complete: function () {
+                        $(".wrap-loading").addClass("display-none");
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log(textStatus, errorThrown);
+                    }
+                });
+            }
+
+        }
+    </script>
 </head>
 
 <!--//head-->
@@ -199,47 +242,38 @@ try {
                                                             <tbody>
                                                             <?php
                                                             $sub_query  = "
-                                                    SELECT
-                                                        jc.jc_idx, jc.jc_game, jc.jc_rank, jc.jc_point, jc.jc_prize,
-                                                        m.m_name
-                                                    FROM join_contest jc
-                                                    INNER JOIN members m
-                                                        ON jc.jc_u_idx = m.m_idx
-                                                    WHERE 1=1
-                                                        AND jc.jc_game = {$db['g_idx']}
-                                                    ORDER BY jc.jc_rank ASC
-                                                ";
+                                                                SELECT
+                                                                    jc.jc_idx, jc.jc_game, jc.jc_rank, jc.jc_point, jc.jc_prize,
+                                                                    m.m_name
+                                                                FROM join_contest jc
+                                                                INNER JOIN members m
+                                                                    ON jc.jc_u_idx = m.m_idx
+                                                                WHERE 1=1
+                                                                    AND jc.jc_game = {$db['g_idx']}
+                                                                ORDER BY jc.jc_rank ASC
+                                                            ";
                                                             //p($sub_query);
                                                             $sub_result     = $_mysqli->query($sub_query);
+
                                                             if (!$sub_result) {
                                                             }
                                                             while ($sub_db = $sub_result->fetch_assoc()) {
+
                                                                 $m_name = empty(!$sub_db['m_name']) ? ($sub_db['m_name']) : '';
+                                                                $jc_idx = empty(!$sub_db['jc_idx']) ? ($sub_db['jc_idx']) : '';
 
-                                                                if($_se_nm == $m_name) {
-
+                                                                $nameOnclick    = "<button type=\"button\" onclick=\"get_player_score('{$_se_nm}', '{$m_name}', '{$jc_idx}', '{$db['g_idx']}');\">{$m_name}</button>";
 
                                                                     echo <<<TR
-                                                <tr class="user">
-                                                    <td>{$sub_db['jc_rank']}</td>
-                                                    <td class="ellipsis_multiple2">{$sub_db['m_name']}</td></button>
-
-                                                    <td>{$sub_db['jc_point']}</td>
-                                                    <td>{$sub_db['jc_prize']}</td>
-                                                </tr>
+                                                                    <tr class="user">
+                                                                        <td>{$sub_db['jc_rank']}</td>
+                                                                        <td class="ellipsis_multiple2">{$nameOnclick}</td>
+                                                                        <td>{$sub_db['jc_point']}</td>
+                                                                        <td>{$sub_db['jc_prize']}</td>
+                                                                    </tr>
 TR;
-                                                                }else{
-                                                                    echo <<<TR
-                                                <tr>
-                                                    <td>{$sub_db['jc_rank']}</td>
-                                                    <td class="ellipsis_multiple2">{$sub_db['m_name']}</td>
-
-                                                    <td>{$sub_db['jc_point']}</td>
-                                                    <td>{$sub_db['jc_prize']}</td>
-                                                </tr>
-TR;
-                                                                }
                                                             }
+
                                                             ?>
                                                             </tbody>
                                                         </table>

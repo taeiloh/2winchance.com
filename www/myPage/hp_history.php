@@ -126,12 +126,12 @@ try{
                         if($total > 0){
 
                             while ($dbhp = $resulthp->fetch_assoc()) {
-
+                                $myhonotpoint = !empty($dbhp['point']) ? ($dbhp['point']) : 0;
                                 echo <<<TR
                         <tr>
                             <td class="Fgray">{$dbhp['regdate']}</td>
                             <td class="contents_txt">{$dbhp['content']}</td>
-                            <td>+{$dbhp['point']}</td>
+                            <td>+$myhonotpoint</td>
                             <td class="balance">{$dbhp['balance']}</td>
                         </tr>
 TR;

@@ -131,10 +131,11 @@ try {
                             $arrGjson = json_decode($db['g_json'], true);
                             $gamename = $db['g_name'];
                             $jc_game = $db['jc_game'];
+                            $g_idx = $db['g_idx'];
                             //p($arrGjson);
                             $i++;
                             //$no = $total_count - ($i + ($page - 1) * $rows);
-                            $gamename2 = "콘테스트참가 (G{$gamename})";
+                            $gamename2 = "콘테스트참가 (G{$g_idx})";
 
                             echo <<<TR
                         <tr>
