@@ -86,8 +86,39 @@ $total_size     = $db['total_size'];
     //head
     require_once __DIR__ .'/../common/head.php';
     ?>
+    <script type="text/javascript">
+        function get_join_list(gidx) {
+            console.log("===> f.get_join_list");
+
+            // ajax
+            var postData = {
+                "gidx": gidx
+            };
+
+            $.ajax({
+                url: "/ajax/get_join_list.php",
+                type: "POST",
+                data: postData,
+                success: function (data) {
+                    $("#join_list_"+ gidx).html(data);
+                },
+                beforeSend:function(){
+                    $(".wrap-loading").removeClass("display-none");
+                },
+                complete:function(){
+                    $(".wrap-loading").addClass("display-none");
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    console.log(textStatus, errorThrown);
+                }
+            });
+        }
+    </script>
 </head>
 <body>
+<div class="wrap-loading display-none">
+    <div><img src="https://www.palbok.com/img/common/loading.gif" style="width: 100px;" /></div>
+</div>
 <div id="wrap" class="sub">
     <!--header-->
     <header id="header">
@@ -396,8 +427,8 @@ LI;
                                             </table>
                                             <div class="status-detail">
                                                 <p class="status">Live</p>
-                                                <small>2022-03-13</small>
-                                                <p class="time fc-yellow">19:15:27</p>
+                                                <small></small>
+                                                <p class="time fc-yellow"></p>
                                             </div>
                                         </div>
                                         <div class="slide-cont">
@@ -408,22 +439,9 @@ LI;
                                                 </div>
                                                 <div>
                                                     <h3>참가자</h3>
-                                                    <button type="button" class="openList_btn" data-target="popup-1">참가자 리스트 자세히 보기</button>
+                                                    <button type="button" onclick="get_join_list({$db['g_idx']});" class="openList_btn">참가자 리스트 자세히 보기</button>
                                                 </div>
-                                                <div class="join_list" id="popup-1">
-                                                    <div class="join_header"><h3>참가자</h3> <button class="closeBtn"><img src="../images/close_btn.svg" alt="닫기"></button></div>
-                                                    <div class="join_scroll">
-                                                        <div class="join_player">
-                                                            <p>Nickname1231455655</p><p>Nickname1</p><p>Nickname1231455655</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p>
-                                                            <p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p>
-                                                            <p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p>
-                                                            <p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p>
-                                                            <p>Nickname1231455655</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p>
-                                                            <p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p>
-                                                            <p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p>
-                                                            <p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p><p>Nickname1</p>
-                                                        </div>
-                                                    </div>
+                                                <div id="join_list_{$db['g_idx']}" class="join_list">
                                                 </div>
                                             </div>
                                             <div class="ranking">
