@@ -149,7 +149,7 @@ try {
                             <th><a href="javascript:void(0);">사용 FP</a></th>
                             <th><a href="javascript:void(0);">상금</a></th>
                             <th>
-                                <input type="search" placeholder="플레이어를 검색해주세요.">
+                                <input type="search" placeholder="콘테스트를 검색해주세요.">
                                 <button class="search-btn"></button>
                             </th>
                         </tr>

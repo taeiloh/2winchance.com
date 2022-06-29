@@ -168,45 +168,4 @@ $(function(){
     })
 
 
-    // const modal = document.querySelector('.join_list');
-    // const btnOpenPopup = document.querySelector('.openList_btn');
-    //
-    // btnOpenPopup.addEventListener('click', () => {
-    //   modal.style.display = 'block';
-    // });
-
-    // const modal = document.querySelector('.join_list');
-    // const btnOpenPopup = document.querySelector('.openList_btn');
-    // const btnClosePopup = document.querySelector('.closeBtn');
-    //
-    // btnOpenPopup.addEventListener('click', () => {
-    //   modal.classList.toggle('active');
-    //
-    // });
-    //
-    // btnClosePopup.addEventListener('click', (event) => {
-    //   if (event.target === modal) {
-    //     modal.classList.toggle('active');
-    //
-    //   }
-    // });
-
-    // var modal = document.querySelector(".join_list");
-    // var trigger = document.querySelector(".openList_btn");
-    // var closeButton = document.querySelector(".closeBtn");
-    //
-    // function toggleModal() {
-    //   modal.classList.toggle("active");
-    // }
-    //
-    // function windowOnClick(event) {
-    //   if (event.target === modal) {
-    //     toggleModal();
-    //   }
-    // }
-    //
-    // trigger.addEventListener("click", toggleModal);
-    // closeButton.addEventListener("click", toggleModal);
-    // window.addEventListener("click", windowOnClick);
-
 })
