@@ -468,14 +468,14 @@ table.border-table th, td{padding: 1rem 0;}
 .info-box .ranking .ranking-box ul li p{font-size: 3rem; font-weight: 700;}
 
 .join_list_wrap{position: relative;}
-.join_list{position: absolute; top: -8rem; width: 33.7rem; height: 31rem; background-color: #1c1c1c; padding: 1.5rem; display: none;}
+.join_list{position: absolute; top: -8rem; width: 33.7rem; height: 32.8rem; background-color: #1c1c1c; padding: 1.5rem; display: none;}
 .join_list.active{display: block;}
 .join_header{display: flex; align-items: flex-start; justify-content: space-between; font-size: 1.8rem;}
 .closeBtn{cursor: pointer;}
 .slide-cont .join_header h3{font-size:2rem;}
-.join_scroll{margin-top: 0!important; width: 100%; height: 23rem; overflow-y: auto;}
+.join_scroll{margin-top: 0!important; width: 100%; height: 24.5rem; overflow-y: auto; padding: 0 1rem 0 0;}
 .join_player{display: flex; flex-wrap: wrap; justify-content: space-between;}
-.join_player p{    white-space: normal;display: inline-block;width: 9rem;line-height: 1.2;height: 4.7rem;overflow: hidden;text-align: left;word-break: break-word;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 2;
+.join_player p{    white-space: normal;display: inline-block;width: 9rem;line-height: 1.3;overflow: hidden;text-align: left;word-break: break-word;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 2; padding: 0.5rem 0;
 }
 
 .league-detail .btn-group{margin-left: 2rem;}
