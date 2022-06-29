@@ -694,6 +694,12 @@ input[type=checkbox]:checked+label:before{background: url(../images/ico_checked.
 .confirm-wrap .confirm-box > div > h4{text-align: left; font-size: 2.4rem; margin-bottom: 1rem; font-weight: 500;}
 .confirm-wrap .confirm-box > div > p{font-size: 1.6rem; color: #707070;}
 
+ul.sub-txt{width: 32rem; margin: 0 auto;}
+ul.sub-txt li{ margin-bottom: 1rem;}
+
+.bullet-w li{display: flex; align-items: baseline;}
+.bullet-w li:before{content: ''; background-image: url("../images/icon_bullet_w.svg"); background-repeat: no-repeat; display: block; width: 3rem; height: 1rem;}
+
 .captcha{display: flex; align-items: center; justify-content: center;}
 
 .policy-txt.scroll{overflow-y: auto; max-height: 11rem;}

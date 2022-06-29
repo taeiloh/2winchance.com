@@ -61,8 +61,12 @@ try {
                                     <input type="text" id="set_time" name="set_time" placeholder="1~100까지 입력 가능">
                                 </div>
                                 <div class="sub-content">
-                                    <h3>● 게임 입장 제한 기능을 이용하시면 설정한 일정 동안 <br> 2WinChance를 이용할 수 없습니다.<br>
-                                        ● 게임 입장 제한 기능을 이용 시 로그인이 제한되며,<br> 설정 기간 변경이 어떠한 방법으로도 불가능합니다.<br>
+                                   <!-- <h3>● 게임 입장 제한 기능을 이용하시면 설정한 일정 동안 <br> 2WinChance를 이용할 수 없습니다.<br>
+                                        ● 게임 입장 제한 기능을 이용 시 로그인이 제한되며,<br> 설정 기간 변경이 어떠한 방법으로도 불가능합니다.<br>-->
+                                      <ul class="sub-txt mT50 bullet-w">
+                                          <li>게임 입장 제한 기능을 이용하시면 설정한 일정 동안 2WinChance를 이용할 수 없습니다.</li>
+                                          <li>게임 입장 제한 기능을 이용 시 로그인이 제한되며, 설정 기간 변경이 어떠한 방법으로도 불가능합니다.</li>
+                                      </ul>
                                 </div>
                                 <button type="button" class="btn-blue btn-6 mT50" id="saveBtn" onclick="save()">적용하기</button>
                             </div>
