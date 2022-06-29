@@ -82,30 +82,11 @@ $(function(){
 
    // layer popup
     $('.openList_btn').click(function(){
-
-      $(this).parents('.join_list').addClass('active');
+      $(this).parents().siblings('.join_list').addClass('active');
     })
     $('.closeBtn').click(function(){
       $(this).parents('.join_list').removeClass('active');
     })
-    $('.openList_btn').click(function (){
-      $('.join_list').addClass('active');
-      $(this).removeClass('active');
-    });
-  //
-  // $('.openList_btn').click(function(){
-  //   var popup_id = $(this).attr('data-target');
-  //
-  //   $('body').addClass('modal-open');
-  //   $('#'+popup_id).addClass('active');
-  // })
-  // $('.close-btn').click(function(){
-  //   $('body').removeClass('modal-open');
-  //   $(this).parents('.modal').removeClass('active');
-  // })
-
-
-
 
     // 공지사항
     $('.notice-title').click(function(){
