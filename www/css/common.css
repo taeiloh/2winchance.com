@@ -924,6 +924,7 @@ tr.user td{background-color: #707070!important;}
 .qna-wrap{background-color: #303030; width: 140rem; padding: 3.7rem 0 7rem!important; display: flex; align-items: center; justify-content: center;}
 .qna-wrap .add-ask {margin-top: 7rem;}
 .qna-wrap .add-ask h4{margin-top: 4rem;}
+.txt_box{display: flex; align-items: center; justify-content: space-between;}
 
 /* 04_07 */
 .item-page{display: flex; align-items: flex-start; justify-content: space-between; padding-top: 5rem!important;}

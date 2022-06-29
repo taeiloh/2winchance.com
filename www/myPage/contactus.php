@@ -121,9 +121,10 @@ if (!$idx) {
                             <div>
                                 <h4>문의 내용</h4>
                                 <textarea name="askCont" id="askCont" placeholder="문의하실 내용을 입력해주세요." maxlength="2000"></textarea>
-                                <span class="alert"><img src="../images/ico_alert_blue.svg" alt="입력조건">2000자 이내로 내용을 작성해주세요.</span>
-                                <span id="counter"></span>
-
+                                <div class="txt_box">
+                                  <span class="alert"><img src="../images/ico_alert_blue.svg" alt="입력조건">2000자 이내로 내용을 작성해주세요.</span>
+                                  <span id="counter"></span>
+                                </div>
                             </div>
                         </div>
                         <div class="captcha">
