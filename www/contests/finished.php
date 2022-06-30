@@ -63,6 +63,7 @@ try {
     <script>
         var testnum = 0;
         function get_player_score(jc_idx, lu_idx, g_idx, i,num) {
+            $(".tb-wrap").find(".user").removeClass('user');
             console.log(testnum);
             console.log("===> get_player_score");
             console.log(i);
@@ -152,7 +153,7 @@ try {
                             <th><a href="javascript:void(0);">사용 FP</a></th>
                             <th><a href="javascript:void(0);">상금</a></th>
                             <th>
-                                <input type="search" placeholder="플레이어를 검색해주세요.">
+                                <input type="search" placeholder="콘테스트를 검색해주세요.">
                                 <button class="search-btn"></button>
                             </th>
                         </tr>
@@ -266,17 +267,25 @@ try {
 
                                                             if (!$sub_result) {
                                                             }
+                                                            $defaultselect = '';
                                                             while ($sub_db = $sub_result->fetch_assoc()) {
                                                                 $selectnum++;
                                                                 $m_name = empty(!$sub_db['m_name']) ? ($sub_db['m_name']) : '';
                                                                 $jc_idx = empty(!$sub_db['jc_idx']) ? ($sub_db['jc_idx']) : '';
+                                                                if($_se_nm == $m_name)
+                                                                {
+                                                                    $defaultselect = 'user';
+                                                                }
+                                                                else{
+                                                                    $defaultselect = '';
+                                                                }
 
 
                                                                 $nameOnclick    = "<button type=\"button\" onclick=\"get_player_score('{$jc_idx}','{$lu_idx}','{$g_idx}', '{$g_idx}','{$selectnum}');\">{$m_name}</button>";
 
                                                                 echo <<<TR
-
-                                                                    <tr id = "playerSelect_$selectnum" >
+                                                                    
+                                                                    <tr id = "playerSelect_$selectnum" class="$defaultselect">
                                                                         <td>{$sub_db['jc_rank']}</td>
                                                                         <td class="ellipsis_multiple2">{$nameOnclick}</td>
                                                                         <td>{$sub_db['jc_point']}</td>
