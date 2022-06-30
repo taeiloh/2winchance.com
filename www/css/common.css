@@ -828,6 +828,10 @@ ul.sub-txt li{ margin-bottom: 1rem;}
 .player-table > table.player-detail-table > tbody tr .tooltip tr {border-bottom: unset;}
 .player-table > table.player-detail-table > tbody tr.last{text-align: center;}
 .player-table > table.player-detail-table > tbody tr.last th{padding-left: 0.5rem;}
+.player-table > table.player-detail-table th:nth-of-type(1), .player-table > table.player-detail-table th:nth-of-type(5){width: 80.89px;}
+.player-table > table.player-detail-table th:nth-of-type(2){width: 215.77px;}
+.player-table > table.player-detail-table th:nth-of-type(3){width: 161.83px;}
+.player-table > table.player-detail-table th:nth-of-type(4){width: 377.59px;}
 /*.tooltip dl{display: flex; align-items: center;}*/
 /*.tooltip dl ~ dl{margin: 1rem 0 0;}*/
 /*.tooltip dl dt{width: 100px;}*/
