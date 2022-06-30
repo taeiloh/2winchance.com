@@ -48,6 +48,7 @@ try {
     //페이징
     $_pg    = new PAGING($total, $page, $size, $scale);
 
+
 } catch (Exception $e) {
     p($e);
 }
@@ -60,16 +61,22 @@ try {
     require_once __DIR__ .'/../common/head.php';
     ?>
     <script>
-        function get_player_score(se_name, name, jc_idx, g_idx) {
+
+        function get_player_score(jc_idx, lu_idx, g_idx, i) {
             console.log("===> get_player_score");
-            if (se_name == name) {
+            console.log(i);
+
+            /*if (se_name == name) {
+                $("#playertest"+i).hide();
                 console.log("1");
 
-            } else {
-                console.log("2"+g_idx);
+            } else {*/
+                $("#playertest"+i).show();
+                console.log("2"+g_idx+lu_idx);
                 var postData = {
                     "jc_idx" : jc_idx,
-                    "g_idx" : g_idx
+                    "g_idx" : g_idx,
+                    "lu_idx" : lu_idx
                 };
                 $.ajax({
                     url: "another_player_score.php",
@@ -78,15 +85,8 @@ try {
                     data: postData,
                     success: function (data) {
                         //console.log(data);
-                        var json = JSON.parse(data);
-                        //console.log(json);
-                        if (json.code == 200) {
-                            alert(json.msg);
-                            //location.reload();
-                        } else {
-                            alert(json.msg);
-                            //console.log(json);
-                        }
+                        //var json = JSON.parse(data);
+                        $("#playertest"+i).html(data);
                     },
                     beforeSend: function () {
                         $(".wrap-loading").removeClass("display-none");
@@ -98,7 +98,7 @@ try {
                         console.log(textStatus, errorThrown);
                     }
                 });
-            }
+            /*}*/
 
         }
     </script>
@@ -149,7 +149,7 @@ try {
                             <th><a href="javascript:void(0);">사용 FP</a></th>
                             <th><a href="javascript:void(0);">상금</a></th>
                             <th>
-                                <input type="search" placeholder="콘테스트를 검색해주세요.">
+                                <input type="search" placeholder="플레이어를 검색해주세요.">
                                 <button class="search-btn"></button>
                             </th>
                         </tr>
@@ -176,11 +176,13 @@ try {
                             //p($query);
                             $result     = $_mysqli->query($query);
 
+
                             if (!$result) {
 
                             }
+                            $i = 0;
                             while ($db = $result->fetch_assoc()) {
-
+                                $i++;
                                 $balancequery = "SELECT MAX(balance) as balance
                                     FROM honor_point_history
                                     where m_idx = {$_se_idx};
@@ -195,6 +197,8 @@ try {
                                 $gamename2 = "콘테스트참가 (G{$g_idx})";
                                 $jc_game = $db['jc_game'];
                                 $round_seq = $db['g_round_seq'];
+                                $lu_idx = $db['jc_lineups'];
+
 
                                 $query2 = "SELECT END_DT FROM ROUNDS WHERE SEQ = $round_seq";
                                 $resultdate = $_mysqli->query($query2);
@@ -260,16 +264,20 @@ try {
                                                             //p($sub_query);
                                                             $sub_result     = $_mysqli->query($sub_query);
 
+
                                                             if (!$sub_result) {
                                                             }
+
                                                             while ($sub_db = $sub_result->fetch_assoc()) {
 
                                                                 $m_name = empty(!$sub_db['m_name']) ? ($sub_db['m_name']) : '';
                                                                 $jc_idx = empty(!$sub_db['jc_idx']) ? ($sub_db['jc_idx']) : '';
 
-                                                                $nameOnclick    = "<button type=\"button\" onclick=\"get_player_score('{$_se_nm}', '{$m_name}', '{$jc_idx}', '{$db['g_idx']}');\">{$m_name}</button>";
 
-                                                                    echo <<<TR
+                                                                $nameOnclick    = "<button type=\"button\" onclick=\"get_player_score('{$jc_idx}','{$lu_idx}','{$g_idx}', '{$i}');\">{$m_name}</button>";
+
+                                                                echo <<<TR
+
                                                                     <tr class="user">
                                                                         <td>{$sub_db['jc_rank']}</td>
                                                                         <td class="ellipsis_multiple2">{$nameOnclick}</td>
@@ -286,7 +294,7 @@ TR;
                                                 </div>
                                                 <div class="player-table">
                                                     <h3>선수 상세 결과 <span class="sub-ex">(획득 점수는 “전투력”으로 변환/저장됩니다. 마이페이지에서 누적되는 “전투력”을 확인하세요.)</span></h3>
-                                                    <table class="player-detail-table">
+                                                    <table id="change-player-table" class="player-detail-table" style="display:block">
                                                         <colgroup>
                                                             <col style="width:7.5%;">
                                                             <col style="width:20%;">
@@ -303,132 +311,10 @@ TR;
                                                             <th>점수</th>
                                                         </tr>
                                                         </thead>
-                                                        <tbody>
-                                                        <?php
-                                                        $sub_query  = "
-                                                    SELECT
-                                                        player_pos, player_name, player_result_json, game_players_points
-                                                    FROM lineups_history
-                                                    WHERE 1=1
-                                                        AND m_idx = {$_se_idx}
-                                                        AND g_idx = {$db['jc_game']}
-                                                        AND lu_idx = {$db['jc_lineups']}
-                                                ";
-                                                        //p($sub_query);
-                                                        $sub_result     = $_mysqli->query($sub_query);
-                                                        if (!$sub_result) {
-                                                        }
-                                                        $sum_team_score     = 0;
-                                                        $sum_killed     = 0;
-                                                        $sum_teamkilled     = 0;
-                                                        $sum_selfkilled     = 0;
-                                                        $sum_revived     = 0;
+                                                        <tbody id="playertest<?=$i?>">
 
-                                                        $pos = !empty($sub_db['player_pos']) ? ($sub_db['player_pos']) : "";
-
-                                                        $j = 0;
-                                                        while ($sub_db = $sub_result->fetch_assoc()) {
-                                                            //p($sub_db);
-                                                            $result_json    = $sub_db['player_result_json'];
-                                                            $arrResult      = json_decode($result_json, true);
-                                                            //p($arrResult);
-                                                            for($i=0; $i<5; $i++)
-                                                            {
-                                                                $arrResult[$i]['TEAM_SCORE'] = 0;
-                                                                $arrResult[$i]['KILLED'] = 0;
-                                                                $arrResult[$i]['TEAMKILLED'] = 0;
-                                                                $arrResult[$i]['SELFKILLED'] = 0;
-                                                                $arrResult[$i]['REVIVED'] = 0;
-                                                            }
-                                                            $j++;
-                                                            //p($sub_db);
-                                                            if(($sub_db['player_pos']=='OD' or $sub_db['player_pos']=='TL') and $j<5) {
-                                                                $pos = '오더';
-                                                            } else if(($sub_db['player_pos']=='ST' or $sub_db['player_pos']=='R') and $j<5 ) {
-                                                                $pos = '정찰';
-                                                            } else if(($sub_db['player_pos']=='TW' or $sub_db['player_pos']=='GR') and $j<5 ) {
-                                                                $pos = '포탑';
-                                                            } else if(($sub_db['player_pos']=='RR' or $sub_db['player_pos']=='AR') and $j<5 ) {
-                                                                $pos = '돌격';
-                                                            } else {
-                                                                $pos = '유틸';
-                                                            }
-                                                            $sum_team_score = $arrResult[0]['TEAM_SCORE'] + $arrResult[1]['TEAM_SCORE'] + $arrResult[2]['TEAM_SCORE'] + $arrResult[3]['TEAM_SCORE'] + $arrResult[4]['TEAM_SCORE'];
-                                                            $sum_killed     = $arrResult[0]['KILLED'] + $arrResult[1]['KILLED'] + $arrResult[2]['KILLED'] + $arrResult[3]['KILLED'] + $arrResult[4]['KILLED'];
-                                                            $sum_teamkilled = $arrResult[0]['TEAMKILLED'] + $arrResult[1]['TEAMKILLED'] + $arrResult[2]['TEAMKILLED'] + $arrResult[3]['TEAMKILLED'] + $arrResult[4]['TEAMKILLED'];
-                                                            $sum_selfkilled = $arrResult[0]['SELFKILLED'] + $arrResult[1]['SELFKILLED'] + $arrResult[2]['SELFKILLED'] + $arrResult[3]['SELFKILLED'] + $arrResult[4]['SELFKILLED'];
-                                                            $sum_revived    = $arrResult[0]['REVIVED'] + $arrResult[1]['REVIVED'] + $arrResult[2]['REVIVED'] + $arrResult[3]['REVIVED'] + $arrResult[4]['REVIVED'];
-
-                                                            echo <<<TR
-                                                <tr>
-                                                    <td>{$pos}</td>
-                                                    <td>{$sub_db['player_name']}</td>
-                                                    <td>G({$db['g_idx']})</td>
-                                                    <td class="hover">
-                                                        <p>팀순위({$sum_team_score}) 킬수({$sum_killed}) 팀킬({$sum_teamkilled}) 자살({$sum_selfkilled}) 부활({$sum_revived})</p>
-                                                        <div class="tooltip">
-                                                            <p class="title">상세 점수</p>
-                                                            <div class="score-detail">
-                                                                <table>
-                                                                     <tr>
-                                                                        <th>팀 순위</th>
-                                                                        <td>{$arrResult[0]['TEAM_SCORE']}</td>
-                                                                        <td>{$arrResult[1]['TEAM_SCORE']}</td>
-                                                                        <td>{$arrResult[2]['TEAM_SCORE']}</td>
-                                                                        <td>{$arrResult[3]['TEAM_SCORE']}</td>
-                                                                        <td>{$arrResult[4]['TEAM_SCORE']}</td>
-                                                                        <td>= {$sum_team_score}</td>
-                                                                     </tr>
-                                                                     <tr>
-                                                                        <th>킬수</th>
-                                                                        <td>{$arrResult[0]['KILLED']}</td>
-                                                                        <td>{$arrResult[1]['KILLED']}</td>
-                                                                        <td>{$arrResult[2]['KILLED']}</td>
-                                                                        <td>{$arrResult[3]['KILLED']}</td>
-                                                                        <td>{$arrResult[4]['KILLED']}</td>
-                                                                        <td>= {$sum_killed}</td>
-                                                                     </tr>
-                                                                     <tr>
-                                                                        <th>팀킬</th>
-                                                                        <td>{$arrResult[0]['TEAMKILLED']}</td>
-                                                                        <td>{$arrResult[1]['TEAMKILLED']}</td>
-                                                                        <td>{$arrResult[2]['TEAMKILLED']}</td>
-                                                                        <td>{$arrResult[3]['TEAMKILLED']}</td>
-                                                                        <td>{$arrResult[4]['TEAMKILLED']}</td>
-                                                                        <td>= {$sum_selfkilled}</td>
-                                                                     </tr>
-                                                                     <tr>
-                                                                        <th>자살</th>
-                                                                        <td>{$arrResult[0]['SELFKILLED']}</td>
-                                                                        <td>{$arrResult[1]['SELFKILLED']}</td>
-                                                                        <td>{$arrResult[2]['SELFKILLED']}</td>
-                                                                        <td>{$arrResult[3]['SELFKILLED']}</td>
-                                                                        <td>{$arrResult[4]['SELFKILLED']}</td>
-                                                                        <td>= {$sum_selfkilled}</td>
-                                                                     </tr>
-                                                                     <tr>
-                                                                        <th>부활</th>
-                                                                        <td>{$arrResult[0]['REVIVED']}</td>
-                                                                        <td>{$arrResult[1]['REVIVED']}</td>
-                                                                        <td>{$arrResult[2]['REVIVED']}</td>
-                                                                        <td>{$arrResult[3]['REVIVED']}</td>
-                                                                        <td>{$arrResult[4]['REVIVED']}</td>
-                                                                        <td>= {$sum_revived}</td>
-                                                                     </tr>
-                                                                     <tr>
-                                                                        <th colspan="6">총점 (전투력)</th>
-                                                                        <td>= {$sub_db['game_players_points']}</td>
-                                                                     </tr>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                    </td>
-                                                <td>{$sub_db['game_players_points']}</td>
-                                                </tr>
-TR;
-                                                        }
-                                                        ?>
                                                         </tbody>
+
                                                     </table>
                                                 </div>
                                             </div>
@@ -440,6 +326,7 @@ TR;
                                     </td>
                                 </tr>
                                 <?php
+
                             } // while
                         }
                         ?>
