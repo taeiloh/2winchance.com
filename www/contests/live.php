@@ -163,6 +163,7 @@ TR;
                                 $insertquery = "
                             INSERT INTO honor_point_history
                             (m_idx, content, point,g_idx, balance) VALUES ($_se_idx, '$gamename2', 0 ,$jc_game, $balance)";
+                                p($insertquery);
                                 $_mysqli->query($insertquery);
                                 $g_idxcount = 0;
                             }
