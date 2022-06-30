@@ -61,17 +61,20 @@ try {
     require_once __DIR__ .'/../common/head.php';
     ?>
     <script>
-
-        function get_player_score(jc_idx, lu_idx, g_idx, i) {
+        var testnum = 0;
+        function get_player_score(jc_idx, lu_idx, g_idx, i,num) {
+            console.log(testnum);
             console.log("===> get_player_score");
             console.log(i);
+            $("#playerSelect_"+testnum).removeClass('user');
+            testnum = num;
+            $("#playerSelect_"+num).addClass('user');
 
             /*if (se_name == name) {
                 $("#playertest"+i).hide();
                 console.log("1");
 
             } else {*/
-                $("#playertest_"+i).show();
                 console.log("2"+g_idx+lu_idx);
                 var postData = {
                     "jc_idx" : jc_idx,
@@ -181,6 +184,7 @@ try {
 
                             }
                             $i = 0;
+                            $selectnum = 0;
                             while ($db = $result->fetch_assoc()) {
                                 $i++;
                                 $balancequery = "SELECT MAX(balance) as balance
@@ -262,18 +266,17 @@ try {
 
                                                             if (!$sub_result) {
                                                             }
-
                                                             while ($sub_db = $sub_result->fetch_assoc()) {
-
+                                                                $selectnum++;
                                                                 $m_name = empty(!$sub_db['m_name']) ? ($sub_db['m_name']) : '';
                                                                 $jc_idx = empty(!$sub_db['jc_idx']) ? ($sub_db['jc_idx']) : '';
 
 
-                                                                $nameOnclick    = "<button type=\"button\" onclick=\"get_player_score('{$jc_idx}','{$lu_idx}','{$g_idx}', '{$g_idx}');\">{$m_name}</button>";
+                                                                $nameOnclick    = "<button type=\"button\" onclick=\"get_player_score('{$jc_idx}','{$lu_idx}','{$g_idx}', '{$g_idx}','{$selectnum}');\">{$m_name}</button>";
 
                                                                 echo <<<TR
 
-                                                                    <tr class="user">
+                                                                    <tr id = "playerSelect_$selectnum" >
                                                                         <td>{$sub_db['jc_rank']}</td>
                                                                         <td class="ellipsis_multiple2">{$nameOnclick}</td>
                                                                         <td>{$sub_db['jc_point']}</td>
