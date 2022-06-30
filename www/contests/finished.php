@@ -214,12 +214,7 @@ try {
                                     $on = "";
                                 }
 
-                                // 2022-06-20 조원영// 전투력내역테이블에 데이터 삽입
-                                $updatequery = "
-                            update honor_point_history set point = $point where m_idx = $_se_idx and g_idx = $g_idx ";
 
-                                $_mysqli->query($updatequery);
-                                //p($insertquery);
                                 ?>
                                 <tr class="view">
                                     <td><?=$db['g_name'];?> <span class="contest_num">G(<?=$db['g_idx'];?>)</span></td>
