@@ -63,7 +63,7 @@ try {
     <script>
         var testnum = 0;
         function get_player_score(jc_idx, lu_idx, g_idx, i,num) {
-            $(".tb-wrap").find(".user").removeClass('user');
+            $("#tb-wrap_"+g_idx).find(".user").removeClass('user');
             console.log(testnum);
             console.log("===> get_player_score");
             console.log(i);
@@ -238,7 +238,7 @@ try {
                                             <div class="fold-table-wrap">
                                                 <div class="lanking-table">
                                                     <h3>입상 순위</h3>
-                                                    <div class="tb-wrap">
+                                                    <div id="tb-wrap_<?=$g_idx?>" class="tb-wrap">
                                                         <table>
                                                             <thead>
                                                             <tr>
