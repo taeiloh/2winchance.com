@@ -59,7 +59,7 @@ if ( $config['isTest'] ) {
     // define('DBPASSWD',      'Wdfig^df75!&^!Q3e36W');
     // define('DBNAME',        'spobit_web');
     define('WWW',           'http://'. $_SERVER['SERVER_NAME']);
-    define('SSLWWW',        'https://'. $_SERVER['SERVER_NAME']);
+    define('SSLWWW',        'http://'. $_SERVER['SERVER_NAME']);
     define('UPLOAD',        '/uploads');
 }
 if ( $config['isReal'] ) {
