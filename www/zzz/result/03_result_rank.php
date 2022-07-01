@@ -20,8 +20,9 @@ try {
     $ymd        = !empty($_GET['ymd'])      ? $_GET['ymd']      : '';
 
     // 변수 정리
-    $round_seq      = 32;
+    $round_seq      = 40;
     $game_category  = 20;
+    $testnum = 0;
 
     // 트랜잭션
     $_mysqli->begin_transaction();
@@ -66,7 +67,8 @@ try {
         $old_points = null;
         while ($sub_db = $sub_result->fetch_assoc()) {
             $rank_cnt++;
-
+            echo "번호 = ",$testnum;
+            $testnum++;
             if ($sub_db['players_points'] != $old_points) {
                 $rank   = $rank_cnt;
             }
@@ -84,6 +86,34 @@ try {
             ";
             p($_query);
             $_result    = $_mysqli->query($_query);
+
+
+            //2022-07-01 전투력 내역 추가 부분 작업자 : 오태일
+
+            //honor_point_history 중복 체크를 위한 SELECT 구문
+            $_selectquery = "SELECT count(m_idx) as CNT FROM honor_point_history where 1=1 and m_idx={$sub_db['m_idx']} and g_idx={$db['g_idx']} and jc_idx = {$sub_db['lu_idx']}";
+            p($_selectquery);
+            $_selectresult = $_mysqli->query($_selectquery);
+            $_result3 = $_selectresult->fetch_assoc();
+            $CNT = $_result3['CNT'];
+
+            //각자의 honor_point 중 가장 높은 포인트를 가져오는 SELECT 구문
+            $_selectbalancequery = "SELECT MAX(balance) as balance FROM honor_point_history where 1=1 and m_idx={$sub_db['m_idx']}";
+            p($_selectbalancequery);
+            $_balanceresult = $_mysqli->query($_selectbalancequery);
+            $_result4 = $_balanceresult->fetch_assoc();
+            $balance = $_result4['balance'];
+
+            //게임 참여 1번당 전투력 내역 INSERT 구문
+            if($CNT < 1) {
+                $_query2 = "INSERT INTO honor_point_history (m_idx, content, point , balance, g_idx, jc_idx, created_at) values ({$sub_db['m_idx']},'콘테스트참가 G({$db['g_idx']})',{$sub_db['players_points']},$balance+{$sub_db['players_points']},{$db['g_idx']},{$sub_db['lu_idx']},now())";
+                p($_query2);
+                $_result2 = $_mysqli->query($_query2);
+            }
+            else{
+
+            }
+
             if (!$_result) {
                 $msg    = '';
                 $code   = 502;
