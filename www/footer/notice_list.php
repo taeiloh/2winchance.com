@@ -25,10 +25,10 @@ try {
     // db
     $query  = "
         SELECT
-            nt_subject, DATE_FORMAT(nt_date, '%Y.%m.%d') AS regdate, nt_content
+            title, DATE_FORMAT(created_by, '%Y.%m.%d') AS regdate, content
         FROM notice
         WHERE 1=1
-        ORDER BY nt_date DESC
+        ORDER BY seq DESC
         LIMIT {$from_record}, {$rows}
     ";
 
@@ -76,9 +76,9 @@ try {
                     if($total_count > 0){
                         $i = 0;
                         while ($_db = $result1->fetch_assoc()) {
-                            $title = $_db['nt_subject'];
+                            $title = $_db['title'];
                             $regdate = $_db['regdate'];
-                            $content = $_db['nt_content'];
+                            $content = $_db['content'];
                             $i++;
                             $no=$total_count-($i+($page-1)*$rows);
                             echo <<<DIV

@@ -9,7 +9,7 @@ $_mysqli->set_charset('utf8');
 
 // 추가
 // $_mysqli_game = @new mysqli(DBHOST, 'games_db', 'GDFe35^412#aFDhe5s_d%@!', 'spobit_games');
-$_mysqli_game = @new mysqli(DBHOST, '2winchance', '2winchance!2022@', 'db2winchance_games');
+$_mysqli_game = @new mysqli(DBHOST, 'root', '', '2winchance_games');
 
 if ($_mysqli_game->connect_errno) {
     die('Connect Error : '. $_mysqli_game->connect_errno);
